@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Physics placeholder</title>
+  <desc id="desc">Abstract lines, waves, and orbiting paths suggesting quantum geometry.</desc>
+  <rect width="1200" height="900" fill="#fbf5eb"/>
+  <path d="M80 610 C260 420, 390 790, 590 560 S890 360, 1120 520" fill="none" stroke="#7d3f2a" stroke-width="10" opacity="0.75"/>
+  <path d="M120 390 C300 210, 480 620, 680 430 S900 250, 1080 360" fill="none" stroke="#1e6f7a" stroke-width="7" opacity="0.65"/>
+  <ellipse cx="600" cy="455" rx="350" ry="130" fill="none" stroke="#d0b27f" stroke-width="6" transform="rotate(-20 600 455)"/>
+  <ellipse cx="600" cy="455" rx="350" ry="130" fill="none" stroke="#2f2c28" stroke-width="4" opacity="0.38" transform="rotate(28 600 455)"/>
+  <circle cx="600" cy="455" r="42" fill="#2f2c28"/>
+  <circle cx="360" cy="350" r="18" fill="#7d3f2a"/>
+  <circle cx="850" cy="585" r="22" fill="#1e6f7a"/>
+  <circle cx="735" cy="235" r="14" fill="#d0b27f"/>
+  <g opacity="0.35" stroke="#706a62" stroke-width="2">
+    <path d="M150 720 H1050"/>
+    <path d="M150 180 H1050"/>
+    <path d="M210 110 V790"/>
+    <path d="M990 110 V790"/>
+  </g>
+</svg>

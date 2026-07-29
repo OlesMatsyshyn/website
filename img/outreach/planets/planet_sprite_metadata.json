@@ -1,0 +1,14 @@
+{
+  "note": "Somewhat realistic planet sprites generated for low-resolution educational video use. PNG files have transparent alpha and are intended as visual sprites; keep distance logic in animation source.",
+  "suggested_destination": "Web/img/outreach/planets/",
+  "relative_diameters_earth_1": {
+    "mercury": 0.38,
+    "venus": 0.95,
+    "earth": 1.0,
+    "mars": 0.53,
+    "jupiter": 11.2,
+    "saturn": 9.45,
+    "uranus": 4.0,
+    "neptune": 3.9
+  }
+}

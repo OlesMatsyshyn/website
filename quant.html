@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantitative Systems for Finance and Data | Oles Matsyshyn</title>
+  <meta name="description" content="Quantitative finance, data tools, financial modeling, and systematic trading infrastructure notes by Oles Matsyshyn.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-name" href="index.html">Oles Matsyshyn</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="science.html">Academia</a>
+        <a href="quant.html">Quant Systems</a>
+        <a href="vyrva.html">Vyrva</a>
+        <a href="public-outreach.html">Public Outreach</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <header class="article-header measure">
+        <p class="eyebrow">Research infrastructure</p>
+        <h1>Quantitative Systems for Finance and Data</h1>
+        <p class="lead">My work combines mathematical modeling, scientific computing, machine learning, and practical software. I build tools for market analysis, automated trading, risk control, and everyday work with structured data.</p>
+      </header>
+
+      <figure class="image-block chapter-cover-figure">
+        <img src="img/placeholder-quant.svg" width="1200" height="900" alt="Minimal quantitative systems diagram with market signals and structured checkpoints">
+      </figure>
+
+      <section class="measure section-compact">
+        <p>This chapter presents selected systems for financial modeling, automated trading, risk analysis, and human-friendly data processing. The goals are clear measurement, reliable execution, and tools that separate useful information from noise.</p>
+      </section>
+
+      <section class="measure">
+        <h2>Research Philosophy</h2>
+        <p>Financial markets are noisy, change over time, and are easy to overfit. But they are not completely random. As in physics, a difficult system often becomes easier to study when we choose a useful scale, make clear assumptions, and test them against data.</p>
+        <p>These assumptions can weaken or fail, so models must be checked and updated. The goal is not to predict every market movement. It is to identify useful structure, measure risk, and separate longer-term signals from short-term noise.</p>
+        <p class="editorial-note">Some parts of the trading platform remain confidential. I therefore use this page to share selected results and system ideas, with compact notebook previews and short case studies to be added gradually after launch rather than exposing the complete trading logic.</p>
+      </section>
+
+      <section class="measure">
+        <h2>Quantitative Trading System</h2>
+        <p>An evolving trading platform that connects market data, portfolio monitoring, risk controls, and automated execution through Interactive Brokers. It can track the account, run scheduled strategies, record performance, and recover after common interruptions.</p>
+
+        <figure class="image-block system-figure">
+          <img src="img/quant/trading_system.png" width="1448" height="1086" loading="lazy" alt="Trading-system dashboard interface with account, risk, and execution panels">
+          <figcaption>Trading-system dashboard with account connectivity, risk controls, strategy-cycle state, and execution logs.</figcaption>
+        </figure>
+
+        <h3>Current Capabilities</h3>
+        <div class="numbered-list">
+          <article class="numbered-card">
+            <span class="numbered-card-index">1</span>
+            <div>
+              <h3>Automated IBKR connectivity and recovery</h3>
+              <p>Connects directly to Interactive Brokers. It detects interrupted connections, reconnects automatically, and restores market-data subscriptions.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">2</span>
+            <div>
+              <h3>Scheduled strategy execution</h3>
+              <p>Runs trading logic on a configurable schedule. It evaluates market conditions, positions, and strategy rules.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">3</span>
+            <div>
+              <h3>Order tracking and reporting</h3>
+              <p>Tracks submitted and filled orders, current positions, average entry prices, cash balances, portfolio value, and strategy performance. It writes trading statistics and state information to persistent files for later inspection and reporting.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">4</span>
+            <div>
+              <h3>Self-healing execution and restart recovery</h3>
+              <p>Restores the latest known strategy state after an interruption, application restart, laptop sleep, or connectivity failure. This lets execution continue from the correct stage rather than restarting blindly.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">5</span>
+            <div>
+              <h3>Visual strategy interface</h3>
+              <p>Provides a graphical control panel with strategy controls, execution logs, IBKR connection status, and a visual cycle bar. The bar shows the current strategy cycle, capital deployment, performance, time in cycle, and exit conditions.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">6</span>
+            <div>
+              <h3>External data and communication integrations</h3>
+              <p>Connects to the OpenAI API, Finnhub API, and Telegram bots for market analysis, risk notes, automated reports, and remote strategy-status updates.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">7</span>
+            <div>
+              <h3>Execution safety controls</h3>
+              <p>Includes paper- and live-account awareness, dry-run operation, configurable order-size limits, duplicate-order protection, fallback price handling, and controlled behavior when markets are closed or data are temporarily unavailable.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">8</span>
+            <div>
+              <h3>Market, portfolio, and cash monitoring</h3>
+              <p>Collects historical and current market data, monitors holdings and account value, follows related instruments, and tracks cash balances and currency exposure, including SGD-USD conversion support.</p>
+            </div>
+          </article>
+        </div>
+
+        <h3>Development Roadmap</h3>
+        <div class="numbered-list roadmap-list">
+          <article class="numbered-card">
+            <span class="numbered-card-index">1</span>
+            <div>
+              <h3>HMM-based dynamic risk control</h3>
+              <p>Add Hidden Markov Models for market-regime and stress detection. The inferred state would help control cash reserves, portfolio exposure, and the timing and scale of capital deployment.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">2</span>
+            <div>
+              <h3>Constrained portfolio optimization</h3>
+              <p>Add portfolio optimization with practical limits, including maximum position sizes, concentration limits, leverage limits, liquidity requirements, transaction costs, risk budgets, and permitted asset groups.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">3</span>
+            <div>
+              <h3>Plain-English strategy generation</h3>
+              <p>Build an AI interface that converts a strategy written in natural language into a structured, testable, and executable trading strategy. It would include entry rules, exit rules, position sizing, risk constraints, required data, and reporting logic.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">4</span>
+            <div>
+              <h3>Scenario Studio and portfolio stress simulation</h3>
+              <p>Develop a scenario studio for simulating how possible macroeconomic, geopolitical, volatility, liquidity, and asset-specific events could affect an existing portfolio. The goal is to move beyond static risk numbers and ask practical questions: what happens if rates move, volatility rises, correlations break, or several shocks arrive together?</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">5</span>
+            <div>
+              <h3>Reverse scenario engineering</h3>
+              <p>Build reverse stress-testing tools that start from an undesirable portfolio outcome and search backward for plausible chains of events that could produce it. Instead of asking only what happens if X occurs, the system asks what sequence of events would be damaging to this strategy, and what early adjustments could reduce that exposure?</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">6</span>
+            <div>
+              <h3>Spatial and geopolitical shock propagation</h3>
+              <p>Explore spatial stock-correlation and world-monitoring tools for identifying shocks that spread gradually through geography, supply chains, climate events, energy markets, or geopolitical regions. The aim is to detect how local disruptions may propagate toward related assets before the effect becomes obvious in headline prices.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="measure hmm-section">
+        <h2>HMM Regime Detection</h2>
+        <p>I use Hidden Markov Models to identify broad market states, such as calm and stressed periods. The aim is not to predict the market day by day. Instead, the model looks for risk conditions that last long enough to guide cash levels, exposure, and capital deployment.</p>
+
+        <div class="hmm-metric-grid">
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">1999-2026</span>
+            <span class="hmm-metric-label">Validation window</span>
+          </article>
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">2.2-2.4x</span>
+            <span class="hmm-metric-label">Five-day volatility separation</span>
+          </article>
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">2.1-2.2x</span>
+            <span class="hmm-metric-label">21-day volatility separation</span>
+          </article>
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">0.44-0.58</span>
+            <span class="hmm-metric-label">Forward-volatility correlation</span>
+          </article>
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">3 of 5</span>
+            <span class="hmm-metric-label">Major stress periods detected</span>
+          </article>
+          <article class="hmm-metric-card">
+            <span class="hmm-metric-value">26-30 days</span>
+            <span class="hmm-metric-label">Average regime persistence</span>
+          </article>
+        </div>
+
+        <p>I evaluated a proprietary HMM-based regime model across nearly 27 years of market data, from 1999 to 2026. When the model classified the market as high risk, realized volatility over the following five trading days was approximately 2.2-2.4 times higher than during low-risk periods. Over a 21-day horizon, it remained approximately 2.1-2.2 times higher.</p>
+        <p>The inferred risk probability had a correlation of 0.44-0.50 with five-day forward volatility and 0.47-0.58 with 21-day forward volatility. In historical stress tests, the more stable model configuration identified 3 of 5 major crisis periods, including average high-risk probabilities of 93% during the Global Financial Crisis, 64% during the COVID crash, and 56% during the European debt crisis.</p>
+        <p>During selected calm-market periods, the model stayed low, with average risk probabilities of only 1.7-6.1%. Detected regimes lasted for roughly 26-30 trading days on average. This suggests that the model captures sustained market conditions rather than daily noise.</p>
+        <p>The next step is to extend this regime framework toward trend identification and noise filtering, and to use the resulting signal for dynamic cash reserves, risk exposure, and capital deployment.</p>
+        <p class="editorial-note">These validation results use only information that would have been available at the time. They are not a guarantee of future performance and should not be interpreted as precise prediction of crisis onset.</p>
+      </section>
+
+      <section class="measure options-section">
+        <h2>Options, Volatility, and Heston Modeling</h2>
+        <p>I have also been developing option-pricing and volatility-surface notebooks using SPX/SPY option-chain data. The workflow begins with market option quotes, reconstructs Black-Scholes implied volatility from mid prices, and compares the reconstructed smile with the quoted market smile. This gives a clean baseline before moving to stochastic-volatility models.</p>
+        <p>The next stage is a Heston-model pipeline. Instead of assigning a separate implied volatility to every strike, the Heston model fits a single stochastic-volatility structure across strikes and, eventually, across maturities. In this framework, volatility becomes a dynamic object with mean reversion, volatility-of-volatility, and correlation between price and variance shocks. The correlation parameter is especially important because it captures the leverage effect: market drops are often associated with rising volatility.</p>
+        <p>The long-term goal is to integrate option-pricing, volatility-surface calibration, and machine-learning tools into the broader trading platform. This would make it possible to extract market-implied information from option prices: not as a forecast, but as a structured view of how the market prices uncertainty, skew, tail risk, and future volatility.</p>
+
+        <h3>Notebook work in progress</h3>
+        <p>These notebooks are not part of the initial website launch. They will be added selectively once the presentation, documentation, and data-cleaning steps are ready.</p>
+        <ul class="quant-feature-list">
+          <li>SPX/SPY option-chain loading and filtering.</li>
+          <li>Market implied-volatility smile visualization.</li>
+          <li>Black-Scholes pricing and implied-volatility inversion.</li>
+          <li>Comparison between quoted implied volatility and reconstructed implied volatility from market mid prices.</li>
+          <li>Single-maturity Heston calibration across strikes.</li>
+          <li>Multi-maturity Heston fitting toward a volatility-surface description.</li>
+          <li>Planned machine-learning layer for volatility-surface interpolation, parameter tracking, and market-regime features.</li>
+        </ul>
+        <p class="editorial-note">Selected notebook previews are being prepared and will be added gradually after launch.</p>
+      </section>
+
+      <section class="measure tablesteer-section">
+        <p class="eyebrow">Local data tools</p>
+        <h2>TableSteer</h2>
+        <p class="chapter-subtitle">Data tools for people</p>
+        <p>Many companies, universities, and banks still depend on Excel for everyday data work. Pandas can process these files quickly and precisely, but most spreadsheet users do not know pandas. They do know how to describe the result they want in ordinary English.</p>
+        <p>TableSteer connects these two worlds. Pandas controls the Excel data, while an LLM translates a plain-English request into a pandas command that the user can inspect and run.</p>
+
+        <figure class="image-block system-figure tablesteer-figure">
+          <img src="img/quant/table_steer.png" width="1624" height="969" loading="lazy" alt="TableSteer interface with separate Excel processing and plain-English command panels.">
+          <figcaption>TableSteer combines local spreadsheet processing with a reviewable plain-English command interface.</figcaption>
+        </figure>
+
+        <div class="numbered-list tablesteer-numbered-list" aria-label="How TableSteer works">
+          <article class="numbered-card">
+            <span class="numbered-card-index">1</span>
+            <div>
+              <h3>Ask in plain English</h3>
+              <p>Describe the required action without writing Python or pandas code.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">2</span>
+            <div>
+              <h3>Review the command</h3>
+              <p>The LLM returns a pandas command. Nothing runs automatically: the user can read and check the command first.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">3</span>
+            <div>
+              <h3>Run it locally</h3>
+              <p>After approval, pandas performs the operation on the local Excel file and saves the requested result.</p>
+            </div>
+          </article>
+        </div>
+
+        <h3>Your data stays under your control</h3>
+        <p>TableSteer is designed so that spreadsheet contents are not sent to the LLM. When an external LLM is selected, it receives only the metadata needed to form a command, such as file, table, and column names. A local Ollama option can keep the translation step on the user's computer.</p>
+        <p>Before any operation changes the data, TableSteer shows the generated pandas command for review. Safeguards are designed to stop commands that try to transmit the dataset, contact unapproved external services, or store copies outside the allowed output locations.</p>
+
+        <div class="capability-chip-grid" aria-label="TableSteer safety capabilities">
+          <span>Plain-English requests</span>
+          <span>Review before execution</span>
+          <span>Local pandas processing</span>
+          <span>Restricted data access</span>
+        </div>
+
+        <p class="eyebrow table-steer-label">Product concept</p>
+        <h3>A useful local tool, not another subscription</h3>
+        <p>The planned product model is simple: a one-time purchase of USD 0.99 for a permanent local tool that helps people work with their own datasets. The application itself would not require a continuing subscription.</p>
+        <p>The idea behind TableSteer is simple: data tools should be available to people who understand their work but do not know pandas or Python.</p>
+
+        <h3>TableSteer roadmap</h3>
+        <div class="numbered-list tablesteer-numbered-list" aria-label="TableSteer roadmap">
+          <article class="numbered-card">
+            <span class="numbered-card-index">1</span>
+            <div>
+              <h3>More files and visual tools</h3>
+              <p>Expand beyond Excel to other structured-data formats and add clear charts, summaries, and visual exploration.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">2</span>
+            <div>
+              <h3>Personal finance analysis</h3>
+              <p>Allow users to process bank statements locally, organize spending, identify recurring costs, and create useful visual summaries without sending transaction data to an LLM.</p>
+            </div>
+          </article>
+          <article class="numbered-card">
+            <span class="numbered-card-index">3</span>
+            <div>
+              <h3>Dietary analysis and local food guides</h3>
+              <p>Help users study their food records and build practical guides around products that are actually available where they live.</p>
+            </div>
+          </article>
+        </div>
+        <p>A future opt-in community guide could allow people to share useful product recommendations by city. For example, users in Singapore could find familiar local products and approaches that worked for other people nearby. Personal dietary records should remain private unless a user explicitly chooses to share selected information.</p>
+      </section>
+
+      <section class="measure opportunity-note">
+        <p class="eyebrow">Professional opportunities</p>
+        <h2>Quantitative roles</h2>
+        <p>I am open to permanent opportunities in quantitative research and development. If you are considering me for a quantitative developer or researcher position, please feel free to contact me at <a href="mailto:oles.matsyshyn@gmail.com">oles.matsyshyn@gmail.com</a>.</p>
+        <p>I would be glad to demonstrate the systems I have already built and discuss the combination of mathematical modeling, scientific computing, AI, and software development that I could bring to your team.</p>
+        <p>A quantitative-focused version of my CV is available below.</p>
+        <a class="text-button" href="papers/cv_quant.pdf" target="_blank" rel="noopener noreferrer">Quantitative CV</a>
+      </section>
+
+      <section class="measure project-support-note">
+        <h2>Support and collaboration</h2>
+        <p>This project is developed independently in my free time and at my own expense. If you are interested in supporting its development or discussing a collaboration, contact me at <a href="mailto:oles.matsyshyn@gmail.com">oles.matsyshyn@gmail.com</a>. External funding has not yet been sought, so I am not currently able to offer paid positions.</p>
+      </section>
+
+      <section class="measure rights-note">
+        <h2>Rights and Attribution</h2>
+        <p>The quantitative trading system, architecture, strategy-state logic, risk-control design, and implementation notes described here are proprietary work by Oles Matsyshyn. Public text on this page is for portfolio and research-presentation purposes only. It is not financial advice, does not guarantee future performance, and does not disclose full strategy logic, credentials, private APIs, or account-sensitive implementation details.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Quant systems placeholder</title>
+  <desc id="desc">Structured chart lines, signal points, and risk boundaries.</desc>
+  <rect width="1200" height="900" fill="#faf4ea"/>
+  <g stroke="#d8cab8" stroke-width="3">
+    <path d="M120 180 H1080"/>
+    <path d="M120 330 H1080"/>
+    <path d="M120 480 H1080"/>
+    <path d="M120 630 H1080"/>
+    <path d="M120 780 H1080"/>
+    <path d="M180 120 V800"/>
+    <path d="M420 120 V800"/>
+    <path d="M660 120 V800"/>
+    <path d="M900 120 V800"/>
+  </g>
+  <path d="M130 650 L230 610 L330 660 L430 520 L530 555 L630 430 L730 455 L830 300 L930 340 L1070 210" fill="none" stroke="#7d3f2a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 500 L250 525 L350 470 L470 485 L590 390 L720 415 L850 360 L970 380 L1070 330" fill="none" stroke="#1e6f7a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <path d="M120 275 H1080" stroke="#2f2c28" stroke-width="5" opacity="0.45" stroke-dasharray="18 18"/>
+  <path d="M120 705 H1080" stroke="#2f2c28" stroke-width="5" opacity="0.28" stroke-dasharray="18 18"/>
+  <g fill="#fbf5eb" stroke-width="6">
+    <circle cx="430" cy="520" r="18" stroke="#7d3f2a"/>
+    <circle cx="630" cy="430" r="18" stroke="#7d3f2a"/>
+    <circle cx="830" cy="300" r="18" stroke="#7d3f2a"/>
+    <circle cx="590" cy="390" r="15" stroke="#1e6f7a"/>
+    <circle cx="850" cy="360" r="15" stroke="#1e6f7a"/>
+  </g>
+</svg>

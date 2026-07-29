@@ -1,0 +1,11 @@
+secret/
+*.env
+.env
+.env.local
+
+# Local secrets and environment files
+secret/
+.env
+.env.local
+*.env
+.DS_Store
