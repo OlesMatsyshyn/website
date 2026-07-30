@@ -36,8 +36,19 @@
       <section class="news-archive measure" aria-labelledby="news-archive-heading">
         <h2 id="news-archive-heading">Chronological Archive</h2>
 
-        <article class="news-card">
+        <div class="news-filter" aria-label="Filter news by category">
+          <button class="news-filter-button is-active" type="button" data-news-filter="all">All</button>
+          <button class="news-filter-button" type="button" data-news-filter="academia">Academia</button>
+          <button class="news-filter-button" type="button" data-news-filter="quant">Quant Systems</button>
+          <button class="news-filter-button" type="button" data-news-filter="vyrva">Vyrva</button>
+          <button class="news-filter-button" type="button" data-news-filter="outreach">Public Outreach</button>
+          <button class="news-filter-button" type="button" data-news-filter="general">General</button>
+        </div>
+        <p class="news-filter-empty" hidden>No updates in this category yet.</p>
+
+        <article class="news-card" data-news-category="academia">
           <div class="news-date"><time datetime="2024-04-17">17 April 2024</time></div>
+          <div class="news-category-label">Academia</div>
           <details class="news-expand">
             <summary class="news-summary-row">
               <span class="news-title">Phys.org featured our Floquet Fermi Liquid work</span>
