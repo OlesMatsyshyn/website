@@ -351,6 +351,15 @@ p {
   line-height: 1.15;
 }
 
+.quote-subline {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.4;
+}
+
 .pull-quote-secondary {
   border-left-color: var(--focus);
 }
@@ -2447,5 +2456,38 @@ figcaption {
 @media (max-width: 560px) {
   .academia-profile-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .cycle-grid,
+  .frontier-list {
+    grid-template-columns: 1fr !important;
+    gap: 0.9rem;
+  }
+
+  .cycle-grid > article,
+  .frontier-list > article,
+  .cycle-grid > article:nth-last-child(-n+2),
+  .frontier-list > article:nth-last-child(-n+2),
+  .cycle-grid > article:last-child,
+  .frontier-list > article:last-child {
+    grid-column: auto !important;
+  }
+
+  .cycle-card,
+  .frontier-list article {
+    padding: 1rem;
+  }
+
+  .cycle-card h3,
+  .frontier-list h3 {
+    font-size: 1.12rem;
+  }
+
+  .cycle-card p,
+  .frontier-list p {
+    font-size: 0.96rem;
+    line-height: 1.5;
   }
 }
