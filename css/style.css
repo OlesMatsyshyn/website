@@ -1612,6 +1612,15 @@ figcaption {
     background-color 180ms ease;
 }
 
+.news-archive .news-card[hidden],
+.news-card[hidden] {
+  display: none !important;
+}
+
+.news-filter-empty[hidden] {
+  display: none !important;
+}
+
 .news-archive .news-card:hover,
 .news-archive .news-card:focus-within {
   transform: translateY(-2px);

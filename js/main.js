@@ -58,33 +58,67 @@
     }
   });
 
-  var newsFilter = document.querySelector(".news-filter");
-  if (newsFilter) {
-    var filterButtons = document.querySelectorAll("[data-news-filter]");
-    var newsCards = document.querySelectorAll("[data-news-category]");
-    var emptyMessage = document.querySelector(".news-filter-empty");
+  function initNewsFilter() {
+    var filterRoot = document.querySelector(".news-filter");
+    if (!filterRoot) {
+      return;
+    }
 
-    filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        var selected = button.getAttribute("data-news-filter") || "all";
-        var visibleCount = 0;
+    var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-news-filter]"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".news-card[data-news-category]"));
+    var empty = document.querySelector(".news-filter-empty");
 
-        filterButtons.forEach(function (filterButton) {
-          filterButton.classList.toggle("is-active", filterButton === button);
-        });
+    function setCardVisible(card, shouldShow) {
+      if (shouldShow) {
+        card.removeAttribute("hidden");
+        card.style.removeProperty("display");
+      } else {
+        card.setAttribute("hidden", "");
+        card.style.setProperty("display", "none", "important");
+      }
+    }
 
-        newsCards.forEach(function (card) {
-          var shouldShow = selected === "all" || card.getAttribute("data-news-category") === selected;
-          card.hidden = !shouldShow;
-          if (shouldShow) {
-            visibleCount += 1;
-          }
-        });
+    function applyNewsFilter(selected) {
+      var selectedCategory = String(selected || "all").trim().toLowerCase();
+      var visibleCount = 0;
 
-        if (emptyMessage) {
-          emptyMessage.hidden = visibleCount > 0;
+      cards.forEach(function (card) {
+        var category = String(card.getAttribute("data-news-category") || "").trim().toLowerCase();
+        var shouldShow = selectedCategory === "all" || category === selectedCategory;
+
+        setCardVisible(card, shouldShow);
+
+        if (shouldShow) {
+          visibleCount += 1;
         }
       });
+
+      buttons.forEach(function (button) {
+        var buttonCategory = String(button.getAttribute("data-news-filter") || "").trim().toLowerCase();
+        var isActive = buttonCategory === selectedCategory;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (empty) {
+        empty.hidden = visibleCount !== 0;
+      }
+
+      console.log("News filter:", selectedCategory, "visible:", visibleCount);
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyNewsFilter(button.getAttribute("data-news-filter"));
+      });
     });
+
+    applyNewsFilter("all");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNewsFilter);
+  } else {
+    initNewsFilter();
   }
 })();
