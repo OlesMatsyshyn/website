@@ -300,6 +300,14 @@ p {
   gap: 1.25rem;
 }
 
+.chapter-framing {
+  max-width: 820px;
+  margin: -0.35rem 0 1.35rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
 .feature-card {
   min-height: 100%;
   display: flex;
@@ -328,6 +336,44 @@ p {
 
 .feature-card-body {
   padding: 1rem;
+}
+
+.chapter-status {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 0.8rem;
+  border: 1px solid rgba(217, 207, 193, 0.85);
+  border-radius: 999px;
+  padding: 0.18rem 0.52rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.chapter-status-primary {
+  border-color: rgba(76, 123, 108, 0.32);
+  background: rgba(76, 123, 108, 0.1);
+  color: #416f61;
+}
+
+.chapter-status-active {
+  border-color: rgba(63, 113, 121, 0.32);
+  background: rgba(63, 113, 121, 0.1);
+  color: #3b6a72;
+}
+
+.chapter-status-creative {
+  border-color: rgba(145, 105, 58, 0.32);
+  background: rgba(145, 105, 58, 0.1);
+  color: #7a5b37;
+}
+
+.chapter-status-paused {
+  border-color: rgba(95, 112, 130, 0.32);
+  background: rgba(95, 112, 130, 0.1);
+  color: #586878;
 }
 
 .feature-card p,
