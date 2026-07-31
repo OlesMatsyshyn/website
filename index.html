@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oles Matsyshyn | Physicist | Quantitative Systems Developer | Systems Architect</title>
   <meta name="description" content="Personal website of Oles Matsyshyn: physicist, quantitative systems developer, and systems architect.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260731-subscriptions">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +18,13 @@
         <a href="news.html">News</a>
         <a href="science.html">Academia</a>
         <a href="quant.html">Quant Systems</a>
-        <a href="vyrva.html">Vyrva</a>
-        <a href="public-outreach.html">Public Outreach</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">Creative Work <span class="nav-dropdown-indicator" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu" id="more-menu">
+            <a href="vyrva.html">Vyrva</a>
+            <a href="public-outreach.html">Public Outreach</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
       </div>
     </nav>
@@ -46,12 +51,12 @@
       </div>
     </section>
 
-    <section class="section section-tight home-chapters" aria-labelledby="project-heading">
+    <section class="section section-tight home-chapters" aria-labelledby="primary-work-heading">
       <div class="home-content">
-        <h2 id="project-heading" class="section-title">Chapters</h2>
+        <h2 id="primary-work-heading" class="section-title">Primary professional work</h2>
         <p class="chapter-framing">My primary professional work is in physics, quantitative systems, and scientific software. Vyrva and Public Outreach document independent creative and educational projects developed alongside that work.</p>
-        <div class="card-grid chapter-grid">
-          <a class="feature-card" href="science.html">
+        <div class="card-grid chapter-grid primary-chapter-grid">
+          <a class="feature-card feature-card-primary" href="science.html">
             <img src="img/chapter-academia.png" alt="Schematic of in-plane electron motion in a thin film with out-of-plane phonon emission">
             <div class="feature-card-body">
               <h3>Academia</h3>
@@ -59,7 +64,7 @@
               <p>Theoretical condensed matter physics, nonlinear response, superconductivity, quantum geometry, and nonequilibrium quantum materials.</p>
             </div>
           </a>
-          <a class="feature-card" href="quant.html">
+          <a class="feature-card feature-card-primary" href="quant.html">
             <img src="img/placeholder-quant.svg" alt="Placeholder illustration of market signals and structured data lines.">
             <div class="feature-card-body">
               <h3>Quant Systems</h3>
@@ -67,22 +72,28 @@
               <p>Readable quantitative systems, signal research, risk controls, backtesting, and the separation of leading information from noise.</p>
             </div>
           </a>
-          <a class="feature-card" href="vyrva.html">
-            <img src="img/vyrva/vyrva_cover.png" alt="Foggy medieval coastal city on a stormy seashore, created as cover art for Vyrva.">
-            <div class="feature-card-body">
-              <h3>Vyrva</h3>
-              <span class="chapter-status chapter-status-creative">Independent creative project</span>
-              <p>A dark fantasy Unity project about a drowned port city, castles, sea cults, prosthetic clinics, refugee camps, and procedural world systems.</p>
-            </div>
-          </a>
-          <a class="feature-card" href="public-outreach.html">
-            <img src="img/chapter_outreach.png" alt="Teacher and students observing a physics lesson at a blackboard.">
-            <div class="feature-card-body">
-              <h3>Public Outreach</h3>
-              <span class="chapter-status chapter-status-paused">Established work · currently paused</span>
-              <p>Books, essays, and public-facing physics writing, including <cite>Toys or Physics?: Explaining Physics Through Toys</cite>.</p>
-            </div>
-          </a>
+        </div>
+
+        <div class="secondary-chapters" aria-labelledby="secondary-work-heading">
+          <h2 id="secondary-work-heading" class="section-title secondary-section-title">Other projects and completed work</h2>
+          <div class="card-grid chapter-grid secondary-chapter-grid">
+            <a class="feature-card feature-card-secondary" href="vyrva.html">
+              <img src="img/vyrva/vyrva_cover.png" alt="Foggy medieval coastal city on a stormy seashore, created as cover art for Vyrva.">
+              <div class="feature-card-body">
+                <h3>Vyrva</h3>
+                <span class="chapter-status chapter-status-creative">Independent creative project</span>
+                <p>A dark fantasy Unity project about a drowned port city, castles, sea cults, prosthetic clinics, refugee camps, and procedural world systems.</p>
+              </div>
+            </a>
+            <a class="feature-card feature-card-secondary" href="public-outreach.html">
+              <img src="img/chapter_outreach.png" alt="Teacher and students observing a physics lesson at a blackboard.">
+              <div class="feature-card-body">
+                <h3>Public Outreach</h3>
+                <span class="chapter-status chapter-status-paused">Established work · currently paused</span>
+                <p>Books, essays, and public-facing physics writing, including <cite>Toys or Physics?: Explaining Physics Through Toys</cite>.</p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -101,6 +112,6 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260731-subscriptions"></script>
 </body>
 </html>

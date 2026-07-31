@@ -1,6 +1,6 @@
 # Public Outreach Comments Setup
 
-The Public Outreach discussion forms are connected from `js/comments.js` with the Supabase Project URL and public publishable key. No database password, service-role key, or private key belongs in browser code.
+The Public Outreach discussion forms use the shared public Supabase client in `js/supabase-client.js`. `js/comments.js` reuses that client. No database password, service-role key, or private key belongs in browser code.
 
 The private credential folder must remain local and untracked:
 
@@ -59,6 +59,7 @@ Names are optional in the public form. If a visitor leaves the name field blank,
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
 <script src="js/comments.js"></script>
 ```
 
@@ -81,6 +82,12 @@ To approve a reply, follow the same process. A reply has a non-empty `parent_id`
 
 Only approved comments are loaded by public visitors.
 
-## 5. CAPTCHA / Turnstile preparation
+## 5. News subscriptions
+
+The News subscription form also reuses `js/supabase-client.js`. Run `supabase/news-subscriptions-setup.sql` in the Supabase SQL editor before enabling live subscriptions.
+
+The migration creates `public.news_subscriptions` and the RPC function `public.submit_news_subscription(subscriber_email text, selected_topics text[])`. Public visitors are granted execute permission only on that function. They are not granted direct read, list, update, or delete access to subscriber rows.
+
+## 6. CAPTCHA / Turnstile preparation
 
 For stronger spam protection, add Cloudflare Turnstile through a Supabase Edge Function. The static website may contain only the public Turnstile site key. The Turnstile secret key must stay in Supabase secrets, never in this repository.

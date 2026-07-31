@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News | Oles Matsyshyn</title>
   <meta name="description" content="News, project updates, releases, talks, and announcements from Oles Matsyshyn.">
-  <link rel="stylesheet" href="css/style.css?v=20260730-news-card">
+  <link rel="stylesheet" href="css/style.css?v=20260731-news-pagination-2">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +18,13 @@
         <a href="news.html">News</a>
         <a href="science.html">Academia</a>
         <a href="quant.html">Quant Systems</a>
-        <a href="vyrva.html">Vyrva</a>
-        <a href="public-outreach.html">Public Outreach</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">Creative Work <span class="nav-dropdown-indicator" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu" id="more-menu">
+            <a href="vyrva.html">Vyrva</a>
+            <a href="public-outreach.html">Public Outreach</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
       </div>
     </nav>
@@ -66,6 +71,8 @@
           </details>
         </article>
 
+        <nav class="news-pagination" data-news-pagination aria-label="News archive pagination" hidden></nav>
+
         <!--
         Future news entry template. Add entries above older items so the archive remains newest first.
 
@@ -80,6 +87,42 @@
         </article>
         -->
       </section>
+
+      <section class="measure news-subscribe-card" aria-labelledby="news-subscribe-heading">
+        <p class="eyebrow">Updates</p>
+        <h2 id="news-subscribe-heading">Subscribe to new updates</h2>
+        <form class="news-subscribe-form" data-news-subscribe-form novalidate>
+          <div class="form-field">
+            <label for="subscriber-email">Email address</label>
+            <input id="subscriber-email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <fieldset class="topic-fieldset">
+            <legend>Topics</legend>
+            <label class="topic-option">
+              <input type="checkbox" name="topics" value="academia">
+              <span>Academia</span>
+            </label>
+            <label class="topic-option">
+              <input type="checkbox" name="topics" value="quant">
+              <span>Quant Systems</span>
+            </label>
+            <label class="topic-option">
+              <input type="checkbox" name="topics" value="creative">
+              <span>Creative work and outreach</span>
+            </label>
+          </fieldset>
+
+          <div class="subscription-honeypot" aria-hidden="true">
+            <label for="subscriber-website">Website</label>
+            <input id="subscriber-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="news-subscribe-note">Your email address and selected topics will be stored securely and used only for these updates. You can unsubscribe at any time.</p>
+          <button class="text-button" type="submit">Subscribe</button>
+          <p class="news-subscribe-status" data-news-subscribe-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
     </article>
   </main>
 
@@ -87,6 +130,8 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js?v=20260730-news-filter-fix"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js?v=20260731-subscriptions"></script>
+  <script src="js/main.js?v=20260731-news-pagination-2"></script>
 </body>
 </html>

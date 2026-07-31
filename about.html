@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Oles Matsyshyn</title>
   <meta name="description" content="About Oles Matsyshyn.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260731-subscriptions">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +18,13 @@
         <a href="news.html">News</a>
         <a href="science.html">Academia</a>
         <a href="quant.html">Quant Systems</a>
-        <a href="vyrva.html">Vyrva</a>
-        <a href="public-outreach.html">Public Outreach</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">Creative Work <span class="nav-dropdown-indicator" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu" id="more-menu">
+            <a href="vyrva.html">Vyrva</a>
+            <a href="public-outreach.html">Public Outreach</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
       </div>
     </nav>
@@ -152,6 +157,6 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260731-subscriptions"></script>
 </body>
 </html>

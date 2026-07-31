@@ -1,8 +1,6 @@
 (function () {
   "use strict";
 
-  var SUPABASE_URL = "https://eewmeannakelztffftaf.supabase.co";
-  var SUPABASE_PUBLIC_KEY = "sb_publishable_CC1tYHFA5ho8aHjj-KQ0oQ_UDAZPeAH";
   var PAGE_SLUG = "public-outreach";
   var MAX_APPROVED_COMMENTS = 100;
   var ALLOWED_CHAPTERS = new Set([
@@ -50,15 +48,20 @@
     console.error(fullMessage);
   }
 
-  console.log("Comments: Supabase URL", SUPABASE_URL);
-  console.log("Comments: Supabase key present", Boolean(SUPABASE_PUBLIC_KEY));
-  console.log("Comments: Supabase key prefix", SUPABASE_PUBLIC_KEY.slice(0, 16));
   debugEvent("Comments: found " + threads.length + " discussion containers");
 
 
   if (!threads.length) {
     return;
   }
+
+  var supabaseConfig = window.SiteSupabase && window.SiteSupabase.getConfig
+    ? window.SiteSupabase.getConfig()
+    : { url: "", publicKey: "" };
+
+  console.log("Comments: Supabase URL", supabaseConfig.url);
+  console.log("Comments: Supabase key present", Boolean(supabaseConfig.publicKey));
+  console.log("Comments: Supabase key prefix", supabaseConfig.publicKey ? supabaseConfig.publicKey.slice(0, 16) : "");
 
   function getPart(thread, selector) {
     return thread.querySelector(selector);
@@ -671,7 +674,7 @@
       });
   }
 
-  if (!SUPABASE_URL || !SUPABASE_PUBLIC_KEY) {
+  if (!supabaseConfig.url || !supabaseConfig.publicKey) {
     threads.forEach(function (thread) {
       prepareToggle(thread, null);
     });
@@ -682,7 +685,7 @@
     return;
   }
 
-  if (!window.supabase || !window.supabase.createClient) {
+  if (!window.supabase || !window.supabase.createClient || !window.SiteSupabase || !window.SiteSupabase.getClient) {
     threads.forEach(function (thread) {
       prepareToggle(thread, null);
     });
@@ -696,7 +699,7 @@
   var client;
 
   try {
-    client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLIC_KEY);
+    client = window.SiteSupabase.getClient();
     debugEvent("Comments: Supabase client initialized");
   } catch (error) {
     threads.forEach(function (thread) {

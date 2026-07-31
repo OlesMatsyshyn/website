@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vyrva | Oles Matsyshyn</title>
   <meta name="description" content="Vyrva, a dark fantasy Unity project by Oles Matsyshyn.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260731-subscriptions">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -18,8 +18,13 @@
         <a href="news.html">News</a>
         <a href="science.html">Academia</a>
         <a href="quant.html">Quant Systems</a>
-        <a href="vyrva.html">Vyrva</a>
-        <a href="public-outreach.html">Public Outreach</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">Creative Work <span class="nav-dropdown-indicator" aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu" id="more-menu">
+            <a href="vyrva.html">Vyrva</a>
+            <a href="public-outreach.html">Public Outreach</a>
+          </div>
+        </div>
         <a href="about.html">About</a>
       </div>
     </nav>
@@ -259,7 +264,7 @@
         <p>If there is sufficient interest, I will move part of the development process to Twitch. The streams would show how I combine physics-inspired reasoning, creative worldbuilding, Unity development, and AI-assisted workflows to build the game in real time.</p>
         <p>Current challenges include environmental detail, transitions between districts, lighting, pocket universes, character skills, unit AI, and many other systems. Viewers would be able to follow the process and participate in the discussion as the project develops.</p>
         <p>If you would be interested in these streams, please send me a short message.</p>
-        <a class="text-button" href="mailto:oles.matsyshyn@gmail.com?subject=Interest%20in%20Vyrva%20development%20streams">Request development streams</a>
+        <a class="text-button" href="mailto:oles.matsyshyn@gmail.com?subject=Interest%20in%20Vyrva%20development%20streams&amp;body=Hi%21%20I%20am%20interested%2C%20keep%20me%20posted.">Request development streams</a>
       </section>
     </article>
   </main>
@@ -268,6 +273,6 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260731-subscriptions"></script>
 </body>
 </html>
