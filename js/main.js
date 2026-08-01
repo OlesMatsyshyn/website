@@ -134,6 +134,275 @@
     }
   });
 
+  function initVyrvaCharacterShowcase() {
+    var showcase = document.querySelector("[data-vyrva-character-showcase]");
+    if (!showcase) {
+      return;
+    }
+
+    var image = showcase.querySelector("[data-vyrva-character-image]");
+    var status = showcase.querySelector("[data-vyrva-character-status]");
+    var name = showcase.querySelector("[data-vyrva-character-name]");
+    var archetype = showcase.querySelector("[data-vyrva-character-archetype]");
+    var description = showcase.querySelector("[data-vyrva-character-description]");
+    var skillsRegion = showcase.querySelector("[data-vyrva-character-skills]");
+    var card = showcase.querySelector("[data-vyrva-character-card]");
+    var previous = showcase.querySelector("[data-vyrva-character-prev]");
+    var next = showcase.querySelector("[data-vyrva-character-next]");
+    var indicators = Array.prototype.slice.call(showcase.querySelectorAll("[data-character-index]"));
+    var currentIndex = 0;
+
+    if (!image || !status || !name || !archetype || !description || !skillsRegion || !card) {
+      return;
+    }
+
+    var characters = [
+      {
+        id: "kharakternyk",
+        name: "The Kharakternyk",
+        archetype: "Cossack mystic and unwelcome protector",
+        image: "img/vyrva/vyrva-kharakternyk-portrait.png",
+        imageWidth: 512,
+        imageHeight: 512,
+        imageAlt: "Portrait concept of the Kharakternyk, a Cossack mystic in Vyrva.",
+        layout: "portrait",
+        status: "First playable archetype in development",
+        description: [
+          "He was born in the wide yellow steppe beneath blue skies, far from the drowned streets of Vyrva.",
+          "In battle, people saw him move too quickly, endure too much, and strike with strength that did not look natural. Some called it skill. Others whispered another word: Kharakternyk.",
+          "He did not come to Vyrva for gold or glory. He came because others called for help. But the moment he stepped into the city, something changed.",
+          "In ordinary places, fear remains only fear. In Vyrva, fear has weight. Words, dreams, rumors, and old stories can become as real as an apple on a tree.",
+          "The enemies who once feared the Kharakternyk imagined what he could become. In Vyrva, those fears began to answer.",
+          "Every power in Vyrva is useful. Every power is also a debt. Now he owes the Mist, and the Mist does not let debtors choose when the debt is paid."
+        ],
+        skills: [
+          {
+            key: "Q",
+            icon: "img/vyrva/vyrva-skill-q-card-throw.png",
+            iconAlt: "Card Throw ability icon.",
+            title: "Card Throw",
+            text: "A true Cossack never runs out of cards. Throw a fan of enchanted cards through enemies in front of him."
+          },
+          {
+            key: "W",
+            icon: "img/vyrva/vyrva-skill-w-invisibility.png",
+            iconAlt: "Invisibility ability icon.",
+            title: "Invisibility",
+            text: "Cloud the sight of the living and the dead. The Kharakternyk slips from view, crosses danger unseen, and strikes before his presence is understood."
+          },
+          {
+            key: "E",
+            icon: "img/vyrva/vyrva-skill-e-hopak-leap.png",
+            iconAlt: "Hopak Leap ability icon.",
+            title: "Hopak Leap",
+            text: "When a Cossack dances, even the ground answers. Leap into the chosen area; the landing shakes the earth and staggers nearby enemies."
+          },
+          {
+            key: "R",
+            icon: "img/vyrva/vyrva-skill-r-ancestral-fury.png",
+            iconAlt: "Ancestral Fury ability icon.",
+            title: "Ancestral Fury",
+            text: "Draw strength from the land and from those who defended it before. Enter a furious state that overwhelms nearby enemies. Souls claimed during the fury are drawn into the ancestral storm."
+          }
+        ]
+      },
+      {
+        id: "undead-cossack-shooter",
+        name: "Undead Cossack Shooter",
+        archetype: "Crimson-eyed revenant and relentless marksman",
+        image: "img/vyrva/vyrva-undead-cossack-shooter.png",
+        imageWidth: 1448,
+        imageHeight: 1086,
+        imageAlt: "Undead Cossack marksman overlooking Vyrva at crimson sunset",
+        layout: "landscape",
+        status: "Character concept in development",
+        description: [
+          "He pursued the remnants of an invading army with a fury born from what they had left behind. Almost none escaped him, but three crossed the river above Vyrva.",
+          "Exhausted and wounded, he followed and disappeared beneath the water. When one of the fugitives later saw his body drifting nearby, terror gave the reflection in his missing eye the color of a crimson sunset.",
+          "In Vyrva, fear can give substance to the impossible. Something returned in the warrior's body, and it has begun its hunt with the three who escaped him."
+        ],
+        gameplayNote: "Concept note: a ranged character intended to support the normal elevated strategy view and a closer aiming view.",
+        skills: []
+      },
+      {
+        id: "iron-lady",
+        name: "Iron Lady",
+        archetype: "Cursed protector, tank, and support",
+        image: "img/vyrva/vyrva-iron-lady.png",
+        imageWidth: 1448,
+        imageHeight: 1086,
+        imageAlt: "The Iron Lady standing in a ruined chapel courtyard",
+        layout: "landscape",
+        status: "Character concept in development",
+        description: [
+          "Hearing that the common people of Vyrva were suffering, she entered the city to restore faith, order, and hope.",
+          "Vyrva transformed that devotion into a terrible burden. Sealed behind an iron mask and heavy devotional armor, she carries a supernatural torment that manifests as heat beneath the metal and an oppressive presence around her.",
+          "She came to relieve the suffering of others. Now she must protect them from the curse that travels with her."
+        ],
+        gameplayNote: "Concept note: a tank and support archetype built around protection, endurance, and an aura that can help allies while burdening everyone nearby.",
+        skills: []
+      },
+      {
+        id: "nightmare-bane",
+        name: "Nightmare Bane",
+        archetype: "Demonic rider and living siege charge",
+        image: "img/vyrva/vyrva-nightmare-bane.png",
+        imageWidth: 1448,
+        imageHeight: 1086,
+        imageAlt: "Nightmare Bane riding a two-headed supernatural horse",
+        layout: "landscape",
+        status: "Character concept in development",
+        description: [
+          "Nightmare Bane rides a creature that should not be able to move: one immense horse with two heads and six legs, carrying its silent master through the drowned outskirts of Vyrva.",
+          "Once the charge begins, their momentum becomes a weapon. Yet the same mass that makes them devastating also makes every turn, obstacle, and mistake dangerous.",
+          "The rider is less a duelist than a force that must choose its direction before the battlefield can react."
+        ],
+        gameplayNote: "Concept note: a mounted momentum archetype with great speed and impact damage, counterbalanced by wide turns, heavy inertia, and more difficult control.",
+        skills: []
+      }
+    ];
+
+    function createTextElement(tagName, className, text) {
+      var element = document.createElement(tagName);
+      if (className) {
+        element.className = className;
+      }
+      element.textContent = text;
+      return element;
+    }
+
+    function renderDescription(character) {
+      description.replaceChildren();
+
+      if (character.layout !== "portrait") {
+        return;
+      }
+
+      character.description.forEach(function (text) {
+        description.appendChild(createTextElement("p", "", text));
+      });
+
+      if (character.gameplayNote) {
+        description.appendChild(createTextElement("p", "vyrva-gameplay-note", character.gameplayNote));
+      }
+    }
+
+    function renderSkills(character) {
+      skillsRegion.replaceChildren();
+
+      if (!character.skills.length) {
+        skillsRegion.setAttribute("aria-label", character.name + " story");
+        var story = document.createElement("article");
+        story.className = "vyrva-character-story-card";
+
+        character.description.forEach(function (text) {
+          story.appendChild(createTextElement("p", "", text));
+        });
+
+        if (character.gameplayNote) {
+          story.appendChild(createTextElement("p", "vyrva-gameplay-note", character.gameplayNote));
+        }
+
+        story.appendChild(createTextElement("p", "vyrva-character-power-status", "Vyrva has not yet decided what powers to grant."));
+        skillsRegion.appendChild(story);
+        return;
+      }
+
+      skillsRegion.setAttribute("aria-label", character.name + " skills");
+      var grid = document.createElement("div");
+      grid.className = "vyrva-ability-grid";
+      grid.setAttribute("aria-label", character.name + " ability set");
+
+      character.skills.forEach(function (skill) {
+        var card = document.createElement("article");
+        card.className = "vyrva-ability-card";
+
+        var key = document.createElement("kbd");
+        key.textContent = skill.key;
+
+        var icon = document.createElement("img");
+        icon.src = skill.icon;
+        icon.width = 512;
+        icon.height = 512;
+        icon.loading = "lazy";
+        icon.alt = skill.iconAlt;
+
+        var copy = document.createElement("div");
+        copy.className = "vyrva-ability-copy";
+        copy.appendChild(createTextElement("h3", "", skill.title));
+        copy.appendChild(createTextElement("p", "", skill.text));
+
+        card.appendChild(key);
+        card.appendChild(icon);
+        card.appendChild(copy);
+        grid.appendChild(card);
+      });
+
+      skillsRegion.appendChild(grid);
+    }
+
+    function updateIndicators() {
+      indicators.forEach(function (indicator, index) {
+        var isActive = index === currentIndex;
+        indicator.classList.toggle("is-active", isActive);
+        if (isActive) {
+          indicator.setAttribute("aria-current", "true");
+        } else {
+          indicator.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function showCharacter(nextIndex) {
+      currentIndex = (nextIndex + characters.length) % characters.length;
+      var character = characters[currentIndex];
+
+      card.classList.toggle("is-portrait", character.layout === "portrait");
+      card.classList.toggle("is-landscape", character.layout === "landscape");
+      image.src = character.image;
+      image.width = character.imageWidth;
+      image.height = character.imageHeight;
+      image.alt = character.imageAlt;
+      status.hidden = character.layout !== "portrait";
+      status.textContent = character.layout === "portrait" ? character.status : "";
+      name.textContent = character.name;
+      archetype.textContent = character.archetype;
+      renderDescription(character);
+      renderSkills(character);
+      updateIndicators();
+    }
+
+    if (previous) {
+      previous.addEventListener("click", function () {
+        showCharacter(currentIndex - 1);
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", function () {
+        showCharacter(currentIndex + 1);
+      });
+    }
+
+    indicators.forEach(function (indicator) {
+      indicator.addEventListener("click", function () {
+        showCharacter(Number(indicator.getAttribute("data-character-index")) || 0);
+      });
+    });
+
+    showcase.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showCharacter(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showCharacter(currentIndex + 1);
+      }
+    });
+  }
+
   function initNewsPagination() {
     var cards = Array.prototype.slice.call(document.querySelectorAll(".news-entry-card"));
     var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-news-filter]"));
@@ -515,6 +784,7 @@
   function initPageInteractions() {
     initNewsPagination();
     initNewsSubscription();
+    initVyrvaCharacterShowcase();
   }
 
   if (document.readyState === "loading") {

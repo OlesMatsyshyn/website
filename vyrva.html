@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Vyrva | Oles Matsyshyn">
   <meta name="twitter:description" content="Vyrva is an independent dark-fantasy creative project by Oles Matsyshyn, exploring world-building, systems design, game AI, and a suffering port city torn from the normal world.">
   <meta name="twitter:image" content="https://olesmatsyshyn.github.io/website/img/Oles_photo.jpg">
-  <link rel="stylesheet" href="css/style.css?v=20260731-subscriptions">
+  <link rel="stylesheet" href="css/style.css?v=20260801-vyrva-content-art">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,6 +49,10 @@
         <p class="lead">A dark fantasy Unity project shaped around a suffering port city. You cannot save Vyrva completely, but you may be able to ease its pain, just a little. Survive social collapse, sea-borne rituals, human-made abominations, the wrath of nature, and secrets rising from the deep.</p>
       </header>
 
+      <section class="measure section-compact vyrva-content-notice">
+        <p class="editorial-note">Content notice: Vyrva contains dark-fantasy horror, undead characters, and references to violence and disturbing events. No graphic violence will ever be shown on this website. If the project reaches a later stage of development, a separate dedicated website will be launched.</p>
+      </section>
+
       <section class="measure section-compact">
         <h2>Why I am building Vyrva</h2>
         <p>I have been fascinated by fantasy worlds since first encountering <cite>The Lord of the Rings</cite>, and later the unsettling imagination of H. P. Lovecraft and the interactive worlds of <cite>Baldur's Gate</cite> and <cite>Dungeons &amp; Dragons</cite>. For years, many of my own settings, characters, and stories remained only loosely developed ideas. Modern AI-assisted creative tools now make it much easier to turn those imagined worlds into something visible, playable, and coherent.</p>
@@ -76,59 +80,76 @@
         <p class="editorial-note">Vyrva is an active prototype and an evolving world. Names, mechanics, balance, districts, enemy designs, and story details may change as the game develops. Nothing on this page should be read as final until the project reaches a release-ready form.</p>
       </section>
 
-      <section class="measure vyrva-character-section">
-        <p class="eyebrow">Playable character</p>
+      <section class="measure vyrva-character-section" data-vyrva-character-showcase tabindex="0" aria-labelledby="vyrva-character-heading">
+        <p class="eyebrow">Playable characters</p>
         <h2>Who are you?</h2>
-        <div class="vyrva-character-card">
-          <figure class="vyrva-character-portrait">
-            <img src="img/vyrva/vyrva-kharakternyk-portrait.png" width="512" height="512" loading="lazy" alt="Portrait concept of the Kharakternyk, a Cossack mystic in Vyrva.">
-          </figure>
-          <div class="vyrva-character-copy">
-            <p class="status-label">First playable archetype in development</p>
-            <h3>The Kharakternyk</h3>
-            <p class="vyrva-role">Cossack mystic and unwelcome protector</p>
-            <p>He was born in the wide yellow steppe beneath blue skies, far from the drowned streets of Vyrva.</p>
-            <p>In battle, people saw him move too quickly, endure too much, and strike with strength that did not look natural. Some called it skill. Others whispered another word: Kharakternyk.</p>
-            <p>He did not come to Vyrva for gold or glory. He came because others called for help. But the moment he stepped into the city, something changed.</p>
-            <p>In ordinary places, fear remains only fear. In Vyrva, fear has weight. Words, dreams, rumors, and old stories can become as real as an apple on a tree.</p>
-            <p>The enemies who once feared the Kharakternyk imagined what he could become. In Vyrva, those fears began to answer.</p>
-            <p>Every power in Vyrva is useful. Every power is also a debt. Now he owes the Mist, and the Mist does not let debtors choose when the debt is paid.</p>
+        <div class="vyrva-character-shell">
+          <div class="vyrva-character-controls" aria-label="Character selector">
+            <button class="vyrva-character-arrow" type="button" data-vyrva-character-prev aria-label="Show previous character">&#8592;</button>
+            <div class="vyrva-character-indicators" data-vyrva-character-indicators aria-label="Character list">
+              <button class="vyrva-character-dot is-active" type="button" data-character-index="0" aria-label="Show The Kharakternyk" aria-current="true"></button>
+              <button class="vyrva-character-dot" type="button" data-character-index="1" aria-label="Show Undead Cossack Shooter"></button>
+              <button class="vyrva-character-dot" type="button" data-character-index="2" aria-label="Show Iron Lady"></button>
+              <button class="vyrva-character-dot" type="button" data-character-index="3" aria-label="Show Nightmare Bane"></button>
+            </div>
+            <button class="vyrva-character-arrow" type="button" data-vyrva-character-next aria-label="Show next character">&#8594;</button>
           </div>
-        </div>
 
-        <div class="vyrva-ability-grid" aria-label="Kharakternyk ability set">
-          <article class="vyrva-ability-card">
-            <kbd>Q</kbd>
-            <img src="img/vyrva/vyrva-skill-q-card-throw.png" width="512" height="512" loading="lazy" alt="Card Throw ability icon.">
-            <div class="vyrva-ability-copy">
-              <h3>Card Throw</h3>
-              <p>A true Cossack never runs out of cards. Throw a fan of enchanted cards through enemies in front of him.</p>
+          <article class="vyrva-character-card is-portrait" data-vyrva-character-card>
+            <figure class="vyrva-character-art">
+              <img src="img/vyrva/vyrva-kharakternyk-portrait.png" width="512" height="512" loading="lazy" alt="Portrait concept of the Kharakternyk, a Cossack mystic in Vyrva." data-vyrva-character-image>
+            </figure>
+            <div class="vyrva-character-copy">
+              <p class="status-label" data-vyrva-character-status>First playable archetype in development</p>
+              <h3 id="vyrva-character-heading" data-vyrva-character-name>The Kharakternyk</h3>
+              <p class="vyrva-role" data-vyrva-character-archetype>Cossack mystic and unwelcome protector</p>
+              <div class="vyrva-character-description" data-vyrva-character-description>
+                <p>He was born in the wide yellow steppe beneath blue skies, far from the drowned streets of Vyrva.</p>
+                <p>In battle, people saw him move too quickly, endure too much, and strike with strength that did not look natural. Some called it skill. Others whispered another word: Kharakternyk.</p>
+                <p>He did not come to Vyrva for gold or glory. He came because others called for help. But the moment he stepped into the city, something changed.</p>
+                <p>In ordinary places, fear remains only fear. In Vyrva, fear has weight. Words, dreams, rumors, and old stories can become as real as an apple on a tree.</p>
+                <p>The enemies who once feared the Kharakternyk imagined what he could become. In Vyrva, those fears began to answer.</p>
+                <p>Every power in Vyrva is useful. Every power is also a debt. Now he owes the Mist, and the Mist does not let debtors choose when the debt is paid.</p>
+              </div>
             </div>
           </article>
-          <article class="vyrva-ability-card">
-            <kbd>W</kbd>
-            <img src="img/vyrva/vyrva-skill-w-invisibility.png" width="512" height="512" loading="lazy" alt="Invisibility ability icon.">
-            <div class="vyrva-ability-copy">
-              <h3>Invisibility</h3>
-              <p>Cloud the sight of the living and the dead. The Kharakternyk slips from view, crosses danger unseen, and strikes before his presence is understood.</p>
+
+          <div class="vyrva-skills-region" data-vyrva-character-skills aria-label="Character skills">
+            <div class="vyrva-ability-grid" aria-label="Kharakternyk ability set">
+              <article class="vyrva-ability-card">
+                <kbd>Q</kbd>
+                <img src="img/vyrva/vyrva-skill-q-card-throw.png" width="512" height="512" loading="lazy" alt="Card Throw ability icon.">
+                <div class="vyrva-ability-copy">
+                  <h3>Card Throw</h3>
+                  <p>A true Cossack never runs out of cards. Throw a fan of enchanted cards through enemies in front of him.</p>
+                </div>
+              </article>
+              <article class="vyrva-ability-card">
+                <kbd>W</kbd>
+                <img src="img/vyrva/vyrva-skill-w-invisibility.png" width="512" height="512" loading="lazy" alt="Invisibility ability icon.">
+                <div class="vyrva-ability-copy">
+                  <h3>Invisibility</h3>
+                  <p>Cloud the sight of the living and the dead. The Kharakternyk slips from view, crosses danger unseen, and strikes before his presence is understood.</p>
+                </div>
+              </article>
+              <article class="vyrva-ability-card">
+                <kbd>E</kbd>
+                <img src="img/vyrva/vyrva-skill-e-hopak-leap.png" width="512" height="512" loading="lazy" alt="Hopak Leap ability icon.">
+                <div class="vyrva-ability-copy">
+                  <h3>Hopak Leap</h3>
+                  <p>When a Cossack dances, even the ground answers. Leap into the chosen area; the landing shakes the earth and staggers nearby enemies.</p>
+                </div>
+              </article>
+              <article class="vyrva-ability-card">
+                <kbd>R</kbd>
+                <img src="img/vyrva/vyrva-skill-r-ancestral-fury.png" width="512" height="512" loading="lazy" alt="Ancestral Fury ability icon.">
+                <div class="vyrva-ability-copy">
+                  <h3>Ancestral Fury</h3>
+                  <p>Draw strength from the land and from those who defended it before. Enter a furious state that overwhelms nearby enemies. Souls claimed during the fury are drawn into the ancestral storm.</p>
+                </div>
+              </article>
             </div>
-          </article>
-          <article class="vyrva-ability-card">
-            <kbd>E</kbd>
-            <img src="img/vyrva/vyrva-skill-e-hopak-leap.png" width="512" height="512" loading="lazy" alt="Hopak Leap ability icon.">
-            <div class="vyrva-ability-copy">
-              <h3>Hopak Leap</h3>
-              <p>When a Cossack dances, even the ground answers. Leap into the chosen area; the landing shakes the earth and staggers nearby enemies.</p>
-            </div>
-          </article>
-          <article class="vyrva-ability-card">
-            <kbd>R</kbd>
-            <img src="img/vyrva/vyrva-skill-r-ancestral-fury.png" width="512" height="512" loading="lazy" alt="Ancestral Fury ability icon.">
-            <div class="vyrva-ability-copy">
-              <h3>Ancestral Fury</h3>
-              <p>Draw strength from the land and from those who defended it before. Enter a furious state that overwhelms nearby enemies. Souls claimed during the fury are drawn into the ancestral storm.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </section>
 
@@ -284,6 +305,6 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js?v=20260731-subscriptions"></script>
+  <script src="js/main.js?v=20260801-vyrva-content-art"></script>
 </body>
 </html>

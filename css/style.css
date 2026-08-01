@@ -676,37 +676,150 @@ p {
   box-shadow: var(--shadow);
 }
 
-.vyrva-character-card {
+.vyrva-character-section:focus {
+  outline: none;
+}
+
+.vyrva-character-section:focus-visible {
+  outline: 2px solid rgba(125, 63, 42, 0.42);
+  outline-offset: 6px;
+}
+
+.vyrva-character-shell {
   margin-top: 1.35rem;
+}
+
+.vyrva-character-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.vyrva-character-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid rgba(125, 63, 42, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.62);
+  color: var(--accent);
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.vyrva-character-arrow:hover,
+.vyrva-character-arrow:focus-visible {
+  border-color: rgba(125, 63, 42, 0.48);
+  background: rgba(255, 250, 242, 0.94);
+}
+
+.vyrva-character-indicators {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.vyrva-character-dot {
+  width: 0.68rem;
+  height: 0.68rem;
+  border: 1px solid rgba(125, 63, 42, 0.4);
+  border-radius: 999px;
+  background: rgba(247, 242, 234, 0.72);
+  cursor: pointer;
+  padding: 0;
+}
+
+.vyrva-character-dot.is-active,
+.vyrva-character-dot:hover,
+.vyrva-character-dot:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.vyrva-character-card {
   border: 1px solid rgba(217, 207, 193, 0.84);
   border-radius: 12px;
   background: rgba(255, 250, 242, 0.48);
   padding: clamp(0.95rem, 2.2vw, 1.25rem);
 }
 
-.vyrva-character-card::after {
+.vyrva-character-art {
+  margin: 0;
+  min-width: 0;
+}
+
+.vyrva-character-art img {
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.vyrva-character-card.is-portrait {
+  display: block;
+}
+
+.vyrva-character-card.is-portrait::after {
   content: "";
   display: block;
   clear: both;
 }
 
-.vyrva-character-portrait {
+.vyrva-character-card.is-portrait .vyrva-character-art {
   float: left;
-  width: min(32vw, 240px);
-  margin: 0 1.65rem 1rem 0;
+  width: min(34vw, 240px);
+  margin: 0 1.65rem 0.95rem 0;
 }
 
-.vyrva-character-portrait img {
-  display: block;
+.vyrva-character-card.is-portrait .vyrva-character-art img {
   width: 100%;
   height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   border-radius: 50%;
 }
 
+.vyrva-character-card.is-landscape {
+  display: flex;
+  flex-direction: column;
+}
+
+.vyrva-character-card.is-landscape .vyrva-character-art {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+.vyrva-character-card.is-landscape .vyrva-character-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.vyrva-character-copy {
+  min-width: 0;
+}
+
 .vyrva-character-copy h3 {
-  margin: 0.4rem 0 0.2rem;
+  margin: 0.35rem 0 0.2rem;
   font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+
+.vyrva-character-description p {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.42;
+}
+
+.vyrva-gameplay-note {
+  color: var(--accent);
+  font-family: var(--serif);
 }
 
 .vyrva-role {
@@ -717,10 +830,12 @@ p {
 }
 
 .vyrva-ability-grid {
-  clear: both;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.85rem;
+}
+
+.vyrva-skills-region {
   margin-top: 1rem;
 }
 
@@ -777,6 +892,32 @@ p {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.45;
+}
+
+.vyrva-character-story-card {
+  border: 1px solid rgba(217, 207, 193, 0.84);
+  border-radius: 10px;
+  background: rgba(255, 250, 242, 0.48);
+  padding: clamp(1rem, 2.2vw, 1.25rem);
+}
+
+.vyrva-character-story-card p {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.vyrva-character-story-card p:first-child {
+  margin-top: 0;
+}
+
+.vyrva-character-power-status {
+  border-top: 1px solid rgba(217, 207, 193, 0.82);
+  padding-top: 0.75rem;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
 }
 
 .vyrva-concept-figure {
@@ -2823,10 +2964,30 @@ figcaption {
     grid-column: auto;
   }
 
-  .vyrva-character-portrait {
+  .vyrva-character-card.is-portrait,
+  .vyrva-character-card.is-landscape {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vyrva-character-card.is-portrait::after {
+    content: none;
+  }
+
+  .vyrva-character-card.is-portrait .vyrva-character-art {
     float: none;
-    width: min(100%, 200px);
-    margin: 0 auto 1.1rem;
+    width: min(100%, 220px);
+    height: 220px;
+    margin: 0 auto 1rem;
+  }
+
+  .vyrva-character-card.is-portrait .vyrva-character-art img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .vyrva-character-copy {
+    align-self: start;
   }
 
   .chapter-grid {
@@ -2843,6 +3004,25 @@ figcaption {
     grid-template-columns: 42px 78px minmax(0, 1fr);
     gap: 0.65rem;
     padding: 0.85rem;
+  }
+
+  .vyrva-character-card.is-portrait .vyrva-character-art {
+    width: min(100%, 190px);
+    height: 190px;
+  }
+
+  .vyrva-character-controls {
+    gap: 0.55rem;
+  }
+
+  .vyrva-character-arrow {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .vyrva-character-description p {
+    font-size: 0.9rem;
+    line-height: 1.38;
   }
 
   .vyrva-ability-card kbd {
