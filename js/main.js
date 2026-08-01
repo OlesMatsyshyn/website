@@ -134,20 +134,22 @@
     }
   });
 
-  function initNewsFilter() {
-    var filterRoot = document.querySelector(".news-filter");
-    if (!filterRoot) {
-      return;
-    }
-
+  function initNewsPagination() {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".news-entry-card"));
     var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-news-filter]"));
-    var cards = Array.prototype.slice.call(document.querySelectorAll(".news-card[data-news-category]"));
-    var empty = document.querySelector(".news-filter-empty");
     var pagination = document.querySelector("[data-news-pagination]");
     var archiveHeading = document.getElementById("news-archive-heading");
     var pageSize = 8;
     var currentCategory = "all";
     var currentPage = 1;
+
+    if (!cards.length || !pagination) {
+      return;
+    }
+
+    var allowedCategories = buttons.map(function (button) {
+      return String(button.getAttribute("data-news-filter") || "").trim().toLowerCase();
+    });
 
     function setCardVisible(card, shouldShow) {
       if (shouldShow) {
@@ -157,6 +159,66 @@
         card.setAttribute("hidden", "");
         card.style.setProperty("display", "none", "important");
       }
+    }
+
+    function normalizeCategory(rawCategory) {
+      var category = String(rawCategory || "all").trim().toLowerCase();
+      return allowedCategories.indexOf(category) !== -1 ? category : "all";
+    }
+
+    function matchingCards(category) {
+      return cards.filter(function (card) {
+        var cardCategory = String(card.getAttribute("data-news-category") || "").trim().toLowerCase();
+        return category === "all" || cardCategory === category;
+      });
+    }
+
+    function stateFromUrl() {
+      var params = new URLSearchParams(window.location.search);
+      var rawCategory = params.get("category");
+      var category = normalizeCategory(rawCategory);
+
+      if (rawCategory && category !== String(rawCategory).trim().toLowerCase()) {
+        return {
+          category: "all",
+          page: 1
+        };
+      }
+
+      var matches = matchingCards(category);
+      var totalPages = Math.max(1, Math.ceil(matches.length / pageSize));
+      var pageParam = params.get("page");
+      var rawPage = pageParam === null || pageParam === "" ? 1 : Number(pageParam);
+
+      if (!Number.isInteger(rawPage) || rawPage < 1 || rawPage > totalPages) {
+        return {
+          category: "all",
+          page: 1
+        };
+      }
+
+      return {
+        category: category,
+        page: rawPage
+      };
+    }
+
+    function updatePageUrl(category, page) {
+      var url = new URL(window.location.href);
+
+      if (category === "all") {
+        url.searchParams.delete("category");
+      } else {
+        url.searchParams.set("category", category);
+      }
+
+      if (page <= 1) {
+        url.searchParams.delete("page");
+      } else {
+        url.searchParams.set("page", String(page));
+      }
+
+      window.history.pushState({ newsCategory: category, newsPage: page }, "", url);
     }
 
     function pageNumbers(totalPages) {
@@ -229,19 +291,17 @@
     }
 
     function renderPagination(totalPages) {
-      if (!pagination) {
+      pagination.replaceChildren();
+
+      pagination.hidden = totalPages <= 1;
+
+      if (totalPages <= 1) {
         return;
       }
 
-      pagination.replaceChildren();
-
-      pagination.hidden = false;
-
-      if (totalPages > 1) {
-        pagination.appendChild(makePaginationButton("Previous", "Show previous news page", currentPage === 1, function () {
-          applyNewsFilter(currentCategory, currentPage - 1, true);
-        }));
-      }
+      pagination.appendChild(makePaginationButton("Previous", "Show previous news page", currentPage === 1, function () {
+        applyNewsPage(currentCategory, currentPage - 1, true, true);
+      }));
 
       pageNumbers(totalPages).forEach(function (page) {
         if (typeof page === "string") {
@@ -253,7 +313,7 @@
         }
 
         var pageButton = makePaginationButton(String(page), "Show news page " + page, false, function () {
-          applyNewsFilter(currentCategory, page, true);
+          applyNewsPage(currentCategory, page, true, true);
         });
 
         if (page === currentPage) {
@@ -264,50 +324,40 @@
         pagination.appendChild(pageButton);
       });
 
-      if (totalPages > 1) {
-        pagination.appendChild(makePaginationButton("Next", "Show next news page", currentPage === totalPages, function () {
-          applyNewsFilter(currentCategory, currentPage + 1, true);
-        }));
-      }
+      pagination.appendChild(makePaginationButton("Next", "Show next news page", currentPage === totalPages, function () {
+        applyNewsPage(currentCategory, currentPage + 1, true, true);
+      }));
     }
 
-    function applyNewsFilter(selected, pageNumber, shouldScroll) {
-      var selectedCategory = String(selected || "all").trim().toLowerCase();
-      var matchingCards = cards.filter(function (card) {
-        var category = String(card.getAttribute("data-news-category") || "").trim().toLowerCase();
-        return selectedCategory === "all" || category === selectedCategory;
+    function updateFilterButtons(category) {
+      buttons.forEach(function (button) {
+        var buttonCategory = String(button.getAttribute("data-news-filter") || "").trim().toLowerCase();
+        var isActive = buttonCategory === category;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
-      var totalPages = Math.max(1, Math.ceil(matchingCards.length / pageSize));
-      var visibleCount = 0;
-      currentCategory = selectedCategory;
+    }
+
+    function applyNewsPage(category, pageNumber, shouldUpdateUrl, shouldScroll) {
+      var selectedCategory = normalizeCategory(category);
+      var matches = matchingCards(selectedCategory);
+      var totalPages = Math.max(1, Math.ceil(matches.length / pageSize));
       currentPage = Math.min(Math.max(Number(pageNumber) || 1, 1), totalPages);
+      currentCategory = selectedCategory;
       var firstVisible = (currentPage - 1) * pageSize;
       var lastVisible = firstVisible + pageSize;
 
       cards.forEach(function (card) {
-        var matchIndex = matchingCards.indexOf(card);
-        var shouldShow = matchIndex >= 0 && matchIndex >= firstVisible && matchIndex < lastVisible;
-
-        setCardVisible(card, shouldShow);
-
-        if (shouldShow) {
-          visibleCount += 1;
-        }
+        var matchIndex = matches.indexOf(card);
+        setCardVisible(card, matchIndex >= firstVisible && matchIndex < lastVisible);
       });
 
-      buttons.forEach(function (button) {
-        var buttonCategory = String(button.getAttribute("data-news-filter") || "").trim().toLowerCase();
-        var isActive = buttonCategory === selectedCategory;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-
-      if (empty) {
-        empty.hidden = matchingCards.length !== 0;
-      }
-
+      updateFilterButtons(currentCategory);
       renderPagination(totalPages);
-      console.log("News filter:", selectedCategory, "visible:", visibleCount);
+
+      if (shouldUpdateUrl) {
+        updatePageUrl(currentCategory, currentPage);
+      }
 
       if (shouldScroll) {
         scrollToArchiveHeading();
@@ -316,11 +366,17 @@
 
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
-        applyNewsFilter(button.getAttribute("data-news-filter"), 1, false);
+        applyNewsPage(button.getAttribute("data-news-filter"), 1, true, true);
       });
     });
 
-    applyNewsFilter("all", 1, false);
+    window.addEventListener("popstate", function () {
+      var state = stateFromUrl();
+      applyNewsPage(state.category, state.page, false, false);
+    });
+
+    var initialState = stateFromUrl();
+    applyNewsPage(initialState.category, initialState.page, false, false);
   }
 
   function withTimeout(promise, timeoutMs, message) {
@@ -457,7 +513,7 @@
   }
 
   function initPageInteractions() {
-    initNewsFilter();
+    initNewsPagination();
     initNewsSubscription();
   }
 

@@ -270,13 +270,13 @@
     }
 
     list.replaceChildren();
-    setText(count, commentCountText(comments.length));
+    list.hidden = !comments.length;
+    if (count) {
+      count.hidden = !comments.length;
+      setText(count, comments.length ? commentCountText(comments.length) : "");
+    }
 
     if (!comments.length) {
-      var empty = document.createElement("p");
-      empty.className = "comments-empty";
-      empty.textContent = "No published comments yet.";
-      list.appendChild(empty);
       return;
     }
 
@@ -296,10 +296,11 @@
     });
 
     if (!topLevel.length) {
-      var noTopLevel = document.createElement("p");
-      noTopLevel.className = "comments-empty";
-      noTopLevel.textContent = "No published comments yet.";
-      list.appendChild(noTopLevel);
+      list.hidden = true;
+      if (count) {
+        count.hidden = true;
+        setText(count, "");
+      }
       return;
     }
 

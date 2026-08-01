@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="News | Oles Matsyshyn">
   <meta name="twitter:description" content="News and updates from Oles Matsyshyn on condensed-matter physics, quantitative systems, Vyrva, and public outreach.">
   <meta name="twitter:image" content="https://olesmatsyshyn.github.io/website/img/Oles_photo.jpg">
-  <link rel="stylesheet" href="css/style.css?v=20260731-news-pagination-2">
+  <link rel="stylesheet" href="css/style.css?v=20260801-news-archive">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -45,58 +45,100 @@
     <article class="article">
       <header class="article-header measure">
         <p class="eyebrow">Updates</p>
-        <h1>News</h1>
-        <p class="lead">New work, releases, and project milestones will be collected here as they happen.</p>
+        <h1 id="news-archive-heading">News</h1>
       </header>
 
       <section class="news-archive measure" aria-labelledby="news-archive-heading">
-        <h2 id="news-archive-heading">Chronological Archive</h2>
-
         <div class="news-filter" aria-label="Filter news by category">
-          <button class="news-filter-button is-active" type="button" data-news-filter="all">All</button>
-          <button class="news-filter-button" type="button" data-news-filter="academia">Academia</button>
-          <button class="news-filter-button" type="button" data-news-filter="quant">Quant Systems</button>
-          <button class="news-filter-button" type="button" data-news-filter="vyrva">Vyrva</button>
-          <button class="news-filter-button" type="button" data-news-filter="outreach">Public Outreach</button>
-          <button class="news-filter-button" type="button" data-news-filter="general">General</button>
+          <button class="news-filter-button is-active" type="button" data-news-filter="all" aria-pressed="true">All</button>
+          <button class="news-filter-button" type="button" data-news-filter="general" aria-pressed="false">General</button>
+          <button class="news-filter-button" type="button" data-news-filter="academia" aria-pressed="false">Academia</button>
+          <button class="news-filter-button" type="button" data-news-filter="quant" aria-pressed="false">Quant Systems</button>
+          <button class="news-filter-button" type="button" data-news-filter="creative" aria-pressed="false">Creative Work</button>
         </div>
-        <p class="news-filter-empty" hidden>No updates in this category yet.</p>
 
-        <article class="news-card" data-news-category="academia">
-          <div class="news-date"><time datetime="2024-04-17">17 April 2024</time></div>
+        <article class="news-card news-entry-card" data-news-category="general">
+          <div class="news-date"><time datetime="2026-08-01">1 August 2026</time></div>
+          <div class="news-category-label">General</div>
+          <h3 class="news-entry-title">Personal website launched</h3>
+          <p class="news-entry-body">I launched <a href="index.html">this website</a> as a central place for selected research, quantitative-system development, independent creative work, public-outreach achievements, and future project updates.</p>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2026-07-13">13 July 2026</time></div>
           <div class="news-category-label">Academia</div>
-          <details class="news-expand">
-            <summary class="news-summary-row">
-              <span class="news-title">Phys.org featured our Floquet Fermi Liquid work</span>
-              <span class="news-teaser">Our PRL paper on Floquet Fermi liquids was featured by Phys.org.</span>
-            </summary>
-            <div class="news-expanded">
-              <p>The article, "Beyond equilibrium: Scientists investigate Floquet Fermi liquids", discusses our work on a nonequilibrium state that can emerge when a Fermi liquid is periodically driven while coupled to a fermionic bath. In this state, the occupation does not simply become a hotter Fermi-Dirac distribution. Instead, the driven system can develop a staircase-like structure with multiple nested Floquet Fermi surfaces.</p>
-              <p>The feature also highlights how these nested surfaces can affect quantum oscillations and how driven electronic states may provide routes toward controlling electronic behavior with light.</p>
-              <div class="news-links" aria-label="Related links">
-                <a class="text-button" href="https://phys.org/news/2024-04-equilibrium-scientists-floquet-fermi-liquids.html" target="_blank" rel="noopener noreferrer">Read feature</a>
-                <a class="text-button" href="https://doi.org/10.1103/PhysRevLett.132.146402" target="_blank" rel="noopener noreferrer">PRL paper</a>
-                <a class="text-button" href="https://doi.org/10.48550/arXiv.2309.03268" target="_blank" rel="noopener noreferrer">arXiv</a>
-              </div>
-            </div>
-          </details>
-        </article>
-
-        <nav class="news-pagination" data-news-pagination aria-label="News archive pagination" hidden></nav>
-
-        <!--
-        Future news entry template. Add entries above older items so the archive remains newest first.
-
-        <article class="news-item">
-          <div class="news-meta">
-            <time datetime="YYYY-MM-DD">Month DD, YYYY</time>
-            <p class="news-category">Category</p>
+          <h3 class="news-entry-title">Kramers dichroism published in Physical Review Research</h3>
+          <p class="news-entry-body">“Kramers Dichroism in PT-Symmetric Magnets,” with Ying Xiong and Justin C. W. Song, was published in <cite>Physical Review Research</cite>. The work shows how optical responses can access the internal degree of freedom of Kramers-degenerate states and diagnose their quantum geometry.</p>
+          <div class="news-links" aria-label="Related links">
+            <a class="text-button" href="https://link.aps.org/doi/10.1103/225j-wnv6" target="_blank" rel="noopener noreferrer">View publication</a>
           </div>
-          <h2>News headline</h2>
-          <p>Short description of the update.</p>
-          <a class="text-button" href="#">Read more</a>
         </article>
-        -->
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2026-06-18">18 June 2026</time></div>
+          <div class="news-category-label">Academia</div>
+          <h3 class="news-entry-title">Superconducting Berry curvature dipole published in Physical Review Letters</h3>
+          <p class="news-entry-body">“Superconducting Berry Curvature Dipole,” with Giovanni Vignale and Justin C. W. Song, was published in <cite>Physical Review Letters</cite>. The work identifies a collective quantum-geometric response that enables pronounced, nondissipative nonlinearities in noncentrosymmetric superconductors.</p>
+          <div class="news-links" aria-label="Related links">
+            <a class="text-button" href="https://link.aps.org/doi/10.1103/gbcm-l2qd" target="_blank" rel="noopener noreferrer">View publication</a>
+          </div>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="creative">
+          <div class="news-date">Early June 2026</div>
+          <div class="news-category-label">Creative Work</div>
+          <h3 class="news-entry-title">Development of Vyrva begins</h3>
+          <p class="news-entry-body">Development began on <a href="vyrva.html">Vyrva</a>, an independent dark strategy-survival game set in a fractured coastal city. Cracks of insanity are spreading through the city; the horrors are still to come.</p>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2026-05-19">19–21 May 2026</time></div>
+          <div class="news-category-label">Academia</div>
+          <h3 class="news-entry-title">Quantum materials and quantum information at SPICE</h3>
+          <p class="news-entry-body">I attended the SPICE workshop “Quantum Materials and Quantum Information Science” in Ingelheim, Germany. Discussions explored direct uses of quantum-material properties in information storage, sensing, and qubit design, including van der Waals devices, moiré platforms, unconventional superconductivity, and correlated quantum phases.</p>
+          <div class="news-links" aria-label="Related links">
+            <a class="text-button" href="https://www.spice.uni-mainz.de/qmqi-home/" target="_blank" rel="noopener noreferrer">View workshop</a>
+          </div>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="quant">
+          <div class="news-date">February 2026</div>
+          <div class="news-category-label">Quant Systems</div>
+          <h3 class="news-entry-title">First live-trading milestone</h3>
+          <p class="news-entry-body">The <a href="quant.html">quantitative trading system</a> recorded its first live profits. Development has since focused on a risk gate, improved execution and recovery, performance reporting, and a visual control interface; the expanded system is now undergoing paper testing.</p>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2025-08-27">27–29 August 2025</time></div>
+          <div class="news-category-label">Academia</div>
+          <h3 class="news-entry-title">Invited talk on superconducting quantum geometry at the University of Bath</h3>
+          <p class="news-entry-body">I presented an invited talk at the IOP Conference on Quantum Geometry in Quantum Materials at the University of Bath. The talk introduced the superconducting Berry curvature dipole and its connection to gap structure, nonreciprocal response, and strong nondissipative nonlinearities.</p>
+          <div class="news-links" aria-label="Related links">
+            <a class="text-button" href="papers/talk_sBCD_Matsyshyn.pdf" target="_blank" rel="noopener noreferrer">View talk</a>
+          </div>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2024-10-02">2–4 October 2024</time></div>
+          <div class="news-category-label">Academia</div>
+          <h3 class="news-entry-title">Kramers nonlinearity presented at the IPS Meeting</h3>
+          <p class="news-entry-body">I presented “Kramers Nonlinearity in PT-Symmetric Magnets” at the 2024 Institute of Physics Singapore Meeting at NTU. The work introduced nonlinear optical responses that arise specifically from Kramers degeneracy and can probe the internal geometry of Kramers-paired states.</p>
+          <div class="news-links" aria-label="Related links">
+            <a class="text-button" href="papers/talk_IPS_Kramers_Matsyshyn.pdf" target="_blank" rel="noopener noreferrer">View talk</a>
+          </div>
+        </article>
+
+        <article class="news-card news-entry-card" data-news-category="academia">
+          <div class="news-date"><time datetime="2023-01-03">3–6 January 2023</time></div>
+          <div class="news-category-label">Academia</div>
+          <h3 class="news-entry-title">Best Poster Award at the Quantum Geometric Advantage workshop</h3>
+          <p class="news-entry-body">I received the Best Poster Award for work on the layer photovoltaic effect in van der Waals heterostructures. The diploma was presented by Nobel laureate F. Duncan M. Haldane.</p>
+          <figure class="news-thumbnail">
+            <img src="img/diploma_from_haldane.jpg" alt="Oles Matsyshyn receiving the Best Poster diploma from F. Duncan M. Haldane">
+          </figure>
+        </article>
+
+        <nav class="news-pagination" data-news-pagination aria-label="News archive pagination"></nav>
       </section>
 
       <section class="measure news-subscribe-card" aria-labelledby="news-subscribe-heading">
@@ -143,6 +185,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-client.js?v=20260731-subscriptions"></script>
-  <script src="js/main.js?v=20260731-news-pagination-2"></script>
+  <script src="js/main.js?v=20260801-news-filter-pagination"></script>
 </body>
 </html>
