@@ -662,122 +662,152 @@
   }
 
   function initNewsSubscription() {
-    var form = document.querySelector("[data-news-subscribe-form]");
-    if (!form) {
+    var forms = Array.prototype.slice.call(document.querySelectorAll("[data-news-subscribe-form], [data-vyrva-subscribe-form], [data-subscribe-form]"));
+    if (!forms.length) {
       return;
     }
 
-    var status = document.querySelector("[data-news-subscribe-status]");
-    var submit = form.querySelector('button[type="submit"]');
     var allowedTopics = ["academia", "quant", "creative"];
 
-    function setStatus(message, state) {
-      if (!status) {
-        return;
+    forms.forEach(function (form) {
+      var status = form.querySelector("[data-news-subscribe-status], [data-vyrva-subscribe-status], [data-subscribe-status]");
+      var submit = form.querySelector('button[type="submit"]');
+      var submitLabel = submit ? submit.textContent : "Subscribe";
+      var isSaving = false;
+
+      function editableEmailField() {
+        var emailField = form.elements.email || form.querySelector('input[type="email"], input[name="email"]');
+        if (!emailField) {
+          return null;
+        }
+
+        if (emailField.tagName === "INPUT") {
+          emailField.type = "email";
+        }
+        emailField.readOnly = false;
+        emailField.removeAttribute("readonly");
+        emailField.removeAttribute("aria-readonly");
+        emailField.removeAttribute("disabled");
+        emailField.disabled = false;
+        return emailField;
       }
-      status.textContent = message;
-      status.classList.toggle("is-error", state === "error");
-      status.classList.toggle("is-success", state === "success");
-    }
 
-    function selectedTopics() {
-      return Array.prototype.slice.call(form.querySelectorAll('input[name="topics"]:checked'))
-        .map(function (input) {
-          return input.value;
-        })
-        .filter(function (value) {
-          return allowedTopics.indexOf(value) !== -1;
-        });
-    }
+      function setStatus(message, state) {
+        if (!status) {
+          return;
+        }
+        status.textContent = message;
+        status.classList.toggle("is-error", state === "error");
+        status.classList.toggle("is-success", state === "success");
+      }
 
-    function normalizedEmail() {
-      var emailField = form.elements.email;
-      return emailField ? emailField.value.trim().toLowerCase() : "";
-    }
+      function selectedTopics() {
+        return Array.prototype.slice.call(form.querySelectorAll('input[name="topics"]:checked'))
+          .map(function (input) {
+            return input.value;
+          })
+          .filter(function (value) {
+            return allowedTopics.indexOf(value) !== -1;
+          });
+      }
 
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
+      function normalizedEmail() {
+        var emailField = editableEmailField();
+        return emailField ? emailField.value.trim().toLowerCase() : "";
+      }
 
-    function setFormEnabled(enabled) {
-      Array.prototype.slice.call(form.elements).forEach(function (element) {
-        element.disabled = !enabled;
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function setSaving(saving) {
+        isSaving = saving;
+        if (submit) {
+          submit.disabled = saving;
+          submit.textContent = saving ? "Saving..." : submitLabel;
+        }
+        editableEmailField();
+      }
+
+      editableEmailField();
+
+      form.addEventListener("input", function () {
+        setStatus("", "");
       });
-      if (submit) {
-        submit.textContent = enabled ? "Subscribe" : "Saving...";
-      }
-    }
 
-    form.addEventListener("input", function () {
-      setStatus("", "");
-    });
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+        if (isSaving) {
+          return;
+        }
 
-      var honeypot = form.elements.website;
-      if (honeypot && honeypot.value.trim()) {
-        form.reset();
-        setStatus("Thanks - your subscription was saved.", "success");
-        return;
-      }
-
-      var email = normalizedEmail();
-      var topics = selectedTopics();
-
-      if (!isValidEmail(email)) {
-        setStatus("Please enter a valid email address.", "error");
-        return;
-      }
-
-      if (!topics.length) {
-        setStatus("Please choose at least one topic.", "error");
-        return;
-      }
-
-      if (!window.SiteSupabase || !window.SiteSupabase.getClient) {
-        setStatus("Subscription service is temporarily unavailable. Please try again later.", "error");
-        return;
-      }
-
-      var client;
-      try {
-        client = window.SiteSupabase.getClient();
-      } catch (error) {
-        console.error("News subscription: Supabase initialization failed", error);
-        setStatus("Subscription service is temporarily unavailable. Please try again later.", "error");
-        return;
-      }
-
-      setStatus("Saving...", "");
-      setFormEnabled(false);
-
-      withTimeout(
-        client.rpc("submit_news_subscription", {
-          subscriber_email: email,
-          selected_topics: topics
-        }),
-        12000,
-        "Supabase subscription request timed out"
-      )
-        .then(function (result) {
-          if (result.error) {
-            throw result.error;
-          }
-
+        var honeypot = form.elements.website;
+        if (honeypot && honeypot.value.trim()) {
           form.reset();
+          editableEmailField();
           setStatus("Thanks - your subscription was saved.", "success");
-        })
-        .catch(function (error) {
-          console.error("News subscription: submit failed", error);
-          setStatus(
-            "Sorry, the subscription could not be saved" + (error && error.message ? ": " + error.message : ". Please try again later."),
-            "error"
-          );
-        })
-        .finally(function () {
-          setFormEnabled(true);
-        });
+          return;
+        }
+
+        var email = normalizedEmail();
+        var topics = selectedTopics();
+
+        if (!isValidEmail(email)) {
+          setStatus("Please enter a valid email address.", "error");
+          return;
+        }
+
+        if (!topics.length) {
+          setStatus("Please choose at least one topic.", "error");
+          return;
+        }
+
+        if (!window.SiteSupabase || !window.SiteSupabase.getClient) {
+          setStatus("Subscription service is temporarily unavailable. Please try again later.", "error");
+          return;
+        }
+
+        var client;
+        try {
+          client = window.SiteSupabase.getClient();
+        } catch (error) {
+          console.error("News subscription: Supabase initialization failed", error);
+          setStatus("Subscription service is temporarily unavailable. Please try again later.", "error");
+          return;
+        }
+
+        setStatus("Saving...", "");
+        setSaving(true);
+
+        withTimeout(
+          client.rpc("submit_news_subscription", {
+            subscriber_email: email,
+            selected_topics: topics
+          }),
+          12000,
+          "Supabase subscription request timed out"
+        )
+          .then(function (result) {
+            if (result.error) {
+              throw result.error;
+            }
+
+            form.reset();
+            editableEmailField();
+            setStatus("Thanks - your subscription was saved.", "success");
+          })
+          .catch(function (error) {
+            console.error("News subscription: submit failed", error);
+            setStatus(
+              "Sorry, the subscription could not be saved" + (error && error.message ? ": " + error.message : ". Please try again later."),
+              "error"
+            );
+          })
+          .finally(function () {
+            setSaving(false);
+          });
+      });
     });
   }
 
