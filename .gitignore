@@ -9,3 +9,8 @@ secret/
 .env.local
 *.env
 .DS_Store
+.pnpm-store/
+
+# WellCanvas source copy remains local; publish only the static export.
+wellcanvas-source/
+WellCanvas/**/*.DS_Store

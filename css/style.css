@@ -488,11 +488,18 @@ p {
 }
 
 .secondary-chapter-grid {
-  max-width: 820px;
+  max-width: 1120px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .feature-card-secondary img {
   aspect-ratio: 16 / 8.5;
+}
+
+.feature-card-secondary img.feature-card-logo {
+  object-fit: contain;
+  padding: 0.95rem;
+  background: rgba(255, 250, 242, 0.78);
 }
 
 .feature-card-secondary .feature-card-body {
@@ -3232,5 +3239,312 @@ figcaption {
   .video-figure video,
   .editorial-video {
     border-radius: 10px;
+  }
+}
+
+.wellcanvas-hero {
+  padding-bottom: 1.8rem;
+}
+
+.wellcanvas-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.55rem 0 0.4rem;
+}
+
+.wellcanvas-title-row h1 {
+  margin: 0;
+}
+
+.wellcanvas-mark {
+  flex: 0 0 auto;
+  width: 4.75rem;
+  height: 4.75rem;
+  margin: 0;
+  border: 1px solid rgba(217, 207, 193, 0.86);
+  border-radius: 18px;
+  background: rgba(255, 250, 242, 0.72);
+  padding: 0.4rem;
+}
+
+.wellcanvas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.wellcanvas-open-button {
+  border-color: rgba(125, 63, 42, 0.34);
+  background: rgba(255, 250, 242, 0.92);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.wellcanvas-download-button {
+  color: var(--text);
+}
+
+.wellcanvas-action-note {
+  max-width: 42rem;
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.small-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.wellcanvas-screenshot-viewer {
+  outline: none;
+}
+
+.wellcanvas-screenshot-frame {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.58);
+}
+
+.wellcanvas-screenshot-frame img {
+  width: 100%;
+  max-height: min(68vh, 760px);
+  object-fit: contain;
+  background: rgba(247, 242, 234, 0.42);
+  border-bottom: 1px solid rgba(217, 207, 193, 0.75);
+}
+
+.wellcanvas-screenshot-frame figcaption {
+  margin: 0;
+  padding: 0.8rem 0.95rem 0.9rem;
+}
+
+.wellcanvas-screenshot-frame h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.12rem;
+}
+
+.wellcanvas-screenshot-frame p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.wellcanvas-screenshot-controls {
+  display: grid;
+  grid-template-columns: 2.4rem auto 2.4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.wellcanvas-screenshot-controls button {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.78);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.wellcanvas-screenshot-controls button:hover,
+.wellcanvas-screenshot-controls button:focus-visible {
+  border-color: rgba(125, 63, 42, 0.42);
+  background: rgba(255, 250, 242, 0.96);
+}
+
+.wellcanvas-feature-list {
+  columns: 2;
+  column-gap: 2.2rem;
+  margin: 0.8rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.wellcanvas-feature-list li {
+  break-inside: avoid;
+  margin-bottom: 0.35rem;
+}
+
+.wellcanvas-install-tabs {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.wellcanvas-tab-list {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: thin;
+}
+
+.wellcanvas-tab {
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.62);
+  color: var(--muted);
+  padding: 0.45rem 0.75rem;
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.wellcanvas-tab:hover,
+.wellcanvas-tab:focus-visible,
+.wellcanvas-tab.is-active {
+  border-color: rgba(125, 63, 42, 0.42);
+  background: rgba(255, 250, 242, 0.95);
+  color: var(--accent);
+}
+
+.wellcanvas-tab.is-active {
+  font-weight: 700;
+}
+
+.wellcanvas-install-panel {
+  padding: 1rem 1.1rem;
+}
+
+.wellcanvas-install-panel[hidden] {
+  display: none;
+}
+
+.wellcanvas-install-panel ol,
+.wellcanvas-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.wellcanvas-install-panel li,
+.wellcanvas-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.wellcanvas-food-pack-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.wellcanvas-food-pack-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.58);
+  padding: 1rem;
+}
+
+.wellcanvas-food-pack-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 1px solid rgba(217, 207, 193, 0.86);
+  border-radius: 14px;
+  background: rgba(247, 242, 234, 0.62);
+  object-fit: contain;
+}
+
+.wellcanvas-food-pack-copy h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.16rem;
+}
+
+.wellcanvas-food-pack-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.wellcanvas-pack-meta {
+  margin-bottom: 0.3rem !important;
+  color: var(--accent) !important;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wellcanvas-pack-download {
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.wellcanvas-pack-note {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.wellcanvas-pack-usage {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.wellcanvas-pack-usage h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.08rem;
+}
+
+.wellcanvas-pack-usage ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.wellcanvas-pack-usage li {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .small-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .wellcanvas-title-row {
+    gap: 0.8rem;
+  }
+
+  .wellcanvas-mark {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 15px;
+  }
+
+  .wellcanvas-feature-list {
+    columns: 1;
+  }
+
+  .wellcanvas-food-pack-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .wellcanvas-food-pack-icon {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 12px;
+  }
+
+  .wellcanvas-pack-download {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 }

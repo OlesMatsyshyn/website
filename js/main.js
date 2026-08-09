@@ -13,6 +13,34 @@
     });
   }
 
+  var creativeMenu = document.querySelector(".nav-dropdown-menu");
+  if (creativeMenu) {
+    var creativeItems = [
+      { href: "public-outreach.html", label: "Public Outreach" },
+      { href: "vyrva.html", label: "Vyrva" },
+      { href: "wellcanvas.html", label: "WellCanvas" }
+    ];
+    var currentItems = Array.prototype.map.call(creativeMenu.querySelectorAll("a"), function (link) {
+      return {
+        href: link.getAttribute("href"),
+        label: link.textContent.trim()
+      };
+    });
+    var needsNavRepair = currentItems.length !== creativeItems.length || creativeItems.some(function (item, index) {
+      return !currentItems[index] || currentItems[index].href !== item.href || currentItems[index].label !== item.label;
+    });
+
+    if (needsNavRepair) {
+      creativeMenu.textContent = "";
+      creativeItems.forEach(function (item) {
+        var link = document.createElement("a");
+        link.href = item.href;
+        link.textContent = item.label;
+        creativeMenu.appendChild(link);
+      });
+    }
+  }
+
   var path = window.location.pathname.split("/").pop() || "index.html";
   var navLinks = document.querySelectorAll(".nav-links a");
   navLinks.forEach(function (link) {
@@ -133,6 +161,120 @@
       updateSpread(0);
     }
   });
+
+  function initWellCanvasScreenshotViewer() {
+    var viewer = document.querySelector("[data-wellcanvas-screenshot-viewer]");
+    if (!viewer) {
+      return;
+    }
+
+    var image = viewer.querySelector("[data-wellcanvas-screenshot-image]");
+    var title = viewer.querySelector("[data-wellcanvas-screenshot-title]");
+    var description = viewer.querySelector("[data-wellcanvas-screenshot-description]");
+    var status = viewer.querySelector("[data-wellcanvas-screenshot-status]");
+    var previous = viewer.querySelector("[data-wellcanvas-screenshot-prev]");
+    var next = viewer.querySelector("[data-wellcanvas-screenshot-next]");
+    var slides = Array.prototype.map.call(viewer.querySelectorAll(".wellcanvas-screenshot-data [data-src]"), function (item) {
+      return {
+        src: item.getAttribute("data-src"),
+        alt: item.getAttribute("data-alt") || "",
+        title: item.getAttribute("data-title") || "",
+        description: item.getAttribute("data-description") || ""
+      };
+    });
+    var index = 0;
+
+    function showSlide(nextIndex) {
+      if (!image || !title || !description || !status || !slides.length) {
+        return;
+      }
+
+      index = (nextIndex + slides.length) % slides.length;
+      image.src = slides[index].src;
+      image.alt = slides[index].alt;
+      title.textContent = slides[index].title;
+      description.textContent = slides[index].description;
+      status.textContent = String(index + 1) + " / " + String(slides.length);
+    }
+
+    if (previous) {
+      previous.addEventListener("click", function () {
+        showSlide(index - 1);
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", function () {
+        showSlide(index + 1);
+      });
+    }
+
+    viewer.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        showSlide(index - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(index + 1);
+      }
+    });
+
+    showSlide(0);
+  }
+
+  function initWellCanvasInstallTabs() {
+    var root = document.querySelector("[data-wellcanvas-install-tabs]");
+    if (!root) {
+      return;
+    }
+
+    var tabs = Array.prototype.slice.call(root.querySelectorAll("[data-install-tab]"));
+    var panels = Array.prototype.slice.call(root.querySelectorAll("[data-install-panel]"));
+
+    function selectTab(selectedId, shouldFocus) {
+      tabs.forEach(function (tab) {
+        var isActive = tab.getAttribute("data-install-tab") === selectedId;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+        if (isActive && shouldFocus) {
+          tab.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-install-panel") !== selectedId;
+      });
+    }
+
+    tabs.forEach(function (tab, tabIndex) {
+      tab.addEventListener("click", function () {
+        selectTab(tab.getAttribute("data-install-tab"), false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        var nextIndex;
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          nextIndex = (tabIndex + 1) % tabs.length;
+          selectTab(tabs[nextIndex].getAttribute("data-install-tab"), true);
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          nextIndex = (tabIndex - 1 + tabs.length) % tabs.length;
+          selectTab(tabs[nextIndex].getAttribute("data-install-tab"), true);
+        }
+      });
+    });
+
+    if (tabs.length) {
+      selectTab(tabs[0].getAttribute("data-install-tab"), false);
+    }
+  }
 
   function initVyrvaCharacterShowcase() {
     var showcase = document.querySelector("[data-vyrva-character-showcase]");
@@ -814,6 +956,8 @@
   function initPageInteractions() {
     initNewsPagination();
     initNewsSubscription();
+    initWellCanvasScreenshotViewer();
+    initWellCanvasInstallTabs();
     initVyrvaCharacterShowcase();
   }
 
