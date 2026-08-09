@@ -1,7 +1,7 @@
 1:"$Sreact.fragment"
 2:I[76273,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js"],""]
 9:I[5651,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js"],"default",1]
-:HL["/website/WellCanvas/_next/static/chunks/0squ-q4_pirb_.css","style"]
+:HL["/website/WellCanvas/_next/static/chunks/31uo8xjh3h6rq.css","style"]
 3:Tcc9,
 try {
   var basePath = "/website/WellCanvas";
@@ -56,7 +56,7 @@ try {
   root.style.setProperty("--background-dim-opacity", String(Math.min(Math.max(Number(stored.backgroundDimPercent || 40), 0), 80) / 100));
   root.dataset.panel = stored.panelTransparency || "solid";
 } catch {}
-0:{"P":null,"c":["","about",""],"q":"","i":false,"f":[[["",{"children":["about",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/website/WellCanvas/_next/static/chunks/0squ-q4_pirb_.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","$L2",null,{"dangerouslySetInnerHTML":{"__html":"$3"},"id":"wellcanvas-theme-init","strategy":"beforeInteractive"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"-OPLjbwK12iELIHFs96ou"}
+0:{"P":null,"c":["","about",""],"q":"","i":false,"f":[[["",{"children":["about",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/website/WellCanvas/_next/static/chunks/31uo8xjh3h6rq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"h-full antialiased","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","$L2",null,{"dangerouslySetInnerHTML":{"__html":"$3"},"id":"wellcanvas-theme-init","strategy":"beforeInteractive"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"Wt9jSeOO0VzZSuyJLIbPf"}
 b:I[63141,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js"],"AppShell"]
 c:I[98311,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js"],"default"]
 d:I[58298,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js","/website/WellCanvas/_next/static/chunks/1lu4-0lefzk5_.js"],"default"]
@@ -72,7 +72,7 @@ f:I[65967,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/
 17:[]
 7:"$W17"
 8:["$","$1","h",{"children":[null,["$","$L18",null,{"children":"$L19"}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":"$L1c"}]}]}],null]}]
-a:["$","link","0",{"rel":"stylesheet","href":"/website/WellCanvas/_next/static/chunks/0squ-q4_pirb_.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+a:["$","link","0",{"rel":"stylesheet","href":"/website/WellCanvas/_next/static/chunks/31uo8xjh3h6rq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
 1d:I[22702,["/website/WellCanvas/_next/static/chunks/1_63fvgi9t6dm.js","/website/WellCanvas/_next/static/chunks/41r3h4hmvquiu.js"],"OutletBoundary"]
 11:["$","h2",null,{"className":"text-base font-semibold text-stone-950","children":"Open source"}]
 12:["$","p",null,{"className":"mt-2 leading-7 text-stone-600","children":"WellCanvas is released under the MIT License."}]
