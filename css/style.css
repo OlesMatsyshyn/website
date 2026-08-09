@@ -3435,6 +3435,44 @@ figcaption {
   margin-bottom: 0.35rem;
 }
 
+.install-address-hint {
+  display: inline-grid;
+  grid-template-columns: minmax(5rem, 8rem) auto;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.1rem;
+  vertical-align: middle;
+}
+
+.install-address-track {
+  display: block;
+  height: 0.82rem;
+  border: 1px solid rgba(217, 207, 193, 0.95);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(247, 242, 234, 0.68), rgba(255, 250, 242, 0.96));
+}
+
+.install-address-icon {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.8rem;
+  min-height: 1.45rem;
+  border: 1px solid rgba(125, 63, 42, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 250, 242, 0.74);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.install-note {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
 .wellcanvas-food-pack-list {
   display: grid;
   gap: 0.85rem;
