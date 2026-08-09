@@ -1,2 +1,2 @@
-:HL["/website/WellCanvas/_next/static/chunks/1vmgo90kl6jis.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"measurements","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"cs6yvLHeJbu8V-84mUfz8"}
+:HL["/website/WellCanvas/_next/static/chunks/0squ-q4_pirb_.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"measurements","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"-OPLjbwK12iELIHFs96ou"}
