@@ -1,2 +1,2 @@
 :HL["/website/WellCanvas/_next/static/chunks/2ktv3s3e5-ayq.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"y_oWUthGp1e2jTYngkrrJ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"bwueshKxP5X0GrV7F45o0"}
