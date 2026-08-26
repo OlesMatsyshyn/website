@@ -11,6 +11,10 @@ secret/
 .DS_Store
 .pnpm-store/
 
-# WellCanvas source copy remains local; publish only the static export.
-wellcanvas-source/
+# WellCanvas source is tracked; generated/local artifacts stay local.
+wellcanvas-source/node_modules/
+wellcanvas-source/.next/
+wellcanvas-source/out/
+wellcanvas-source/tsconfig.tsbuildinfo
+wellcanvas-source/**/*.DS_Store
 WellCanvas/**/*.DS_Store

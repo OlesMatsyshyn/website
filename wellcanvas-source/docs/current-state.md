@@ -1,0 +1,188 @@
+# Current State
+
+## Implemented
+
+- Clean Next.js App Router project using TypeScript, Tailwind CSS, ESLint, `src/`, and `@/*` imports.
+- Product name is WellCanvas with the tagline "Your health tracker, stored locally and shaped by you."
+- The project is MIT licensed and includes a root `LICENSE` file.
+- `/about` explains local-first storage, no-registration use, optional profile details, customisation, sharing direction, the MIT licence, and the non-medical scope.
+- Mobile-first app shell with compact bottom navigation.
+- Bottom navigation includes Today, Foods, Activity, Measurements, and Settings.
+- The app shell applies shared WellCanvas visual tokens for page gutters, section/card/control radius, section/card padding, grid gaps, section gaps, and bottom-navigation clearance.
+- Main routes use a centred content container with responsive side gutters; backgrounds may extend edge to edge, but content surfaces stay clear of viewport edges and the fixed bottom navigation.
+- Optional local profile in Settings stores display name and profile-photo metadata under `health-tracker-pwa.profile.v1`.
+- Included nature background assets are served from `/backgrounds/nature-01.png` through `/backgrounds/nature-11.png`; the public profile preset uses the neutral WellCanvas app icon.
+- A custom profile image can be uploaded locally; first-run installs do not include a saved user photograph.
+- Uploaded profile images are resized client-side and stored in IndexedDB database `health-tracker-pwa.reference-photos`, object store `photos`; localStorage stores only metadata and IDs.
+- Profile photos store non-destructive crop metadata for horizontal position, vertical position, and zoom so the circular avatar can be repositioned without rewriting the original image.
+- Appearance settings are stored under `health-tracker-pwa.appearance.v1` and preview immediately before saving.
+- Appearance includes Neutral plus Graphite, Ocean, Forest, Amber, and Berry accent themes using CSS custom properties.
+- Appearance includes no background, 11 bundled nature backgrounds, fixed background mode, optional automatic rotation, Light/Medium/Strong dimming, and Solid/Soft/Glass panel modes.
+- Automatic background rotation stores mode, selected background ID, enabled background IDs, interval hours, and a rotation-start timestamp in the existing appearance preferences record. Intervals are 1, 3, 6, 12, or 24 hours.
+- Background rotation is deterministic from `rotationStartTimestamp` and `rotationIntervalHours`, so reloads, laptop sleep, visibility restoration, and focus recovery recompute the expected active image without relying on continuous polling.
+- At least one background must remain enabled in automatic mode. `Change now` advances to the next enabled image in catalogue order and resets the rotation timestamp.
+- The current background and next rotating background are preloaded client-side; no network service or account is involved.
+- Panel styles include Solid, Soft transparency, and Glass, with readability and reduced-transparency fallbacks taking priority.
+- Bottom navigation uses generated PNG icons from `/public/icons`: sun/moon for Today, platter for Foods, activity for Activity, measurement for Measurements, and gear for Settings. The Today icon is chosen in guarded client state so server rendering uses a stable placeholder before hydration.
+- The WellCanvas app icon is stored as `/icons/wellcanvas.png`, with generated 180, 192, and 512 px variants for Apple and PWA metadata.
+- Browser-tab favicons use a separate tightly cropped WellCanvas source under `/icons/wellcanvas-favicon-tight.png` with 16, 32, and 48 px PNG variants plus `src/app/favicon.ico`; the padded PWA icons remain separate. The original icon artwork occupied roughly 55% of its transparent canvas, while the favicon crop occupies roughly 94%.
+- Main routes share a stable `PageHeader` with a reserved avatar slot, title line, local date line, optional subtitle, and optional trailing action. Today uses the same geometry for its greeting and fortune button; Foods, Activity, Measurements, Settings, and About no longer render separate identity/eyebrow header stacks.
+- Today page with current date, one greeting/avatar identity block, compact daily balance bars, a weekly activity overview, modal-based add actions, hydration logging, and real logged-entry totals.
+- Today shows a local-time greeting and includes the optional saved display name when available.
+- Today includes an optional daily fortune-cookie button beside the greeting. A fortune is revealed only after the user opens it, then the same phrase can be reopened for the rest of the local day.
+- The fortune button uses `/icons/cookie.png` before reveal and `/icons/opened-cookie.png` after reveal, keeping the same button dimensions in both states.
+- Daily fortunes are private and local under `health-tracker-pwa.daily-fortune.v1`. The state stores an anonymous browser seed, current local date key, current fortune ID, reveal time, and approximately the last 30 fortune IDs to reduce repetition.
+- The fortune catalogue contains 400 curated local phrases across encouragement, curiosity, focus, creativity, patience, connection, rest, playful, perspective, and small-adventure categories. There are no streaks, notifications, countdowns, or engagement penalties.
+- Today keeps activity planning in weekly context near the top and shows today's activity only inside the compact Activity dashboard column. Activity energy is not added to the food calorie target.
+- Today includes daily hydration tracking. Hydration entries are stored under `health-tracker-pwa.hydration-entries.v1`; preferences are stored under `health-tracker-pwa.hydration-preferences.v1`.
+- Today has a compact dashboard panel with three columns: Ration, Hydration, and Activity, each with its add action integrated into the section header.
+- The Ration column lists today's logged foods and meals, Hydration lists today's drinks plus total/plain-water summary, and Activity lists today's activities plus estimated active energy.
+- Hydration displays total fluids and plain water separately. Tap water, still water, and sparkling water count as plain water; soda and other drinks count toward total fluids only.
+- Sweet soda and other caloric drinks contribute to Today nutrition totals directly from hydration entries. The app does not create a duplicate food-log entry for drinks.
+- Today nutrition and hydration indicators use compact horizontal metric bars. Calories are labelled as a daily reference; protein, fibre, and hydration are daily targets; saturated fat and sodium are labelled as upper limits.
+- Functional local Activity page at `/activity` supports walking, jogging, running, treadmill, cycling, table tennis, tennis, strength training, and other activities.
+- Activity is weekly-first. The page no longer shows a permanent Today summary, large Activity insights panel, or always-visible weekly-plan form; those controls were replaced by a compact weekly overview, recent activity list, quick-log choices, saved workouts, and workout library.
+- On desktop, the Activity overview places Recent activity on the left and the weekly statistics plus graph on the right; mobile stacks the weekly graph before recent history.
+- The Activity page header has one primary `+ Log activity` action, and quick activity choices open the activity editor in a modal/sheet rather than expanding a long form inline.
+- The manual Activity editor has three explicit creation outcomes: `Add today` logs one `ActivityEntry`; `Add today & save` logs one entry and creates one reusable template; `Save` creates or updates a reusable template without logging to Today. Each action has its own processing and confirmed-success label.
+- Activity entries are stored under `health-tracker-pwa.activity-entries.v1`.
+- Activity templates are stored under `health-tracker-pwa.activity-templates.v1` and can be reused for quick logging.
+- Activity templates now support simple or structured saved workouts. Structured workouts contain ordered warm-up, exercise, cardio, rest, cooldown, or note steps, plus estimated duration and source metadata. Older simple templates are read safely when these fields are missing.
+- Activity preferences are stored under `health-tracker-pwa.activity-preferences.v1` for weekly plan minutes, strength days, preferred activities, and insights visibility. The weekly plan is edited from an Activity-page `Edit plan` modal rather than from a permanent form.
+- Activity active-energy estimates use MET values and report estimated active energy rather than calories burned.
+- The activity formula excludes resting energy by using `max(MET - 1, 0) * 3.5 * weightKg / 200 * durationMinutes`.
+- Activity estimates snapshot the weight used at log time, prioritising the latest primary weight reading on or before the activity date, then morning readings, then the recommendation-profile weight, then no estimate.
+- Strength training supports quick and detailed workout modes. Energy estimates depend on duration and intensity, not load multiplied by repetitions.
+- Treadmill and cycling can use device or manual active-energy values while preserving MET inputs for comparison.
+- Weekly activity summaries calculate sessions logged, total minutes, moderate-equivalent minutes, vigorous minutes, strength days, active days, and estimated active energy. The Activity page and Today weekly card both use compact seven-day activity visuals.
+- Calendar preferences are stored under `health-tracker-pwa.calendar-preferences.v1`. The default week starts on Monday, with Sunday available in Settings.
+- Neutral activity insights can show plan progress, recent inactivity, strength-day progress, and protein context after strength training without changing food targets. They appear only on Today, at most one at a time, and can be dismissed for the current local day.
+- The optional Today activity insight renders after client hydration so localStorage-backed activity and preference data cannot create a server/client text mismatch.
+- Saved workouts can be logged through a final confirmation/editor. Structured workout logs store a workout snapshot on the ActivityEntry so later template edits or deletion do not rewrite historical sessions.
+- The workout library provides starter examples such as Beginner full-body strength, Short mobility session, and Simple interval walk. Starter workouts are copied into the user's saved workouts rather than installed automatically or overwriting user-created workouts.
+- Today page reads saved nutrition targets from `localStorage` after hydration and falls back to prototype defaults when no saved targets exist.
+- Functional local Foods page with one unified food library catalogue. It combines saved meals and individual foods in a user-facing grouped view while keeping `FoodItem` and `MealTemplate` separate internally.
+- Foods no longer shows a hydration panel; hydration remains a Today-page daily log.
+- Foods search and primary filters sit above the catalogue. Library tools are moved below the catalogue under `Library tools`.
+- Foods uses separate horizontally scrollable Food and Beverage filter rows. Food filters include All, Home, Restaurants, Fruit, Vegetables, Nuts, Snacks, Ingredients, Other, and Needs review. Beverage filters include All drinks, Water, Coffee / tea, Soft drinks, Juice, Milk / dairy, and Other drinks.
+- Foods groups entries by normalized place or generic category, including Home food, Fruit, Nuts and seeds, Vegetables, Ingredients, Processed snacks, drink groups, Other restaurants, and Other.
+- Reusable drink items stay in the unified library but can declare `logDestination: "hydration"`. Their card action reads `Add drink` and creates a `HydrationEntry` rather than a `FoodLogEntry`, so caloric drinks contribute to Today nutrition totals exactly once through hydration.
+- Foods Library tools include separate `Add food manually` and `Add drink manually` flows. Manual reusable drinks store serving volume, beverage type, calories/carbohydrates/sodium for that volume, status, uncertainty, and notes.
+- Manual food, meal and drink creation begins in a compact progressive-disclosure form. Only Name is required; serving, calories, protein or sugar, more nutrition, optional details, and meal components are optional. New save labels are context-sensitive: `Save food`, `Save meal`, `Save drink`, and matching `and add today` labels.
+- Food, meal and drink records can store an optional personal `userRating` from 1 to 5. Ratings are preference-only, not health or nutrition scores. Rated cards show a compact star indicator; unrated cards show nothing.
+- Food packs can be exported from the Foods Library tools as `wellcanvas-food-pack` ZIP archives. A food pack contains reusable foods, drinks, meals, metadata, nutrition, creator ratings, collection/category data, and required meal component foods; it excludes daily logs, profile details, measurements, activity, hydration history and trackers.
+- Food-pack import validates the manifest first and merges conservatively. Same stable IDs or probable duplicate names keep the local item by default, and imported pack ratings are stored as creator ratings rather than the importing user's personal rating.
+- Individual foods or meals can be hidden from browsing through `health-tracker-pwa.library-visibility.v1`. Hidden records remain in storage, keep historical logs and meal references intact, remain searchable, show a Hidden badge in search results, and can be restored through Undo or Manage hidden items.
+- Seed atomic ingredients such as eggs, bread, oil, sauces, starches, proteins, and drinks are hidden from the default catalogue unless search matches them, the Ingredients filter is selected, or they are personal standalone foods.
+- Foods shows one optional visible starter pack, `WellCanvas starter foods` (`wellcanvas-starter-foods-v1`), containing a small neutral set of generic foods and drinks for first-run exploration.
+- Startup does not silently import a personal catalogue. Starter foods are optional and imported only by explicit user action.
+- Food items include a lightweight `category` such as fruit, vegetable, nuts-seeds, restaurant-meal, processed-snack, protein, grain-starch, drink, meal-component, or other. `category` describes food type; `collectionName` remains the place or personal grouping label.
+- The public starter catalogue intentionally excludes private restaurant or personal food libraries. Those libraries should be distributed separately as optional food packs rather than as default first-run data.
+- Foods and saved meals are grouped by lightweight `collectionName` labels such as Home, Groceries, Restaurants, or custom user-entered groups.
+- Saved meals and individual foods render in a compact responsive grid: three columns on desktop, two on tablet-sized screens, and one on phones.
+- Foods page collection chips combine with search, broad Home/Restaurant/status filters, and the active Saved meals or Individual foods tab.
+- Food items and meal templates are separate concepts: meal templates reference reusable food item components and calculate totals only when all component nutrition is complete.
+- Build a plate composes reusable base, salad, protein, extra, sauce, and preparation components into a normal meal template or food-log meal snapshot.
+- Quick meal estimate records unfamiliar meals with transparent component-based assumptions, uncertainty ranges, and an editable estimated midpoint.
+- Quick snack estimates use category-specific calorie densities, visible gram-based calculations, and seeded generic snack items when available so nutrients can be scaled from a known component.
+- Ice cream, fried snacks, pastries, chocolate, sweets, chips, crackers, and other snacks do not use a single universal calorie-density rule.
+- Optional private fullness notes on quick estimates do not change nutrition calculations.
+- Personal foods can mark photo, exact name, or portion verification as pending for later refinement through the manual AI bridge.
+- Food and meal details open in modal dialogs. Edit actions open one full-width responsive editor modal/sheet instead of expanding an editor inside the catalogue grid.
+- Food details include manual nutrition correction. Corrections update the current library item for future logs while preserving historical food-log snapshots.
+- Food and meal details include a "Doesn't look right?" review workflow with manual correction, AI prompt preparation, and a review-later state.
+- Optional reference photos for review are compressed client-side and stored privately in IndexedDB database `health-tracker-pwa.reference-photos`, object store `photos`; localStorage keeps only photo metadata.
+- AI prompts explicitly state when a reference photo exists and that the photo must be attached manually in an external ChatGPT conversation.
+- Public starter foods are generic examples; exact restaurant or local-food libraries belong in optional imported food packs.
+- Existing saved food-library entries remain compatible when `collectionName` is absent. Imported seed foods and meals receive a collection only when they are seed items and the current collection is empty.
+- Food-library storage uses `health-tracker-pwa.food-items.v1`, `health-tracker-pwa.meal-templates.v1`, and `health-tracker-pwa.seed-packs.v1`.
+- Missing nutrition is distinct from zero, and foods can be marked official, estimated, user-confirmed, or missing.
+- Estimated food and meal calories are displayed with an approximation symbol, and meal totals remain derived from component foods.
+- Small factual nutrition-signal badges can show protein-rich, fibre source, higher sodium, higher saturated fat, estimated, or official. No score or healthy/unhealthy classification is used.
+- AI refinement is a structured manual copy/paste bridge; pasted JSON is validated and item updates require approval before saving.
+- Foods also includes a manual `Add from AI` import tool for new personal foods and optional meals. It copies a structured prompt, accepts pasted JSON, validates each record, detects likely duplicates, and imports only explicitly approved entries.
+- AI-imported entries are personal records (`isSeedItem: false`). Photos are never copied automatically; the prompt tells the user to attach photos manually in the external ChatGPT conversation.
+- The duplicate-copy review tool detects likely accidental `Copy` clones and offers Keep, Rename, or Delete copy. It never deletes duplicates automatically.
+- Approved AI estimates clear review-later metadata and mark associated reference photo metadata as reviewed.
+- Functional food logging stores eaten foods and meals in `health-tracker-pwa.food-log-entries.v1`.
+- Food-library cards use one-click `Add today` logging for meals and individual foods. The button shows `Adding…`, then `✓ Added`, only after a `FoodLogEntry` has been persisted.
+- Saved meals log one template serving immediately using the template meal type. Individual foods log one default serving immediately using the local-time meal-type inference.
+- Precise food logging remains available through overflow actions such as Add with options and Add by grams when a serving weight is known.
+- Food-log writes now emit the same-tab application event `health-tracker:food-log-changed`, so Today refreshes after add, update, delete, and undo actions even though the browser `storage` event only fires across tabs.
+- Custom foods can be saved to the library, saved and logged immediately, or logged once without saving.
+- Today nutrition totals now derive from logged entries instead of mock consumed values.
+- Food log entries store nutrition snapshots so later library edits do not silently rewrite historical logs.
+- Removing a food log entry does not remove its reusable food or meal template.
+- Today has a compact dashboard after the overview with three sections: Ration, Hydration, and Activity. Add actions are integrated into those section headers, and detailed edit/remove controls live in drill-down dialogs rather than every default row.
+- Ration and hydration dashboard rows aggregate matching entries, show only the name, compact value, and an information control, and move timestamps, serving labels, edit, and remove controls into detail modals.
+- Today now shows a weekly Activity summary near the top instead of prominent daily-only Activity and active-energy boxes. The summary uses the selected local week start, existing activity entries, active days, total minutes, moderate-equivalent minutes, strength days, sessions logged, and estimated active energy.
+- Weekly Activity does not change food or nutrition targets and does not treat rest days as failures.
+- A client-side local-calendar watcher refreshes day-scoped state after local midnight, on focus, when the tab becomes visible, and on `pageshow`. It dispatches `health-tracker:local-day-changed`; Today reloads food, hydration, activity, tracker, and weekly summary state without deleting or rewriting old records.
+- SSR-visible date labels use an explicit `en-SG` display locale so server and client render the same local date text during hydration.
+- Generic personal trackers are stored under `health-tracker-pwa.custom-trackers.v1` with entries under `health-tracker-pwa.custom-tracker-entries.v1`.
+- Custom trackers support goal, upper-limit, and log-only semantics; daily, weekly, or monthly periods; and sum, average, latest, or count aggregation.
+- Template choices are available for walking/steps, sleep, weekly workouts, caffeine limit, cigarette reduction, alcohol reduction, and a blank custom tracker. Cigarette and alcohol templates are not installed automatically and are worded as limit, reduction, or abstinence tracking only.
+- Today places pinned personal trackers directly below the weekly Activity summary in the right overview column. Tracker rows are dense manual-tracking rows with period/target/cap metadata, current value, quick-add, an information button, compact indicators, detail dialogs, and neutral wording.
+- On desktop, the pinned tracker list is bounded to approximately three visible rows with a tracker-only scroll region when more are pinned. On mobile, Today shows up to three tracker rows plus a View all action.
+- Goal trackers fill toward editable targets. Upper-limit trackers show recorded and remaining amounts rather than completion. Log-only trackers display the selected aggregation without a misleading progress bar.
+- Tracker rows use a generic `+` action. Pressing it opens a compact entry dialog with an editable amount/value, date, time, and note; the stored quick increment remains only the suggested default. Saving writes a dated local entry, shows row-level `✓ Added`, updates immediately, and offers Undo through the shared toast.
+- Tracker entries are permanent atomic records with `occurredAt`, `createdAt`, and `updatedAt` timestamps. Older records that only contain local `date` and `time` are normalized on read, using the recorded local date/time as `occurredAt`; storage keys and tracker IDs remain unchanged.
+- Tracker period summaries are derived from raw entries instead of stored as redundant totals. Daily summaries use the local day, weekly summaries use the configured WellCanvas week start, and monthly summaries use the full local calendar month, so monthly entries do not disappear on the next day.
+- Tracker detail modals show the current period entries, clickable previous periods, editable/removable entries in any period, compact `+ Add entry` for past dates, and CSV export for the selected period or full tracker history.
+- Personal trackers are managed from the Today tracker creation/details flow rather than from Settings. Deleting a tracker does not delete manual entries unless the user explicitly chooses that action.
+- The Today tracker details action is labelled `Edit / Delete`, and the tracker-management modal exposes `Save changes` plus destructive delete actions with confirmation text describing whether entries are removed.
+- Customize Today controls presentation only. Nutrition controls Daily balance plus the Ration and Hydration lower sections; Activity controls Activity this week plus the lower Activity section; Personal trackers controls the pinned tracker dashboard block. Food, hydration, activity, and tracker records remain stored and available on their dedicated pages.
+- Functional local Measurements page at `/weight` with generic measurement variables persisted under `health-tracker-pwa.measurement-variables.v1` and readings under `health-tracker-pwa.measurement-readings.v1`.
+- Existing weight slots and v2 readings migrate once into generic measurements with marker, colour, primary, active/archive state, dates, times, values, and notes preserved. The migrated Morning weight variable is displayed simply as `Weight` while keeping its stable migrated ID and readings. The migration marker is `health-tracker-pwa.measurements-migration.v1`.
+- Legacy weight keys remain untouched: `health-tracker-pwa.weight-entries.v1`, `health-tracker-pwa.weight-measurement-slots.v1`, `health-tracker-pwa.weight-readings.v2`, and the old v2 migration marker.
+- For users without prior weight records or saved slots, Measurements starts with one default `Weight` variable in kg at 08:00.
+- Measurements uses one compact `MeasurementCard`. Enabled variables appear as chips, user-created chips expose a compact remove control, `+ Add measurement` opens a modal, and the selected variable controls the unit, snapshot entry form, summaries, graph, and list.
+- The Measurements variable chip row is constrained to one horizontal, touch-scrollable strip so many variables do not overlap or push into the graph panel. Selecting or creating a variable scrolls its chip into view.
+- The snapshot form is ordered Value, Date, Time, optional note, then `Save snapshot`. Save feedback runs `Save snapshot` to `Saving…` to `✓ Saved` and saving the same variable/date/time updates the existing reading.
+- Measurement variables can represent point measurements such as Weight, Height, Waist, or Hair length. Cumulative behaviours such as steps or alcohol remain Personal trackers.
+- The Measurements graph displays only the currently selected variable, so incompatible units such as kg and cm are never overlaid on one Y-axis. A variable with one reading displays one point; additional readings form a trend.
+- `List` opens readings for the selected variable with a variable switcher. `Manage` opens variable administration for renaming, unit/default-time changes, colour/marker changes, primary selection, archiving/restoring, and deletion. The compact summaries sit above the graph beside the Trend/Averages control rather than beneath the entry form.
+- Archived variables disappear from the normal chip row while preserving readings and remaining restorable in Manage. Deleting a variable with readings offers Archive or an explicit destructive delete; deleting an empty user-created variable removes only that configuration. If removing the final active custom variable would leave no active measurement, the default Weight variable is restored or created.
+- The shared `MeasurementCard` presentation component is measurement-agnostic and can support other manually entered point measurements without moving them into CustomTracker.
+- Settings contains only global preference cards: Profile, Daily targets, Appearance and calendar, and About WellCanvas. Measurements are managed on `/weight`, and Personal trackers are managed through their Today creation/details flow.
+- Settings also includes a compact Data portability section. `Export my WellCanvas` creates a private `wellcanvas-backup` ZIP of WellCanvas localStorage keys; `Import WellCanvas backup` validates the archive, previews counts, and requires explicit confirmation before replacing current local WellCanvas state.
+- Functional local Settings page has a unified Daily targets card for nutrition and hydration. `Set my own` opens one dense editor for calories, protein, fibre, hydration, saturated fat limit, and sodium limit.
+- `Use recommended` opens the recommendation-profile workflow, then shows one preview with calories, protein, fibre, hydration, saturated fat limit, and sodium limit. `Use these targets` saves the preview; `Adjust manually` copies the proposed values into the manual editor without saving.
+- Manual and recommended Daily targets editors are mutually exclusive, include Cancel/close behaviour, and saving dispatches same-tab target/hydration events so Today updates without a browser refresh.
+- Recommended nutrition targets use adult-only maintenance calorie estimates and broad activity categories. Hydration remains a saved numerical target read from the legacy hydration preferences key; obsolete hydration target-mode controls are hidden.
+- Transient action confirmations use a global fixed overlay toast. Toasts are top-centred, safe-area aware, semi-transparent, do not participate in page layout, and therefore do not move dashboards or cards when they appear.
+- Shared page-header text and subtitles use a lightweight translucent/blurred floating treatment so text remains readable over all bundled nature backgrounds without adding heavy boxes around page content.
+- Toasts support success, information, warning, and error messages with icons plus text. Undo appears only when the inverse action is actually implemented, such as undoing a new log entry, a hidden library item, or a newly created reusable library item.
+- Action buttons use consistent progress and confirmed-success labels such as `Adding…` to `✓ Added`, `Saving…` to `✓ Saved`, and `Copying…` to `✓ Copied`. Inline validation remains inside forms for missing required fields, invalid numbers, or malformed import JSON.
+- Nutrition targets are persisted under `health-tracker-pwa.nutrition-targets.v1`.
+- Recommendation form values are persisted under `health-tracker-pwa.recommendation-profile.v1`.
+- Settings defaults to four compact cards: Profile, Daily targets, Appearance and calendar, and About WellCanvas. Detailed controls open through progressive disclosure, with one main editor intended to be open at a time.
+- Profile editing uses one aligned 2 x 2 photo-control grid plus pointer drag, zoom, horizontal-position, and vertical-position sliders. Sliders and pointer dragging update the same draft crop state.
+- Profile crop rendering uses one shared image-overflow calculation for the editor preview, Today avatar, Settings summary avatar, and app identity avatar. The calculation reads natural image size and viewport size, applies zoom relative to the minimum cover scale, and maps position sliders across the actual available overflow. Profile fields and crop metadata are saved through one "Save profile" workflow.
+- Settings includes a compact About WellCanvas card linking to `/about`. The About route is a single cohesive article panel with in-page licence and documentation anchors rather than separate cards for every paragraph.
+- The Today Add food modal shows Recent first only when the search query is empty. When a query is active, weighted Search results appear immediately below the search input.
+- Add food search normalizes punctuation, apostrophes, whitespace, and diacritics for matching while preserving visible item names. Name matches outrank collection, brand, serving, description, source, assumptions, and component fallback matches.
+- Buttons use a normalized shared style system with accent add actions, dark save actions, neutral secondary/tertiary actions, and red destructive actions.
+- Major dashboard surfaces, Food-library groups, Activity sections, the Measurements card, Settings cards, the About article, modals, and overflow menus use the shared radius and padding system. Food-library group headers and grids have internal padding so cards do not touch group boundaries.
+- Modal and menu surfaces use viewport-safe maximum widths and rounded corners without relying on parent-section overflow clipping, so dropdowns and focus rings remain visible.
+- Local generated UI icons are rendered through one small `WellCanvasIcon` wrapper around a plain HTML `img`. The component does not use Next image optimisation, fallback background circles, or image-load state, so icon loading cannot trigger rerender loops or mask failed assets with empty coloured placeholders.
+- The app-shell profile area waits until client profile data has loaded before choosing between the saved/preset profile avatar and the WellCanvas fallback icon. A transparent same-size placeholder is used during hydration to avoid briefly replacing a valid profile photo.
+- Today now groups its main content into two large painted plaques: one overview plaque for Daily balance plus weekly Activity/Personal trackers, and one log plaque for Ration, Hydration, Activity, and the optional Activity insight. Internal dividers and subtle internal panels keep meaning clear without turning every subsection into a separate floating card.
+- The Food library catalogue uses one large rounded catalogue plaque containing all visible restaurant/category groups. Each group is an internal transparent subsection with a subtle rounded header plaque, separators between groups, and a padded card grid.
+- Food and meal Edit actions open a full modal/sheet rather than inserting editors into the catalogue grid. Details stay modal-based and use an explicit Edit action to open the same editor.
+- Food editing covers identity, category/type, collection/location, brand, serving mass/volume, drink destination, beverage type, nutrition fields, status/provenance, uncertainty, notes/assumptions, and review flags. Meal editing covers components, component amounts, reorder/remove controls, calculated-total preview, and manual nutrition overrides.
+- Editing reusable foods or meals updates future library use only; existing food-log snapshots remain unchanged.
+- `wellcanvas.png` remains the padded source for PWA icons, while `wellcanvas-ui.png` is a cropped, transparent UI copy used only for in-app branding where the original icon's transparent margins made the artwork appear too small.
+- Basic web app manifest metadata.
+- Action colours distinguish intent: the selected accent is used for add/log actions and selected navigation/tabs/chips, dark filled buttons for save actions, neutral outlines/text for secondary and tertiary actions, and red reserved for destructive actions and errors.
+
+## Not Implemented
+
+- Server-side persistence
+- Authentication
+- Supabase
+- OpenAI features
+- Camera/photo analysis or automatic image upload
+- Barcode scanning
+- PWA service worker or offline cache
+- Calorie deficits, target weight, weight-loss speed, or exercise calorie replacement
