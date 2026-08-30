@@ -191,6 +191,11 @@ function currentLocalDateLabel() {
   }).format(new Date());
 }
 
+function currentGreetingDayPart() {
+  const hour = new Date().getHours();
+  return hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
+}
+
 function formatNumber(value: number | null | undefined, maximumFractionDigits = 1) {
   return typeof value === "number" && Number.isFinite(value)
     ? value.toLocaleString(undefined, { maximumFractionDigits })
@@ -223,6 +228,7 @@ export default function TodayPage() {
   const [isHydrated, setIsHydrated] = useState(false);
   const [currentDate, setCurrentDate] = useState("Today");
   const [todayKey, setTodayKey] = useState(localDateKey());
+  const [greetingDayPart, setGreetingDayPart] = useState("morning");
   const [targets, setTargets] = useState<NutritionTargets>(DEFAULT_NUTRITION_TARGETS);
   const [displayName, setDisplayName] = useState("");
   const [profile, setProfile] = useState<UserProfile>(DEFAULT_PROFILE);
@@ -289,6 +295,7 @@ export default function TodayPage() {
     syncDailyFortuneDate(date);
     setTodayKey(date);
     setCurrentDate(currentLocalDateLabel());
+    setGreetingDayPart(currentGreetingDayPart());
     setDailyFortune(getRevealedDailyFortune(date));
     setFortuneCopyState("idle");
     setEntries(entriesForDate(date));
@@ -434,12 +441,7 @@ export default function TodayPage() {
       ]),
     [foods, meals],
   );
-  const greeting = (() => {
-    const hour = new Date().getHours();
-    const dayPart =
-      hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
-    return `Good ${dayPart}${displayName ? `, ${displayName}` : ""}`;
-  })();
+  const greeting = `Good ${greetingDayPart}${displayName ? `, ${displayName}` : ""}`;
   const activityMinutes = Math.round(sumActiveMinutes(activityEntries));
   const activityEnergy = sumEstimatedActiveCalories(activityEntries);
   const weeklyActivity = useMemo(
