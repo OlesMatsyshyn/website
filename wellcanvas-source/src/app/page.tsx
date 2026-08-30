@@ -903,9 +903,9 @@ export default function TodayPage() {
         profileReady={isHydrated}
         title={greeting}
         trailingAction={
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <div className="today-header-actions">
             <button
-              className="btn btn-secondary-outline min-h-10 px-3 text-xs"
+              className="today-customize-button btn btn-secondary-outline min-h-10 px-3 text-xs"
               onClick={openTodayCustomize}
               ref={customizeButtonRef}
               type="button"
@@ -918,7 +918,7 @@ export default function TodayPage() {
                   ? "Read today's fortune again"
                   : "Open today's fortune"
               }
-              className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-full border text-stone-800 shadow-sm transition motion-reduce:transition-none ${
+              className={`today-fortune-button relative grid h-11 w-11 shrink-0 place-items-center rounded-full border text-stone-800 shadow-sm transition motion-reduce:transition-none ${
                 dailyFortune
                   ? "border-[var(--accent)] bg-[var(--accent-soft)]"
                   : "border-stone-300 bg-white hover:border-[var(--accent)]"

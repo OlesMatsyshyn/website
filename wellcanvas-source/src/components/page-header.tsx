@@ -45,6 +45,7 @@ export type PageHeaderProps = {
 
 export function PageHeader({
   date,
+  greetingMode,
   profile,
   profileReady,
   subtitle,
@@ -100,7 +101,7 @@ export function PageHeader({
   }, [date]);
 
   return (
-    <header className="page-header">
+    <header className={`page-header${greetingMode ? " page-header--greeting" : ""}`}>
       <div className="page-header-row">
         <div className="page-header-main">
           <span className="page-header-avatar-slot" aria-hidden={!isProfileReady}>

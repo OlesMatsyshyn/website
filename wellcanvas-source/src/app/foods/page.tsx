@@ -1261,6 +1261,8 @@ export default function FoodsPage() {
     manifest: FoodPackManifest;
     payload: FoodPackPayload;
   } | null>(null);
+  const foodPackImportPreviewRef = useRef<HTMLElement | null>(null);
+  const foodPackImportActionRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -1275,6 +1277,18 @@ export default function FoodsPage() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (toolPanel !== "food-pack-import" || !foodPackImportPreview) return;
+    const frame = window.requestAnimationFrame(() => {
+      foodPackImportPreviewRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      foodPackImportActionRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [foodPackImportPreview, toolPanel]);
 
   useEffect(() => {
     if (loaded) {
@@ -2497,6 +2511,7 @@ export default function FoodsPage() {
                 type="button"
               >
                 <span aria-hidden="true">+</span>
+                <span>Add</span>
               </button>
             </div>
             <div className="library-filter-row flex gap-2 overflow-x-auto pb-1">
@@ -2529,6 +2544,7 @@ export default function FoodsPage() {
                 type="button"
               >
                 <span aria-hidden="true">+</span>
+                <span>Add</span>
               </button>
             </div>
             <div className="library-filter-row flex gap-2 overflow-x-auto pb-1">
@@ -2942,7 +2958,10 @@ export default function FoodsPage() {
         )}
 
         {toolPanel === "food-pack-import" && foodPackImportPreview && (
-          <section className="mt-4 rounded-md border border-stone-200 bg-stone-50 p-3">
+          <section
+            className="mt-4 rounded-md border border-stone-200 bg-stone-50 p-3"
+            ref={foodPackImportPreviewRef}
+          >
             <h3 className="text-sm font-semibold text-stone-950">
               Import “{foodPackImportPreview.manifest.name}”
             </h3>
@@ -2957,7 +2976,12 @@ export default function FoodsPage() {
               local item when IDs or names match.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <button className={primarySaveClasses()} onClick={importFoodPack} type="button">
+              <button
+                className={primarySaveClasses()}
+                onClick={importFoodPack}
+                ref={foodPackImportActionRef}
+                type="button"
+              >
                 Import
               </button>
               <button

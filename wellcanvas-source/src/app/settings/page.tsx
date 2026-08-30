@@ -1495,6 +1495,8 @@ export default function SettingsPage() {
     preview: WellCanvasBackupPreview;
     storage: Record<string, string>;
   } | null>(null);
+  const backupPreviewRef = useRef<HTMLDivElement | null>(null);
+  const backupRestoreButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -1535,6 +1537,18 @@ export default function SettingsPage() {
       setLoaded(true);
     });
   }, []);
+
+  useEffect(() => {
+    if (!backupPreview) return;
+    const frame = window.requestAnimationFrame(() => {
+      backupPreviewRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      backupRestoreButtonRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [backupPreview]);
 
   useEffect(() => {
     if (loaded) {
@@ -2305,7 +2319,10 @@ export default function SettingsPage() {
           </div>
         </div>
         {backupPreview && (
-          <div className="mt-4 rounded-md border border-stone-200 bg-stone-50 p-3">
+          <div
+            className="mt-4 rounded-md border border-stone-200 bg-stone-50 p-3"
+            ref={backupPreviewRef}
+          >
             <h3 className="text-sm font-semibold text-stone-950">
               WellCanvas backup
             </h3>
@@ -2319,7 +2336,12 @@ export default function SettingsPage() {
               <p>Restore mode: replaces current WellCanvas local data</p>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
-              <button className="btn btn-primary-dark" onClick={restoreBackup} type="button">
+              <button
+                className="btn btn-primary-dark"
+                onClick={restoreBackup}
+                ref={backupRestoreButtonRef}
+                type="button"
+              >
                 Restore backup
               </button>
               <button
