@@ -182,6 +182,7 @@ const emptyNutritionDraft: Record<keyof NutritionValues, string> = {
 };
 
 const DISPLAY_LOCALE = "en-SG";
+const INITIAL_TODAY_KEY = "1970-01-01";
 
 function currentLocalDateLabel() {
   return new Intl.DateTimeFormat(DISPLAY_LOCALE, {
@@ -227,7 +228,7 @@ function statusLabel(status: NutritionStatus) {
 export default function TodayPage() {
   const [isHydrated, setIsHydrated] = useState(false);
   const [currentDate, setCurrentDate] = useState("Today");
-  const [todayKey, setTodayKey] = useState(localDateKey());
+  const [todayKey, setTodayKey] = useState(INITIAL_TODAY_KEY);
   const [greetingDayPart, setGreetingDayPart] = useState("morning");
   const [targets, setTargets] = useState<NutritionTargets>(DEFAULT_NUTRITION_TARGETS);
   const [displayName, setDisplayName] = useState("");
