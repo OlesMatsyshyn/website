@@ -442,7 +442,17 @@ export default function TodayPage() {
       ]),
     [foods, meals],
   );
-  const greeting = `Good ${greetingDayPart}${displayName ? `, ${displayName}` : ""}`;
+  const greetingLead = `Good ${greetingDayPart}${displayName ? "," : ""}`;
+  const greeting = displayName ? `${greetingLead} ${displayName}` : `Good ${greetingDayPart}`;
+  const greetingTitle = (
+    <>
+      <span className="page-header-greeting-desktop">{greeting}</span>
+      <span className="page-header-greeting-mobile">
+        <span>{greetingLead}</span>
+        {displayName ? <span>{displayName}</span> : null}
+      </span>
+    </>
+  );
   const activityMinutes = Math.round(sumActiveMinutes(activityEntries));
   const activityEnergy = sumEstimatedActiveCalories(activityEntries);
   const weeklyActivity = useMemo(
@@ -526,11 +536,21 @@ export default function TodayPage() {
   }
 
   function updateTodayModule(
-    module: keyof TodayModulesVisibility,
+    module: keyof Omit<TodayModulesVisibility, "todayNutritionLayout">,
     value: boolean,
   ) {
     setTodayModules((current) => {
       const next = { ...current, [module]: value };
+      saveTodayModulesVisibility(next);
+      return next;
+    });
+  }
+
+  function updateTodayNutritionLayout(
+    value: TodayModulesVisibility["todayNutritionLayout"],
+  ) {
+    setTodayModules((current) => {
+      const next = { ...current, todayNutritionLayout: value };
       saveTodayModulesVisibility(next);
       return next;
     });
@@ -904,7 +924,7 @@ export default function TodayPage() {
         greetingMode
         profile={profile}
         profileReady={isHydrated}
-        title={greeting}
+        title={greetingTitle}
         trailingAction={
           <div className="today-header-actions">
             <button
@@ -978,6 +998,7 @@ export default function TodayPage() {
                 hasEstimated={summed.hasEstimated}
                 hydrationTargetMl={hydrationPreferences.targetMl}
                 incomplete={summed.incomplete}
+                layout={todayModules.todayNutritionLayout}
                 plainHydrationMl={plainHydration}
                 targets={targets}
                 totalHydrationMl={totalHydration}
@@ -1242,6 +1263,7 @@ export default function TodayPage() {
         <CustomizeTodayDialog
           modules={todayModules}
           onChange={updateTodayModule}
+          onNutritionLayoutChange={updateTodayNutritionLayout}
           onClose={closeTodayCustomize}
         />
       )}
@@ -1338,14 +1360,21 @@ function DailyFortuneModal({
 function CustomizeTodayDialog({
   modules,
   onChange,
+  onNutritionLayoutChange,
   onClose,
 }: {
   modules: TodayModulesVisibility;
-  onChange: (module: keyof TodayModulesVisibility, value: boolean) => void;
+  onChange: (
+    module: keyof Omit<TodayModulesVisibility, "todayNutritionLayout">,
+    value: boolean,
+  ) => void;
+  onNutritionLayoutChange: (
+    value: TodayModulesVisibility["todayNutritionLayout"],
+  ) => void;
   onClose: () => void;
 }) {
   const options: Array<{
-    key: keyof TodayModulesVisibility;
+    key: keyof Omit<TodayModulesVisibility, "todayNutritionLayout">;
     label: string;
   }> = [
     { key: "nutrition", label: "Nutrition" },
@@ -1361,18 +1390,53 @@ function CustomizeTodayDialog({
         </p>
         <div className="grid gap-2">
           {options.map((option) => (
-            <label
-              className="flex min-h-12 items-center gap-3 rounded-xl border border-stone-200 bg-stone-50/70 px-3 py-2 text-sm font-semibold text-stone-900"
-              key={option.key}
-            >
-              <input
-                checked={modules[option.key]}
-                className="h-4 w-4 accent-[var(--accent)]"
-                onChange={(event) => onChange(option.key, event.target.checked)}
-                type="checkbox"
-              />
-              {option.label}
-            </label>
+            <div className="grid gap-2" key={option.key}>
+              <label className="flex min-h-12 items-center gap-3 rounded-xl border border-stone-200 bg-stone-50/70 px-3 py-2 text-sm font-semibold text-stone-900">
+                <input
+                  checked={modules[option.key]}
+                  className="h-4 w-4 accent-[var(--accent)]"
+                  onChange={(event) => onChange(option.key, event.target.checked)}
+                  type="checkbox"
+                />
+                {option.label}
+              </label>
+              {option.key === "nutrition" && modules.nutrition && (
+                <fieldset className="ml-7 grid gap-2 rounded-xl border border-stone-200 bg-white/70 p-3">
+                  <legend className="px-1 text-xs font-semibold uppercase tracking-normal text-stone-500">
+                    Layout
+                  </legend>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { label: "One column", value: "one-column" },
+                      { label: "Two columns", value: "two-column" },
+                    ].map((option) => (
+                      <label
+                        className={`flex min-h-10 items-center justify-center rounded-lg border px-3 text-sm font-semibold ${
+                          modules.todayNutritionLayout === option.value
+                            ? "border-[var(--accent)] bg-[var(--accent)] text-white"
+                            : "border-stone-200 bg-white text-stone-700"
+                        }`}
+                        key={option.value}
+                      >
+                        <input
+                          checked={modules.todayNutritionLayout === option.value}
+                          className="sr-only"
+                          name="today-nutrition-layout"
+                          onChange={() =>
+                            onNutritionLayoutChange(
+                              option.value as TodayModulesVisibility["todayNutritionLayout"],
+                            )
+                          }
+                          type="radio"
+                          value={option.value}
+                        />
+                        {option.label}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              )}
+            </div>
           ))}
         </div>
         <div className="flex justify-end">
@@ -1725,6 +1789,7 @@ function DailyBalanceCard({
   hasEstimated,
   hydrationTargetMl,
   incomplete,
+  layout,
   plainHydrationMl,
   targets,
   totalHydrationMl,
@@ -1733,6 +1798,7 @@ function DailyBalanceCard({
   hasEstimated: boolean;
   hydrationTargetMl: number;
   incomplete: Record<keyof LoggedNutrition, boolean>;
+  layout: TodayModulesVisibility["todayNutritionLayout"];
   plainHydrationMl: number;
   targets: NutritionTargets;
   totalHydrationMl: number;
@@ -1762,7 +1828,11 @@ function DailyBalanceCard({
           </div>
         )}
       </div>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+      <div
+        className={`today-nutrition-metrics mt-4 grid gap-3 ${
+          layout === "two-column" ? "today-nutrition-metrics-two" : ""
+        }`}
+      >
         <MetricBar
           isEstimated={hasEstimated}
           isIncomplete={incomplete.caloriesKcal}

@@ -39,7 +39,7 @@ export type PageHeaderProps = {
   profile?: UserProfile;
   profileReady?: boolean;
   subtitle?: string;
-  title: string;
+  title: ReactNode;
   trailingAction?: ReactNode;
 };
 

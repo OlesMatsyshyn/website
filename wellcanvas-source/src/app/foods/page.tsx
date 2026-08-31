@@ -102,6 +102,7 @@ type SecondaryFilter =
   | "official"
   | "estimated"
   | "confirmed";
+type FoodLibraryLayout = "one-column" | "two-column";
 type AddCardState = "idle" | "adding" | "added";
 type ContextualItemType = "food" | "meal" | "drink";
 type FoodDialogMode = "details" | "edit";
@@ -136,6 +137,33 @@ type EmptyCategoryDescriptor = {
   groupName: string;
   title: string;
 };
+
+const FOOD_LIBRARY_LAYOUT_STORAGE_KEY =
+  "health-tracker-pwa.food-library-layout.v1";
+const DEFAULT_FOOD_LIBRARY_LAYOUT: FoodLibraryLayout = "one-column";
+
+function normalizeFoodLibraryLayout(value: unknown): FoodLibraryLayout {
+  return value === "two-column" ? "two-column" : DEFAULT_FOOD_LIBRARY_LAYOUT;
+}
+
+function readFoodLibraryLayout(): FoodLibraryLayout {
+  if (typeof window === "undefined") return DEFAULT_FOOD_LIBRARY_LAYOUT;
+  try {
+    return normalizeFoodLibraryLayout(
+      window.localStorage.getItem(FOOD_LIBRARY_LAYOUT_STORAGE_KEY),
+    );
+  } catch {
+    return DEFAULT_FOOD_LIBRARY_LAYOUT;
+  }
+}
+
+function saveFoodLibraryLayout(value: FoodLibraryLayout) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(
+    FOOD_LIBRARY_LAYOUT_STORAGE_KEY,
+    normalizeFoodLibraryLayout(value),
+  );
+}
 type FoodPackManifest = {
   format: "wellcanvas-food-pack";
   schemaVersion: 1;
@@ -1189,6 +1217,8 @@ export default function FoodsPage() {
   const [beverageFilter, setBeverageFilter] = useState<BeverageFilter>("all-drinks");
   const [secondaryFilter, setSecondaryFilter] = useState<SecondaryFilter>("all");
   const [showSecondaryFilters, setShowSecondaryFilters] = useState(false);
+  const [foodLibraryLayout, setFoodLibraryLayout] =
+    useState<FoodLibraryLayout>(DEFAULT_FOOD_LIBRARY_LAYOUT);
   const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>(
     {},
   );
@@ -1270,6 +1300,7 @@ export default function FoodsPage() {
       setFoods(readFoodItems());
       setMeals(readMealTemplates());
       setHiddenEntityKeys(readLibraryVisibilityPreferences().hiddenEntityKeys);
+      setFoodLibraryLayout(readFoodLibraryLayout());
       setStarterPackInstalled(isStarterFoodLibraryInstalled());
       setLoaded(true);
       if (window.location.search.includes("tool=drink")) {
@@ -1301,6 +1332,12 @@ export default function FoodsPage() {
       saveMealTemplates(meals);
     }
   }, [loaded, meals]);
+
+  useEffect(() => {
+    if (loaded) {
+      saveFoodLibraryLayout(foodLibraryLayout);
+    }
+  }, [foodLibraryLayout, loaded]);
 
   const foodById = useMemo(
     () => new Map(foods.map((food) => [food.id, food])),
@@ -2514,7 +2551,7 @@ export default function FoodsPage() {
                 <span>Add</span>
               </button>
             </div>
-            <div className="library-filter-row flex gap-2 overflow-x-auto pb-1">
+            <div className="library-filter-row flex gap-2 overflow-x-auto pb-3">
               {primaryFilters.map((option) => (
                 <button
                   className={`btn min-h-9 shrink-0 px-3 text-sm ${
@@ -2547,7 +2584,7 @@ export default function FoodsPage() {
                 <span>Add</span>
               </button>
             </div>
-            <div className="library-filter-row flex gap-2 overflow-x-auto pb-1">
+            <div className="library-filter-row flex gap-2 overflow-x-auto pb-3">
               {beverageFilters.map((option) => (
                 <button
                   className={`btn min-h-9 shrink-0 px-3 text-sm ${
@@ -2597,6 +2634,36 @@ export default function FoodsPage() {
             ))}
           </div>
         )}
+        <fieldset className="food-layout-toggle mt-4 flex flex-wrap items-center gap-2">
+          <legend className="mr-1 text-xs font-semibold uppercase tracking-wide text-stone-500">
+            View
+          </legend>
+          {[
+            { label: "1 column", value: "one-column" },
+            { label: "2 columns", value: "two-column" },
+          ].map((option) => (
+            <label
+              className={`flex min-h-9 items-center rounded-md border px-3 text-sm font-semibold ${
+                foodLibraryLayout === option.value
+                  ? "border-[var(--accent)] bg-[var(--accent)] text-white"
+                  : "border-stone-200 bg-white text-stone-700"
+              }`}
+              key={option.value}
+            >
+              <input
+                checked={foodLibraryLayout === option.value}
+                className="sr-only"
+                name="food-library-layout"
+                onChange={() =>
+                  setFoodLibraryLayout(option.value as FoodLibraryLayout)
+                }
+                type="radio"
+                value={option.value}
+              />
+              {option.label}
+            </label>
+          ))}
+        </fieldset>
       </section>
 
       <section className="food-catalogue-plaque wc-section shadow-sm">
@@ -2615,6 +2682,7 @@ export default function FoodsPage() {
             onAddGroup={(collectionName, groupEntries) =>
               setGroupAddContext(createGroupAddContext(collectionName, groupEntries))
             }
+            layout={foodLibraryLayout}
             renderEntry={(entry) =>
               entry.entryType === "meal" ? (
                 <MealCard
@@ -3839,6 +3907,7 @@ function GroupedSections<T extends { id: string; name: string }>({
   emptyMessages,
   groups,
   highlightedEntityKey,
+  layout,
   onAddGroup,
   renderEntry,
   setCollapsedGroups,
@@ -3847,6 +3916,7 @@ function GroupedSections<T extends { id: string; name: string }>({
   emptyMessages?: Record<string, { body: string; title: string }>;
   groups: Array<{ collectionName: string; entries: T[] }>;
   highlightedEntityKey: string | null;
+  layout: FoodLibraryLayout;
   onAddGroup: (collectionName: string, entries: T[]) => void;
   renderEntry: (entry: T) => React.ReactNode;
   setCollapsedGroups: React.Dispatch<
@@ -3907,7 +3977,13 @@ function GroupedSections<T extends { id: string; name: string }>({
                   </p>
                 </div>
               ) : (
-                <div className="food-group-grid grid md:grid-cols-2 lg:grid-cols-3">
+                <div
+                  className={`food-group-grid grid ${
+                    layout === "two-column"
+                      ? "food-group-grid-two"
+                      : "food-group-grid-one"
+                  }`}
+                >
                   {entries.map((entry) => (
                     <div
                       className={`h-full rounded-[var(--wc-card-radius)] transition motion-reduce:transition-none ${

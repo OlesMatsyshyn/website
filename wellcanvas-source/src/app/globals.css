@@ -266,6 +266,10 @@ input {
   text-overflow: ellipsis;
 }
 
+.page-header-greeting-mobile {
+  display: none;
+}
+
 .page-header-date {
   color: #78716c;
   font-size: 0.875rem;
@@ -355,6 +359,11 @@ input {
   padding-inline: 0.125rem;
 }
 
+.food-group-grid-one,
+.food-group-grid-two {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .food-group-grid > * {
   min-width: 0;
 }
@@ -363,6 +372,11 @@ input {
   max-width: 100%;
   min-width: 0;
   overscroll-behavior-x: contain;
+  scrollbar-gutter: stable;
+}
+
+.food-layout-toggle {
+  min-width: 0;
 }
 
 .food-filter-heading {
@@ -430,6 +444,10 @@ input {
 
 .today-balance-panel {
   min-width: 0;
+}
+
+.today-nutrition-metrics {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .today-right-rail {
@@ -501,6 +519,21 @@ input {
     font-size: 1.35rem;
   }
 
+  .page-header--greeting .page-header-title {
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .page-header--greeting .page-header-greeting-desktop {
+    display: none;
+  }
+
+  .page-header--greeting .page-header-greeting-mobile {
+    display: grid;
+    gap: 0.05rem;
+    min-width: 0;
+  }
+
   .page-header--greeting .page-header-row {
     align-items: center;
     display: grid;
@@ -545,6 +578,13 @@ input {
   .food-card-actions > :first-child {
     grid-column: 1 / -1;
     width: 100%;
+  }
+}
+
+@media (min-width: 380px) {
+  .today-nutrition-metrics-two,
+  .food-group-grid-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

@@ -2,6 +2,7 @@ export type TodayModulesVisibility = {
   nutrition: boolean;
   activity: boolean;
   personalTrackers: boolean;
+  todayNutritionLayout: "one-column" | "two-column";
 };
 
 export const TODAY_MODULES_STORAGE_KEY = "health-tracker-pwa.today-modules.v1";
@@ -10,6 +11,7 @@ export const DEFAULT_TODAY_MODULES: TodayModulesVisibility = {
   nutrition: true,
   activity: true,
   personalTrackers: true,
+  todayNutritionLayout: "one-column",
 };
 
 function canUseStorage() {
@@ -18,6 +20,12 @@ function canUseStorage() {
 
 function isBoolean(value: unknown): value is boolean {
   return typeof value === "boolean";
+}
+
+function isTodayNutritionLayout(
+  value: unknown,
+): value is TodayModulesVisibility["todayNutritionLayout"] {
+  return value === "one-column" || value === "two-column";
 }
 
 export function normalizeTodayModules(
@@ -33,6 +41,9 @@ export function normalizeTodayModules(
     personalTrackers: isBoolean(value?.personalTrackers)
       ? value.personalTrackers
       : DEFAULT_TODAY_MODULES.personalTrackers,
+    todayNutritionLayout: isTodayNutritionLayout(value?.todayNutritionLayout)
+      ? value.todayNutritionLayout
+      : DEFAULT_TODAY_MODULES.todayNutritionLayout,
   };
 }
 
