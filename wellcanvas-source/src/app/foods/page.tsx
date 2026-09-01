@@ -1257,6 +1257,8 @@ export default function FoodsPage() {
   const [addingDrink, setAddingDrink] = useState<FoodItem | null>(null);
   const addingFoodMode: "servings" | "grams" = "servings";
   const [addingMeal, setAddingMeal] = useState<MealTemplate | null>(null);
+  const [quickLogEditorReturn, setQuickLogEditorReturn] =
+    useState<EditorEntitySelection>(null);
   const [showNewFood, setShowNewFood] = useState(false);
   const [showNewDrink, setShowNewDrink] = useState(false);
   const [showPlateBuilder, setShowPlateBuilder] = useState(false);
@@ -1646,9 +1648,28 @@ export default function FoodsPage() {
     setMealEditorDirty(false);
   }
 
+  function openFoodEditorFromQuickLog(food: FoodItem) {
+    const kind = isReusableDrink(food) ? "drink" : "food";
+    setQuickLogEditorReturn({ kind, id: food.id });
+    setSelectedEditorEntity({ kind, id: food.id });
+    setDialogMode("edit");
+    setDialogOpen(true);
+    setFoodEditorDirty(false);
+    setMealEditorDirty(false);
+  }
+
   function openMealDetails(meal: MealTemplate) {
     setSelectedEditorEntity({ kind: "meal", id: meal.id });
     setDialogMode("details");
+    setDialogOpen(true);
+    setFoodEditorDirty(false);
+    setMealEditorDirty(false);
+  }
+
+  function openMealEditorFromQuickLog(meal: MealTemplate) {
+    setQuickLogEditorReturn({ kind: "meal", id: meal.id });
+    setSelectedEditorEntity({ kind: "meal", id: meal.id });
+    setDialogMode("edit");
     setDialogOpen(true);
     setFoodEditorDirty(false);
     setMealEditorDirty(false);
@@ -1667,6 +1688,7 @@ export default function FoodsPage() {
     setDialogMode("details");
     setFoodEditorDirty(false);
     setMealEditorDirty(false);
+    setQuickLogEditorReturn(null);
   }
 
   function cancelEditorToDetails() {
@@ -1705,12 +1727,21 @@ export default function FoodsPage() {
   }
 
   function saveFood(food: FoodItem) {
+    const nextFood = { ...food, updatedAt: new Date().toISOString() };
     setFoods((current) =>
-      current.map((item) =>
-        item.id === food.id ? { ...food, updatedAt: new Date().toISOString() } : item,
-      ),
+      current.map((item) => (item.id === food.id ? nextFood : item)),
     );
-    setDialogMode("details");
+    setAddingFood((current) => (current?.id === food.id ? nextFood : current));
+    setAddingDrink((current) => (current?.id === food.id ? nextFood : current));
+    if (quickLogEditorReturn?.id === food.id) {
+      setDialogOpen(false);
+      setSelectedEditorEntity(null);
+      setDialogMode("details");
+      setFoodEditorDirty(false);
+      setQuickLogEditorReturn(null);
+    } else {
+      setDialogMode("details");
+    }
     setLastAddedEntry(null);
     setConfirmation(isReusableDrink(food) ? "Drink updated." : "Food updated.");
   }
@@ -1739,12 +1770,20 @@ export default function FoodsPage() {
   }
 
   function saveMeal(meal: MealTemplate) {
+    const nextMeal = { ...meal, updatedAt: new Date().toISOString() };
     setMeals((current) =>
-      current.map((item) =>
-        item.id === meal.id ? { ...meal, updatedAt: new Date().toISOString() } : item,
-      ),
+      current.map((item) => (item.id === meal.id ? nextMeal : item)),
     );
-    setDialogMode("details");
+    setAddingMeal((current) => (current?.id === meal.id ? nextMeal : current));
+    if (quickLogEditorReturn?.id === meal.id) {
+      setDialogOpen(false);
+      setSelectedEditorEntity(null);
+      setDialogMode("details");
+      setMealEditorDirty(false);
+      setQuickLogEditorReturn(null);
+    } else {
+      setDialogMode("details");
+    }
     setLastAddedEntry(null);
     setConfirmation("Meal updated.");
   }
@@ -3266,6 +3305,7 @@ export default function FoodsPage() {
           initialQuantityMode={addingFoodMode}
           onAdd={(options) => addFoodToLog(addingFood, options)}
           onCancel={() => setAddingFood(null)}
+          onDetailsEdit={() => openFoodEditorFromQuickLog(addingFood)}
         />
       )}
       {addingDrink && (
@@ -3273,14 +3313,17 @@ export default function FoodsPage() {
           food={addingDrink}
           onAdd={(entry) => addDrinkToLog(entry)}
           onCancel={() => setAddingDrink(null)}
+          onDetailsEdit={() => openFoodEditorFromQuickLog(addingDrink)}
           toEntry={createHydrationEntryFromDrinkFood}
         />
       )}
       {addingMeal && (
         <AddMealSheet
+          foods={foods}
           meal={addingMeal}
           onAdd={(options) => addMealToLog(addingMeal, options)}
           onCancel={() => setAddingMeal(null)}
+          onDetailsEdit={() => openMealEditorFromQuickLog(addingMeal)}
         />
       )}
       {groupAddContext && (
@@ -4488,10 +4531,13 @@ function HiddenItemsManager({
 }
 
 function AddMealSheet({
+  foods,
   meal,
   onAdd,
   onCancel,
+  onDetailsEdit,
 }: {
+  foods: FoodItem[];
   meal: MealTemplate;
   onAdd: (options: {
     date: string;
@@ -4500,6 +4546,7 @@ function AddMealSheet({
     time: string;
   }) => void;
   onCancel: () => void;
+  onDetailsEdit: () => void;
 }) {
   const [date, setDate] = useState(localDateKey());
   const [time, setTime] = useState(currentLocalTime());
@@ -4516,11 +4563,25 @@ function AddMealSheet({
 
     onAdd({ date, mealType, quantity: parsedQuantity, time });
   }
+  const parsedQuantity = Number(quantity);
+  const mealNutrition = calculateMealNutrition(meal, foods);
+  const previewCalories =
+    mealNutrition.nutrition?.caloriesKcal !== null &&
+    mealNutrition.nutrition?.caloriesKcal !== undefined &&
+    Number.isFinite(parsedQuantity) &&
+    parsedQuantity > 0
+      ? mealNutrition.nutrition.caloriesKcal * parsedQuantity
+      : null;
 
   return (
     <section className="wc-section wc-section-padded shadow-sm">
       <h2 className="text-lg font-semibold text-stone-950">Add meal with options</h2>
       <p className="mt-1 text-sm text-stone-500">{meal.name}</p>
+      <p className="mt-2 text-sm font-medium text-stone-700">
+        {previewCalories === null
+          ? "Nutrition incomplete"
+          : `${formatCalories(previewCalories, mealNutrition.status)}`}
+      </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <MealTypeSelect value={mealType} onChange={setMealType} />
         <NumberInput
@@ -4534,7 +4595,8 @@ function AddMealSheet({
         <TextInput label="Time" onChange={setTime} type="time" value={time} />
       </div>
       {error && <p className="mt-3 text-sm font-medium text-red-700">{error}</p>}
-      <div className="mt-5 grid grid-cols-2 gap-2">
+      <div className="mt-5 grid gap-2 sm:grid-cols-[1fr_1fr]">
+        <SmallButton onClick={onDetailsEdit}>Details / Edit</SmallButton>
         <SmallButton onClick={onCancel}>Cancel</SmallButton>
         <button className={primaryAddClasses()} onClick={submit} type="button">
           Add meal
@@ -4549,6 +4611,7 @@ function AddFoodSheet({
   initialQuantityMode,
   onAdd,
   onCancel,
+  onDetailsEdit,
 }: {
   food: FoodItem;
   initialQuantityMode: "servings" | "grams";
@@ -4559,6 +4622,7 @@ function AddFoodSheet({
     time: string;
   }) => void;
   onCancel: () => void;
+  onDetailsEdit: () => void;
 }) {
   const [date, setDate] = useState(localDateKey());
   const [time, setTime] = useState(currentLocalTime());
@@ -4582,11 +4646,29 @@ function AddFoodSheet({
 
     onAdd({ date, mealType, quantity: parsedQuantity, time });
   }
+  const parsedAmount = Number(quantity);
+  const previewQuantity =
+    Number.isFinite(parsedAmount) && parsedAmount > 0
+      ? quantityMode === "grams" && food.servingWeightG
+        ? parsedAmount / food.servingWeightG
+        : parsedAmount
+      : null;
+  const previewCalories =
+    food.nutrition?.caloriesKcal !== null &&
+    food.nutrition?.caloriesKcal !== undefined &&
+    previewQuantity !== null
+      ? food.nutrition.caloriesKcal * previewQuantity
+      : null;
 
   return (
     <section className="wc-section wc-section-padded shadow-sm">
       <h2 className="text-lg font-semibold text-stone-950">Add food</h2>
       <p className="mt-1 text-sm text-stone-500">{food.name}</p>
+      <p className="mt-2 text-sm font-medium text-stone-700">
+        {previewCalories === null
+          ? "Nutrition incomplete"
+          : formatCalories(previewCalories, food.nutritionStatus)}
+      </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <MealTypeSelect value={mealType} onChange={setMealType} />
         {food.servingWeightG && (
@@ -4615,7 +4697,8 @@ function AddFoodSheet({
         <TextInput label="Time" onChange={setTime} type="time" value={time} />
       </div>
       {error && <p className="mt-3 text-sm font-medium text-red-700">{error}</p>}
-      <div className="mt-5 grid grid-cols-2 gap-2">
+      <div className="mt-5 grid gap-2 sm:grid-cols-[1fr_1fr]">
+        <SmallButton onClick={onDetailsEdit}>Details / Edit</SmallButton>
         <SmallButton onClick={onCancel}>Cancel</SmallButton>
         <button
           className={primaryAddClasses()}
@@ -4633,11 +4716,13 @@ function AddDrinkSheet({
   food,
   onAdd,
   onCancel,
+  onDetailsEdit,
   toEntry,
 }: {
   food: FoodItem;
   onAdd: (entry: HydrationEntry) => void;
   onCancel: () => void;
+  onDetailsEdit: () => void;
   toEntry: (food: FoodItem, options?: {
     caloriesKcal?: number | null;
     carbohydratesG?: number | null;
@@ -4670,22 +4755,26 @@ function AddDrinkSheet({
   });
   const [error, setError] = useState("");
 
-  function updateScaledNutrition(nextVolume: string) {
-    const parsedVolume = Number(nextVolume);
-    if (!Number.isFinite(parsedVolume) || parsedVolume <= 0) return;
-    const nextEntry = toEntry(food, { volumeMl: parsedVolume });
-    if (!manualNutritionFields.calories) {
-      setCalories(nextEntry.caloriesKcal === null ? "" : String(nextEntry.caloriesKcal));
-    }
-    if (!manualNutritionFields.carbs) {
-      setCarbs(
-        nextEntry.carbohydratesG === null ? "" : String(nextEntry.carbohydratesG),
-      );
-    }
-    if (!manualNutritionFields.sodium) {
-      setSodium(nextEntry.sodiumMg === null ? "" : String(nextEntry.sodiumMg));
-    }
-  }
+  const parsedVolumeForPreview = Number(volumeMl);
+  const scaledEntry =
+    Number.isFinite(parsedVolumeForPreview) && parsedVolumeForPreview > 0
+      ? toEntry(food, { volumeMl: parsedVolumeForPreview })
+      : defaultEntry;
+  const displayedCalories = manualNutritionFields.calories
+    ? calories
+    : scaledEntry.caloriesKcal === null
+      ? ""
+      : String(scaledEntry.caloriesKcal);
+  const displayedCarbs = manualNutritionFields.carbs
+    ? carbs
+    : scaledEntry.carbohydratesG === null
+      ? ""
+      : String(scaledEntry.carbohydratesG);
+  const displayedSodium = manualNutritionFields.sodium
+    ? sodium
+    : scaledEntry.sodiumMg === null
+      ? ""
+      : String(scaledEntry.sodiumMg);
 
   function submit() {
     const parsedVolume = Number(volumeMl);
@@ -4693,9 +4782,9 @@ function AddDrinkSheet({
       setError("Volume must be greater than zero.");
       return;
     }
-    const parsedCalories = parseOptionalNumber(calories);
-    const parsedCarbs = parseOptionalNumber(carbs);
-    const parsedSodium = parseOptionalNumber(sodium);
+    const parsedCalories = parseOptionalNumber(displayedCalories);
+    const parsedCarbs = parseOptionalNumber(displayedCarbs);
+    const parsedSodium = parseOptionalNumber(displayedSodium);
     if (
       [parsedCalories, parsedCarbs, parsedSodium].some(
         (value) => value !== null && (!Number.isFinite(value) || value < 0),
@@ -4717,17 +4806,22 @@ function AddDrinkSheet({
       }),
     );
   }
+  const previewCalories = parseOptionalNumber(displayedCalories);
 
   return (
     <section className="wc-section wc-section-padded shadow-sm">
       <h2 className="text-lg font-semibold text-stone-950">Add drink</h2>
       <p className="mt-1 text-sm text-stone-500">{food.name}</p>
+      <p className="mt-2 text-sm font-medium text-stone-700">
+        {previewCalories === null
+          ? "Nutrition incomplete"
+          : formatCalories(previewCalories, food.nutritionStatus)}
+      </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <NumberInput
           label="Volume"
           onChange={(value) => {
             setVolumeMl(value);
-            updateScaledNutrition(value);
           }}
           step="1"
           unit="ml"
@@ -4743,7 +4837,7 @@ function AddDrinkSheet({
           }}
           step="0.1"
           unit="kcal"
-          value={calories}
+          value={displayedCalories}
         />
         <NumberInput
           label="Carbohydrates"
@@ -4753,7 +4847,7 @@ function AddDrinkSheet({
           }}
           step="0.1"
           unit="g"
-          value={carbs}
+          value={displayedCarbs}
         />
         <NumberInput
           label="Sodium"
@@ -4763,7 +4857,7 @@ function AddDrinkSheet({
           }}
           step="1"
           unit="mg"
-          value={sodium}
+          value={displayedSodium}
         />
       </div>
       <label className="mt-3 block">
@@ -4775,7 +4869,8 @@ function AddDrinkSheet({
         />
       </label>
       {error && <p className="mt-3 text-sm font-medium text-red-700">{error}</p>}
-      <div className="mt-5 grid grid-cols-2 gap-2">
+      <div className="mt-5 grid gap-2 sm:grid-cols-[1fr_1fr]">
+        <SmallButton onClick={onDetailsEdit}>Details / Edit</SmallButton>
         <SmallButton onClick={onCancel}>Cancel</SmallButton>
         <button className={primaryAddClasses()} onClick={submit} type="button">
           Add drink

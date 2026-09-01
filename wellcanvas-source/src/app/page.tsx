@@ -7,6 +7,7 @@ import {
   QuickSnackForm,
 } from "@/components/meal-composers";
 import { PageHeader } from "@/components/page-header";
+import { ReusableItemEditor } from "@/components/reusable-item-editor";
 import { ToastBridge } from "@/components/toast";
 import { WellCanvasIcon } from "@/components/wellcanvas-icon";
 import type { DailyFortune } from "@/data/daily-fortunes";
@@ -754,6 +755,24 @@ export default function TodayPage() {
     setConfirmation("Food saved to your library.");
   }
 
+  function updateReusableFoodFromQuickLog(food: FoodItem) {
+    const nextFoods = foods.map((item) => (item.id === food.id ? food : item));
+    saveFoodItems(nextFoods);
+    setFoods(nextFoods);
+    setConfirmation(
+      food.logDestination === "hydration" || food.category === "drink"
+        ? "Drink updated. Future logs use the new values."
+        : "Food updated. Future logs use the new values.",
+    );
+  }
+
+  function updateReusableMealFromQuickLog(meal: MealTemplate) {
+    const nextMeals = meals.map((item) => (item.id === meal.id ? meal : item));
+    saveMealTemplates(nextMeals);
+    setMeals(nextMeals);
+    setConfirmation("Meal updated. Future logs use the new values.");
+  }
+
   function addDrink(entry: HydrationEntry) {
     addHydrationEntry(entry);
     setLastDrinkVolumeMl(entry.volumeMl);
@@ -1216,6 +1235,8 @@ export default function TodayPage() {
           onSaveAndAddNewFood={saveNewFood}
           onSaveNewFoodOnly={saveNewFoodOnly}
           onSaveMeal={saveMealFromComposer}
+          onUpdateFood={updateReusableFoodFromQuickLog}
+          onUpdateMeal={updateReusableMealFromQuickLog}
           recentEntries={recentEntries}
           state={addFoodModal}
         />
@@ -3966,6 +3987,8 @@ function MealTypePills({
 
 type AddFoodSearchResult =
   | {
+      caloriesAreEstimated: boolean;
+      caloriesPerQuantity: number | null;
       item: MealTemplate;
       key: string;
       name: string;
@@ -3977,6 +4000,8 @@ type AddFoodSearchResult =
       type: "meal";
     }
   | {
+      caloriesAreEstimated: boolean;
+      caloriesPerQuantity: number | null;
       item: FoodItem;
       key: string;
       name: string;
@@ -4008,6 +4033,8 @@ function AddFoodModal({
   onSaveAndAddNewFood,
   onSaveMeal,
   onSaveNewFoodOnly,
+  onUpdateFood,
+  onUpdateMeal,
   recentEntries,
   state,
 }: {
@@ -4039,6 +4066,8 @@ function AddFoodModal({
   ) => void;
   onSaveMeal: (meal: MealTemplate) => void;
   onSaveNewFoodOnly: (food: FoodItem) => void;
+  onUpdateFood: (food: FoodItem) => void;
+  onUpdateMeal: (meal: MealTemplate) => void;
   recentEntries: FoodLogEntry[];
   state: AddFoodModalState;
 }) {
@@ -4052,6 +4081,28 @@ function AddFoodModal({
   });
   const [estimateMode, setEstimateMode] = useState<"meal" | "snack">("meal");
   const [modalMessage, setModalMessage] = useState("");
+  const [quantityByKey, setQuantityByKey] = useState<Record<string, string>>({});
+  const [editorEntity, setEditorEntity] = useState<{
+    kind: "food" | "meal";
+    id: string;
+  } | null>(null);
+  const foodById = useMemo(() => new Map(foods.map((food) => [food.id, food])), [foods]);
+  const mealById = useMemo(() => new Map(meals.map((meal) => [meal.id, meal])), [meals]);
+  const selectedEditorEntity =
+    editorEntity?.kind === "meal"
+      ? mealById.get(editorEntity.id)
+      : editorEntity?.kind === "food"
+        ? foodById.get(editorEntity.id)
+        : null;
+
+  function quantityFor(key: string, defaultQuantity: number) {
+    return quantityByKey[key] ?? String(defaultQuantity);
+  }
+
+  function updateQuantity(key: string, quantity: string) {
+    setQuantityByKey((current) => ({ ...current, [key]: quantity }));
+  }
+
   const recentBySource = useMemo(() => {
     const map = new Map<string, string>();
     for (const entry of recentEntries) {
@@ -4090,6 +4141,8 @@ function AddFoodModal({
         (!meal.isSeedItem ? 20 : 0) +
         (nutrition.isComplete ? 10 : 0);
       return [{
+        caloriesAreEstimated: nutrition.status === "estimated",
+        caloriesPerQuantity: nutrition.nutrition?.caloriesKcal ?? null,
         item: meal,
         key: `meal:${meal.id}`,
         name: meal.name,
@@ -4125,6 +4178,8 @@ function AddFoodModal({
         (!food.isSeedItem ? 20 : 0) +
         (food.nutrition ? 10 : 0);
       return [{
+        caloriesAreEstimated: food.nutritionStatus === "estimated",
+        caloriesPerQuantity: food.nutrition?.caloriesKcal ?? null,
         item: food,
         key: `food:${food.id}`,
         name: food.name,
@@ -4148,6 +4203,43 @@ function AddFoodModal({
   const resultLimit =
     resultLimitState.query === normalizedQuery ? resultLimitState.limit : 12;
   const visibleSearchResults = searchResults.slice(0, resultLimit);
+
+  if (editorEntity && selectedEditorEntity) {
+    return (
+      <DialogFrame
+        onClose={() => setEditorEntity(null)}
+        title={`Edit ${selectedEditorEntity.name}`}
+      >
+        <ReusableItemEditor
+          collectionSuggestions={collectionSuggestions}
+          entity={
+            editorEntity.kind === "meal"
+              ? { kind: "meal", item: selectedEditorEntity as MealTemplate }
+              : {
+                  kind:
+                    (selectedEditorEntity as FoodItem).category === "drink" ||
+                    (selectedEditorEntity as FoodItem).logDestination === "hydration"
+                      ? "drink"
+                      : "food",
+                  item: selectedEditorEntity as FoodItem,
+                }
+          }
+          foods={foods}
+          onCancel={() => setEditorEntity(null)}
+          onSaveFood={(food) => {
+            onUpdateFood(food);
+            setEditorEntity(null);
+            setModalMessage("Reusable item updated. The preview has been refreshed.");
+          }}
+          onSaveMeal={(meal) => {
+            onUpdateMeal(meal);
+            setEditorEntity(null);
+            setModalMessage("Reusable meal updated. The preview has been refreshed.");
+          }}
+        />
+      </DialogFrame>
+    );
+  }
 
   return (
     <DialogFrame onClose={onClose} title="Add food">
@@ -4227,16 +4319,22 @@ function AddFoodModal({
                 <>
                   {visibleSearchResults.map((result) => (
                     <LibraryResultRow
-                      defaultQuantity={1}
                       key={result.key}
+                      caloriesAreEstimated={result.caloriesAreEstimated}
+                      caloriesPerQuantity={result.caloriesPerQuantity}
                       name={result.name}
                       nutritionStatus={result.nutritionStatus}
                       nutritionSummary={result.nutritionSummary}
+                      onDetailsEdit={() =>
+                        setEditorEntity({ kind: result.type, id: result.item.id })
+                      }
                       onAdd={(quantity) =>
                         result.type === "meal"
                           ? onAddMeal(result.item, mealType, quantity)
                           : onAddFood(result.item, mealType, quantity)
                       }
+                      onQuantityChange={(quantity) => updateQuantity(result.key, quantity)}
+                      quantity={quantityFor(result.key, 1)}
                       servingSummary={result.servingSummary}
                       typeLabel={result.type === "meal" ? "Meal" : "Food"}
                     />
@@ -4267,29 +4365,58 @@ function AddFoodModal({
                   </p>
                 ) : (
                   recentEntries.map((entry) => (
-                    <LibraryResultRow
-                      defaultQuantity={entry.quantity || 1}
-                      key={entry.id}
-                      name={entry.name}
-                      nutritionStatus={entry.nutritionStatus}
-                      nutritionSummary={formatCalories(
-                        entry.nutritionSnapshot.caloriesKcal,
-                        entry.nutritionStatus === "estimated",
-                      )}
-                      onAdd={(quantity) => onAddRecent(entry, mealType, quantity)}
-                      servingSummary={entry.servingLabel}
-                      typeLabel={entry.sourceType === "meal" ? "Meal" : "Food"}
-                    />
+                    (() => {
+                      const source =
+                        entry.sourceType === "meal" && entry.sourceId
+                          ? mealById.get(entry.sourceId)
+                          : entry.sourceType === "food" && entry.sourceId
+                            ? foodById.get(entry.sourceId)
+                            : null;
+                      const rowKey = `recent:${entry.id}`;
+                      return (
+                        <LibraryResultRow
+                          key={entry.id}
+                          caloriesAreEstimated={entry.nutritionStatus === "estimated"}
+                          caloriesPerQuantity={
+                            entry.quantity > 0 && entry.nutritionSnapshot.caloriesKcal !== null
+                              ? entry.nutritionSnapshot.caloriesKcal / entry.quantity
+                              : null
+                          }
+                          name={entry.name}
+                          nutritionStatus={entry.nutritionStatus}
+                          nutritionSummary={formatCalories(
+                            entry.nutritionSnapshot.caloriesKcal,
+                            entry.nutritionStatus === "estimated",
+                          )}
+                          onDetailsEdit={
+                            source
+                              ? () =>
+                                  setEditorEntity({
+                                    kind: entry.sourceType === "meal" ? "meal" : "food",
+                                    id: source.id,
+                                  })
+                              : undefined
+                          }
+                          onAdd={(quantity) => onAddRecent(entry, mealType, quantity)}
+                          onQuantityChange={(quantity) => updateQuantity(rowKey, quantity)}
+                          quantity={quantityFor(rowKey, entry.quantity || 1)}
+                          servingSummary={entry.servingLabel}
+                          typeLabel={entry.sourceType === "meal" ? "Meal" : "Food"}
+                        />
+                      );
+                    })()
                   ))
                 )}
               </ChooserGroup>
               <ChooserGroup title="Saved meals">
                 {savedMeals.map((meal) => {
                   const result = calculateMealNutrition(meal, foods);
+                  const rowKey = `meal:${meal.id}`;
                   return (
                     <LibraryResultRow
-                      defaultQuantity={1}
                       key={meal.id}
+                      caloriesAreEstimated={result.status === "estimated"}
+                      caloriesPerQuantity={result.nutrition?.caloriesKcal ?? null}
                       name={meal.name}
                       nutritionStatus={result.status}
                       nutritionSummary={
@@ -4297,7 +4424,10 @@ function AddFoodModal({
                           ? formatCalories(result.nutrition.caloriesKcal, result.status === "estimated")
                           : "Nutrition incomplete"
                       }
+                      onDetailsEdit={() => setEditorEntity({ kind: "meal", id: meal.id })}
                       onAdd={(quantity) => onAddMeal(meal, mealType, quantity)}
+                      onQuantityChange={(quantity) => updateQuantity(rowKey, quantity)}
+                      quantity={quantityFor(rowKey, 1)}
                       servingSummary="One meal"
                       typeLabel="Meal"
                     />
@@ -4305,22 +4435,29 @@ function AddFoodModal({
                 })}
               </ChooserGroup>
               <ChooserGroup title="Saved foods">
-                {savedFoods.map((food) => (
-                  <LibraryResultRow
-                    defaultQuantity={1}
-                    key={food.id}
-                    name={food.name}
-                    nutritionStatus={food.nutritionStatus}
-                    nutritionSummary={
-                      food.nutrition
-                        ? formatCalories(food.nutrition.caloriesKcal, food.nutritionStatus === "estimated")
-                        : "Nutrition incomplete"
-                    }
-                    onAdd={(quantity) => onAddFood(food, mealType, quantity)}
-                    servingSummary={food.servingLabel}
-                    typeLabel="Food"
-                  />
-                ))}
+                {savedFoods.map((food) => {
+                  const rowKey = `food:${food.id}`;
+                  return (
+                    <LibraryResultRow
+                      key={food.id}
+                      caloriesAreEstimated={food.nutritionStatus === "estimated"}
+                      caloriesPerQuantity={food.nutrition?.caloriesKcal ?? null}
+                      name={food.name}
+                      nutritionStatus={food.nutritionStatus}
+                      nutritionSummary={
+                        food.nutrition
+                          ? formatCalories(food.nutrition.caloriesKcal, food.nutritionStatus === "estimated")
+                          : "Nutrition incomplete"
+                      }
+                      onDetailsEdit={() => setEditorEntity({ kind: "food", id: food.id })}
+                      onAdd={(quantity) => onAddFood(food, mealType, quantity)}
+                      onQuantityChange={(quantity) => updateQuantity(rowKey, quantity)}
+                      quantity={quantityFor(rowKey, 1)}
+                      servingSummary={food.servingLabel}
+                      typeLabel="Food"
+                    />
+                  );
+                })}
               </ChooserGroup>
             </>
           )}
@@ -4427,29 +4564,43 @@ function ChooserGroup({
 }
 
 function LibraryResultRow({
-  defaultQuantity,
+  caloriesAreEstimated,
+  caloriesPerQuantity,
   name,
   nutritionStatus,
   nutritionSummary,
   onAdd,
+  onDetailsEdit,
+  onQuantityChange,
+  quantity,
   servingSummary,
   typeLabel,
 }: {
-  defaultQuantity: number;
+  caloriesAreEstimated: boolean;
+  caloriesPerQuantity: number | null;
   name: string;
   nutritionStatus: NutritionStatus;
   nutritionSummary: string;
   onAdd: (quantity: number) => void;
+  onDetailsEdit?: () => void;
+  onQuantityChange: (quantity: string) => void;
+  quantity: string;
   servingSummary: string;
   typeLabel: string;
 }) {
-  const [quantity, setQuantity] = useState(String(defaultQuantity));
-
   function submit() {
     const parsed = Number(quantity);
     if (!Number.isFinite(parsed) || parsed <= 0) return;
     onAdd(parsed);
   }
+  const parsedQuantity = Number(quantity);
+  const visibleNutritionSummary =
+    caloriesPerQuantity !== null &&
+    Number.isFinite(caloriesPerQuantity) &&
+    Number.isFinite(parsedQuantity) &&
+    parsedQuantity > 0
+      ? formatCalories(caloriesPerQuantity * parsedQuantity, caloriesAreEstimated)
+      : nutritionSummary;
 
   return (
     <div className="grid gap-3 rounded-md border border-stone-200 p-3 sm:grid-cols-[1fr_5rem_auto] sm:items-center">
@@ -4465,7 +4616,7 @@ function LibraryResultRow({
           </span>
         </div>
         <p className="mt-1 text-sm text-stone-500">
-          {typeLabel} · {servingSummary} · {nutritionSummary}
+          {typeLabel} · {servingSummary} · {visibleNutritionSummary}
         </p>
       </div>
       <label>
@@ -4473,19 +4624,31 @@ function LibraryResultRow({
         <input
           className="min-h-10 w-full rounded-md border border-stone-300 px-2 text-sm"
           min="0.1"
-          onChange={(event) => setQuantity(event.target.value)}
+          onChange={(event) => onQuantityChange(event.target.value)}
           step="0.1"
           type="number"
           value={quantity}
         />
       </label>
-      <button
-        className="min-h-10 rounded-md bg-teal-700 px-4 text-sm font-semibold text-white"
-        onClick={submit}
-        type="button"
-      >
-        Add today
-      </button>
+      <div className="grid gap-2">
+        {onDetailsEdit && (
+          <button
+            aria-label={`View or edit ${name}`}
+            className="min-h-10 rounded-md border border-stone-300 px-3 text-sm font-semibold text-stone-800"
+            onClick={onDetailsEdit}
+            type="button"
+          >
+            Details / Edit
+          </button>
+        )}
+        <button
+          className="min-h-10 rounded-md bg-teal-700 px-4 text-sm font-semibold text-white"
+          onClick={submit}
+          type="button"
+        >
+          Add today
+        </button>
+      </div>
     </div>
   );
 }
