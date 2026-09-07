@@ -1,0 +1,1216 @@
+{
+  "metadata": {
+    "id": "french-starter",
+    "language": "French",
+    "languageCode": "fr",
+    "variant": "General",
+    "level": 0,
+    "title": "French · Starter",
+    "description": "Useful French vocabulary, short texts, and core grammar forms.",
+    "version": 9,
+    "wordCount": 101,
+    "textCount": 10,
+    "formCount": 55,
+    "characterSubstitutions": {
+      "é": [
+        "e"
+      ],
+      "è": [
+        "e"
+      ],
+      "ê": [
+        "e"
+      ],
+      "ç": [
+        "c"
+      ],
+      "à": [
+        "a"
+      ],
+      "ù": [
+        "u"
+      ],
+      "î": [
+        "i"
+      ],
+      "ô": [
+        "o"
+      ]
+    }
+  },
+  "words": [
+    {
+      "id": "fr_la_maison",
+      "term": "la maison",
+      "translation": "house"
+    },
+    {
+      "id": "fr_l_appartement",
+      "term": "l'appartement",
+      "translation": "apartment"
+    },
+    {
+      "id": "fr_la_cuisine",
+      "term": "la cuisine",
+      "translation": "kitchen"
+    },
+    {
+      "id": "fr_la_chambre",
+      "term": "la chambre",
+      "translation": "bedroom"
+    },
+    {
+      "id": "fr_la_porte",
+      "term": "la porte",
+      "translation": "door"
+    },
+    {
+      "id": "fr_la_fenetre",
+      "term": "la fenêtre",
+      "translation": "window"
+    },
+    {
+      "id": "fr_la_table",
+      "term": "la table",
+      "translation": "table"
+    },
+    {
+      "id": "fr_la_chaise",
+      "term": "la chaise",
+      "translation": "chair"
+    },
+    {
+      "id": "fr_le_lit",
+      "term": "le lit",
+      "translation": "bed"
+    },
+    {
+      "id": "fr_la_lampe",
+      "term": "la lampe",
+      "translation": "lamp"
+    },
+    {
+      "id": "fr_l_eau",
+      "term": "l'eau",
+      "translation": "water"
+    },
+    {
+      "id": "fr_le_pain",
+      "term": "le pain",
+      "translation": "bread"
+    },
+    {
+      "id": "fr_le_fromage",
+      "term": "le fromage",
+      "translation": "cheese"
+    },
+    {
+      "id": "fr_la_pomme",
+      "term": "la pomme",
+      "translation": "apple"
+    },
+    {
+      "id": "fr_la_banane",
+      "term": "la banane",
+      "translation": "banana"
+    },
+    {
+      "id": "fr_le_cafe",
+      "term": "le café",
+      "translation": "coffee"
+    },
+    {
+      "id": "fr_le_the",
+      "term": "le thé",
+      "translation": "tea"
+    },
+    {
+      "id": "fr_le_petit_dejeuner",
+      "term": "le petit déjeuner",
+      "translation": "breakfast"
+    },
+    {
+      "id": "fr_le_dejeuner",
+      "term": "le déjeuner",
+      "translation": "lunch"
+    },
+    {
+      "id": "fr_le_diner",
+      "term": "le dîner",
+      "translation": "dinner"
+    },
+    {
+      "id": "fr_le_magasin",
+      "term": "le magasin",
+      "translation": "shop"
+    },
+    {
+      "id": "fr_le_marche",
+      "term": "le marché",
+      "translation": "market"
+    },
+    {
+      "id": "fr_l_argent",
+      "term": "l'argent",
+      "translation": "money"
+    },
+    {
+      "id": "fr_le_prix",
+      "term": "le prix",
+      "translation": "price"
+    },
+    {
+      "id": "fr_le_billet",
+      "term": "le billet",
+      "translation": "ticket"
+    },
+    {
+      "id": "fr_le_train",
+      "term": "le train",
+      "translation": "train"
+    },
+    {
+      "id": "fr_le_bus",
+      "term": "le bus",
+      "translation": "bus"
+    },
+    {
+      "id": "fr_la_gare",
+      "term": "la gare",
+      "translation": "train station"
+    },
+    {
+      "id": "fr_l_aeroport",
+      "term": "l'aéroport",
+      "translation": "airport"
+    },
+    {
+      "id": "fr_la_rue",
+      "term": "la rue",
+      "translation": "street"
+    },
+    {
+      "id": "fr_la_ville",
+      "term": "la ville",
+      "translation": "city"
+    },
+    {
+      "id": "fr_le_village",
+      "term": "le village",
+      "translation": "village"
+    },
+    {
+      "id": "fr_a_gauche",
+      "term": "à gauche",
+      "translation": "to the left"
+    },
+    {
+      "id": "fr_a_droite",
+      "term": "à droite",
+      "translation": "to the right"
+    },
+    {
+      "id": "fr_pres",
+      "term": "près",
+      "translation": "near"
+    },
+    {
+      "id": "fr_loin",
+      "term": "loin",
+      "translation": "far"
+    },
+    {
+      "id": "fr_aujourd_hui",
+      "term": "aujourd'hui",
+      "translation": "today"
+    },
+    {
+      "id": "fr_demain",
+      "term": "demain",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "fr_hier",
+      "term": "hier",
+      "translation": "yesterday"
+    },
+    {
+      "id": "fr_le_matin",
+      "term": "le matin",
+      "translation": "morning"
+    },
+    {
+      "id": "fr_le_soir",
+      "term": "le soir",
+      "translation": "evening"
+    },
+    {
+      "id": "fr_la_nuit",
+      "term": "la nuit",
+      "translation": "night"
+    },
+    {
+      "id": "fr_la_semaine",
+      "term": "la semaine",
+      "translation": "week"
+    },
+    {
+      "id": "fr_le_mois",
+      "term": "le mois",
+      "translation": "month"
+    },
+    {
+      "id": "fr_l_annee",
+      "term": "l'année",
+      "translation": "year"
+    },
+    {
+      "id": "fr_le_temps",
+      "term": "le temps",
+      "translation": "weather"
+    },
+    {
+      "id": "fr_la_pluie",
+      "term": "la pluie",
+      "translation": "rain"
+    },
+    {
+      "id": "fr_le_vent",
+      "term": "le vent",
+      "translation": "wind"
+    },
+    {
+      "id": "fr_le_soleil",
+      "term": "le soleil",
+      "translation": "sun"
+    },
+    {
+      "id": "fr_froid",
+      "term": "froid",
+      "translation": "cold"
+    },
+    {
+      "id": "fr_chaud",
+      "term": "chaud",
+      "translation": "warm"
+    },
+    {
+      "id": "fr_la_personne",
+      "term": "la personne",
+      "translation": "person"
+    },
+    {
+      "id": "fr_l_ami",
+      "term": "l'ami",
+      "translation": "friend"
+    },
+    {
+      "id": "fr_la_famille",
+      "term": "la famille",
+      "translation": "family"
+    },
+    {
+      "id": "fr_l_enfant",
+      "term": "l'enfant",
+      "translation": "child"
+    },
+    {
+      "id": "fr_le_professeur",
+      "term": "le professeur",
+      "translation": "teacher"
+    },
+    {
+      "id": "fr_le_medecin",
+      "term": "le médecin",
+      "translation": "doctor"
+    },
+    {
+      "id": "fr_le_travailleur",
+      "term": "le travailleur",
+      "translation": "worker"
+    },
+    {
+      "id": "fr_l_etudiant",
+      "term": "l'étudiant",
+      "translation": "student"
+    },
+    {
+      "id": "fr_heureux",
+      "term": "heureux",
+      "translation": "happy"
+    },
+    {
+      "id": "fr_triste",
+      "term": "triste",
+      "translation": "sad"
+    },
+    {
+      "id": "fr_fatigue",
+      "term": "fatigué",
+      "translation": "tired"
+    },
+    {
+      "id": "fr_occupe",
+      "term": "occupé",
+      "translation": "busy"
+    },
+    {
+      "id": "fr_pret",
+      "term": "prêt",
+      "translation": "ready"
+    },
+    {
+      "id": "fr_important",
+      "term": "important",
+      "translation": "important"
+    },
+    {
+      "id": "fr_facile",
+      "term": "facile",
+      "translation": "easy"
+    },
+    {
+      "id": "fr_difficile",
+      "term": "difficile",
+      "translation": "difficult"
+    },
+    {
+      "id": "fr_nouveau",
+      "term": "nouveau",
+      "translation": "new"
+    },
+    {
+      "id": "fr_vieux",
+      "term": "vieux",
+      "translation": "old"
+    },
+    {
+      "id": "fr_bon",
+      "term": "bon",
+      "translation": "good"
+    },
+    {
+      "id": "fr_mauvais",
+      "term": "mauvais",
+      "translation": "bad"
+    },
+    {
+      "id": "fr_petit",
+      "term": "petit",
+      "translation": "small"
+    },
+    {
+      "id": "fr_grand",
+      "term": "grand",
+      "translation": "big"
+    },
+    {
+      "id": "fr_etre",
+      "term": "être",
+      "translation": "to be"
+    },
+    {
+      "id": "fr_avoir",
+      "term": "avoir",
+      "translation": "to have"
+    },
+    {
+      "id": "fr_aller",
+      "term": "aller",
+      "translation": "to go"
+    },
+    {
+      "id": "fr_venir",
+      "term": "venir",
+      "translation": "to come"
+    },
+    {
+      "id": "fr_faire",
+      "term": "faire",
+      "translation": "to make or do"
+    },
+    {
+      "id": "fr_voir",
+      "term": "voir",
+      "translation": "to see"
+    },
+    {
+      "id": "fr_dire",
+      "term": "dire",
+      "translation": "to say"
+    },
+    {
+      "id": "fr_savoir",
+      "term": "savoir",
+      "translation": "to know a fact"
+    },
+    {
+      "id": "fr_vouloir",
+      "term": "vouloir",
+      "translation": "to want"
+    },
+    {
+      "id": "fr_avoir_besoin_de",
+      "term": "avoir besoin de",
+      "translation": "to need"
+    },
+    {
+      "id": "fr_manger",
+      "term": "manger",
+      "translation": "to eat"
+    },
+    {
+      "id": "fr_boire",
+      "term": "boire",
+      "translation": "to drink"
+    },
+    {
+      "id": "fr_acheter",
+      "term": "acheter",
+      "translation": "to buy"
+    },
+    {
+      "id": "fr_travailler",
+      "term": "travailler",
+      "translation": "to work"
+    },
+    {
+      "id": "fr_apprendre",
+      "term": "apprendre",
+      "translation": "to learn"
+    },
+    {
+      "id": "fr_parler",
+      "term": "parler",
+      "translation": "to speak"
+    },
+    {
+      "id": "fr_lire",
+      "term": "lire",
+      "translation": "to read"
+    },
+    {
+      "id": "fr_ecrire",
+      "term": "écrire",
+      "translation": "to write"
+    },
+    {
+      "id": "fr_prendre",
+      "term": "prendre",
+      "translation": "to take"
+    },
+    {
+      "id": "fr_attendre",
+      "term": "attendre",
+      "translation": "to wait"
+    },
+    {
+      "id": "fr_parce_que",
+      "term": "parce que",
+      "translation": "because"
+    },
+    {
+      "id": "fr_mais",
+      "term": "mais",
+      "translation": "but"
+    },
+    {
+      "id": "fr_aussi",
+      "term": "aussi",
+      "translation": "also"
+    },
+    {
+      "id": "fr_peut_etre",
+      "term": "peut-être",
+      "translation": "maybe"
+    },
+    {
+      "id": "fr_toujours",
+      "term": "toujours",
+      "translation": "always"
+    },
+    {
+      "id": "fr_souvent",
+      "term": "souvent",
+      "translation": "often"
+    },
+    {
+      "id": "fr_parfois",
+      "term": "parfois",
+      "translation": "sometimes"
+    },
+    {
+      "id": "fr_jamais",
+      "term": "jamais",
+      "translation": "never"
+    }
+  ],
+  "texts": [
+    {
+      "id": "fr_cafe",
+      "title": "Au café",
+      "text": "Au {café}, je prends un thé et un morceau de pain. Mon ami arrive bientôt, et nous parlons du {week-end}.",
+      "translation": "At the café, I have tea and a piece of bread. My friend arrives soon, and we talk about the weekend.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_matin",
+      "title": "Le matin",
+      "text": "Le {matin}, je me lève tôt. Je prépare le petit déjeuner, j'ouvre la fenêtre et je regarde le {temps}.",
+      "translation": "In the morning, I get up early. I prepare breakfast, open the window, and look at the weather.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_travail",
+      "title": "Au travail",
+      "text": "Au {travail}, j'écris des messages et je participe à une réunion. La journée est chargée mais utile.",
+      "translation": "At work, I write messages and take part in a meeting. The day is busy but useful.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_train",
+      "title": "Le train",
+      "text": "Je prends le {train} à la gare. Le billet est dans mon sac, et la place près de la fenêtre est libre.",
+      "translation": "I take the train at the station. The ticket is in my bag, and the seat by the window is free.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_courses",
+      "title": "Les courses",
+      "text": "Au marché, nous achetons des pommes, du fromage et de l'eau. Le {prix} est raisonnable aujourd'hui.",
+      "translation": "At the market, we buy apples, cheese, and water. The price is reasonable today.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_famille",
+      "title": "Visite",
+      "text": "Ce soir, je visite ma {famille}. Nous préparons le dîner ensemble et nous parlons des nouvelles de la semaine.",
+      "translation": "Tonight I visit my family. We prepare dinner together and talk about the week's news.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_appartement",
+      "title": "Appartement",
+      "text": "Mon {appartement} est petit mais agréable. La cuisine est claire, et la table est près de la fenêtre.",
+      "translation": "My apartment is small but pleasant. The kitchen is bright, and the table is near the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_meteo",
+      "title": "Météo",
+      "text": "Aujourd'hui le {temps} est froid. Il y a du vent, mais le soleil apparaît dans l'après-midi.",
+      "translation": "Today the weather is cold. There is wind, but the sun appears in the afternoon.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_vacances",
+      "title": "Vacances",
+      "text": "Pendant les {vacances}, nous voulons visiter une ville au bord de la mer et apprendre quelques mots nouveaux.",
+      "translation": "During the holidays, we want to visit a city by the sea and learn some new words.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "fr_cuisine",
+      "title": "Cuisine",
+      "text": "Dans la {cuisine}, je coupe des légumes et je prépare du riz. Le dîner est simple, chaud et bon.",
+      "translation": "In the kitchen, I cut vegetables and prepare rice. Dinner is simple, warm, and good.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "fr_agreement_t_ie",
+      "type": "agreement",
+      "prompt": "t",
+      "before": "i",
+      "answer": "e",
+      "after": "",
+      "result": "ie",
+      "note": "p feminine"
+    },
+    {
+      "id": "fr_agreement_a_nr",
+      "type": "agreement",
+      "prompt": "a",
+      "before": "n",
+      "answer": "r",
+      "after": "",
+      "result": "nr",
+      "note": "g feminine"
+    },
+    {
+      "id": "fr_agreement_n_o",
+      "type": "agreement",
+      "prompt": "n",
+      "before": "|",
+      "answer": "o",
+      "after": "",
+      "result": "|o",
+      "note": "b feminine"
+    },
+    {
+      "id": "fr_agreement_u_re",
+      "type": "agreement",
+      "prompt": "u",
+      "before": "r",
+      "answer": "e",
+      "after": "",
+      "result": "re",
+      "note": "h feminine"
+    },
+    {
+      "id": "fr_agreement_u_vo",
+      "type": "agreement",
+      "prompt": "u",
+      "before": "v",
+      "answer": "o",
+      "after": "",
+      "result": "vo",
+      "note": "n feminine"
+    },
+    {
+      "id": "fr_agreement_e_ui",
+      "type": "agreement",
+      "prompt": "e",
+      "before": "u",
+      "answer": "i",
+      "after": "",
+      "result": "ui",
+      "note": "v feminine"
+    },
+    {
+      "id": "fr_agreement_a_nl",
+      "type": "agreement",
+      "prompt": "a",
+      "before": "n",
+      "answer": "l",
+      "after": "",
+      "result": "nl",
+      "note": "b feminine"
+    },
+    {
+      "id": "fr_plural_maison_plural_maisons",
+      "type": "plural",
+      "prompt": "maison plural",
+      "before": "",
+      "answer": "maisons",
+      "after": "",
+      "result": "maisons",
+      "note": "maison → maisons"
+    },
+    {
+      "id": "fr_plural_livre_plural_livres",
+      "type": "plural",
+      "prompt": "livre plural",
+      "before": "",
+      "answer": "livres",
+      "after": "",
+      "result": "livres",
+      "note": "livre → livres"
+    },
+    {
+      "id": "fr_plural_ville_plural_villes",
+      "type": "plural",
+      "prompt": "ville plural",
+      "before": "",
+      "answer": "villes",
+      "after": "",
+      "result": "villes",
+      "note": "ville → villes"
+    },
+    {
+      "id": "fr_plural_travail_plural_travaux",
+      "type": "plural",
+      "prompt": "travail plural",
+      "before": "",
+      "answer": "travaux",
+      "after": "",
+      "result": "travaux",
+      "note": "travail → travaux"
+    },
+    {
+      "id": "fr_plural_journal_plural_journaux",
+      "type": "plural",
+      "prompt": "journal plural",
+      "before": "",
+      "answer": "journaux",
+      "after": "",
+      "result": "journaux",
+      "note": "journal → journaux"
+    },
+    {
+      "id": "fr_plural_animal_plural_animaux",
+      "type": "plural",
+      "prompt": "animal plural",
+      "before": "",
+      "answer": "animaux",
+      "after": "",
+      "result": "animaux",
+      "note": "animal → animaux"
+    },
+    {
+      "id": "fr_plural_enfant_plural_enfants",
+      "type": "plural",
+      "prompt": "enfant plural",
+      "before": "",
+      "answer": "enfants",
+      "after": "",
+      "result": "enfants",
+      "note": "enfant → enfants"
+    },
+    {
+      "id": "fr_plural_prix_plural_prix",
+      "type": "plural",
+      "prompt": "prix plural",
+      "before": "",
+      "answer": "prix",
+      "after": "",
+      "result": "prix",
+      "note": "prix → prix"
+    },
+    {
+      "id": "fr_plural_choix_plural_choix",
+      "type": "plural",
+      "prompt": "choix plural",
+      "before": "",
+      "answer": "choix",
+      "after": "",
+      "result": "choix",
+      "note": "choix → choix"
+    },
+    {
+      "id": "fr_plural_nez_plural_nez",
+      "type": "plural",
+      "prompt": "nez plural",
+      "before": "",
+      "answer": "nez",
+      "after": "",
+      "result": "nez",
+      "note": "nez → nez"
+    },
+    {
+      "id": "fr_conjugation_i_speak_je_parle",
+      "type": "conjugation",
+      "prompt": "I speak",
+      "before": "je parl",
+      "answer": "e",
+      "after": "",
+      "result": "je parle",
+      "note": "parler"
+    },
+    {
+      "id": "fr_conjugation_we_speak_nous_parlons",
+      "type": "conjugation",
+      "prompt": "we speak",
+      "before": "nous parl",
+      "answer": "ons",
+      "after": "",
+      "result": "nous parlons",
+      "note": "parler"
+    },
+    {
+      "id": "fr_conjugation_i_eat_je_mange",
+      "type": "conjugation",
+      "prompt": "I eat",
+      "before": "je mang",
+      "answer": "e",
+      "after": "",
+      "result": "je mange",
+      "note": "manger"
+    },
+    {
+      "id": "fr_conjugation_we_eat_nous_mangeons",
+      "type": "conjugation",
+      "prompt": "we eat",
+      "before": "nous mange",
+      "answer": "ons",
+      "after": "",
+      "result": "nous mangeons",
+      "note": "manger"
+    },
+    {
+      "id": "fr_conjugation_i_work_je_travaille",
+      "type": "conjugation",
+      "prompt": "I work",
+      "before": "je travaill",
+      "answer": "e",
+      "after": "",
+      "result": "je travaille",
+      "note": "travailler"
+    },
+    {
+      "id": "fr_conjugation_we_work_nous_travaillons",
+      "type": "conjugation",
+      "prompt": "we work",
+      "before": "nous travaill",
+      "answer": "ons",
+      "after": "",
+      "result": "nous travaillons",
+      "note": "travailler"
+    },
+    {
+      "id": "fr_conjugation_i_finish_je_finis",
+      "type": "conjugation",
+      "prompt": "I finish",
+      "before": "je fin",
+      "answer": "is",
+      "after": "",
+      "result": "je finis",
+      "note": "finir"
+    },
+    {
+      "id": "fr_conjugation_we_finish_nous_finissons",
+      "type": "conjugation",
+      "prompt": "we finish",
+      "before": "nous fin",
+      "answer": "issons",
+      "after": "",
+      "result": "nous finissons",
+      "note": "finir"
+    },
+    {
+      "id": "fr_conjugation_i_have_j_ai",
+      "type": "conjugation",
+      "prompt": "I have",
+      "before": "j'",
+      "answer": "ai",
+      "after": "",
+      "result": "j'ai",
+      "note": "avoir"
+    },
+    {
+      "id": "fr_conjugation_we_have_nous_avons",
+      "type": "conjugation",
+      "prompt": "we have",
+      "before": "nous av",
+      "answer": "ons",
+      "after": "",
+      "result": "nous avons",
+      "note": "avoir"
+    },
+    {
+      "id": "fr_conjugation_i_am_je_suis",
+      "type": "conjugation",
+      "prompt": "I am",
+      "before": "je ",
+      "answer": "suis",
+      "after": "",
+      "result": "je suis",
+      "note": "être"
+    },
+    {
+      "id": "fr_conjugation_we_are_nous_sommes",
+      "type": "conjugation",
+      "prompt": "we are",
+      "before": "nous ",
+      "answer": "sommes",
+      "after": "",
+      "result": "nous sommes",
+      "note": "être"
+    },
+    {
+      "id": "fr_conjugation_i_go_je_vais",
+      "type": "conjugation",
+      "prompt": "I go",
+      "before": "je ",
+      "answer": "vais",
+      "after": "",
+      "result": "je vais",
+      "note": "aller"
+    },
+    {
+      "id": "fr_conjugation_we_go_nous_allons",
+      "type": "conjugation",
+      "prompt": "we go",
+      "before": "nous ",
+      "answer": "allons",
+      "after": "",
+      "result": "nous allons",
+      "note": "aller"
+    },
+    {
+      "id": "fr_conjugation_i_do_je_fais",
+      "type": "conjugation",
+      "prompt": "I do",
+      "before": "je ",
+      "answer": "fais",
+      "after": "",
+      "result": "je fais",
+      "note": "faire"
+    },
+    {
+      "id": "fr_conjugation_we_do_nous_faisons",
+      "type": "conjugation",
+      "prompt": "we do",
+      "before": "nous ",
+      "answer": "faisons",
+      "after": "",
+      "result": "nous faisons",
+      "note": "faire"
+    },
+    {
+      "id": "fr_conjugation_i_take_je_prends",
+      "type": "conjugation",
+      "prompt": "I take",
+      "before": "je prend",
+      "answer": "s",
+      "after": "",
+      "result": "je prends",
+      "note": "prendre"
+    },
+    {
+      "id": "fr_conjugation_we_take_nous_prenons",
+      "type": "conjugation",
+      "prompt": "we take",
+      "before": "nous pren",
+      "answer": "ons",
+      "after": "",
+      "result": "nous prenons",
+      "note": "prendre"
+    },
+    {
+      "id": "fr_conjugation_i_come_je_viens",
+      "type": "conjugation",
+      "prompt": "I come",
+      "before": "je vien",
+      "answer": "s",
+      "after": "",
+      "result": "je viens",
+      "note": "venir"
+    },
+    {
+      "id": "fr_conjugation_we_come_nous_venons",
+      "type": "conjugation",
+      "prompt": "we come",
+      "before": "nous ven",
+      "answer": "ons",
+      "after": "",
+      "result": "nous venons",
+      "note": "venir"
+    },
+    {
+      "id": "fr_article_a_le_marche_au_marche",
+      "type": "article",
+      "prompt": "à + le marché",
+      "before": "",
+      "answer": "au",
+      "after": " marché",
+      "result": "au marché",
+      "note": "contraction à + le"
+    },
+    {
+      "id": "fr_article_a_les_amis_aux_amis",
+      "type": "article",
+      "prompt": "à + les amis",
+      "before": "",
+      "answer": "aux",
+      "after": " amis",
+      "result": "aux amis",
+      "note": "contraction à + les"
+    },
+    {
+      "id": "fr_article_de_le_cafe_du_cafe",
+      "type": "article",
+      "prompt": "de + le café",
+      "before": "",
+      "answer": "du",
+      "after": " café",
+      "result": "du café",
+      "note": "contraction de + le"
+    },
+    {
+      "id": "fr_article_de_les_enfants_des_enfants",
+      "type": "article",
+      "prompt": "de + les enfants",
+      "before": "",
+      "answer": "des",
+      "after": " enfants",
+      "result": "des enfants",
+      "note": "contraction de + les"
+    },
+    {
+      "id": "fr_article_the_books_les_livres",
+      "type": "article",
+      "prompt": "the books",
+      "before": "",
+      "answer": "les",
+      "after": " livres",
+      "result": "les livres",
+      "note": "plural article"
+    },
+    {
+      "id": "fr_article_the_house_la_maison",
+      "type": "article",
+      "prompt": "the house",
+      "before": "",
+      "answer": "la",
+      "after": " maison",
+      "result": "la maison",
+      "note": "feminine article"
+    },
+    {
+      "id": "fr_article_a_friend_un_ami",
+      "type": "article",
+      "prompt": "a friend",
+      "before": "",
+      "answer": "un",
+      "after": " ami",
+      "result": "un ami",
+      "note": "masculine indefinite"
+    },
+    {
+      "id": "fr_article_a_city_une_ville",
+      "type": "article",
+      "prompt": "a city",
+      "before": "",
+      "answer": "une",
+      "after": " ville",
+      "result": "une ville",
+      "note": "feminine indefinite"
+    },
+    {
+      "id": "fr_article_some_water_de_l_eau",
+      "type": "article",
+      "prompt": "some water",
+      "before": "",
+      "answer": "de l'",
+      "after": "eau",
+      "result": "de l'eau",
+      "note": "partitive before vowel"
+    },
+    {
+      "id": "fr_article_some_bread_du_pain",
+      "type": "article",
+      "prompt": "some bread",
+      "before": "",
+      "answer": "du",
+      "after": " pain",
+      "result": "du pain",
+      "note": "partitive masculine"
+    },
+    {
+      "id": "fr_past_i_went_je_suis_alle",
+      "type": "past",
+      "prompt": "I went",
+      "before": "je suis ",
+      "answer": "allé",
+      "after": "",
+      "result": "je suis allé",
+      "note": "aller uses être"
+    },
+    {
+      "id": "fr_past_i_came_je_suis_venu",
+      "type": "past",
+      "prompt": "I came",
+      "before": "je suis ",
+      "answer": "venu",
+      "after": "",
+      "result": "je suis venu",
+      "note": "venir uses être"
+    },
+    {
+      "id": "fr_past_i_worked_j_ai_travaille",
+      "type": "past",
+      "prompt": "I worked",
+      "before": "j'ai ",
+      "answer": "travaillé",
+      "after": "",
+      "result": "j'ai travaillé",
+      "note": "regular past participle"
+    },
+    {
+      "id": "fr_past_i_ate_j_ai_mange",
+      "type": "past",
+      "prompt": "I ate",
+      "before": "j'ai ",
+      "answer": "mangé",
+      "after": "",
+      "result": "j'ai mangé",
+      "note": "regular past participle"
+    },
+    {
+      "id": "fr_past_i_took_j_ai_pris",
+      "type": "past",
+      "prompt": "I took",
+      "before": "j'ai ",
+      "answer": "pris",
+      "after": "",
+      "result": "j'ai pris",
+      "note": "irregular participle"
+    },
+    {
+      "id": "fr_past_i_did_j_ai_fait",
+      "type": "past",
+      "prompt": "I did",
+      "before": "j'ai ",
+      "answer": "fait",
+      "after": "",
+      "result": "j'ai fait",
+      "note": "irregular participle"
+    },
+    {
+      "id": "fr_past_i_read_j_ai_lu",
+      "type": "past",
+      "prompt": "I read",
+      "before": "j'ai ",
+      "answer": "lu",
+      "after": "",
+      "result": "j'ai lu",
+      "note": "irregular participle"
+    },
+    {
+      "id": "fr_past_i_wrote_j_ai_ecrit",
+      "type": "past",
+      "prompt": "I wrote",
+      "before": "j'ai ",
+      "answer": "écrit",
+      "after": "",
+      "result": "j'ai écrit",
+      "note": "irregular participle"
+    }
+  ],
+  "reference": {
+    "title": "France",
+    "country": "France",
+    "flag": {
+      "title": "Drapeau de la France",
+      "asset": "packages/french/assets/flag.svg",
+      "colorsLocal": "Bleu · Blanc · Rouge",
+      "translationLabel": "Blue · White · Red",
+      "label": "Drapeau de la France: bleu, blanc et rouge",
+      "descriptionLocal": "Le drapeau français est bleu, blanc et rouge.",
+      "translation": "The French flag is blue, white and red."
+    },
+    "anthem": {
+      "title": "Hymne national",
+      "name": "La Marseillaise",
+      "description": "The national anthem of France is “La Marseillaise”."
+    },
+    "facts": [
+      {
+        "id": "capital",
+        "label": "Capitale",
+        "value": "La capitale de la France est Paris.",
+        "translation": "The capital of France is Paris."
+      },
+      {
+        "id": "national-day",
+        "label": "Fête nationale",
+        "value": "La fête nationale française est le 14 juillet.",
+        "translation": "France's national day is 14 July."
+      },
+      {
+        "id": "official-language",
+        "label": "Langue officielle",
+        "value": "La langue de la République est le français.",
+        "translation": "The language of the Republic is French."
+      },
+      {
+        "id": "european-union",
+        "label": "Union européenne",
+        "value": "La France est un État membre de l'Union européenne.",
+        "translation": "France is a member state of the European Union."
+      }
+    ]
+  }
+}

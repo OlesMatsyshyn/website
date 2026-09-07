@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Vérba</title>
+  <desc id="desc">Two rounded vocabulary tiles connecting A and Ă.</desc>
+  <rect width="512" height="512" rx="108" fill="#f7f3ea"/>
+  <path d="M122 271c32-46 67-69 105-69h58" fill="none" stroke="#25635a" stroke-width="28" stroke-linecap="round"/>
+  <path d="M285 202l-30-30M285 202l-30 30" fill="none" stroke="#25635a" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="76" y="120" width="178" height="190" rx="34" fill="#ffffff" stroke="#163f3a" stroke-width="18"/>
+  <rect x="258" y="202" width="178" height="190" rx="34" fill="#dff3ed" stroke="#163f3a" stroke-width="18"/>
+  <text x="165" y="243" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="800" fill="#163f3a">A</text>
+  <text x="347" y="326" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800" fill="#163f3a">Ă</text>
+</svg>

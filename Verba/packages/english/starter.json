@@ -1,0 +1,1213 @@
+{
+  "metadata": {
+    "id": "english-starter",
+    "language": "British English",
+    "languageCode": "en-GB",
+    "variant": "General",
+    "level": 0,
+    "title": "British English · Starter",
+    "description": "British English vocabulary, short texts, and common forms.",
+    "version": 9,
+    "wordCount": 112,
+    "textCount": 10,
+    "formCount": 50
+  },
+  "words": [
+    {
+      "id": "en_house",
+      "term": "house",
+      "translation": "a place where people live"
+    },
+    {
+      "id": "en_apartment",
+      "term": "apartment",
+      "translation": "a home inside a larger building"
+    },
+    {
+      "id": "en_kitchen",
+      "term": "kitchen",
+      "translation": "room for cooking"
+    },
+    {
+      "id": "en_bedroom",
+      "term": "bedroom",
+      "translation": "room for sleeping"
+    },
+    {
+      "id": "en_bathroom",
+      "term": "bathroom",
+      "translation": "room for washing"
+    },
+    {
+      "id": "en_window",
+      "term": "window",
+      "translation": "opening with glass in a wall"
+    },
+    {
+      "id": "en_door",
+      "term": "door",
+      "translation": "entrance that opens and closes"
+    },
+    {
+      "id": "en_table",
+      "term": "table",
+      "translation": "furniture for meals or work"
+    },
+    {
+      "id": "en_chair",
+      "term": "chair",
+      "translation": "seat for one person"
+    },
+    {
+      "id": "en_bed",
+      "term": "bed",
+      "translation": "furniture for sleeping"
+    },
+    {
+      "id": "en_lamp",
+      "term": "lamp",
+      "translation": "light for a room"
+    },
+    {
+      "id": "en_phone",
+      "term": "phone",
+      "translation": "device for calls and messages"
+    },
+    {
+      "id": "en_computer",
+      "term": "computer",
+      "translation": "machine for digital work"
+    },
+    {
+      "id": "en_bag",
+      "term": "bag",
+      "translation": "container carried by hand or shoulder"
+    },
+    {
+      "id": "en_wallet",
+      "term": "wallet",
+      "translation": "small holder for money and cards"
+    },
+    {
+      "id": "en_key",
+      "term": "key",
+      "translation": "object used to open a lock"
+    },
+    {
+      "id": "en_book",
+      "term": "book",
+      "translation": "written pages bound together"
+    },
+    {
+      "id": "en_paper",
+      "term": "paper",
+      "translation": "thin material for writing"
+    },
+    {
+      "id": "en_pen",
+      "term": "pen",
+      "translation": "tool for writing with ink"
+    },
+    {
+      "id": "en_water",
+      "term": "water",
+      "translation": "clear liquid people drink"
+    },
+    {
+      "id": "en_bread",
+      "term": "bread",
+      "translation": "basic baked food"
+    },
+    {
+      "id": "en_rice",
+      "term": "rice",
+      "translation": "small white or brown grains eaten as food"
+    },
+    {
+      "id": "en_meat",
+      "term": "meat",
+      "translation": "animal food protein"
+    },
+    {
+      "id": "en_fish",
+      "term": "fish",
+      "translation": "animal from water eaten as food"
+    },
+    {
+      "id": "en_egg",
+      "term": "egg",
+      "translation": "oval food from a bird"
+    },
+    {
+      "id": "en_cheese",
+      "term": "cheese",
+      "translation": "food made from milk"
+    },
+    {
+      "id": "en_apple",
+      "term": "apple",
+      "translation": "round fruit"
+    },
+    {
+      "id": "en_banana",
+      "term": "banana",
+      "translation": "long yellow fruit"
+    },
+    {
+      "id": "en_coffee",
+      "term": "coffee",
+      "translation": "hot dark drink"
+    },
+    {
+      "id": "en_tea",
+      "term": "tea",
+      "translation": "hot drink made with leaves"
+    },
+    {
+      "id": "en_breakfast",
+      "term": "breakfast",
+      "translation": "morning meal"
+    },
+    {
+      "id": "en_lunch",
+      "term": "lunch",
+      "translation": "midday meal"
+    },
+    {
+      "id": "en_dinner",
+      "term": "dinner",
+      "translation": "evening meal"
+    },
+    {
+      "id": "en_shop",
+      "term": "shop",
+      "translation": "place where people buy things"
+    },
+    {
+      "id": "en_market",
+      "term": "market",
+      "translation": "place with many sellers"
+    },
+    {
+      "id": "en_money",
+      "term": "money",
+      "translation": "coins, notes, or digital payment"
+    },
+    {
+      "id": "en_price",
+      "term": "price",
+      "translation": "amount of money something costs"
+    },
+    {
+      "id": "en_ticket",
+      "term": "ticket",
+      "translation": "paper or digital proof for travel or entry"
+    },
+    {
+      "id": "en_train",
+      "term": "train",
+      "translation": "vehicle that runs on rails"
+    },
+    {
+      "id": "en_bus",
+      "term": "bus",
+      "translation": "large road vehicle for passengers"
+    },
+    {
+      "id": "en_station",
+      "term": "station",
+      "translation": "place where trains or buses stop"
+    },
+    {
+      "id": "en_airport",
+      "term": "airport",
+      "translation": "place where planes arrive and leave"
+    },
+    {
+      "id": "en_street",
+      "term": "street",
+      "translation": "road in a town or city"
+    },
+    {
+      "id": "en_city",
+      "term": "city",
+      "translation": "large town"
+    },
+    {
+      "id": "en_village",
+      "term": "village",
+      "translation": "small settlement"
+    },
+    {
+      "id": "en_map",
+      "term": "map",
+      "translation": "drawing that shows places"
+    },
+    {
+      "id": "en_left",
+      "term": "left",
+      "translation": "opposite of right"
+    },
+    {
+      "id": "en_right",
+      "term": "right",
+      "translation": "opposite of left"
+    },
+    {
+      "id": "en_near",
+      "term": "near",
+      "translation": "not far away"
+    },
+    {
+      "id": "en_far",
+      "term": "far",
+      "translation": "a long distance away"
+    },
+    {
+      "id": "en_today",
+      "term": "today",
+      "translation": "this day"
+    },
+    {
+      "id": "en_tomorrow",
+      "term": "tomorrow",
+      "translation": "the day after today"
+    },
+    {
+      "id": "en_yesterday",
+      "term": "yesterday",
+      "translation": "the day before today"
+    },
+    {
+      "id": "en_morning",
+      "term": "morning",
+      "translation": "early part of the day"
+    },
+    {
+      "id": "en_afternoon",
+      "term": "afternoon",
+      "translation": "part of the day after noon"
+    },
+    {
+      "id": "en_evening",
+      "term": "evening",
+      "translation": "late part of the day"
+    },
+    {
+      "id": "en_night",
+      "term": "night",
+      "translation": "dark part of the day"
+    },
+    {
+      "id": "en_week",
+      "term": "week",
+      "translation": "seven days"
+    },
+    {
+      "id": "en_month",
+      "term": "month",
+      "translation": "part of a year"
+    },
+    {
+      "id": "en_year",
+      "term": "year",
+      "translation": "twelve months"
+    },
+    {
+      "id": "en_weather",
+      "term": "weather",
+      "translation": "condition of air outside"
+    },
+    {
+      "id": "en_rain",
+      "term": "rain",
+      "translation": "water falling from clouds"
+    },
+    {
+      "id": "en_wind",
+      "term": "wind",
+      "translation": "moving air"
+    },
+    {
+      "id": "en_sun",
+      "term": "sun",
+      "translation": "bright star seen in daytime"
+    },
+    {
+      "id": "en_cold",
+      "term": "cold",
+      "translation": "low in temperature"
+    },
+    {
+      "id": "en_warm",
+      "term": "warm",
+      "translation": "pleasantly hot"
+    },
+    {
+      "id": "en_person",
+      "term": "person",
+      "translation": "human being"
+    },
+    {
+      "id": "en_friend",
+      "term": "friend",
+      "translation": "person you like and know well"
+    },
+    {
+      "id": "en_family",
+      "term": "family",
+      "translation": "parents, children, and relatives"
+    },
+    {
+      "id": "en_child",
+      "term": "child",
+      "translation": "young person"
+    },
+    {
+      "id": "en_teacher",
+      "term": "teacher",
+      "translation": "person who helps students learn"
+    },
+    {
+      "id": "en_doctor",
+      "term": "doctor",
+      "translation": "person who treats illness"
+    },
+    {
+      "id": "en_worker",
+      "term": "worker",
+      "translation": "person who does a job"
+    },
+    {
+      "id": "en_student",
+      "term": "student",
+      "translation": "person who studies"
+    },
+    {
+      "id": "en_happy",
+      "term": "happy",
+      "translation": "feeling good"
+    },
+    {
+      "id": "en_sad",
+      "term": "sad",
+      "translation": "feeling unhappy"
+    },
+    {
+      "id": "en_tired",
+      "term": "tired",
+      "translation": "needing rest"
+    },
+    {
+      "id": "en_busy",
+      "term": "busy",
+      "translation": "having many things to do"
+    },
+    {
+      "id": "en_ready",
+      "term": "ready",
+      "translation": "prepared"
+    },
+    {
+      "id": "en_important",
+      "term": "important",
+      "translation": "having great value"
+    },
+    {
+      "id": "en_easy",
+      "term": "easy",
+      "translation": "not difficult"
+    },
+    {
+      "id": "en_difficult",
+      "term": "difficult",
+      "translation": "not easy"
+    },
+    {
+      "id": "en_new",
+      "term": "new",
+      "translation": "not old"
+    },
+    {
+      "id": "en_old",
+      "term": "old",
+      "translation": "not new or not young"
+    },
+    {
+      "id": "en_good",
+      "term": "good",
+      "translation": "positive or useful"
+    },
+    {
+      "id": "en_bad",
+      "term": "bad",
+      "translation": "negative or harmful"
+    },
+    {
+      "id": "en_small",
+      "term": "small",
+      "translation": "not large"
+    },
+    {
+      "id": "en_large",
+      "term": "large",
+      "translation": "big"
+    },
+    {
+      "id": "en_to_be",
+      "term": "to be",
+      "translation": "to exist or have a state"
+    },
+    {
+      "id": "en_to_have",
+      "term": "to have",
+      "translation": "to own or hold"
+    },
+    {
+      "id": "en_to_go",
+      "term": "to go",
+      "translation": "to move to another place"
+    },
+    {
+      "id": "en_to_come",
+      "term": "to come",
+      "translation": "to move toward here"
+    },
+    {
+      "id": "en_to_make",
+      "term": "to make",
+      "translation": "to create or produce"
+    },
+    {
+      "id": "en_to_do",
+      "term": "to do",
+      "translation": "to perform an action"
+    },
+    {
+      "id": "en_to_see",
+      "term": "to see",
+      "translation": "to notice with the eyes"
+    },
+    {
+      "id": "en_to_say",
+      "term": "to say",
+      "translation": "to speak words"
+    },
+    {
+      "id": "en_to_know",
+      "term": "to know",
+      "translation": "to have information"
+    },
+    {
+      "id": "en_to_want",
+      "term": "to want",
+      "translation": "to wish for something"
+    },
+    {
+      "id": "en_to_need",
+      "term": "to need",
+      "translation": "to require something"
+    },
+    {
+      "id": "en_to_eat",
+      "term": "to eat",
+      "translation": "to take food"
+    },
+    {
+      "id": "en_to_drink",
+      "term": "to drink",
+      "translation": "to take liquid"
+    },
+    {
+      "id": "en_to_buy",
+      "term": "to buy",
+      "translation": "to get something by paying"
+    },
+    {
+      "id": "en_to_work",
+      "term": "to work",
+      "translation": "to do a job"
+    },
+    {
+      "id": "en_to_learn",
+      "term": "to learn",
+      "translation": "to gain knowledge"
+    },
+    {
+      "id": "en_because",
+      "term": "because",
+      "translation": "for the reason that"
+    },
+    {
+      "id": "en_but",
+      "term": "but",
+      "translation": "used to contrast ideas"
+    },
+    {
+      "id": "en_also",
+      "term": "also",
+      "translation": "in addition"
+    },
+    {
+      "id": "en_maybe",
+      "term": "maybe",
+      "translation": "perhaps"
+    },
+    {
+      "id": "en_always",
+      "term": "always",
+      "translation": "every time"
+    },
+    {
+      "id": "en_often",
+      "term": "often",
+      "translation": "many times"
+    },
+    {
+      "id": "en_sometimes",
+      "term": "sometimes",
+      "translation": "on some occasions"
+    },
+    {
+      "id": "en_never",
+      "term": "never",
+      "translation": "not ever"
+    }
+  ],
+  "texts": [
+    {
+      "id": "en_morning",
+      "title": "Morning routine",
+      "text": "I {wake} up early and make {coffee}. After breakfast I check my {calendar} and leave the house before eight.",
+      "translation": "I wake up early and make coffee. After breakfast I check my calendar and leave the house before eight.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_shopping",
+      "title": "At the shop",
+      "text": "At the {shop}, I buy bread, apples, and a small bottle of {water}. The price is clear, and I pay by {card}.",
+      "translation": "At the shop, I buy bread, apples, and a small bottle of water. The price is clear, and I pay by card.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_work_day",
+      "title": "A work day",
+      "text": "My work day starts with a short {meeting}. I write notes, answer {messages}, and finish one important {task}.",
+      "translation": "My work day starts with a short meeting. I write notes, answer messages, and finish one important task.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_travel",
+      "title": "Travelling",
+      "text": "Tomorrow I take the {train} to another city. I need a ticket, a small {bag}, and the address of the {hotel}.",
+      "translation": "Tomorrow I take the train to another city. I need a ticket, a small bag, and the address of the hotel.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_friend",
+      "title": "Meeting a friend",
+      "text": "In the evening I meet a {friend} near the station. We talk about work, family, and our plans for the {weekend}.",
+      "translation": "In the evening I meet a friend near the station. We talk about work, family, and our plans for the weekend.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_cooking",
+      "title": "Cooking dinner",
+      "text": "I cook rice and vegetables in the {kitchen}. The meal is simple, warm, and ready before my family comes {home}.",
+      "translation": "I cook rice and vegetables in the kitchen. The meal is simple, warm, and ready before my family comes home.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_weather",
+      "title": "Weather",
+      "text": "Today the {weather} is cold and windy. I wear a coat because heavy {rain} may come in the afternoon.",
+      "translation": "Today the weather is cold and windy. I wear a coat because heavy rain may come in the afternoon.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_transport",
+      "title": "Public transport",
+      "text": "The bus is late, so I wait at the {station}. When it arrives, I find a seat near the {window}.",
+      "translation": "The bus is late, so I wait at the station. When it arrives, I find a seat near the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_weekend",
+      "title": "Weekend plans",
+      "text": "On Saturday we want to visit a {market}, cook dinner, and watch a film at {home}. It is a quiet plan.",
+      "translation": "On Saturday we want to visit a market, cook dinner, and watch a film at home. It is a quiet plan.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "en_home",
+      "title": "My home",
+      "text": "My apartment has a small {kitchen}, a bright bedroom, and a table beside the {window}. It feels comfortable.",
+      "translation": "My apartment has a small kitchen, a bright bedroom, and a table beside the window. It feels comfortable.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "en_plural_one_child_two_children",
+      "type": "plural",
+      "prompt": "one child, two ___",
+      "before": "",
+      "answer": "children",
+      "after": "",
+      "result": "children",
+      "note": "irregular plural"
+    },
+    {
+      "id": "en_plural_one_person_two_people",
+      "type": "plural",
+      "prompt": "one person, two ___",
+      "before": "",
+      "answer": "people",
+      "after": "",
+      "result": "people",
+      "note": "irregular plural"
+    },
+    {
+      "id": "en_plural_one_city_two_cit_ies",
+      "type": "plural",
+      "prompt": "one city, two cit___",
+      "before": "",
+      "answer": "ies",
+      "after": "",
+      "result": "ies",
+      "note": "city → cities"
+    },
+    {
+      "id": "en_plural_one_box_two_box_es",
+      "type": "plural",
+      "prompt": "one box, two box___",
+      "before": "",
+      "answer": "es",
+      "after": "",
+      "result": "es",
+      "note": "box → boxes"
+    },
+    {
+      "id": "en_plural_one_house_two_house_s",
+      "type": "plural",
+      "prompt": "one house, two house___",
+      "before": "",
+      "answer": "s",
+      "after": "",
+      "result": "s",
+      "note": "regular plural"
+    },
+    {
+      "id": "en_plural_one_woman_two_women",
+      "type": "plural",
+      "prompt": "one woman, two ___",
+      "before": "",
+      "answer": "women",
+      "after": "",
+      "result": "women",
+      "note": "irregular plural"
+    },
+    {
+      "id": "en_plural_one_man_two_men",
+      "type": "plural",
+      "prompt": "one man, two ___",
+      "before": "",
+      "answer": "men",
+      "after": "",
+      "result": "men",
+      "note": "irregular plural"
+    },
+    {
+      "id": "en_plural_one_tooth_two_teeth",
+      "type": "plural",
+      "prompt": "one tooth, two ___",
+      "before": "",
+      "answer": "teeth",
+      "after": "",
+      "result": "teeth",
+      "note": "irregular plural"
+    },
+    {
+      "id": "en_third_person_he_work_every_day_he_works_every_day",
+      "type": "third person",
+      "prompt": "he work___ every day",
+      "before": "he work",
+      "answer": "s",
+      "after": " every day",
+      "result": "he works every day",
+      "note": "third-person singular"
+    },
+    {
+      "id": "en_third_person_she_watch_tv_she_watches_tv",
+      "type": "third person",
+      "prompt": "she watch___ TV",
+      "before": "she watch",
+      "answer": "es",
+      "after": " TV",
+      "result": "she watches TV",
+      "note": "verb ending after ch"
+    },
+    {
+      "id": "en_third_person_he_stud_english_he_studies_english",
+      "type": "third person",
+      "prompt": "he stud___ English",
+      "before": "he stud",
+      "answer": "ies",
+      "after": " English",
+      "result": "he studies English",
+      "note": "study → studies"
+    },
+    {
+      "id": "en_third_person_she_go_home_she_goes_home",
+      "type": "third person",
+      "prompt": "she go___ home",
+      "before": "she go",
+      "answer": "es",
+      "after": " home",
+      "result": "she goes home",
+      "note": "go → goes"
+    },
+    {
+      "id": "en_third_person_it_rain_often_it_rains_often",
+      "type": "third person",
+      "prompt": "it rain___ often",
+      "before": "it rain",
+      "answer": "s",
+      "after": " often",
+      "result": "it rains often",
+      "note": "regular third-person singular"
+    },
+    {
+      "id": "en_past_yesterday_i_walk_yesterday_i_walked",
+      "type": "past",
+      "prompt": "Yesterday I walk___",
+      "before": "Yesterday I walk",
+      "answer": "ed",
+      "after": "",
+      "result": "Yesterday I walked",
+      "note": "regular past"
+    },
+    {
+      "id": "en_past_yesterday_i_arriv_late_yesterday_i_arrived_late",
+      "type": "past",
+      "prompt": "Yesterday I arriv___ late",
+      "before": "Yesterday I arriv",
+      "answer": "ed",
+      "after": " late",
+      "result": "Yesterday I arrived late",
+      "note": "arrive → arrived"
+    },
+    {
+      "id": "en_past_yesterday_i_stud_yesterday_i_studied",
+      "type": "past",
+      "prompt": "Yesterday I stud___",
+      "before": "Yesterday I stud",
+      "answer": "ied",
+      "after": "",
+      "result": "Yesterday I studied",
+      "note": "study → studied"
+    },
+    {
+      "id": "en_past_yesterday_i_stop_yesterday_i_stopped",
+      "type": "past",
+      "prompt": "Yesterday I stop___",
+      "before": "Yesterday I stop",
+      "answer": "ped",
+      "after": "",
+      "result": "Yesterday I stopped",
+      "note": "stop → stopped"
+    },
+    {
+      "id": "en_past_yesterday_i_went_there_yesterday_i_went_there",
+      "type": "past",
+      "prompt": "Yesterday I went there",
+      "before": "Yesterday I ",
+      "answer": "went",
+      "after": " there",
+      "result": "Yesterday I went there",
+      "note": "go → went"
+    },
+    {
+      "id": "en_past_yesterday_i_saw_it_yesterday_i_saw_it",
+      "type": "past",
+      "prompt": "Yesterday I saw it",
+      "before": "Yesterday I ",
+      "answer": "saw",
+      "after": " it",
+      "result": "Yesterday I saw it",
+      "note": "see → saw"
+    },
+    {
+      "id": "en_past_yesterday_i_made_dinner_yesterday_i_made_dinner",
+      "type": "past",
+      "prompt": "Yesterday I made dinner",
+      "before": "Yesterday I ",
+      "answer": "made",
+      "after": " dinner",
+      "result": "Yesterday I made dinner",
+      "note": "make → made"
+    },
+    {
+      "id": "en_past_yesterday_i_ate_lunch_yesterday_i_ate_lunch",
+      "type": "past",
+      "prompt": "Yesterday I ate lunch",
+      "before": "Yesterday I ",
+      "answer": "ate",
+      "after": " lunch",
+      "result": "Yesterday I ate lunch",
+      "note": "eat → ate"
+    },
+    {
+      "id": "en_past_participle_i_have_written_a_note_i_have_written_a_note",
+      "type": "past participle",
+      "prompt": "I have written a note",
+      "before": "I have ",
+      "answer": "written",
+      "after": " a note",
+      "result": "I have written a note",
+      "note": "write → written"
+    },
+    {
+      "id": "en_past_participle_i_have_taken_the_train_i_have_taken_the_train",
+      "type": "past participle",
+      "prompt": "I have taken the train",
+      "before": "I have ",
+      "answer": "taken",
+      "after": " the train",
+      "result": "I have taken the train",
+      "note": "take → taken"
+    },
+    {
+      "id": "en_past_participle_i_have_seen_the_film_i_have_seen_the_film",
+      "type": "past participle",
+      "prompt": "I have seen the film",
+      "before": "I have ",
+      "answer": "seen",
+      "after": " the film",
+      "result": "I have seen the film",
+      "note": "see → seen"
+    },
+    {
+      "id": "en_past_participle_i_have_bought_bread_i_have_bought_bread",
+      "type": "past participle",
+      "prompt": "I have bought bread",
+      "before": "I have ",
+      "answer": "bought",
+      "after": " bread",
+      "result": "I have bought bread",
+      "note": "buy → bought"
+    },
+    {
+      "id": "en_comparative_small_small_smaller",
+      "type": "comparative",
+      "prompt": "small → small___",
+      "before": "small",
+      "answer": "er",
+      "after": "",
+      "result": "smaller",
+      "note": "regular comparative"
+    },
+    {
+      "id": "en_comparative_large_larg_larger",
+      "type": "comparative",
+      "prompt": "large → larg___",
+      "before": "larg",
+      "answer": "er",
+      "after": "",
+      "result": "larger",
+      "note": "drop final e in spelling"
+    },
+    {
+      "id": "en_comparative_happy_happ_happier",
+      "type": "comparative",
+      "prompt": "happy → happ___",
+      "before": "happ",
+      "answer": "ier",
+      "after": "",
+      "result": "happier",
+      "note": "y → ier"
+    },
+    {
+      "id": "en_comparative_good_better",
+      "type": "comparative",
+      "prompt": "good → ___",
+      "before": "",
+      "answer": "better",
+      "after": "",
+      "result": "better",
+      "note": "irregular comparative"
+    },
+    {
+      "id": "en_superlative_good_the_the_best",
+      "type": "superlative",
+      "prompt": "good → the ___",
+      "before": "the ",
+      "answer": "best",
+      "after": "",
+      "result": "the best",
+      "note": "irregular superlative"
+    },
+    {
+      "id": "en_superlative_easy_the_eas_the_easiest",
+      "type": "superlative",
+      "prompt": "easy → the eas___",
+      "before": "the eas",
+      "answer": "iest",
+      "after": "",
+      "result": "the easiest",
+      "note": "easy → easiest"
+    },
+    {
+      "id": "en_gerund_run_run_running",
+      "type": "gerund",
+      "prompt": "run → run___",
+      "before": "run",
+      "answer": "ning",
+      "after": "",
+      "result": "running",
+      "note": "double consonant"
+    },
+    {
+      "id": "en_gerund_make_mak_making",
+      "type": "gerund",
+      "prompt": "make → mak___",
+      "before": "mak",
+      "answer": "ing",
+      "after": "",
+      "result": "making",
+      "note": "drop final e"
+    },
+    {
+      "id": "en_gerund_study_study_studying",
+      "type": "gerund",
+      "prompt": "study → study___",
+      "before": "study",
+      "answer": "ing",
+      "after": "",
+      "result": "studying",
+      "note": "regular ing form"
+    },
+    {
+      "id": "en_negative_i_not_know_i_do_not_know",
+      "type": "negative",
+      "prompt": "I ___ not know",
+      "before": "I ",
+      "answer": "do",
+      "after": " not know",
+      "result": "I do not know",
+      "note": "present negative helper"
+    },
+    {
+      "id": "en_negative_he_not_know_he_does_not_know",
+      "type": "negative",
+      "prompt": "He ___ not know",
+      "before": "He ",
+      "answer": "does",
+      "after": " not know",
+      "result": "He does not know",
+      "note": "third-person helper"
+    },
+    {
+      "id": "en_question_you_speak_english_do_you_speak_english",
+      "type": "question",
+      "prompt": "___ you speak English?",
+      "before": "",
+      "answer": "Do",
+      "after": " you speak English?",
+      "result": "Do you speak English?",
+      "note": "present simple question"
+    },
+    {
+      "id": "en_question_she_work_here_does_she_work_here",
+      "type": "question",
+      "prompt": "___ she work here?",
+      "before": "",
+      "answer": "Does",
+      "after": " she work here?",
+      "result": "Does she work here?",
+      "note": "third-person question"
+    },
+    {
+      "id": "en_modal_i_go_now_i_must_go_now",
+      "type": "modal",
+      "prompt": "I ___ go now",
+      "before": "I ",
+      "answer": "must",
+      "after": " go now",
+      "result": "I must go now",
+      "note": "necessity"
+    },
+    {
+      "id": "en_modal_i_like_coffee_i_would_like_coffee",
+      "type": "modal",
+      "prompt": "I ___ like coffee",
+      "before": "I ",
+      "answer": "would",
+      "after": " like coffee",
+      "result": "I would like coffee",
+      "note": "polite request"
+    },
+    {
+      "id": "en_pronoun_this_is_my_book_it_is_it_is_mine",
+      "type": "pronoun",
+      "prompt": "This is my book. It is ___",
+      "before": "It is ",
+      "answer": "mine",
+      "after": "",
+      "result": "It is mine",
+      "note": "possessive pronoun"
+    },
+    {
+      "id": "en_pronoun_this_is_her_bag_it_is_it_is_hers",
+      "type": "pronoun",
+      "prompt": "This is her bag. It is ___",
+      "before": "It is ",
+      "answer": "hers",
+      "after": "",
+      "result": "It is hers",
+      "note": "possessive pronoun"
+    },
+    {
+      "id": "en_pronoun_i_saw_john_i_saw_i_saw_him",
+      "type": "pronoun",
+      "prompt": "I saw John. I saw ___",
+      "before": "I saw ",
+      "answer": "him",
+      "after": "",
+      "result": "I saw him",
+      "note": "object pronoun"
+    },
+    {
+      "id": "en_pronoun_i_saw_anna_i_saw_i_saw_her",
+      "type": "pronoun",
+      "prompt": "I saw Anna. I saw ___",
+      "before": "I saw ",
+      "answer": "her",
+      "after": "",
+      "result": "I saw her",
+      "note": "object pronoun"
+    },
+    {
+      "id": "en_article_apple_is_on_the_table_an_apple_is_on_the_table",
+      "type": "article",
+      "prompt": "___ apple is on the table",
+      "before": "",
+      "answer": "An",
+      "after": " apple is on the table",
+      "result": "An apple is on the table",
+      "note": "an before vowel sound"
+    },
+    {
+      "id": "en_article_book_is_on_the_table_a_book_is_on_the_table",
+      "type": "article",
+      "prompt": "___ book is on the table",
+      "before": "",
+      "answer": "A",
+      "after": " book is on the table",
+      "result": "A book is on the table",
+      "note": "a before consonant sound"
+    },
+    {
+      "id": "en_preposition_i_live_a_city_i_live_in_a_city",
+      "type": "preposition",
+      "prompt": "I live ___ a city",
+      "before": "I live ",
+      "answer": "in",
+      "after": " a city",
+      "result": "I live in a city",
+      "note": "place preposition"
+    },
+    {
+      "id": "en_preposition_i_go_work_i_go_to_work",
+      "type": "preposition",
+      "prompt": "I go ___ work",
+      "before": "I go ",
+      "answer": "to",
+      "after": " work",
+      "result": "I go to work",
+      "note": "movement preposition"
+    },
+    {
+      "id": "en_preposition_the_meeting_is_monday_the_meeting_is_on_monday",
+      "type": "preposition",
+      "prompt": "The meeting is ___ Monday",
+      "before": "The meeting is ",
+      "answer": "on",
+      "after": " Monday",
+      "result": "The meeting is on Monday",
+      "note": "day preposition"
+    },
+    {
+      "id": "en_preposition_the_meeting_is_nine_the_meeting_is_at_nine",
+      "type": "preposition",
+      "prompt": "The meeting is ___ nine",
+      "before": "The meeting is ",
+      "answer": "at",
+      "after": " nine",
+      "result": "The meeting is at nine",
+      "note": "time preposition"
+    }
+  ],
+  "reference": {
+    "title": "United Kingdom",
+    "country": "United Kingdom",
+    "flag": {
+      "title": "Flag of the United Kingdom",
+      "asset": {
+        "src": "packages/english/assets/flag-v2.svg",
+        "alt": "Union Flag of the United Kingdom"
+      },
+      "aspectRatio": "5 / 3",
+      "colorsLocal": "Red · White · Blue",
+      "label": "Union Flag of the United Kingdom",
+      "descriptionLocal": "The Union Flag is the national flag of the United Kingdom."
+    },
+    "anthem": {
+      "title": "National anthem",
+      "name": "God Save the King",
+      "description": "The British National Anthem is “God Save the King”. On official occasions, only the first verse is usually sung."
+    },
+    "facts": [
+      {
+        "id": "country",
+        "label": "Country",
+        "value": "United Kingdom"
+      },
+      {
+        "id": "capital",
+        "label": "Capital",
+        "value": "The capital of the United Kingdom is London."
+      },
+      {
+        "id": "constituent-countries",
+        "label": "Constituent countries",
+        "value": "England, Scotland, Wales and Northern Ireland."
+      },
+      {
+        "id": "language",
+        "label": "Language",
+        "value": "English is the predominant language of the United Kingdom."
+      },
+      {
+        "id": "recognized-languages",
+        "label": "Recognized languages",
+        "value": "Welsh, Scottish Gaelic, Irish, Scots, Ulster Scots and Cornish are among the recognized regional or minority languages."
+      },
+      {
+        "id": "currency",
+        "label": "Currency",
+        "value": "The currency is pound sterling."
+      },
+      {
+        "id": "national-day",
+        "label": "National day",
+        "value": "The United Kingdom has no single official national day; its constituent nations have their own patron-saint days."
+      },
+      {
+        "id": "government",
+        "label": "Government",
+        "value": "The United Kingdom is a constitutional monarchy and parliamentary democracy."
+      }
+    ]
+  }
+}

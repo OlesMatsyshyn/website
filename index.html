@@ -41,7 +41,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=20260809-wellcanvas-presentation">
+  <link rel="stylesheet" href="css/style.css?v=20260907-verba-carousel-fade">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -60,6 +60,7 @@
             <a href="public-outreach.html">Public Outreach</a>
             <a href="vyrva.html">Vyrva</a>
             <a href="wellcanvas.html">WellCanvas</a>
+            <a href="verba.html">Vérba</a>
           </div>
         </div>
         <a href="about.html">About</a>
@@ -113,31 +114,41 @@
 
         <div class="secondary-chapters" aria-labelledby="secondary-work-heading">
           <h2 id="secondary-work-heading" class="section-title secondary-section-title">Other projects and completed work</h2>
-          <div class="card-grid chapter-grid secondary-chapter-grid">
-            <a class="feature-card feature-card-secondary" href="wellcanvas.html">
-              <img class="feature-card-logo" src="WellCanvas/icons/wellcanvas-ui.png" alt="WellCanvas app icon with a calm canvas-inspired mark.">
-              <div class="feature-card-body">
-                <h3>WellCanvas</h3>
-                <span class="chapter-status chapter-status-paused">Operational · currently paused</span>
-                <p>Free, local-first health tracking with portable data and shareable food libraries.</p>
-              </div>
-            </a>
-            <a class="feature-card feature-card-secondary" href="vyrva.html">
-              <img src="img/vyrva/vyrva_cover.png" alt="Foggy medieval coastal city on a stormy seashore, created as cover art for Vyrva.">
-              <div class="feature-card-body">
-                <h3>Vyrva</h3>
-                <span class="chapter-status chapter-status-creative">Independent creative project</span>
-                <p>A dark fantasy Unity project about a drowned port city, castles, sea cults, prosthetic clinics, refugee camps, and procedural world systems.</p>
-              </div>
-            </a>
-            <a class="feature-card feature-card-secondary" href="public-outreach.html">
-              <img src="img/chapter_outreach.png" alt="Teacher and students observing a physics lesson at a blackboard.">
-              <div class="feature-card-body">
-                <h3>Public Outreach</h3>
-                <span class="chapter-status chapter-status-paused">Established work · currently paused</span>
-                <p>Books, essays, and public-facing physics writing, including <cite>Toys or Physics?: Explaining Physics Through Toys</cite>.</p>
-              </div>
-            </a>
+          <div class="project-carousel" data-project-carousel>
+            <div class="card-grid chapter-grid secondary-chapter-grid project-carousel-track" data-project-carousel-track tabindex="0">
+              <a class="feature-card feature-card-secondary" href="wellcanvas.html">
+                <img class="feature-card-logo" src="WellCanvas/icons/wellcanvas-ui.png" alt="WellCanvas app icon with a calm canvas-inspired mark.">
+                <div class="feature-card-body">
+                  <h3>WellCanvas</h3>
+                  <span class="chapter-status chapter-status-paused">Operational · currently paused</span>
+                  <p>Free, local-first health tracking with portable data and shareable food libraries.</p>
+                </div>
+              </a>
+              <a class="feature-card feature-card-secondary" href="vyrva.html">
+                <img src="img/vyrva/vyrva_cover.png" alt="Foggy medieval coastal city on a stormy seashore, created as cover art for Vyrva.">
+                <div class="feature-card-body">
+                  <h3>Vyrva</h3>
+                  <span class="chapter-status chapter-status-creative">Independent creative project</span>
+                  <p>A dark fantasy Unity project about a drowned port city, castles, sea cults, prosthetic clinics, refugee camps, and procedural world systems.</p>
+                </div>
+              </a>
+              <a class="feature-card feature-card-secondary" href="public-outreach.html">
+                <img src="img/chapter_outreach.png" alt="Teacher and students observing a physics lesson at a blackboard.">
+                <div class="feature-card-body">
+                  <h3>Public Outreach</h3>
+                  <span class="chapter-status chapter-status-paused">Established work · currently paused</span>
+                  <p>Books, essays, and public-facing physics writing, including <cite>Toys or Physics?: Explaining Physics Through Toys</cite>.</p>
+                </div>
+              </a>
+              <a class="feature-card feature-card-secondary" href="verba.html">
+                <img class="feature-card-logo" src="Verba/icons/verba.svg" alt="Vérba app icon with matching vocabulary tiles.">
+                <div class="feature-card-body">
+                  <h3>Vérba</h3>
+                  <span class="chapter-status chapter-status-active">Operational</span>
+                  <p>A lightweight local-first language practice app with downloadable vocabulary, text and grammar packs.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -157,7 +168,7 @@
     <p>&copy; <span id="year"></span> Oles Matsyshyn. Built as a static website for GitHub Pages.</p>
   </footer>
 
-  <script src="js/main.js?v=20260809-nav-consistency"></script>
+  <script src="js/main.js?v=20260907-verba-carousel-fade"></script>
   <script data-goatcounter="https://oles-matsyshyn.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

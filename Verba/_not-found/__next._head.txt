@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[24441,["/website/Verba/_next/static/chunks/0x662v0g_zpv0.js"],"ViewportBoundary"]
+3:I[24441,["/website/Verba/_next/static/chunks/0x662v0g_zpv0.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[56970,["/website/Verba/_next/static/chunks/0x662v0g_zpv0.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#25635a"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Vérba"}],["$","meta","1",{"name":"description","content":"Fast vocabulary, text, and grammar form practice."}],["$","link","2",{"rel":"manifest","href":"/website/Verba/manifest.webmanifest"}],["$","link","3",{"rel":"icon","href":"/website/Verba/icons/verba.svg"}],["$","link","4",{"rel":"apple-touch-icon","href":"/website/Verba/icons/verba-192.png"}],["$","$L5","5",{}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZghsNbHSIhp6sGMVtkjVi"}

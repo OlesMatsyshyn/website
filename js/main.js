@@ -18,16 +18,19 @@
     var creativeItems = [
       { href: "public-outreach.html", label: "Public Outreach" },
       { href: "vyrva.html", label: "Vyrva" },
-      { href: "wellcanvas.html", label: "WellCanvas" }
+      { href: "wellcanvas.html", label: "WellCanvas" },
+      { href: "verba.html", label: "Vérba" }
     ];
     var currentItems = Array.prototype.map.call(creativeMenu.querySelectorAll("a"), function (link) {
       return {
         href: link.getAttribute("href"),
-        label: link.textContent.trim()
+        label: link.textContent.trim(),
+        target: link.getAttribute("target") || "",
+        rel: link.getAttribute("rel") || ""
       };
     });
     var needsNavRepair = currentItems.length !== creativeItems.length || creativeItems.some(function (item, index) {
-      return !currentItems[index] || currentItems[index].href !== item.href || currentItems[index].label !== item.label;
+      return !currentItems[index] || currentItems[index].href !== item.href || currentItems[index].label !== item.label || currentItems[index].target !== (item.target || "") || currentItems[index].rel !== (item.rel || "");
     });
 
     if (needsNavRepair) {
@@ -36,9 +39,125 @@
         var link = document.createElement("a");
         link.href = item.href;
         link.textContent = item.label;
+        if (item.target) {
+          link.target = item.target;
+        }
+        if (item.rel) {
+          link.rel = item.rel;
+        }
         creativeMenu.appendChild(link);
       });
     }
+  }
+
+  function initVerbaLinks() {
+    var verbaLinks = document.querySelectorAll("[data-verba-link]");
+    if (!verbaLinks.length || window.location.protocol !== "file:") {
+      return;
+    }
+
+    var message = document.querySelector("[data-verba-open-message]");
+    verbaLinks.forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (message) {
+          message.hidden = false;
+          message.textContent = "Vérba must be opened through the local web server. Run: node scripts/serve-site.mjs";
+        }
+      });
+    });
+  }
+
+  function initProjectCarousel() {
+    var carousels = Array.prototype.slice.call(document.querySelectorAll("[data-project-carousel]"));
+    carousels.forEach(function (carousel) {
+      var track = carousel.querySelector("[data-project-carousel-track]");
+      var cards = track ? Array.prototype.slice.call(track.querySelectorAll(".feature-card")) : [];
+
+      if (!track || cards.length <= 1) {
+        return;
+      }
+
+      function showIndex(index) {
+        var targetIndex = Math.min(Math.max(index, 0), cards.length - 1);
+        var left = cards[targetIndex] ? cards[targetIndex].offsetLeft - track.offsetLeft : 0;
+        track.scrollTo({
+          left: left,
+          behavior: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+        });
+      }
+
+      function nearestIndex() {
+        var nearestIndex = 0;
+        var nearestDistance = Infinity;
+        cards.forEach(function (card, index) {
+          var distance = Math.abs(track.scrollLeft - (card.offsetLeft - track.offsetLeft));
+          if (distance < nearestDistance) {
+            nearestIndex = index;
+            nearestDistance = distance;
+          }
+        });
+        return nearestIndex;
+      }
+
+      function updateFadeState() {
+        var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        var edgeTolerance = Math.max(2, Math.min(48, track.clientWidth * 0.06));
+        var atStart = track.scrollLeft <= 2;
+        var atEnd = track.scrollLeft >= maxScroll - edgeTolerance;
+        carousel.classList.toggle("is-at-start", atStart);
+        carousel.classList.toggle("is-at-end", atEnd);
+        carousel.classList.toggle("is-scrollable", maxScroll > 2);
+      }
+
+      function canScrollBy(delta) {
+        var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        var edgeTolerance = Math.max(2, Math.min(48, track.clientWidth * 0.06));
+        if (delta < 0) {
+          return track.scrollLeft > 2;
+        }
+        if (delta > 0) {
+          return track.scrollLeft < maxScroll - edgeTolerance;
+        }
+        return false;
+      }
+
+      track.addEventListener("scroll", function () {
+        window.requestAnimationFrame(updateFadeState);
+      }, { passive: true });
+
+      track.addEventListener("wheel", function (event) {
+        if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || event.deltaY === 0) {
+          return;
+        }
+        if (!canScrollBy(event.deltaY)) {
+          return;
+        }
+        event.preventDefault();
+        track.scrollBy({
+          left: event.deltaY,
+          behavior: "auto"
+        });
+      }, { passive: false });
+
+      track.addEventListener("keydown", function (event) {
+        var index = nearestIndex();
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          showIndex(index - 1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          showIndex(index + 1);
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        updateFadeState();
+      });
+
+      updateFadeState();
+    });
   }
 
   var path = window.location.pathname.split("/").pop() || "index.html";
@@ -954,6 +1073,8 @@
   }
 
   function initPageInteractions() {
+    initVerbaLinks();
+    initProjectCarousel();
     initNewsPagination();
     initNewsSubscription();
     initWellCanvasScreenshotViewer();

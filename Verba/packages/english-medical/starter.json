@@ -1,0 +1,1042 @@
+{
+  "metadata": {
+    "id": "english-medical-starter",
+    "language": "English",
+    "languageCode": "en-med",
+    "variant": "Medical",
+    "level": 0,
+    "title": "Medical English · Starter",
+    "description": "Practical medical and scientific English with plain definitions.",
+    "version": 9,
+    "wordCount": 93,
+    "textCount": 8,
+    "formCount": 50
+  },
+  "words": [
+    {
+      "id": "enmed_symptom",
+      "term": "symptom",
+      "translation": "a sign of illness felt or noticed"
+    },
+    {
+      "id": "enmed_diagnosis",
+      "term": "diagnosis",
+      "translation": "identification of a disease or condition"
+    },
+    {
+      "id": "enmed_treatment",
+      "term": "treatment",
+      "translation": "care given to improve health"
+    },
+    {
+      "id": "enmed_medication",
+      "term": "medication",
+      "translation": "medicine used for treatment"
+    },
+    {
+      "id": "enmed_prescription",
+      "term": "prescription",
+      "translation": "doctor's written order for medicine"
+    },
+    {
+      "id": "enmed_dosage",
+      "term": "dosage",
+      "translation": "amount of medicine to take"
+    },
+    {
+      "id": "enmed_tablet",
+      "term": "tablet",
+      "translation": "small solid piece of medicine"
+    },
+    {
+      "id": "enmed_capsule",
+      "term": "capsule",
+      "translation": "medicine in a small shell"
+    },
+    {
+      "id": "enmed_injection",
+      "term": "injection",
+      "translation": "medicine given with a needle"
+    },
+    {
+      "id": "enmed_vaccine",
+      "term": "vaccine",
+      "translation": "substance that helps prevent disease"
+    },
+    {
+      "id": "enmed_infection",
+      "term": "infection",
+      "translation": "illness caused by germs"
+    },
+    {
+      "id": "enmed_inflammation",
+      "term": "inflammation",
+      "translation": "redness, heat, swelling, or pain"
+    },
+    {
+      "id": "enmed_swelling",
+      "term": "swelling",
+      "translation": "enlargement caused by fluid or irritation"
+    },
+    {
+      "id": "enmed_fever",
+      "term": "fever",
+      "translation": "body temperature higher than normal"
+    },
+    {
+      "id": "enmed_cough",
+      "term": "cough",
+      "translation": "sudden push of air from the throat"
+    },
+    {
+      "id": "enmed_headache",
+      "term": "headache",
+      "translation": "pain in the head"
+    },
+    {
+      "id": "enmed_nausea",
+      "term": "nausea",
+      "translation": "feeling that you may vomit"
+    },
+    {
+      "id": "enmed_fatigue",
+      "term": "fatigue",
+      "translation": "strong tiredness"
+    },
+    {
+      "id": "enmed_pain",
+      "term": "pain",
+      "translation": "unpleasant body feeling"
+    },
+    {
+      "id": "enmed_chronic",
+      "term": "chronic",
+      "translation": "lasting for a long time"
+    },
+    {
+      "id": "enmed_acute",
+      "term": "acute",
+      "translation": "starting suddenly or lasting a short time"
+    },
+    {
+      "id": "enmed_recovery",
+      "term": "recovery",
+      "translation": "return to health"
+    },
+    {
+      "id": "enmed_appointment",
+      "term": "appointment",
+      "translation": "arranged time to see a clinician"
+    },
+    {
+      "id": "enmed_clinic",
+      "term": "clinic",
+      "translation": "place for outpatient medical care"
+    },
+    {
+      "id": "enmed_hospital",
+      "term": "hospital",
+      "translation": "place for serious medical care"
+    },
+    {
+      "id": "enmed_ward",
+      "term": "ward",
+      "translation": "hospital area with patient beds"
+    },
+    {
+      "id": "enmed_patient",
+      "term": "patient",
+      "translation": "person receiving medical care"
+    },
+    {
+      "id": "enmed_nurse",
+      "term": "nurse",
+      "translation": "health worker who cares for patients"
+    },
+    {
+      "id": "enmed_doctor",
+      "term": "doctor",
+      "translation": "medically trained clinician"
+    },
+    {
+      "id": "enmed_surgeon",
+      "term": "surgeon",
+      "translation": "doctor who performs operations"
+    },
+    {
+      "id": "enmed_procedure",
+      "term": "procedure",
+      "translation": "medical action or operation"
+    },
+    {
+      "id": "enmed_examination",
+      "term": "examination",
+      "translation": "careful medical check"
+    },
+    {
+      "id": "enmed_blood_pressure",
+      "term": "blood pressure",
+      "translation": "force of blood against artery walls"
+    },
+    {
+      "id": "enmed_pulse",
+      "term": "pulse",
+      "translation": "heartbeat felt in an artery"
+    },
+    {
+      "id": "enmed_temperature",
+      "term": "temperature",
+      "translation": "measurement of body heat"
+    },
+    {
+      "id": "enmed_breathing",
+      "term": "breathing",
+      "translation": "taking air in and out"
+    },
+    {
+      "id": "enmed_oxygen",
+      "term": "oxygen",
+      "translation": "gas needed for breathing"
+    },
+    {
+      "id": "enmed_heart",
+      "term": "heart",
+      "translation": "organ that pumps blood"
+    },
+    {
+      "id": "enmed_lung",
+      "term": "lung",
+      "translation": "organ used for breathing"
+    },
+    {
+      "id": "enmed_stomach",
+      "term": "stomach",
+      "translation": "organ that receives food"
+    },
+    {
+      "id": "enmed_liver",
+      "term": "liver",
+      "translation": "large organ that processes blood and chemicals"
+    },
+    {
+      "id": "enmed_kidney",
+      "term": "kidney",
+      "translation": "organ that filters blood"
+    },
+    {
+      "id": "enmed_skin",
+      "term": "skin",
+      "translation": "outer covering of the body"
+    },
+    {
+      "id": "enmed_blood",
+      "term": "blood",
+      "translation": "red fluid in the body"
+    },
+    {
+      "id": "enmed_tissue",
+      "term": "tissue",
+      "translation": "group of similar body cells"
+    },
+    {
+      "id": "enmed_cell",
+      "term": "cell",
+      "translation": "smallest living unit of the body"
+    },
+    {
+      "id": "enmed_sample",
+      "term": "sample",
+      "translation": "small amount taken for testing"
+    },
+    {
+      "id": "enmed_laboratory",
+      "term": "laboratory",
+      "translation": "place where tests are performed"
+    },
+    {
+      "id": "enmed_blood_test",
+      "term": "blood test",
+      "translation": "laboratory test using blood"
+    },
+    {
+      "id": "enmed_urine_test",
+      "term": "urine test",
+      "translation": "laboratory test using urine"
+    },
+    {
+      "id": "enmed_screening",
+      "term": "screening",
+      "translation": "test used to look for possible disease"
+    },
+    {
+      "id": "enmed_result",
+      "term": "result",
+      "translation": "information produced by a test"
+    },
+    {
+      "id": "enmed_normal_range",
+      "term": "normal range",
+      "translation": "expected test-value interval"
+    },
+    {
+      "id": "enmed_risk",
+      "term": "risk",
+      "translation": "chance of harm or illness"
+    },
+    {
+      "id": "enmed_prevention",
+      "term": "prevention",
+      "translation": "action that reduces risk"
+    },
+    {
+      "id": "enmed_monitoring",
+      "term": "monitoring",
+      "translation": "regular checking over time"
+    },
+    {
+      "id": "enmed_follow_up",
+      "term": "follow-up",
+      "translation": "later check after care"
+    },
+    {
+      "id": "enmed_referral",
+      "term": "referral",
+      "translation": "sending a patient to another specialist"
+    },
+    {
+      "id": "enmed_discharge",
+      "term": "discharge",
+      "translation": "release from hospital care"
+    },
+    {
+      "id": "enmed_admission",
+      "term": "admission",
+      "translation": "entry into hospital care"
+    },
+    {
+      "id": "enmed_allergy",
+      "term": "allergy",
+      "translation": "harmful reaction to a substance"
+    },
+    {
+      "id": "enmed_side_effect",
+      "term": "side effect",
+      "translation": "unwanted effect of treatment"
+    },
+    {
+      "id": "enmed_dose",
+      "term": "dose",
+      "translation": "single amount of medicine"
+    },
+    {
+      "id": "enmed_antibiotic",
+      "term": "antibiotic",
+      "translation": "medicine used against bacterial infection"
+    },
+    {
+      "id": "enmed_analgesic",
+      "term": "analgesic",
+      "translation": "medicine used to reduce pain"
+    },
+    {
+      "id": "enmed_sedation",
+      "term": "sedation",
+      "translation": "medicine-induced calm or sleepiness"
+    },
+    {
+      "id": "enmed_anesthesia",
+      "term": "anesthesia",
+      "translation": "loss of feeling for a procedure"
+    },
+    {
+      "id": "enmed_wound",
+      "term": "wound",
+      "translation": "injury where skin is damaged"
+    },
+    {
+      "id": "enmed_fracture",
+      "term": "fracture",
+      "translation": "broken bone"
+    },
+    {
+      "id": "enmed_sprain",
+      "term": "sprain",
+      "translation": "injury to a joint ligament"
+    },
+    {
+      "id": "enmed_bruise",
+      "term": "bruise",
+      "translation": "dark mark from bleeding under skin"
+    },
+    {
+      "id": "enmed_rash",
+      "term": "rash",
+      "translation": "area of irritated skin"
+    },
+    {
+      "id": "enmed_dehydration",
+      "term": "dehydration",
+      "translation": "too little water in the body"
+    },
+    {
+      "id": "enmed_nutrition",
+      "term": "nutrition",
+      "translation": "food and nourishment"
+    },
+    {
+      "id": "enmed_diet",
+      "term": "diet",
+      "translation": "usual food pattern"
+    },
+    {
+      "id": "enmed_mobility",
+      "term": "mobility",
+      "translation": "ability to move"
+    },
+    {
+      "id": "enmed_therapy",
+      "term": "therapy",
+      "translation": "treatment to improve a condition"
+    },
+    {
+      "id": "enmed_physical_therapy",
+      "term": "physical therapy",
+      "translation": "exercise-based rehabilitation"
+    },
+    {
+      "id": "enmed_mental_health",
+      "term": "mental health",
+      "translation": "emotional and psychological wellbeing"
+    },
+    {
+      "id": "enmed_anxiety",
+      "term": "anxiety",
+      "translation": "strong worry or fear"
+    },
+    {
+      "id": "enmed_depression",
+      "term": "depression",
+      "translation": "persistent low mood"
+    },
+    {
+      "id": "enmed_sleep",
+      "term": "sleep",
+      "translation": "resting state of body and mind"
+    },
+    {
+      "id": "enmed_research",
+      "term": "research",
+      "translation": "systematic study to answer questions"
+    },
+    {
+      "id": "enmed_trial",
+      "term": "trial",
+      "translation": "planned study of a treatment"
+    },
+    {
+      "id": "enmed_participant",
+      "term": "participant",
+      "translation": "person taking part in a study"
+    },
+    {
+      "id": "enmed_consent",
+      "term": "consent",
+      "translation": "permission given after explanation"
+    },
+    {
+      "id": "enmed_data",
+      "term": "data",
+      "translation": "recorded information"
+    },
+    {
+      "id": "enmed_analysis",
+      "term": "analysis",
+      "translation": "careful study of data"
+    },
+    {
+      "id": "enmed_evidence",
+      "term": "evidence",
+      "translation": "information supporting a conclusion"
+    },
+    {
+      "id": "enmed_measurement",
+      "term": "measurement",
+      "translation": "act or result of measuring"
+    },
+    {
+      "id": "enmed_observation",
+      "term": "observation",
+      "translation": "noticing and recording something"
+    },
+    {
+      "id": "enmed_protocol",
+      "term": "protocol",
+      "translation": "planned method for a study or treatment"
+    },
+    {
+      "id": "enmed_outcome",
+      "term": "outcome",
+      "translation": "measured result after care or study"
+    }
+  ],
+  "texts": [
+    {
+      "id": "enmed_symptoms",
+      "title": "Describing symptoms",
+      "text": "The patient reports a {cough}, mild fever, and unusual {fatigue}. The doctor asks when the symptoms began and whether the pain is {acute} or chronic.",
+      "translation": "The patient reports a cough, mild fever, and unusual fatigue. The doctor asks when the symptoms began and whether the pain is acute or chronic.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_admission",
+      "title": "Hospital admission",
+      "text": "During hospital {admission}, a nurse checks blood pressure, pulse, temperature, and {breathing}. The information is recorded before the patient goes to the ward.",
+      "translation": "During hospital admission, a nurse checks blood pressure, pulse, temperature, and breathing. The information is recorded before the patient goes to the ward.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_medication",
+      "title": "Taking medication",
+      "text": "The prescription says to take one {tablet} twice a day. The pharmacist explains the dosage and mentions possible {side} effects.",
+      "translation": "The prescription says to take one tablet twice a day. The pharmacist explains the dosage and mentions possible side effects.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_lab",
+      "title": "Blood test",
+      "text": "A small blood {sample} is sent to the laboratory. The result is compared with the normal {range} and discussed at the next appointment.",
+      "translation": "A small blood sample is sent to the laboratory. The result is compared with the normal range and discussed at the next appointment.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_appointment",
+      "title": "Medical appointment",
+      "text": "At the clinic, the doctor performs an {examination}, reviews the test results, and suggests a simple treatment {plan}.",
+      "translation": "At the clinic, the doctor performs an examination, reviews the test results, and suggests a simple treatment plan.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_recovery",
+      "title": "Recovery",
+      "text": "After the procedure, recovery is slow but steady. The patient monitors the {wound}, rests, drinks water, and attends a {follow-up} visit.",
+      "translation": "After the procedure, recovery is slow but steady. The patient monitors the wound, rests, drinks water, and attends a follow-up visit.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_research",
+      "title": "Research experiment",
+      "text": "The research team follows a clear {protocol}. Each participant gives consent, and the data are stored for later {analysis}.",
+      "translation": "The research team follows a clear protocol. Each participant gives consent, and the data are stored for later analysis.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enmed_summary",
+      "title": "Clinical summary",
+      "text": "The clinical summary lists the diagnosis, current medication, allergies, and main {risk} factors. It also describes the expected {outcome}.",
+      "translation": "The clinical summary lists the diagnosis, current medication, allergies, and main risk factors. It also describes the expected outcome.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "enmed_derivation_diagnose_diagnosis",
+      "type": "derivation",
+      "prompt": "diagnose → ___",
+      "before": "",
+      "answer": "diagnosis",
+      "after": "",
+      "result": "diagnosis",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_treat_treat_treatment",
+      "type": "derivation",
+      "prompt": "treat → treat___",
+      "before": "treat",
+      "answer": "ment",
+      "after": "",
+      "result": "treatment",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_recover_recover_recovery",
+      "type": "derivation",
+      "prompt": "recover → recover___",
+      "before": "recover",
+      "answer": "y",
+      "after": "",
+      "result": "recovery",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_infect_infect_infection",
+      "type": "derivation",
+      "prompt": "infect → infect___",
+      "before": "infect",
+      "answer": "ion",
+      "after": "",
+      "result": "infection",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_inflame_inflamm_inflammation",
+      "type": "derivation",
+      "prompt": "inflame → inflamm___",
+      "before": "inflamm",
+      "answer": "ation",
+      "after": "",
+      "result": "inflammation",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_analyse_analys_analysis",
+      "type": "derivation",
+      "prompt": "analyse → analys___",
+      "before": "analys",
+      "answer": "is",
+      "after": "",
+      "result": "analysis",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_observe_observ_observation",
+      "type": "derivation",
+      "prompt": "observe → observ___",
+      "before": "observ",
+      "answer": "ation",
+      "after": "",
+      "result": "observation",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_measure_measure_measurement",
+      "type": "derivation",
+      "prompt": "measure → measure___",
+      "before": "measure",
+      "answer": "ment",
+      "after": "",
+      "result": "measurement",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_prevent_prevent_prevention",
+      "type": "derivation",
+      "prompt": "prevent → prevent___",
+      "before": "prevent",
+      "answer": "ion",
+      "after": "",
+      "result": "prevention",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_derivation_monitor_monitor_monitoring",
+      "type": "derivation",
+      "prompt": "monitor → monitor___",
+      "before": "monitor",
+      "answer": "ing",
+      "after": "",
+      "result": "monitoring",
+      "note": "gerund noun"
+    },
+    {
+      "id": "enmed_plural_one_diagnosis_two_diagnos_diagnoses",
+      "type": "plural",
+      "prompt": "one diagnosis, two diagnos___",
+      "before": "diagnos",
+      "answer": "es",
+      "after": "",
+      "result": "diagnoses",
+      "note": "diagnosis → diagnoses"
+    },
+    {
+      "id": "enmed_plural_one_analysis_two_analys_analyses",
+      "type": "plural",
+      "prompt": "one analysis, two analys___",
+      "before": "analys",
+      "answer": "es",
+      "after": "",
+      "result": "analyses",
+      "note": "analysis → analyses"
+    },
+    {
+      "id": "enmed_plural_one_criterion_two_criter_criteria",
+      "type": "plural",
+      "prompt": "one criterion, two criter___",
+      "before": "criter",
+      "answer": "ia",
+      "after": "",
+      "result": "criteria",
+      "note": "criterion → criteria"
+    },
+    {
+      "id": "enmed_plural_one_datum_many_data",
+      "type": "plural",
+      "prompt": "one datum, many ___",
+      "before": "",
+      "answer": "data",
+      "after": "",
+      "result": "data",
+      "note": "datum → data"
+    },
+    {
+      "id": "enmed_plural_one_sample_two_sample_samples",
+      "type": "plural",
+      "prompt": "one sample, two sample___",
+      "before": "sample",
+      "answer": "s",
+      "after": "",
+      "result": "samples",
+      "note": "regular plural"
+    },
+    {
+      "id": "enmed_plural_one_study_two_stud_studies",
+      "type": "plural",
+      "prompt": "one study, two stud___",
+      "before": "stud",
+      "answer": "ies",
+      "after": "",
+      "result": "studies",
+      "note": "study → studies"
+    },
+    {
+      "id": "enmed_adjective_a_chron_condition_a_chronic_condition",
+      "type": "adjective",
+      "prompt": "a chron___ condition",
+      "before": "a chron",
+      "answer": "ic",
+      "after": " condition",
+      "result": "a chronic condition",
+      "note": "chronic condition"
+    },
+    {
+      "id": "enmed_adjective_an_ac_infection_an_acute_infection",
+      "type": "adjective",
+      "prompt": "an ac___ infection",
+      "before": "an ac",
+      "answer": "ute",
+      "after": " infection",
+      "result": "an acute infection",
+      "note": "acute infection"
+    },
+    {
+      "id": "enmed_adjective_a_norm_result_a_normal_result",
+      "type": "adjective",
+      "prompt": "a norm___ result",
+      "before": "a norm",
+      "answer": "al",
+      "after": " result",
+      "result": "a normal result",
+      "note": "normal result"
+    },
+    {
+      "id": "enmed_adjective_a_clinic_trial_a_clinical_trial",
+      "type": "adjective",
+      "prompt": "a clinic___ trial",
+      "before": "a clinic",
+      "answer": "al",
+      "after": " trial",
+      "result": "a clinical trial",
+      "note": "clinical trial"
+    },
+    {
+      "id": "enmed_verb_the_doctor_diagnos_the_condition_the_doctor_diagnoses_the_condition",
+      "type": "verb",
+      "prompt": "The doctor diagnos___ the condition",
+      "before": "The doctor diagnos",
+      "answer": "es",
+      "after": " the condition",
+      "result": "The doctor diagnoses the condition",
+      "note": "third-person singular"
+    },
+    {
+      "id": "enmed_verb_the_nurse_monitor_the_patient_the_nurse_monitors_the_patient",
+      "type": "verb",
+      "prompt": "The nurse monitor___ the patient",
+      "before": "The nurse monitor",
+      "answer": "s",
+      "after": " the patient",
+      "result": "The nurse monitors the patient",
+      "note": "third-person singular"
+    },
+    {
+      "id": "enmed_verb_the_medicine_reduc_pain_the_medicine_reduces_pain",
+      "type": "verb",
+      "prompt": "The medicine reduc___ pain",
+      "before": "The medicine reduc",
+      "answer": "es",
+      "after": " pain",
+      "result": "The medicine reduces pain",
+      "note": "reduce → reduces"
+    },
+    {
+      "id": "enmed_past_the_patient_recover_the_patient_recovered",
+      "type": "past",
+      "prompt": "The patient recover___",
+      "before": "The patient recover",
+      "answer": "ed",
+      "after": "",
+      "result": "The patient recovered",
+      "note": "regular past"
+    },
+    {
+      "id": "enmed_past_the_sample_arriv_the_sample_arrived",
+      "type": "past",
+      "prompt": "The sample arriv___",
+      "before": "The sample arriv",
+      "answer": "ed",
+      "after": "",
+      "result": "The sample arrived",
+      "note": "arrive → arrived"
+    },
+    {
+      "id": "enmed_past_the_wound_heal_the_wound_healed",
+      "type": "past",
+      "prompt": "The wound heal___",
+      "before": "The wound heal",
+      "answer": "ed",
+      "after": "",
+      "result": "The wound healed",
+      "note": "regular past"
+    },
+    {
+      "id": "enmed_participle_the_test_has_confirm_it_the_test_has_confirmed_it",
+      "type": "participle",
+      "prompt": "The test has confirm___ it",
+      "before": "The test has confirm",
+      "answer": "ed",
+      "after": " it",
+      "result": "The test has confirmed it",
+      "note": "past participle"
+    },
+    {
+      "id": "enmed_participle_the_result_was_record_the_result_was_recorded",
+      "type": "participle",
+      "prompt": "The result was record___",
+      "before": "The result was record",
+      "answer": "ed",
+      "after": "",
+      "result": "The result was recorded",
+      "note": "passive participle"
+    },
+    {
+      "id": "enmed_participle_the_patient_was_treat_the_patient_was_treated",
+      "type": "participle",
+      "prompt": "The patient was treat___",
+      "before": "The patient was treat",
+      "answer": "ed",
+      "after": "",
+      "result": "The patient was treated",
+      "note": "passive participle"
+    },
+    {
+      "id": "enmed_noun_prescribe_prescript_prescription",
+      "type": "noun",
+      "prompt": "prescribe → prescript___",
+      "before": "prescript",
+      "answer": "ion",
+      "after": "",
+      "result": "prescription",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_noun_admit_admiss_admission",
+      "type": "noun",
+      "prompt": "admit → admiss___",
+      "before": "admiss",
+      "answer": "ion",
+      "after": "",
+      "result": "admission",
+      "note": "hospital admission"
+    },
+    {
+      "id": "enmed_noun_refer_referr_referral",
+      "type": "noun",
+      "prompt": "refer → referr___",
+      "before": "referr",
+      "answer": "al",
+      "after": "",
+      "result": "referral",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_noun_inject_inject_injection",
+      "type": "noun",
+      "prompt": "inject → inject___",
+      "before": "inject",
+      "answer": "ion",
+      "after": "",
+      "result": "injection",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_noun_vaccinate_vaccinat_vaccination",
+      "type": "noun",
+      "prompt": "vaccinate → vaccinat___",
+      "before": "vaccinat",
+      "answer": "ion",
+      "after": "",
+      "result": "vaccination",
+      "note": "noun form"
+    },
+    {
+      "id": "enmed_noun_allergic_allerg_allergy",
+      "type": "noun",
+      "prompt": "allergic → allerg___",
+      "before": "allerg",
+      "answer": "y",
+      "after": "",
+      "result": "allergy",
+      "note": "related noun"
+    },
+    {
+      "id": "enmed_comparison_high_risk_high_risk_higher_risk",
+      "type": "comparison",
+      "prompt": "high risk → high___ risk",
+      "before": "high",
+      "answer": "er",
+      "after": " risk",
+      "result": "higher risk",
+      "note": "comparative"
+    },
+    {
+      "id": "enmed_comparison_low_dose_low_dose_lower_dose",
+      "type": "comparison",
+      "prompt": "low dose → low___ dose",
+      "before": "low",
+      "answer": "er",
+      "after": " dose",
+      "result": "lower dose",
+      "note": "comparative"
+    },
+    {
+      "id": "enmed_comparison_safe_saf_safer",
+      "type": "comparison",
+      "prompt": "safe → saf___",
+      "before": "saf",
+      "answer": "er",
+      "after": "",
+      "result": "safer",
+      "note": "comparative spelling"
+    },
+    {
+      "id": "enmed_preposition_allergic_penicillin_allergic_to_penicillin",
+      "type": "preposition",
+      "prompt": "allergic ___ penicillin",
+      "before": "allergic ",
+      "answer": "to",
+      "after": " penicillin",
+      "result": "allergic to penicillin",
+      "note": "common preposition"
+    },
+    {
+      "id": "enmed_preposition_treated_antibiotics_treated_with_antibiotics",
+      "type": "preposition",
+      "prompt": "treated ___ antibiotics",
+      "before": "treated ",
+      "answer": "with",
+      "after": " antibiotics",
+      "result": "treated with antibiotics",
+      "note": "treatment preposition"
+    },
+    {
+      "id": "enmed_preposition_admitted_hospital_admitted_to_hospital",
+      "type": "preposition",
+      "prompt": "admitted ___ hospital",
+      "before": "admitted ",
+      "answer": "to",
+      "after": " hospital",
+      "result": "admitted to hospital",
+      "note": "movement/admission"
+    },
+    {
+      "id": "enmed_preposition_recovery_surgery_recovery_after_surgery",
+      "type": "preposition",
+      "prompt": "recovery ___ surgery",
+      "before": "recovery ",
+      "answer": "after",
+      "after": " surgery",
+      "result": "recovery after surgery",
+      "note": "time relation"
+    },
+    {
+      "id": "enmed_preposition_risk_infection_risk_of_infection",
+      "type": "preposition",
+      "prompt": "risk ___ infection",
+      "before": "risk ",
+      "answer": "of",
+      "after": " infection",
+      "result": "risk of infection",
+      "note": "noun complement"
+    },
+    {
+      "id": "enmed_phrase_blood_blood_pressure",
+      "type": "phrase",
+      "prompt": "blood ___",
+      "before": "blood ",
+      "answer": "pressure",
+      "after": "",
+      "result": "blood pressure",
+      "note": "common clinical measure"
+    },
+    {
+      "id": "enmed_phrase_side_side_effect",
+      "type": "phrase",
+      "prompt": "side ___",
+      "before": "side ",
+      "answer": "effect",
+      "after": "",
+      "result": "side effect",
+      "note": "unwanted treatment effect"
+    },
+    {
+      "id": "enmed_phrase_follow_follow_up",
+      "type": "phrase",
+      "prompt": "follow-___",
+      "before": "follow-",
+      "answer": "up",
+      "after": "",
+      "result": "follow-up",
+      "note": "later medical visit"
+    },
+    {
+      "id": "enmed_phrase_normal_normal_range",
+      "type": "phrase",
+      "prompt": "normal ___",
+      "before": "normal ",
+      "answer": "range",
+      "after": "",
+      "result": "normal range",
+      "note": "expected interval"
+    },
+    {
+      "id": "enmed_phrase_clinical_clinical_trial",
+      "type": "phrase",
+      "prompt": "clinical ___",
+      "before": "clinical ",
+      "answer": "trial",
+      "after": "",
+      "result": "clinical trial",
+      "note": "research study"
+    },
+    {
+      "id": "enmed_phrase_informed_informed_consent",
+      "type": "phrase",
+      "prompt": "informed ___",
+      "before": "informed ",
+      "answer": "consent",
+      "after": "",
+      "result": "informed consent",
+      "note": "research permission"
+    },
+    {
+      "id": "enmed_phrase_physical_physical_therapy",
+      "type": "phrase",
+      "prompt": "physical ___",
+      "before": "physical ",
+      "answer": "therapy",
+      "after": "",
+      "result": "physical therapy",
+      "note": "rehabilitation"
+    }
+  ]
+}

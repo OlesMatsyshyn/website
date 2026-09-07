@@ -1,0 +1,5554 @@
+{
+  "metadata": {
+    "id": "romanian-starter",
+    "language": "Romanian",
+    "languageCode": "ro",
+    "variant": "General",
+    "level": 0,
+    "title": "Romanian · Starter",
+    "description": "A substantial Romanian learning pack for everyday, grammar, and civic practice.",
+    "version": 9,
+    "wordCount": 560,
+    "textCount": 37,
+    "formCount": 240,
+    "characterSubstitutions": {
+      "ă": [
+        "a"
+      ],
+      "â": [
+        "a"
+      ],
+      "î": [
+        "i"
+      ],
+      "ș": [
+        "s"
+      ],
+      "ş": [
+        "s"
+      ],
+      "ț": [
+        "t"
+      ],
+      "ţ": [
+        "t"
+      ]
+    }
+  },
+  "words": [
+    {
+      "id": "ro_eu",
+      "term": "eu",
+      "translation": "I"
+    },
+    {
+      "id": "ro_tu",
+      "term": "tu",
+      "translation": "you singular"
+    },
+    {
+      "id": "ro_el",
+      "term": "el",
+      "translation": "he"
+    },
+    {
+      "id": "ro_ea",
+      "term": "ea",
+      "translation": "she"
+    },
+    {
+      "id": "ro_noi",
+      "term": "noi",
+      "translation": "we"
+    },
+    {
+      "id": "ro_voi",
+      "term": "voi",
+      "translation": "you plural"
+    },
+    {
+      "id": "ro_ei",
+      "term": "ei",
+      "translation": "they masculine"
+    },
+    {
+      "id": "ro_ele",
+      "term": "ele",
+      "translation": "they feminine"
+    },
+    {
+      "id": "ro_acesta",
+      "term": "acesta",
+      "translation": "this one masculine"
+    },
+    {
+      "id": "ro_aceasta",
+      "term": "aceasta",
+      "translation": "this one feminine"
+    },
+    {
+      "id": "ro_acel",
+      "term": "acel",
+      "translation": "that masculine"
+    },
+    {
+      "id": "ro_acea",
+      "term": "acea",
+      "translation": "that feminine"
+    },
+    {
+      "id": "ro_cine",
+      "term": "cine",
+      "translation": "who"
+    },
+    {
+      "id": "ro_ce",
+      "term": "ce",
+      "translation": "what"
+    },
+    {
+      "id": "ro_cand",
+      "term": "când",
+      "translation": "when"
+    },
+    {
+      "id": "ro_unde",
+      "term": "unde",
+      "translation": "where"
+    },
+    {
+      "id": "ro_de_ce",
+      "term": "de ce",
+      "translation": "why"
+    },
+    {
+      "id": "ro_cum",
+      "term": "cum",
+      "translation": "how"
+    },
+    {
+      "id": "ro_cat",
+      "term": "cât",
+      "translation": "how much"
+    },
+    {
+      "id": "ro_care",
+      "term": "care",
+      "translation": "which"
+    },
+    {
+      "id": "ro_a_fi",
+      "term": "a fi",
+      "translation": "to be"
+    },
+    {
+      "id": "ro_a_avea",
+      "term": "a avea",
+      "translation": "to have"
+    },
+    {
+      "id": "ro_a_merge",
+      "term": "a merge",
+      "translation": "to go"
+    },
+    {
+      "id": "ro_a_veni",
+      "term": "a veni",
+      "translation": "to come"
+    },
+    {
+      "id": "ro_a_vrea",
+      "term": "a vrea",
+      "translation": "to want"
+    },
+    {
+      "id": "ro_a_sti",
+      "term": "a ști",
+      "translation": "to know"
+    },
+    {
+      "id": "ro_a_spune",
+      "term": "a spune",
+      "translation": "to say"
+    },
+    {
+      "id": "ro_a_vedea",
+      "term": "a vedea",
+      "translation": "to see"
+    },
+    {
+      "id": "ro_a_face",
+      "term": "a face",
+      "translation": "to do or make"
+    },
+    {
+      "id": "ro_a_lucra",
+      "term": "a lucra",
+      "translation": "to work"
+    },
+    {
+      "id": "ro_a_locui",
+      "term": "a locui",
+      "translation": "to live"
+    },
+    {
+      "id": "ro_a_vorbi",
+      "term": "a vorbi",
+      "translation": "to speak"
+    },
+    {
+      "id": "ro_a_invata",
+      "term": "a învăța",
+      "translation": "to learn"
+    },
+    {
+      "id": "ro_a_citi",
+      "term": "a citi",
+      "translation": "to read"
+    },
+    {
+      "id": "ro_a_scrie",
+      "term": "a scrie",
+      "translation": "to write"
+    },
+    {
+      "id": "ro_a_manca",
+      "term": "a mânca",
+      "translation": "to eat"
+    },
+    {
+      "id": "ro_a_bea",
+      "term": "a bea",
+      "translation": "to drink"
+    },
+    {
+      "id": "ro_a_cumpara",
+      "term": "a cumpăra",
+      "translation": "to buy"
+    },
+    {
+      "id": "ro_a_pleca",
+      "term": "a pleca",
+      "translation": "to leave"
+    },
+    {
+      "id": "ro_a_ajunge",
+      "term": "a ajunge",
+      "translation": "to arrive"
+    },
+    {
+      "id": "ro_a_lua",
+      "term": "a lua",
+      "translation": "to take"
+    },
+    {
+      "id": "ro_a_da",
+      "term": "a da",
+      "translation": "to give"
+    },
+    {
+      "id": "ro_a_pune",
+      "term": "a pune",
+      "translation": "to put"
+    },
+    {
+      "id": "ro_a_gasi",
+      "term": "a găsi",
+      "translation": "to find"
+    },
+    {
+      "id": "ro_a_intreba",
+      "term": "a întreba",
+      "translation": "to ask"
+    },
+    {
+      "id": "ro_a_raspunde",
+      "term": "a răspunde",
+      "translation": "to answer"
+    },
+    {
+      "id": "ro_a_asculta",
+      "term": "a asculta",
+      "translation": "to listen"
+    },
+    {
+      "id": "ro_a_intelege",
+      "term": "a înțelege",
+      "translation": "to understand"
+    },
+    {
+      "id": "ro_a_deschide",
+      "term": "a deschide",
+      "translation": "to open"
+    },
+    {
+      "id": "ro_a_inchide",
+      "term": "a închide",
+      "translation": "to close"
+    },
+    {
+      "id": "ro_a_astepta",
+      "term": "a aștepta",
+      "translation": "to wait"
+    },
+    {
+      "id": "ro_a_plati",
+      "term": "a plăti",
+      "translation": "to pay"
+    },
+    {
+      "id": "ro_a_primi",
+      "term": "a primi",
+      "translation": "to receive"
+    },
+    {
+      "id": "ro_a_trimite",
+      "term": "a trimite",
+      "translation": "to send"
+    },
+    {
+      "id": "ro_a_aduce",
+      "term": "a aduce",
+      "translation": "to bring"
+    },
+    {
+      "id": "ro_a_pregati",
+      "term": "a pregăti",
+      "translation": "to prepare"
+    },
+    {
+      "id": "ro_a_chema",
+      "term": "a chema",
+      "translation": "to call"
+    },
+    {
+      "id": "ro_a_vizita",
+      "term": "a vizita",
+      "translation": "to visit"
+    },
+    {
+      "id": "ro_a_calatori",
+      "term": "a călători",
+      "translation": "to travel"
+    },
+    {
+      "id": "ro_a_conduce",
+      "term": "a conduce",
+      "translation": "to drive"
+    },
+    {
+      "id": "ro_a_sta",
+      "term": "a sta",
+      "translation": "to stay or stand"
+    },
+    {
+      "id": "ro_a_ramane",
+      "term": "a rămâne",
+      "translation": "to remain"
+    },
+    {
+      "id": "ro_a_putea",
+      "term": "a putea",
+      "translation": "to be able to"
+    },
+    {
+      "id": "ro_a_trebui",
+      "term": "a trebui",
+      "translation": "to have to"
+    },
+    {
+      "id": "ro_astazi",
+      "term": "astăzi",
+      "translation": "today"
+    },
+    {
+      "id": "ro_maine",
+      "term": "mâine",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "ro_ieri",
+      "term": "ieri",
+      "translation": "yesterday"
+    },
+    {
+      "id": "ro_acum",
+      "term": "acum",
+      "translation": "now"
+    },
+    {
+      "id": "ro_apoi",
+      "term": "apoi",
+      "translation": "then"
+    },
+    {
+      "id": "ro_inainte",
+      "term": "înainte",
+      "translation": "before"
+    },
+    {
+      "id": "ro_dupa",
+      "term": "după",
+      "translation": "after"
+    },
+    {
+      "id": "ro_devreme",
+      "term": "devreme",
+      "translation": "early"
+    },
+    {
+      "id": "ro_tarziu",
+      "term": "târziu",
+      "translation": "late"
+    },
+    {
+      "id": "ro_mereu",
+      "term": "mereu",
+      "translation": "always"
+    },
+    {
+      "id": "ro_niciodata",
+      "term": "niciodată",
+      "translation": "never"
+    },
+    {
+      "id": "ro_des",
+      "term": "des",
+      "translation": "often"
+    },
+    {
+      "id": "ro_uneori",
+      "term": "uneori",
+      "translation": "sometimes"
+    },
+    {
+      "id": "ro_rar",
+      "term": "rar",
+      "translation": "rarely"
+    },
+    {
+      "id": "ro_aici",
+      "term": "aici",
+      "translation": "here"
+    },
+    {
+      "id": "ro_acolo",
+      "term": "acolo",
+      "translation": "there"
+    },
+    {
+      "id": "ro_aproape",
+      "term": "aproape",
+      "translation": "near"
+    },
+    {
+      "id": "ro_departe",
+      "term": "departe",
+      "translation": "far"
+    },
+    {
+      "id": "ro_sus",
+      "term": "sus",
+      "translation": "up"
+    },
+    {
+      "id": "ro_jos",
+      "term": "jos",
+      "translation": "down"
+    },
+    {
+      "id": "ro_inauntru",
+      "term": "înăuntru",
+      "translation": "inside"
+    },
+    {
+      "id": "ro_afara",
+      "term": "afară",
+      "translation": "outside"
+    },
+    {
+      "id": "ro_stanga",
+      "term": "stânga",
+      "translation": "left"
+    },
+    {
+      "id": "ro_dreapta",
+      "term": "dreapta",
+      "translation": "right"
+    },
+    {
+      "id": "ro_pentru_ca",
+      "term": "pentru că",
+      "translation": "because"
+    },
+    {
+      "id": "ro_dar",
+      "term": "dar",
+      "translation": "but"
+    },
+    {
+      "id": "ro_si",
+      "term": "și",
+      "translation": "and"
+    },
+    {
+      "id": "ro_sau",
+      "term": "sau",
+      "translation": "or"
+    },
+    {
+      "id": "ro_deci",
+      "term": "deci",
+      "translation": "therefore"
+    },
+    {
+      "id": "ro_totusi",
+      "term": "totuși",
+      "translation": "however"
+    },
+    {
+      "id": "ro_desi",
+      "term": "deși",
+      "translation": "although"
+    },
+    {
+      "id": "ro_daca",
+      "term": "dacă",
+      "translation": "if"
+    },
+    {
+      "id": "ro_in_timp_ce",
+      "term": "în timp ce",
+      "translation": "while"
+    },
+    {
+      "id": "ro_foarte",
+      "term": "foarte",
+      "translation": "very"
+    },
+    {
+      "id": "ro_mai",
+      "term": "mai",
+      "translation": "more"
+    },
+    {
+      "id": "ro_mult",
+      "term": "mult",
+      "translation": "much"
+    },
+    {
+      "id": "ro_putin",
+      "term": "puțin",
+      "translation": "little"
+    },
+    {
+      "id": "ro_destul",
+      "term": "destul",
+      "translation": "enough"
+    },
+    {
+      "id": "ro_poate",
+      "term": "poate",
+      "translation": "maybe"
+    },
+    {
+      "id": "ro_sigur",
+      "term": "sigur",
+      "translation": "sure"
+    },
+    {
+      "id": "ro_probabil",
+      "term": "probabil",
+      "translation": "probably"
+    },
+    {
+      "id": "ro_casa",
+      "term": "casă",
+      "translation": "house"
+    },
+    {
+      "id": "ro_apartament",
+      "term": "apartament",
+      "translation": "apartment"
+    },
+    {
+      "id": "ro_camera",
+      "term": "cameră",
+      "translation": "room"
+    },
+    {
+      "id": "ro_bucatarie",
+      "term": "bucătărie",
+      "translation": "kitchen"
+    },
+    {
+      "id": "ro_baie",
+      "term": "baie",
+      "translation": "bathroom"
+    },
+    {
+      "id": "ro_dormitor",
+      "term": "dormitor",
+      "translation": "bedroom"
+    },
+    {
+      "id": "ro_usa",
+      "term": "ușă",
+      "translation": "door"
+    },
+    {
+      "id": "ro_fereastra",
+      "term": "fereastră",
+      "translation": "window"
+    },
+    {
+      "id": "ro_masa",
+      "term": "masă",
+      "translation": "table"
+    },
+    {
+      "id": "ro_scaun",
+      "term": "scaun",
+      "translation": "chair"
+    },
+    {
+      "id": "ro_pat",
+      "term": "pat",
+      "translation": "bed"
+    },
+    {
+      "id": "ro_dulap",
+      "term": "dulap",
+      "translation": "cupboard"
+    },
+    {
+      "id": "ro_frigider",
+      "term": "frigider",
+      "translation": "refrigerator"
+    },
+    {
+      "id": "ro_aragaz",
+      "term": "aragaz",
+      "translation": "stove"
+    },
+    {
+      "id": "ro_chiuveta",
+      "term": "chiuvetă",
+      "translation": "sink"
+    },
+    {
+      "id": "ro_farfurie",
+      "term": "farfurie",
+      "translation": "plate"
+    },
+    {
+      "id": "ro_pahar",
+      "term": "pahar",
+      "translation": "glass"
+    },
+    {
+      "id": "ro_furculita",
+      "term": "furculiță",
+      "translation": "fork"
+    },
+    {
+      "id": "ro_cutit",
+      "term": "cuțit",
+      "translation": "knife"
+    },
+    {
+      "id": "ro_lingura",
+      "term": "lingură",
+      "translation": "spoon"
+    },
+    {
+      "id": "ro_mancare",
+      "term": "mâncare",
+      "translation": "food"
+    },
+    {
+      "id": "ro_apa",
+      "term": "apă",
+      "translation": "water"
+    },
+    {
+      "id": "ro_paine",
+      "term": "pâine",
+      "translation": "bread"
+    },
+    {
+      "id": "ro_lapte",
+      "term": "lapte",
+      "translation": "milk"
+    },
+    {
+      "id": "ro_branza",
+      "term": "brânză",
+      "translation": "cheese"
+    },
+    {
+      "id": "ro_ou",
+      "term": "ou",
+      "translation": "egg"
+    },
+    {
+      "id": "ro_carne",
+      "term": "carne",
+      "translation": "meat"
+    },
+    {
+      "id": "ro_peste",
+      "term": "pește",
+      "translation": "fish"
+    },
+    {
+      "id": "ro_orez",
+      "term": "orez",
+      "translation": "rice"
+    },
+    {
+      "id": "ro_cartof",
+      "term": "cartof",
+      "translation": "potato"
+    },
+    {
+      "id": "ro_rosie",
+      "term": "roșie",
+      "translation": "tomato"
+    },
+    {
+      "id": "ro_ceapa",
+      "term": "ceapă",
+      "translation": "onion"
+    },
+    {
+      "id": "ro_mar",
+      "term": "măr",
+      "translation": "apple"
+    },
+    {
+      "id": "ro_fruct",
+      "term": "fruct",
+      "translation": "fruit"
+    },
+    {
+      "id": "ro_leguma",
+      "term": "legumă",
+      "translation": "vegetable"
+    },
+    {
+      "id": "ro_cafea",
+      "term": "cafea",
+      "translation": "coffee"
+    },
+    {
+      "id": "ro_ceai",
+      "term": "ceai",
+      "translation": "tea"
+    },
+    {
+      "id": "ro_suc",
+      "term": "suc",
+      "translation": "juice"
+    },
+    {
+      "id": "ro_mic_dejun",
+      "term": "mic dejun",
+      "translation": "breakfast"
+    },
+    {
+      "id": "ro_pranz",
+      "term": "prânz",
+      "translation": "lunch"
+    },
+    {
+      "id": "ro_cina",
+      "term": "cină",
+      "translation": "dinner"
+    },
+    {
+      "id": "ro_magazin",
+      "term": "magazin",
+      "translation": "shop"
+    },
+    {
+      "id": "ro_piata",
+      "term": "piață",
+      "translation": "market or square"
+    },
+    {
+      "id": "ro_pret",
+      "term": "preț",
+      "translation": "price"
+    },
+    {
+      "id": "ro_bani",
+      "term": "bani",
+      "translation": "money"
+    },
+    {
+      "id": "ro_card",
+      "term": "card",
+      "translation": "card"
+    },
+    {
+      "id": "ro_bon",
+      "term": "bon",
+      "translation": "receipt"
+    },
+    {
+      "id": "ro_geanta",
+      "term": "geantă",
+      "translation": "bag"
+    },
+    {
+      "id": "ro_telefon",
+      "term": "telefon",
+      "translation": "phone"
+    },
+    {
+      "id": "ro_internet",
+      "term": "internet",
+      "translation": "internet"
+    },
+    {
+      "id": "ro_mesaj",
+      "term": "mesaj",
+      "translation": "message"
+    },
+    {
+      "id": "ro_adresa",
+      "term": "adresă",
+      "translation": "address"
+    },
+    {
+      "id": "ro_numar",
+      "term": "număr",
+      "translation": "number"
+    },
+    {
+      "id": "ro_tren",
+      "term": "tren",
+      "translation": "train"
+    },
+    {
+      "id": "ro_autobuz",
+      "term": "autobuz",
+      "translation": "bus"
+    },
+    {
+      "id": "ro_masina",
+      "term": "mașină",
+      "translation": "car"
+    },
+    {
+      "id": "ro_taxi",
+      "term": "taxi",
+      "translation": "taxi"
+    },
+    {
+      "id": "ro_bilet",
+      "term": "bilet",
+      "translation": "ticket"
+    },
+    {
+      "id": "ro_gara",
+      "term": "gară",
+      "translation": "train station"
+    },
+    {
+      "id": "ro_aeroport",
+      "term": "aeroport",
+      "translation": "airport"
+    },
+    {
+      "id": "ro_strada",
+      "term": "stradă",
+      "translation": "street"
+    },
+    {
+      "id": "ro_drum",
+      "term": "drum",
+      "translation": "road"
+    },
+    {
+      "id": "ro_oras",
+      "term": "oraș",
+      "translation": "city"
+    },
+    {
+      "id": "ro_sat",
+      "term": "sat",
+      "translation": "village"
+    },
+    {
+      "id": "ro_centru",
+      "term": "centru",
+      "translation": "center"
+    },
+    {
+      "id": "ro_cartier",
+      "term": "cartier",
+      "translation": "neighborhood"
+    },
+    {
+      "id": "ro_parc",
+      "term": "parc",
+      "translation": "park"
+    },
+    {
+      "id": "ro_hotel",
+      "term": "hotel",
+      "translation": "hotel"
+    },
+    {
+      "id": "ro_restaurant",
+      "term": "restaurant",
+      "translation": "restaurant"
+    },
+    {
+      "id": "ro_cafenea",
+      "term": "cafenea",
+      "translation": "café"
+    },
+    {
+      "id": "ro_familie",
+      "term": "familie",
+      "translation": "family"
+    },
+    {
+      "id": "ro_mama",
+      "term": "mamă",
+      "translation": "mother"
+    },
+    {
+      "id": "ro_tata",
+      "term": "tată",
+      "translation": "father"
+    },
+    {
+      "id": "ro_parinte",
+      "term": "părinte",
+      "translation": "parent"
+    },
+    {
+      "id": "ro_frate",
+      "term": "frate",
+      "translation": "brother"
+    },
+    {
+      "id": "ro_sora",
+      "term": "soră",
+      "translation": "sister"
+    },
+    {
+      "id": "ro_copil",
+      "term": "copil",
+      "translation": "child"
+    },
+    {
+      "id": "ro_fiu",
+      "term": "fiu",
+      "translation": "son"
+    },
+    {
+      "id": "ro_fiica",
+      "term": "fiică",
+      "translation": "daughter"
+    },
+    {
+      "id": "ro_sot",
+      "term": "soț",
+      "translation": "husband"
+    },
+    {
+      "id": "ro_sotie",
+      "term": "soție",
+      "translation": "wife"
+    },
+    {
+      "id": "ro_prieten",
+      "term": "prieten",
+      "translation": "friend masculine"
+    },
+    {
+      "id": "ro_prietena",
+      "term": "prietenă",
+      "translation": "friend feminine"
+    },
+    {
+      "id": "ro_vecin",
+      "term": "vecin",
+      "translation": "neighbor masculine"
+    },
+    {
+      "id": "ro_vecina",
+      "term": "vecină",
+      "translation": "neighbor feminine"
+    },
+    {
+      "id": "ro_coleg",
+      "term": "coleg",
+      "translation": "colleague masculine"
+    },
+    {
+      "id": "ro_colega",
+      "term": "colegă",
+      "translation": "colleague feminine"
+    },
+    {
+      "id": "ro_profesor",
+      "term": "profesor",
+      "translation": "teacher masculine"
+    },
+    {
+      "id": "ro_profesoara",
+      "term": "profesoară",
+      "translation": "teacher feminine"
+    },
+    {
+      "id": "ro_student",
+      "term": "student",
+      "translation": "student masculine"
+    },
+    {
+      "id": "ro_studenta",
+      "term": "studentă",
+      "translation": "student feminine"
+    },
+    {
+      "id": "ro_doctor",
+      "term": "doctor",
+      "translation": "doctor masculine"
+    },
+    {
+      "id": "ro_doctorita",
+      "term": "doctoriță",
+      "translation": "doctor feminine"
+    },
+    {
+      "id": "ro_om",
+      "term": "om",
+      "translation": "person or man"
+    },
+    {
+      "id": "ro_femeie",
+      "term": "femeie",
+      "translation": "woman"
+    },
+    {
+      "id": "ro_barbat",
+      "term": "bărbat",
+      "translation": "man"
+    },
+    {
+      "id": "ro_tanar",
+      "term": "tânăr",
+      "translation": "young man"
+    },
+    {
+      "id": "ro_tanara",
+      "term": "tânără",
+      "translation": "young woman"
+    },
+    {
+      "id": "ro_varsta",
+      "term": "vârstă",
+      "translation": "age"
+    },
+    {
+      "id": "ro_nationalitate",
+      "term": "naționalitate",
+      "translation": "nationality"
+    },
+    {
+      "id": "ro_limba",
+      "term": "limbă",
+      "translation": "language"
+    },
+    {
+      "id": "ro_romana",
+      "term": "română",
+      "translation": "Romanian language"
+    },
+    {
+      "id": "ro_engleza",
+      "term": "engleză",
+      "translation": "English language"
+    },
+    {
+      "id": "ro_fericit",
+      "term": "fericit",
+      "translation": "happy masculine"
+    },
+    {
+      "id": "ro_trist",
+      "term": "trist",
+      "translation": "sad masculine"
+    },
+    {
+      "id": "ro_obosit",
+      "term": "obosit",
+      "translation": "tired masculine"
+    },
+    {
+      "id": "ro_ocupat",
+      "term": "ocupat",
+      "translation": "busy masculine"
+    },
+    {
+      "id": "ro_linistit",
+      "term": "liniștit",
+      "translation": "calm masculine"
+    },
+    {
+      "id": "ro_politicos",
+      "term": "politicos",
+      "translation": "polite masculine"
+    },
+    {
+      "id": "ro_sanatos",
+      "term": "sănătos",
+      "translation": "healthy masculine"
+    },
+    {
+      "id": "ro_bolnav",
+      "term": "bolnav",
+      "translation": "sick masculine"
+    },
+    {
+      "id": "ro_durere",
+      "term": "durere",
+      "translation": "pain"
+    },
+    {
+      "id": "ro_febra",
+      "term": "febră",
+      "translation": "fever"
+    },
+    {
+      "id": "ro_farmacie",
+      "term": "farmacie",
+      "translation": "pharmacy"
+    },
+    {
+      "id": "ro_medicament",
+      "term": "medicament",
+      "translation": "medicine"
+    },
+    {
+      "id": "ro_serviciu",
+      "term": "serviciu",
+      "translation": "job"
+    },
+    {
+      "id": "ro_munca",
+      "term": "muncă",
+      "translation": "work"
+    },
+    {
+      "id": "ro_birou",
+      "term": "birou",
+      "translation": "office"
+    },
+    {
+      "id": "ro_companie",
+      "term": "companie",
+      "translation": "company"
+    },
+    {
+      "id": "ro_proiect",
+      "term": "proiect",
+      "translation": "project"
+    },
+    {
+      "id": "ro_sedinta",
+      "term": "ședință",
+      "translation": "meeting"
+    },
+    {
+      "id": "ro_document",
+      "term": "document",
+      "translation": "document"
+    },
+    {
+      "id": "ro_cerere",
+      "term": "cerere",
+      "translation": "application"
+    },
+    {
+      "id": "ro_dosar",
+      "term": "dosar",
+      "translation": "file or case folder"
+    },
+    {
+      "id": "ro_experienta",
+      "term": "experiență",
+      "translation": "experience"
+    },
+    {
+      "id": "ro_studii",
+      "term": "studii",
+      "translation": "education or studies"
+    },
+    {
+      "id": "ro_diploma",
+      "term": "diplomă",
+      "translation": "degree"
+    },
+    {
+      "id": "ro_universitate",
+      "term": "universitate",
+      "translation": "university"
+    },
+    {
+      "id": "ro_cercetare",
+      "term": "cercetare",
+      "translation": "research"
+    },
+    {
+      "id": "ro_stiinta",
+      "term": "știință",
+      "translation": "science"
+    },
+    {
+      "id": "ro_laborator",
+      "term": "laborator",
+      "translation": "laboratory"
+    },
+    {
+      "id": "ro_problema",
+      "term": "problemă",
+      "translation": "problem"
+    },
+    {
+      "id": "ro_solutie",
+      "term": "soluție",
+      "translation": "solution"
+    },
+    {
+      "id": "ro_intrebare",
+      "term": "întrebare",
+      "translation": "question"
+    },
+    {
+      "id": "ro_raspuns",
+      "term": "răspuns",
+      "translation": "answer"
+    },
+    {
+      "id": "ro_idee",
+      "term": "idee",
+      "translation": "idea"
+    },
+    {
+      "id": "ro_motiv",
+      "term": "motiv",
+      "translation": "reason"
+    },
+    {
+      "id": "ro_decizie",
+      "term": "decizie",
+      "translation": "decision"
+    },
+    {
+      "id": "ro_situatie",
+      "term": "situație",
+      "translation": "situation"
+    },
+    {
+      "id": "ro_posibilitate",
+      "term": "posibilitate",
+      "translation": "possibility"
+    },
+    {
+      "id": "ro_ocazie",
+      "term": "ocazie",
+      "translation": "opportunity"
+    },
+    {
+      "id": "ro_diferenta",
+      "term": "diferență",
+      "translation": "difference"
+    },
+    {
+      "id": "ro_avantaj",
+      "term": "avantaj",
+      "translation": "advantage"
+    },
+    {
+      "id": "ro_dezavantaj",
+      "term": "dezavantaj",
+      "translation": "disadvantage"
+    },
+    {
+      "id": "ro_mediu",
+      "term": "mediu",
+      "translation": "environment"
+    },
+    {
+      "id": "ro_dezvoltare",
+      "term": "dezvoltare",
+      "translation": "development"
+    },
+    {
+      "id": "ro_important",
+      "term": "important",
+      "translation": "important masculine"
+    },
+    {
+      "id": "ro_necesar",
+      "term": "necesar",
+      "translation": "required masculine"
+    },
+    {
+      "id": "ro_posibil",
+      "term": "posibil",
+      "translation": "possible masculine"
+    },
+    {
+      "id": "ro_similar",
+      "term": "similar",
+      "translation": "similar masculine"
+    },
+    {
+      "id": "ro_diferit",
+      "term": "diferit",
+      "translation": "different masculine"
+    },
+    {
+      "id": "ro_simplu",
+      "term": "simplu",
+      "translation": "simple masculine"
+    },
+    {
+      "id": "ro_greu",
+      "term": "greu",
+      "translation": "hard or difficult masculine"
+    },
+    {
+      "id": "ro_usor",
+      "term": "ușor",
+      "translation": "easy or light masculine"
+    },
+    {
+      "id": "ro_bun",
+      "term": "bun",
+      "translation": "good masculine"
+    },
+    {
+      "id": "ro_rau",
+      "term": "rău",
+      "translation": "bad masculine"
+    },
+    {
+      "id": "ro_mare",
+      "term": "mare",
+      "translation": "big"
+    },
+    {
+      "id": "ro_mic",
+      "term": "mic",
+      "translation": "small masculine"
+    },
+    {
+      "id": "ro_nou",
+      "term": "nou",
+      "translation": "new masculine"
+    },
+    {
+      "id": "ro_vechi",
+      "term": "vechi",
+      "translation": "old masculine"
+    },
+    {
+      "id": "ro_frumos",
+      "term": "frumos",
+      "translation": "beautiful masculine"
+    },
+    {
+      "id": "ro_rapid",
+      "term": "rapid",
+      "translation": "fast masculine"
+    },
+    {
+      "id": "ro_lent",
+      "term": "lent",
+      "translation": "slow masculine"
+    },
+    {
+      "id": "ro_cald",
+      "term": "cald",
+      "translation": "warm masculine"
+    },
+    {
+      "id": "ro_rece",
+      "term": "rece",
+      "translation": "cold masculine"
+    },
+    {
+      "id": "ro_romania",
+      "term": "România",
+      "translation": "Romania"
+    },
+    {
+      "id": "ro_bucuresti",
+      "term": "București",
+      "translation": "Bucharest"
+    },
+    {
+      "id": "ro_capitala",
+      "term": "capitală",
+      "translation": "capital city"
+    },
+    {
+      "id": "ro_tara",
+      "term": "țară",
+      "translation": "country"
+    },
+    {
+      "id": "ro_cetatenie",
+      "term": "cetățenie",
+      "translation": "citizenship"
+    },
+    {
+      "id": "ro_cetatean",
+      "term": "cetățean",
+      "translation": "citizen masculine"
+    },
+    {
+      "id": "ro_cetateana",
+      "term": "cetățeană",
+      "translation": "citizen feminine"
+    },
+    {
+      "id": "ro_constitutie",
+      "term": "Constituție",
+      "translation": "constitution"
+    },
+    {
+      "id": "ro_guvern",
+      "term": "guvern",
+      "translation": "government"
+    },
+    {
+      "id": "ro_presedinte",
+      "term": "președinte",
+      "translation": "president"
+    },
+    {
+      "id": "ro_parlament",
+      "term": "parlament",
+      "translation": "parliament"
+    },
+    {
+      "id": "ro_lege",
+      "term": "lege",
+      "translation": "law"
+    },
+    {
+      "id": "ro_drept",
+      "term": "drept",
+      "translation": "right"
+    },
+    {
+      "id": "ro_obligatie",
+      "term": "obligație",
+      "translation": "duty or obligation"
+    },
+    {
+      "id": "ro_stat",
+      "term": "stat",
+      "translation": "state"
+    },
+    {
+      "id": "ro_steag",
+      "term": "steag",
+      "translation": "flag"
+    },
+    {
+      "id": "ro_imn",
+      "term": "imn",
+      "translation": "anthem"
+    },
+    {
+      "id": "ro_ziua_nationala",
+      "term": "Ziua Națională",
+      "translation": "National Day"
+    },
+    {
+      "id": "ro_uniunea_europeana",
+      "term": "Uniunea Europeană",
+      "translation": "European Union"
+    },
+    {
+      "id": "ro_judet",
+      "term": "județ",
+      "translation": "county"
+    },
+    {
+      "id": "ro_regiune",
+      "term": "regiune",
+      "translation": "region"
+    },
+    {
+      "id": "ro_istorie",
+      "term": "istorie",
+      "translation": "history"
+    },
+    {
+      "id": "ro_cultura",
+      "term": "cultură",
+      "translation": "culture"
+    },
+    {
+      "id": "ro_traditie",
+      "term": "tradiție",
+      "translation": "tradition"
+    },
+    {
+      "id": "ro_domiciliu",
+      "term": "domiciliu",
+      "translation": "residence"
+    },
+    {
+      "id": "ro_pasaport",
+      "term": "pașaport",
+      "translation": "passport"
+    },
+    {
+      "id": "ro_act",
+      "term": "act",
+      "translation": "official document"
+    },
+    {
+      "id": "ro_certificat",
+      "term": "certificat",
+      "translation": "certificate"
+    },
+    {
+      "id": "ro_semnatura",
+      "term": "semnătură",
+      "translation": "signature"
+    },
+    {
+      "id": "ro_interviu",
+      "term": "interviu",
+      "translation": "interview"
+    },
+    {
+      "id": "ro_juramant",
+      "term": "jurământ",
+      "translation": "oath"
+    },
+    {
+      "id": "ro_respect",
+      "term": "respect",
+      "translation": "respect"
+    },
+    {
+      "id": "ro_libertate",
+      "term": "libertate",
+      "translation": "freedom"
+    },
+    {
+      "id": "ro_democratie",
+      "term": "democrație",
+      "translation": "democracy"
+    },
+    {
+      "id": "ro_societate",
+      "term": "societate",
+      "translation": "society"
+    },
+    {
+      "id": "ro_comunitate",
+      "term": "comunitate",
+      "translation": "community"
+    },
+    {
+      "id": "ro_roman",
+      "term": "român",
+      "translation": "Romanian man"
+    },
+    {
+      "id": "ro_romanca",
+      "term": "româncă",
+      "translation": "Romanian woman"
+    },
+    {
+      "id": "ro_romanesc",
+      "term": "românesc",
+      "translation": "Romanian adjective masculine"
+    },
+    {
+      "id": "ro_albastru",
+      "term": "albastru",
+      "translation": "blue"
+    },
+    {
+      "id": "ro_galben",
+      "term": "galben",
+      "translation": "yellow"
+    },
+    {
+      "id": "ro_rosu",
+      "term": "roșu",
+      "translation": "red"
+    },
+    {
+      "id": "ro_unu",
+      "term": "unu",
+      "translation": "one"
+    },
+    {
+      "id": "ro_doi",
+      "term": "doi",
+      "translation": "two"
+    },
+    {
+      "id": "ro_trei",
+      "term": "trei",
+      "translation": "three"
+    },
+    {
+      "id": "ro_patru",
+      "term": "patru",
+      "translation": "four"
+    },
+    {
+      "id": "ro_cinci",
+      "term": "cinci",
+      "translation": "five"
+    },
+    {
+      "id": "ro_zece",
+      "term": "zece",
+      "translation": "ten"
+    },
+    {
+      "id": "ro_suta",
+      "term": "sută",
+      "translation": "hundred"
+    },
+    {
+      "id": "ro_mie",
+      "term": "mie",
+      "translation": "thousand"
+    },
+    {
+      "id": "ro_primul",
+      "term": "primul",
+      "translation": "first masculine"
+    },
+    {
+      "id": "ro_ultimul",
+      "term": "ultimul",
+      "translation": "last masculine"
+    },
+    {
+      "id": "ro_toate",
+      "term": "toate",
+      "translation": "all feminine plural"
+    },
+    {
+      "id": "ro_fiecare",
+      "term": "fiecare",
+      "translation": "each"
+    },
+    {
+      "id": "ro_alt",
+      "term": "alt",
+      "translation": "other masculine"
+    },
+    {
+      "id": "ro_aceeasi",
+      "term": "aceeași",
+      "translation": "same feminine"
+    },
+    {
+      "id": "ro_phrase_buna_ziua",
+      "term": "bună ziua",
+      "translation": "good afternoon or hello"
+    },
+    {
+      "id": "ro_phrase_buna_seara",
+      "term": "bună seara",
+      "translation": "good evening"
+    },
+    {
+      "id": "ro_phrase_la_revedere",
+      "term": "la revedere",
+      "translation": "goodbye"
+    },
+    {
+      "id": "ro_phrase_va_rog",
+      "term": "vă rog",
+      "translation": "please formal"
+    },
+    {
+      "id": "ro_phrase_multumesc",
+      "term": "mulțumesc",
+      "translation": "thank you"
+    },
+    {
+      "id": "ro_phrase_cu_placere",
+      "term": "cu plăcere",
+      "translation": "you are welcome"
+    },
+    {
+      "id": "ro_phrase_imi_pare_rau",
+      "term": "îmi pare rău",
+      "translation": "I am sorry"
+    },
+    {
+      "id": "ro_phrase_nu_inteleg",
+      "term": "nu înțeleg",
+      "translation": "I do not understand"
+    },
+    {
+      "id": "ro_phrase_puteti_repeta",
+      "term": "puteți repeta",
+      "translation": "can you repeat"
+    },
+    {
+      "id": "ro_phrase_vorbiti_mai_rar",
+      "term": "vorbiți mai rar",
+      "translation": "please speak more slowly"
+    },
+    {
+      "id": "ro_phrase_cum_va_numiti",
+      "term": "cum vă numiți",
+      "translation": "what is your name formal"
+    },
+    {
+      "id": "ro_phrase_ma_numesc",
+      "term": "mă numesc",
+      "translation": "my name is"
+    },
+    {
+      "id": "ro_phrase_unde_locuiti",
+      "term": "unde locuiți",
+      "translation": "where do you live formal"
+    },
+    {
+      "id": "ro_phrase_cu_ce_va_ocupati",
+      "term": "cu ce vă ocupați",
+      "translation": "what do you do formal"
+    },
+    {
+      "id": "ro_phrase_ce_limbi_vorbiti",
+      "term": "ce limbi vorbiți",
+      "translation": "what languages do you speak"
+    },
+    {
+      "id": "ro_phrase_de_cat_timp",
+      "term": "de cât timp",
+      "translation": "for how long"
+    },
+    {
+      "id": "ro_phrase_invat_limba_romana",
+      "term": "învăț limba română",
+      "translation": "I am learning Romanian"
+    },
+    {
+      "id": "ro_phrase_doresc_cetatenia_romana",
+      "term": "doresc cetățenia română",
+      "translation": "I want Romanian citizenship"
+    },
+    {
+      "id": "ro_phrase_capitala_romaniei",
+      "term": "capitala României",
+      "translation": "the capital of Romania"
+    },
+    {
+      "id": "ro_phrase_steagul_romaniei",
+      "term": "steagul României",
+      "translation": "the flag of Romania"
+    },
+    {
+      "id": "ro_phrase_imnul_romaniei",
+      "term": "imnul României",
+      "translation": "the anthem of Romania"
+    },
+    {
+      "id": "ro_phrase_ziua_nationala_a_romaniei",
+      "term": "Ziua Națională a României",
+      "translation": "Romania's National Day"
+    },
+    {
+      "id": "ro_phrase_membra_a_uniunii_europene",
+      "term": "membră a Uniunii Europene",
+      "translation": "member of the European Union feminine"
+    },
+    {
+      "id": "ro_phrase_acte_necesare",
+      "term": "acte necesare",
+      "translation": "required documents"
+    },
+    {
+      "id": "ro_phrase_cerere_de_cetatenie",
+      "term": "cerere de cetățenie",
+      "translation": "citizenship application"
+    },
+    {
+      "id": "ro_phrase_dosar_complet",
+      "term": "dosar complet",
+      "translation": "complete file"
+    },
+    {
+      "id": "ro_phrase_interviu_oficial",
+      "term": "interviu oficial",
+      "translation": "official interview"
+    },
+    {
+      "id": "ro_phrase_juramant_de_credinta",
+      "term": "jurământ de credință",
+      "translation": "oath of allegiance"
+    },
+    {
+      "id": "ro_coll_casa_buna",
+      "term": "casă bună",
+      "translation": "good house"
+    },
+    {
+      "id": "ro_coll_casa_noua",
+      "term": "casă nouă",
+      "translation": "new house"
+    },
+    {
+      "id": "ro_coll_casa_veche",
+      "term": "casă veche",
+      "translation": "old house"
+    },
+    {
+      "id": "ro_coll_casa_mica",
+      "term": "casă mică",
+      "translation": "small house"
+    },
+    {
+      "id": "ro_coll_casa_mare",
+      "term": "casă mare",
+      "translation": "big house"
+    },
+    {
+      "id": "ro_coll_casa_frumoasa",
+      "term": "casă frumoasă",
+      "translation": "beautiful house"
+    },
+    {
+      "id": "ro_coll_casa_importanta",
+      "term": "casă importantă",
+      "translation": "important house"
+    },
+    {
+      "id": "ro_coll_casa_simpla",
+      "term": "casă simplă",
+      "translation": "simple house"
+    },
+    {
+      "id": "ro_coll_casa_rapida",
+      "term": "casă rapidă",
+      "translation": "fast house"
+    },
+    {
+      "id": "ro_coll_casa_linistita",
+      "term": "casă liniștită",
+      "translation": "quiet house"
+    },
+    {
+      "id": "ro_coll_apartament_buna",
+      "term": "apartament bună",
+      "translation": "good apartment"
+    },
+    {
+      "id": "ro_coll_apartament_noua",
+      "term": "apartament nouă",
+      "translation": "new apartment"
+    },
+    {
+      "id": "ro_coll_apartament_veche",
+      "term": "apartament veche",
+      "translation": "old apartment"
+    },
+    {
+      "id": "ro_coll_apartament_mica",
+      "term": "apartament mică",
+      "translation": "small apartment"
+    },
+    {
+      "id": "ro_coll_apartament_mare",
+      "term": "apartament mare",
+      "translation": "big apartment"
+    },
+    {
+      "id": "ro_coll_apartament_frumoasa",
+      "term": "apartament frumoasă",
+      "translation": "beautiful apartment"
+    },
+    {
+      "id": "ro_coll_apartament_importanta",
+      "term": "apartament importantă",
+      "translation": "important apartment"
+    },
+    {
+      "id": "ro_coll_apartament_simpla",
+      "term": "apartament simplă",
+      "translation": "simple apartment"
+    },
+    {
+      "id": "ro_coll_apartament_rapida",
+      "term": "apartament rapidă",
+      "translation": "fast apartment"
+    },
+    {
+      "id": "ro_coll_apartament_linistita",
+      "term": "apartament liniștită",
+      "translation": "quiet apartment"
+    },
+    {
+      "id": "ro_coll_camera_buna",
+      "term": "cameră bună",
+      "translation": "good room"
+    },
+    {
+      "id": "ro_coll_camera_noua",
+      "term": "cameră nouă",
+      "translation": "new room"
+    },
+    {
+      "id": "ro_coll_camera_veche",
+      "term": "cameră veche",
+      "translation": "old room"
+    },
+    {
+      "id": "ro_coll_camera_mica",
+      "term": "cameră mică",
+      "translation": "small room"
+    },
+    {
+      "id": "ro_coll_camera_mare",
+      "term": "cameră mare",
+      "translation": "big room"
+    },
+    {
+      "id": "ro_coll_camera_frumoasa",
+      "term": "cameră frumoasă",
+      "translation": "beautiful room"
+    },
+    {
+      "id": "ro_coll_camera_importanta",
+      "term": "cameră importantă",
+      "translation": "important room"
+    },
+    {
+      "id": "ro_coll_camera_simpla",
+      "term": "cameră simplă",
+      "translation": "simple room"
+    },
+    {
+      "id": "ro_coll_camera_rapida",
+      "term": "cameră rapidă",
+      "translation": "fast room"
+    },
+    {
+      "id": "ro_coll_camera_linistita",
+      "term": "cameră liniștită",
+      "translation": "quiet room"
+    },
+    {
+      "id": "ro_coll_oras_buna",
+      "term": "oraș bună",
+      "translation": "good city"
+    },
+    {
+      "id": "ro_coll_oras_noua",
+      "term": "oraș nouă",
+      "translation": "new city"
+    },
+    {
+      "id": "ro_coll_oras_veche",
+      "term": "oraș veche",
+      "translation": "old city"
+    },
+    {
+      "id": "ro_coll_oras_mica",
+      "term": "oraș mică",
+      "translation": "small city"
+    },
+    {
+      "id": "ro_coll_oras_mare",
+      "term": "oraș mare",
+      "translation": "big city"
+    },
+    {
+      "id": "ro_coll_oras_frumoasa",
+      "term": "oraș frumoasă",
+      "translation": "beautiful city"
+    },
+    {
+      "id": "ro_coll_oras_importanta",
+      "term": "oraș importantă",
+      "translation": "important city"
+    },
+    {
+      "id": "ro_coll_oras_simpla",
+      "term": "oraș simplă",
+      "translation": "simple city"
+    },
+    {
+      "id": "ro_coll_oras_rapida",
+      "term": "oraș rapidă",
+      "translation": "fast city"
+    },
+    {
+      "id": "ro_coll_oras_linistita",
+      "term": "oraș liniștită",
+      "translation": "quiet city"
+    },
+    {
+      "id": "ro_coll_strada_buna",
+      "term": "stradă bună",
+      "translation": "good street"
+    },
+    {
+      "id": "ro_coll_strada_noua",
+      "term": "stradă nouă",
+      "translation": "new street"
+    },
+    {
+      "id": "ro_coll_strada_veche",
+      "term": "stradă veche",
+      "translation": "old street"
+    },
+    {
+      "id": "ro_coll_strada_mica",
+      "term": "stradă mică",
+      "translation": "small street"
+    },
+    {
+      "id": "ro_coll_strada_mare",
+      "term": "stradă mare",
+      "translation": "big street"
+    },
+    {
+      "id": "ro_coll_strada_frumoasa",
+      "term": "stradă frumoasă",
+      "translation": "beautiful street"
+    },
+    {
+      "id": "ro_coll_strada_importanta",
+      "term": "stradă importantă",
+      "translation": "important street"
+    },
+    {
+      "id": "ro_coll_strada_simpla",
+      "term": "stradă simplă",
+      "translation": "simple street"
+    },
+    {
+      "id": "ro_coll_strada_rapida",
+      "term": "stradă rapidă",
+      "translation": "fast street"
+    },
+    {
+      "id": "ro_coll_strada_linistita",
+      "term": "stradă liniștită",
+      "translation": "quiet street"
+    },
+    {
+      "id": "ro_coll_magazin_buna",
+      "term": "magazin bună",
+      "translation": "good shop"
+    },
+    {
+      "id": "ro_coll_magazin_noua",
+      "term": "magazin nouă",
+      "translation": "new shop"
+    },
+    {
+      "id": "ro_coll_magazin_veche",
+      "term": "magazin veche",
+      "translation": "old shop"
+    },
+    {
+      "id": "ro_coll_magazin_mica",
+      "term": "magazin mică",
+      "translation": "small shop"
+    },
+    {
+      "id": "ro_coll_magazin_mare",
+      "term": "magazin mare",
+      "translation": "big shop"
+    },
+    {
+      "id": "ro_coll_magazin_frumoasa",
+      "term": "magazin frumoasă",
+      "translation": "beautiful shop"
+    },
+    {
+      "id": "ro_coll_magazin_importanta",
+      "term": "magazin importantă",
+      "translation": "important shop"
+    },
+    {
+      "id": "ro_coll_magazin_simpla",
+      "term": "magazin simplă",
+      "translation": "simple shop"
+    },
+    {
+      "id": "ro_coll_magazin_rapida",
+      "term": "magazin rapidă",
+      "translation": "fast shop"
+    },
+    {
+      "id": "ro_coll_magazin_linistita",
+      "term": "magazin liniștită",
+      "translation": "quiet shop"
+    },
+    {
+      "id": "ro_coll_restaurant_buna",
+      "term": "restaurant bună",
+      "translation": "good restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_noua",
+      "term": "restaurant nouă",
+      "translation": "new restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_veche",
+      "term": "restaurant veche",
+      "translation": "old restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_mica",
+      "term": "restaurant mică",
+      "translation": "small restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_mare",
+      "term": "restaurant mare",
+      "translation": "big restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_frumoasa",
+      "term": "restaurant frumoasă",
+      "translation": "beautiful restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_importanta",
+      "term": "restaurant importantă",
+      "translation": "important restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_simpla",
+      "term": "restaurant simplă",
+      "translation": "simple restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_rapida",
+      "term": "restaurant rapidă",
+      "translation": "fast restaurant"
+    },
+    {
+      "id": "ro_coll_restaurant_linistita",
+      "term": "restaurant liniștită",
+      "translation": "quiet restaurant"
+    },
+    {
+      "id": "ro_coll_cafenea_buna",
+      "term": "cafenea bună",
+      "translation": "good café"
+    },
+    {
+      "id": "ro_coll_cafenea_noua",
+      "term": "cafenea nouă",
+      "translation": "new café"
+    },
+    {
+      "id": "ro_coll_cafenea_veche",
+      "term": "cafenea veche",
+      "translation": "old café"
+    },
+    {
+      "id": "ro_coll_cafenea_mica",
+      "term": "cafenea mică",
+      "translation": "small café"
+    },
+    {
+      "id": "ro_coll_cafenea_mare",
+      "term": "cafenea mare",
+      "translation": "big café"
+    },
+    {
+      "id": "ro_coll_cafenea_frumoasa",
+      "term": "cafenea frumoasă",
+      "translation": "beautiful café"
+    },
+    {
+      "id": "ro_coll_cafenea_importanta",
+      "term": "cafenea importantă",
+      "translation": "important café"
+    },
+    {
+      "id": "ro_coll_cafenea_simpla",
+      "term": "cafenea simplă",
+      "translation": "simple café"
+    },
+    {
+      "id": "ro_coll_cafenea_rapida",
+      "term": "cafenea rapidă",
+      "translation": "fast café"
+    },
+    {
+      "id": "ro_coll_cafenea_linistita",
+      "term": "cafenea liniștită",
+      "translation": "quiet café"
+    },
+    {
+      "id": "ro_coll_parc_buna",
+      "term": "parc bună",
+      "translation": "good park"
+    },
+    {
+      "id": "ro_coll_parc_noua",
+      "term": "parc nouă",
+      "translation": "new park"
+    },
+    {
+      "id": "ro_coll_parc_veche",
+      "term": "parc veche",
+      "translation": "old park"
+    },
+    {
+      "id": "ro_coll_parc_mica",
+      "term": "parc mică",
+      "translation": "small park"
+    },
+    {
+      "id": "ro_coll_parc_mare",
+      "term": "parc mare",
+      "translation": "big park"
+    },
+    {
+      "id": "ro_coll_parc_frumoasa",
+      "term": "parc frumoasă",
+      "translation": "beautiful park"
+    },
+    {
+      "id": "ro_coll_parc_importanta",
+      "term": "parc importantă",
+      "translation": "important park"
+    },
+    {
+      "id": "ro_coll_parc_simpla",
+      "term": "parc simplă",
+      "translation": "simple park"
+    },
+    {
+      "id": "ro_coll_parc_rapida",
+      "term": "parc rapidă",
+      "translation": "fast park"
+    },
+    {
+      "id": "ro_coll_parc_linistita",
+      "term": "parc liniștită",
+      "translation": "quiet park"
+    },
+    {
+      "id": "ro_coll_gara_buna",
+      "term": "gară bună",
+      "translation": "good station"
+    },
+    {
+      "id": "ro_coll_gara_noua",
+      "term": "gară nouă",
+      "translation": "new station"
+    },
+    {
+      "id": "ro_coll_gara_veche",
+      "term": "gară veche",
+      "translation": "old station"
+    },
+    {
+      "id": "ro_coll_gara_mica",
+      "term": "gară mică",
+      "translation": "small station"
+    },
+    {
+      "id": "ro_coll_gara_mare",
+      "term": "gară mare",
+      "translation": "big station"
+    },
+    {
+      "id": "ro_coll_gara_frumoasa",
+      "term": "gară frumoasă",
+      "translation": "beautiful station"
+    },
+    {
+      "id": "ro_coll_gara_importanta",
+      "term": "gară importantă",
+      "translation": "important station"
+    },
+    {
+      "id": "ro_coll_gara_simpla",
+      "term": "gară simplă",
+      "translation": "simple station"
+    },
+    {
+      "id": "ro_coll_gara_rapida",
+      "term": "gară rapidă",
+      "translation": "fast station"
+    },
+    {
+      "id": "ro_coll_gara_linistita",
+      "term": "gară liniștită",
+      "translation": "quiet station"
+    },
+    {
+      "id": "ro_coll_serviciu_buna",
+      "term": "serviciu bună",
+      "translation": "good job"
+    },
+    {
+      "id": "ro_coll_serviciu_noua",
+      "term": "serviciu nouă",
+      "translation": "new job"
+    },
+    {
+      "id": "ro_coll_serviciu_veche",
+      "term": "serviciu veche",
+      "translation": "old job"
+    },
+    {
+      "id": "ro_coll_serviciu_mica",
+      "term": "serviciu mică",
+      "translation": "small job"
+    },
+    {
+      "id": "ro_coll_serviciu_mare",
+      "term": "serviciu mare",
+      "translation": "big job"
+    },
+    {
+      "id": "ro_coll_serviciu_frumoasa",
+      "term": "serviciu frumoasă",
+      "translation": "beautiful job"
+    },
+    {
+      "id": "ro_coll_serviciu_importanta",
+      "term": "serviciu importantă",
+      "translation": "important job"
+    },
+    {
+      "id": "ro_coll_serviciu_simpla",
+      "term": "serviciu simplă",
+      "translation": "simple job"
+    },
+    {
+      "id": "ro_coll_serviciu_rapida",
+      "term": "serviciu rapidă",
+      "translation": "fast job"
+    },
+    {
+      "id": "ro_coll_serviciu_linistita",
+      "term": "serviciu liniștită",
+      "translation": "quiet job"
+    },
+    {
+      "id": "ro_coll_birou_buna",
+      "term": "birou bună",
+      "translation": "good office"
+    },
+    {
+      "id": "ro_coll_birou_noua",
+      "term": "birou nouă",
+      "translation": "new office"
+    },
+    {
+      "id": "ro_coll_birou_veche",
+      "term": "birou veche",
+      "translation": "old office"
+    },
+    {
+      "id": "ro_coll_birou_mica",
+      "term": "birou mică",
+      "translation": "small office"
+    },
+    {
+      "id": "ro_coll_birou_mare",
+      "term": "birou mare",
+      "translation": "big office"
+    },
+    {
+      "id": "ro_coll_birou_frumoasa",
+      "term": "birou frumoasă",
+      "translation": "beautiful office"
+    },
+    {
+      "id": "ro_coll_birou_importanta",
+      "term": "birou importantă",
+      "translation": "important office"
+    },
+    {
+      "id": "ro_coll_birou_simpla",
+      "term": "birou simplă",
+      "translation": "simple office"
+    },
+    {
+      "id": "ro_coll_birou_rapida",
+      "term": "birou rapidă",
+      "translation": "fast office"
+    },
+    {
+      "id": "ro_coll_birou_linistita",
+      "term": "birou liniștită",
+      "translation": "quiet office"
+    },
+    {
+      "id": "ro_coll_familie_buna",
+      "term": "familie bună",
+      "translation": "good family"
+    },
+    {
+      "id": "ro_coll_familie_noua",
+      "term": "familie nouă",
+      "translation": "new family"
+    },
+    {
+      "id": "ro_coll_familie_veche",
+      "term": "familie veche",
+      "translation": "old family"
+    },
+    {
+      "id": "ro_coll_familie_mica",
+      "term": "familie mică",
+      "translation": "small family"
+    },
+    {
+      "id": "ro_coll_familie_mare",
+      "term": "familie mare",
+      "translation": "big family"
+    },
+    {
+      "id": "ro_coll_familie_frumoasa",
+      "term": "familie frumoasă",
+      "translation": "beautiful family"
+    },
+    {
+      "id": "ro_coll_familie_importanta",
+      "term": "familie importantă",
+      "translation": "important family"
+    },
+    {
+      "id": "ro_coll_familie_simpla",
+      "term": "familie simplă",
+      "translation": "simple family"
+    },
+    {
+      "id": "ro_coll_familie_rapida",
+      "term": "familie rapidă",
+      "translation": "fast family"
+    },
+    {
+      "id": "ro_coll_familie_linistita",
+      "term": "familie liniștită",
+      "translation": "quiet family"
+    },
+    {
+      "id": "ro_coll_prieten_buna",
+      "term": "prieten bună",
+      "translation": "good friend"
+    },
+    {
+      "id": "ro_coll_prieten_noua",
+      "term": "prieten nouă",
+      "translation": "new friend"
+    },
+    {
+      "id": "ro_coll_prieten_veche",
+      "term": "prieten veche",
+      "translation": "old friend"
+    },
+    {
+      "id": "ro_coll_prieten_mica",
+      "term": "prieten mică",
+      "translation": "small friend"
+    },
+    {
+      "id": "ro_coll_prieten_mare",
+      "term": "prieten mare",
+      "translation": "big friend"
+    },
+    {
+      "id": "ro_coll_prieten_frumoasa",
+      "term": "prieten frumoasă",
+      "translation": "beautiful friend"
+    },
+    {
+      "id": "ro_coll_prieten_importanta",
+      "term": "prieten importantă",
+      "translation": "important friend"
+    },
+    {
+      "id": "ro_coll_prieten_simpla",
+      "term": "prieten simplă",
+      "translation": "simple friend"
+    },
+    {
+      "id": "ro_coll_prieten_rapida",
+      "term": "prieten rapidă",
+      "translation": "fast friend"
+    },
+    {
+      "id": "ro_coll_prieten_linistita",
+      "term": "prieten liniștită",
+      "translation": "quiet friend"
+    },
+    {
+      "id": "ro_coll_zi_buna",
+      "term": "zi bună",
+      "translation": "good day"
+    },
+    {
+      "id": "ro_coll_zi_noua",
+      "term": "zi nouă",
+      "translation": "new day"
+    },
+    {
+      "id": "ro_coll_zi_veche",
+      "term": "zi veche",
+      "translation": "old day"
+    },
+    {
+      "id": "ro_coll_zi_mica",
+      "term": "zi mică",
+      "translation": "small day"
+    },
+    {
+      "id": "ro_coll_zi_mare",
+      "term": "zi mare",
+      "translation": "big day"
+    },
+    {
+      "id": "ro_coll_zi_frumoasa",
+      "term": "zi frumoasă",
+      "translation": "beautiful day"
+    },
+    {
+      "id": "ro_coll_zi_importanta",
+      "term": "zi importantă",
+      "translation": "important day"
+    },
+    {
+      "id": "ro_coll_zi_simpla",
+      "term": "zi simplă",
+      "translation": "simple day"
+    },
+    {
+      "id": "ro_coll_zi_rapida",
+      "term": "zi rapidă",
+      "translation": "fast day"
+    },
+    {
+      "id": "ro_coll_zi_linistita",
+      "term": "zi liniștită",
+      "translation": "quiet day"
+    },
+    {
+      "id": "ro_coll_seara_buna",
+      "term": "seară bună",
+      "translation": "good evening"
+    },
+    {
+      "id": "ro_coll_seara_noua",
+      "term": "seară nouă",
+      "translation": "new evening"
+    },
+    {
+      "id": "ro_coll_seara_veche",
+      "term": "seară veche",
+      "translation": "old evening"
+    },
+    {
+      "id": "ro_coll_seara_mica",
+      "term": "seară mică",
+      "translation": "small evening"
+    },
+    {
+      "id": "ro_coll_seara_mare",
+      "term": "seară mare",
+      "translation": "big evening"
+    },
+    {
+      "id": "ro_coll_seara_frumoasa",
+      "term": "seară frumoasă",
+      "translation": "beautiful evening"
+    },
+    {
+      "id": "ro_coll_seara_importanta",
+      "term": "seară importantă",
+      "translation": "important evening"
+    },
+    {
+      "id": "ro_coll_seara_simpla",
+      "term": "seară simplă",
+      "translation": "simple evening"
+    },
+    {
+      "id": "ro_coll_seara_rapida",
+      "term": "seară rapidă",
+      "translation": "fast evening"
+    },
+    {
+      "id": "ro_coll_seara_linistita",
+      "term": "seară liniștită",
+      "translation": "quiet evening"
+    },
+    {
+      "id": "ro_coll_dimineata_buna",
+      "term": "dimineață bună",
+      "translation": "good morning"
+    },
+    {
+      "id": "ro_coll_dimineata_noua",
+      "term": "dimineață nouă",
+      "translation": "new morning"
+    },
+    {
+      "id": "ro_coll_dimineata_veche",
+      "term": "dimineață veche",
+      "translation": "old morning"
+    },
+    {
+      "id": "ro_coll_dimineata_mica",
+      "term": "dimineață mică",
+      "translation": "small morning"
+    },
+    {
+      "id": "ro_coll_dimineata_mare",
+      "term": "dimineață mare",
+      "translation": "big morning"
+    },
+    {
+      "id": "ro_coll_dimineata_frumoasa",
+      "term": "dimineață frumoasă",
+      "translation": "beautiful morning"
+    },
+    {
+      "id": "ro_coll_dimineata_importanta",
+      "term": "dimineață importantă",
+      "translation": "important morning"
+    },
+    {
+      "id": "ro_coll_dimineata_simpla",
+      "term": "dimineață simplă",
+      "translation": "simple morning"
+    },
+    {
+      "id": "ro_coll_dimineata_rapida",
+      "term": "dimineață rapidă",
+      "translation": "fast morning"
+    },
+    {
+      "id": "ro_coll_dimineata_linistita",
+      "term": "dimineață liniștită",
+      "translation": "quiet morning"
+    },
+    {
+      "id": "ro_coll_intrebare_buna",
+      "term": "întrebare bună",
+      "translation": "good question"
+    },
+    {
+      "id": "ro_coll_intrebare_noua",
+      "term": "întrebare nouă",
+      "translation": "new question"
+    },
+    {
+      "id": "ro_coll_intrebare_veche",
+      "term": "întrebare veche",
+      "translation": "old question"
+    },
+    {
+      "id": "ro_coll_intrebare_mica",
+      "term": "întrebare mică",
+      "translation": "small question"
+    },
+    {
+      "id": "ro_coll_intrebare_mare",
+      "term": "întrebare mare",
+      "translation": "big question"
+    },
+    {
+      "id": "ro_coll_intrebare_frumoasa",
+      "term": "întrebare frumoasă",
+      "translation": "beautiful question"
+    },
+    {
+      "id": "ro_coll_intrebare_importanta",
+      "term": "întrebare importantă",
+      "translation": "important question"
+    },
+    {
+      "id": "ro_coll_intrebare_simpla",
+      "term": "întrebare simplă",
+      "translation": "simple question"
+    },
+    {
+      "id": "ro_coll_intrebare_rapida",
+      "term": "întrebare rapidă",
+      "translation": "fast question"
+    },
+    {
+      "id": "ro_coll_intrebare_linistita",
+      "term": "întrebare liniștită",
+      "translation": "quiet question"
+    },
+    {
+      "id": "ro_coll_raspuns_buna",
+      "term": "răspuns bună",
+      "translation": "good answer"
+    },
+    {
+      "id": "ro_coll_raspuns_noua",
+      "term": "răspuns nouă",
+      "translation": "new answer"
+    },
+    {
+      "id": "ro_coll_raspuns_veche",
+      "term": "răspuns veche",
+      "translation": "old answer"
+    },
+    {
+      "id": "ro_coll_raspuns_mica",
+      "term": "răspuns mică",
+      "translation": "small answer"
+    },
+    {
+      "id": "ro_coll_raspuns_mare",
+      "term": "răspuns mare",
+      "translation": "big answer"
+    },
+    {
+      "id": "ro_coll_raspuns_frumoasa",
+      "term": "răspuns frumoasă",
+      "translation": "beautiful answer"
+    },
+    {
+      "id": "ro_coll_raspuns_importanta",
+      "term": "răspuns importantă",
+      "translation": "important answer"
+    },
+    {
+      "id": "ro_coll_raspuns_simpla",
+      "term": "răspuns simplă",
+      "translation": "simple answer"
+    },
+    {
+      "id": "ro_coll_raspuns_rapida",
+      "term": "răspuns rapidă",
+      "translation": "fast answer"
+    },
+    {
+      "id": "ro_coll_raspuns_linistita",
+      "term": "răspuns liniștită",
+      "translation": "quiet answer"
+    },
+    {
+      "id": "ro_coll_document_buna",
+      "term": "document bună",
+      "translation": "good document"
+    },
+    {
+      "id": "ro_coll_document_noua",
+      "term": "document nouă",
+      "translation": "new document"
+    },
+    {
+      "id": "ro_coll_document_veche",
+      "term": "document veche",
+      "translation": "old document"
+    },
+    {
+      "id": "ro_coll_document_mica",
+      "term": "document mică",
+      "translation": "small document"
+    },
+    {
+      "id": "ro_coll_document_mare",
+      "term": "document mare",
+      "translation": "big document"
+    },
+    {
+      "id": "ro_coll_document_frumoasa",
+      "term": "document frumoasă",
+      "translation": "beautiful document"
+    },
+    {
+      "id": "ro_coll_document_importanta",
+      "term": "document importantă",
+      "translation": "important document"
+    },
+    {
+      "id": "ro_coll_document_simpla",
+      "term": "document simplă",
+      "translation": "simple document"
+    },
+    {
+      "id": "ro_coll_document_rapida",
+      "term": "document rapidă",
+      "translation": "fast document"
+    },
+    {
+      "id": "ro_coll_document_linistita",
+      "term": "document liniștită",
+      "translation": "quiet document"
+    },
+    {
+      "id": "ro_coll_proiect_buna",
+      "term": "proiect bună",
+      "translation": "good project"
+    },
+    {
+      "id": "ro_coll_proiect_noua",
+      "term": "proiect nouă",
+      "translation": "new project"
+    },
+    {
+      "id": "ro_coll_proiect_veche",
+      "term": "proiect veche",
+      "translation": "old project"
+    },
+    {
+      "id": "ro_coll_proiect_mica",
+      "term": "proiect mică",
+      "translation": "small project"
+    },
+    {
+      "id": "ro_coll_proiect_mare",
+      "term": "proiect mare",
+      "translation": "big project"
+    },
+    {
+      "id": "ro_coll_proiect_frumoasa",
+      "term": "proiect frumoasă",
+      "translation": "beautiful project"
+    }
+  ],
+  "texts": [
+    {
+      "id": "ro_intro_self",
+      "title": "Introducing yourself",
+      "text": "Bună ziua. Mă {numesc} Alex și învăț limba română. Locuiesc într-un oraș mare, dar îmi place să vorbesc despre {familie}, muncă și planuri simple.",
+      "translation": "Good afternoon. My name is Alex and I am learning Romanian. I live in a large city, but I like to talk about family, work, and simple plans.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_where_live",
+      "title": "Where I live",
+      "text": "Eu {locuiesc} într-un apartament mic, aproape de centru. În cartier sunt magazine, o farmacie, o stație de autobuz și un {parc} liniștit.",
+      "translation": "I live in a small apartment near the center. In the neighborhood there are shops, a pharmacy, a bus stop, and a quiet park.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_morning",
+      "title": "Morning routine",
+      "text": "Dimineața mă trezesc devreme, beau {cafea} și citesc mesajele. Apoi pregătesc micul dejun și plec la {serviciu}.",
+      "translation": "In the morning I wake up early, drink coffee, and read messages. Then I prepare breakfast and leave for work.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_work",
+      "title": "Going to work",
+      "text": "Merg la {muncă} cu autobuzul. Drumul durează douăzeci de minute. La birou am o ședință, scriu un document și răspund la {întrebări}.",
+      "translation": "I go to work by bus. The trip takes twenty minutes. At the office I have a meeting, write a document, and answer questions.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_shopping",
+      "title": "Shopping",
+      "text": "La magazin cumpăr pâine, lapte, roșii și {mere}. Verific prețul, plătesc cu cardul și pun bonul în {geantă}.",
+      "translation": "At the shop I buy bread, milk, tomatoes, and apples. I check the price, pay by card, and put the receipt in my bag.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_cafe",
+      "title": "At a café",
+      "text": "În cafenea comand un ceai și aștept o {prietenă}. Vorbim despre weekend, despre vreme și despre o călătorie scurtă la {munte}.",
+      "translation": "In the café I order tea and wait for a friend. We talk about the weekend, the weather, and a short trip to the mountains.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_transport",
+      "title": "Public transport",
+      "text": "Autobuzul este plin, dar ajunge la timp. Am bilet pe telefon și cobor la a treia {stație}, lângă gară.",
+      "translation": "The bus is full, but it arrives on time. I have a ticket on my phone and get off at the third stop, near the station.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_weekend",
+      "title": "Weekend plans",
+      "text": "În weekend vrem să vizităm un {oraș} nou. Dacă vremea este bună, mergem în parc, mâncăm la restaurant și facem fotografii.",
+      "translation": "On the weekend we want to visit a new city. If the weather is good, we go to the park, eat at a restaurant, and take photos.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_weather",
+      "title": "Weather",
+      "text": "Astăzi vremea este {rece} și bate vântul. Totuși, după-amiază apare soarele, așa că fac o plimbare scurtă.",
+      "translation": "Today the weather is cold and windy. However, in the afternoon the sun appears, so I take a short walk.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_friend",
+      "title": "Visiting a friend",
+      "text": "Seara vizitez un {prieten}. El locuiește departe, într-un cartier liniștit. Duc o prăjitură și stăm de vorbă până târziu.",
+      "translation": "In the evening I visit a friend. He lives far away, in a quiet neighborhood. I bring a cake and we talk until late.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_apartment",
+      "title": "Apartment",
+      "text": "Apartamentul meu are o cameră luminoasă, o bucătărie mică și o {fereastră} mare. Nu este luxos, dar este curat și comod.",
+      "translation": "My apartment has a bright room, a small kitchen, and a large window. It is not luxurious, but it is clean and comfortable.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_restaurant",
+      "title": "Restaurant",
+      "text": "La restaurant cer meniul și aleg o supă simplă. Chelnerul este politicos, iar {mâncarea} este caldă și bună.",
+      "translation": "At the restaurant I ask for the menu and choose a simple soup. The waiter is polite, and the food is warm and good.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_family",
+      "title": "Talking about family",
+      "text": "Familia mea este mică. Am un frate și o soră. Ne sunăm des, vorbim despre {sănătate}, serviciu și planurile pentru vacanță.",
+      "translation": "My family is small. I have a brother and a sister. We call each other often and talk about health, work, and vacation plans.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_profession",
+      "title": "Profession",
+      "text": "Lucrez la universitate și fac {cercetare}. Îmi place să explic idei dificile în mod simplu și să colaborez cu colegi din alte țări.",
+      "translation": "I work at a university and do research. I like explaining difficult ideas simply and collaborating with colleagues from other countries.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_education",
+      "title": "Education",
+      "text": "Am studii universitare și citesc mult. Pentru mine, educația înseamnă curiozitate, {disciplină} și dorința de a înțelege lumea.",
+      "translation": "I have university studies and read a lot. For me, education means curiosity, discipline, and the desire to understand the world.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_hobbies",
+      "title": "Hobbies",
+      "text": "În timpul liber citesc, merg pe jos și gătesc. Uneori ascult muzică sau învăț cuvinte noi într-o {limbă} străină.",
+      "translation": "In my free time I read, walk, and cook. Sometimes I listen to music or learn new words in a foreign language.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_learning",
+      "title": "Learning Romanian",
+      "text": "Învăț limba română pentru comunicare și pentru a înțelege mai bine cultura. Repet cuvinte, citesc texte scurte și exersez {gramatica}.",
+      "translation": "I learn Romanian for communication and to understand the culture better. I repeat words, read short texts, and practice grammar.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_travel",
+      "title": "Travel",
+      "text": "Când călătoresc, pregătesc din timp biletele și adresa hotelului. Îmi place să merg cu trenul și să văd {orașe} noi.",
+      "translation": "When I travel, I prepare the tickets and hotel address in advance. I like going by train and seeing new cities.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_city",
+      "title": "My city",
+      "text": "Orașul meu este aglomerat, dar interesant. Are clădiri moderne, piețe vechi, restaurante bune și multe {oportunități}.",
+      "translation": "My city is crowded but interesting. It has modern buildings, old squares, good restaurants, and many opportunities.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_plans",
+      "title": "Making plans",
+      "text": "Mâine ne întâlnim la ora șase. Dacă plouă, mergem la cafenea; dacă este soare, ne plimbăm prin {parc}.",
+      "translation": "Tomorrow we meet at six. If it rains, we go to a café; if it is sunny, we walk through the park.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_romania",
+      "title": "Ce știți despre România?",
+      "text": "România este o {țară} din Europa. Capitala este București. România are istorie, cultură, tradiții și este membră a Uniunii Europene.",
+      "translation": "Romania is a country in Europe. The capital is Bucharest. Romania has history, culture, traditions, and is a member of the European Union.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_capital",
+      "title": "Care este capitala României?",
+      "text": "Capitala României este {București}. Este cel mai mare oraș al țării și un centru important pentru administrație, cultură și economie.",
+      "translation": "The capital of Romania is Bucharest. It is the country's largest city and an important center for administration, culture, and economy.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_anthem",
+      "title": "Imnul României",
+      "text": "Imnul național al României se numește {Deșteaptă-te}, române. Este un simbol oficial al statului român.",
+      "translation": "Romania's national anthem is called Wake Up, Romanian. It is an official symbol of the Romanian state.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_flag",
+      "title": "Steagul",
+      "text": "Steagul României are trei culori: {albastru}, galben și roșu. Culorile sunt așezate vertical.",
+      "translation": "The Romanian flag has three colors: blue, yellow, and red. The colors are arranged vertically.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_day",
+      "title": "Ziua Națională",
+      "text": "Ziua Națională a României este la {1 Decembrie}. În această zi se organizează ceremonii și evenimente publice.",
+      "translation": "Romania's National Day is on December 1. On this day ceremonies and public events are organized.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_oath_practice",
+      "title": "Jurământul de credință",
+      "text": "Jur să fiu {devotat} patriei și poporului român, să {apăr} drepturile și interesele naționale, să {respect} Constituția și legile României.",
+      "translation": "I swear to be devoted to the homeland and the Romanian people, to defend national rights and interests, and to respect the Constitution and the laws of Romania.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_reference_practice",
+      "title": "Repere naționale",
+      "text": "București este {capitala} României. Imnul național se numește „{Deșteaptă-te, române!}”. Ziua Națională a României este pe {1 Decembrie}. Steagul României este {albastru}, {galben} și {roșu}.",
+      "translation": "Bucharest is the capital of Romania. The national anthem is called “Deșteaptă-te, române!”. Romania's National Day is on 1 December. The Romanian flag is blue, yellow, and red.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_why",
+      "title": "De ce doriți cetățenia?",
+      "text": "Doresc cetățenia română pentru că respect România, limba română și valorile democratice. Vreau să am o {legătură} stabilă cu această țară.",
+      "translation": "I want Romanian citizenship because I respect Romania, the Romanian language, and democratic values. I want to have a stable connection with this country.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_residence",
+      "title": "Unde locuiți?",
+      "text": "Locuiesc în prezent în străinătate, dar pot descrie adresa, domiciliul și situația mea personală în limba {română}.",
+      "translation": "I currently live abroad, but I can describe my address, residence, and personal situation in Romanian.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_work",
+      "title": "Cu ce vă ocupați?",
+      "text": "Mă ocup de cercetare și dezvoltare software. Lucrez cu date, documente și proiecte care cer atenție, {răbdare} și comunicare clară.",
+      "translation": "I work in research and software development. I work with data, documents, and projects that require attention, patience, and clear communication.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_languages",
+      "title": "Ce limbi vorbiți?",
+      "text": "Vorbesc engleză și învăț română. Pot răspunde la întrebări simple și pot explica informații despre mine, familie și {muncă}.",
+      "translation": "I speak English and am learning Romanian. I can answer simple questions and explain information about myself, family, and work.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_civic_connection",
+      "title": "Legătura cu România",
+      "text": "Legătura mea cu România este construită prin limbă, cultură și interes constant. Învăț despre istorie, orașe, tradiții și viața de {zi} cu zi.",
+      "translation": "My connection with Romania is built through language, culture, and steady interest. I learn about history, cities, traditions, and everyday life.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_abroad",
+      "title": "Living abroad",
+      "text": "A locui în străinătate poate fi util, dar uneori dificil. Înveți să compari sisteme, obiceiuri și moduri diferite de {comunicare}.",
+      "translation": "Living abroad can be useful but sometimes difficult. You learn to compare systems, habits, and different ways of communication.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_moving",
+      "title": "Moving country",
+      "text": "Când te muți într-o altă țară, ai nevoie de documente, răbdare și informații clare. La început, fiecare {detaliu} pare important.",
+      "translation": "When you move to another country, you need documents, patience, and clear information. At first, every detail seems important.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_research",
+      "title": "Work and research",
+      "text": "În cercetare, o întrebare bună este foarte importantă. Uneori soluția apare încet, după multe încercări și după o analiză {atentă}.",
+      "translation": "In research, a good question is very important. Sometimes the solution appears slowly, after many attempts and careful analysis.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_cities",
+      "title": "Romanian cities",
+      "text": "În România există orașe mari și mici: București, Cluj-Napoca, Iași, Timișoara, Brașov și Constanța. Fiecare oraș are o {identitate} proprie.",
+      "translation": "In Romania there are large and small cities: Bucharest, Cluj-Napoca, Iași, Timișoara, Brașov, and Constanța. Each city has its own identity.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "ro_culture",
+      "title": "Culture",
+      "text": "Cultura se vede în limbă, mâncare, muzică, sărbători și felul în care oamenii spun povești despre familie și {istorie}.",
+      "translation": "Culture appears in language, food, music, holidays, and the way people tell stories about family and history.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "ro_plural_casa_plural_case",
+      "type": "plural",
+      "prompt": "casă plural",
+      "before": "",
+      "answer": "case",
+      "after": "",
+      "result": "case",
+      "note": "casă → case"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_casa_casa",
+      "type": "definite form",
+      "prompt": "definite singular of casă",
+      "before": "",
+      "answer": "casa",
+      "after": "",
+      "result": "casa",
+      "note": "casă → casa"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_case_casele",
+      "type": "definite plural",
+      "prompt": "definite plural of case",
+      "before": "",
+      "answer": "casele",
+      "after": "",
+      "result": "casele",
+      "note": "case → casele"
+    },
+    {
+      "id": "ro_plural_fata_plural_fete",
+      "type": "plural",
+      "prompt": "fată plural",
+      "before": "",
+      "answer": "fete",
+      "after": "",
+      "result": "fete",
+      "note": "fată → fete"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_fata_fata",
+      "type": "definite form",
+      "prompt": "definite singular of fată",
+      "before": "",
+      "answer": "fata",
+      "after": "",
+      "result": "fata",
+      "note": "fată → fata"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_fete_fetele",
+      "type": "definite plural",
+      "prompt": "definite plural of fete",
+      "before": "",
+      "answer": "fetele",
+      "after": "",
+      "result": "fetele",
+      "note": "fete → fetele"
+    },
+    {
+      "id": "ro_plural_carte_plural_carti",
+      "type": "plural",
+      "prompt": "carte plural",
+      "before": "",
+      "answer": "cărți",
+      "after": "",
+      "result": "cărți",
+      "note": "carte → cărți"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_carte_cartea",
+      "type": "definite form",
+      "prompt": "definite singular of carte",
+      "before": "",
+      "answer": "cartea",
+      "after": "",
+      "result": "cartea",
+      "note": "carte → cartea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_carti_cartile",
+      "type": "definite plural",
+      "prompt": "definite plural of cărți",
+      "before": "",
+      "answer": "cărțile",
+      "after": "",
+      "result": "cărțile",
+      "note": "cărți → cărțile"
+    },
+    {
+      "id": "ro_plural_baiat_plural_baieti",
+      "type": "plural",
+      "prompt": "băiat plural",
+      "before": "",
+      "answer": "băieți",
+      "after": "",
+      "result": "băieți",
+      "note": "băiat → băieți"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_baiat_baiatul",
+      "type": "definite form",
+      "prompt": "definite singular of băiat",
+      "before": "",
+      "answer": "băiatul",
+      "after": "",
+      "result": "băiatul",
+      "note": "băiat → băiatul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_baieti_baietii",
+      "type": "definite plural",
+      "prompt": "definite plural of băieți",
+      "before": "",
+      "answer": "băieții",
+      "after": "",
+      "result": "băieții",
+      "note": "băieți → băieții"
+    },
+    {
+      "id": "ro_plural_copil_plural_copii",
+      "type": "plural",
+      "prompt": "copil plural",
+      "before": "",
+      "answer": "copii",
+      "after": "",
+      "result": "copii",
+      "note": "copil → copii"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_copil_copilul",
+      "type": "definite form",
+      "prompt": "definite singular of copil",
+      "before": "",
+      "answer": "copilul",
+      "after": "",
+      "result": "copilul",
+      "note": "copil → copilul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_copii_copiii",
+      "type": "definite plural",
+      "prompt": "definite plural of copii",
+      "before": "",
+      "answer": "copiii",
+      "after": "",
+      "result": "copiii",
+      "note": "copii → copiii"
+    },
+    {
+      "id": "ro_plural_om_plural_oameni",
+      "type": "plural",
+      "prompt": "om plural",
+      "before": "",
+      "answer": "oameni",
+      "after": "",
+      "result": "oameni",
+      "note": "om → oameni"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_om_omul",
+      "type": "definite form",
+      "prompt": "definite singular of om",
+      "before": "",
+      "answer": "omul",
+      "after": "",
+      "result": "omul",
+      "note": "om → omul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_oameni_oamenii",
+      "type": "definite plural",
+      "prompt": "definite plural of oameni",
+      "before": "",
+      "answer": "oamenii",
+      "after": "",
+      "result": "oamenii",
+      "note": "oameni → oamenii"
+    },
+    {
+      "id": "ro_plural_oras_plural_orase",
+      "type": "plural",
+      "prompt": "oraș plural",
+      "before": "",
+      "answer": "orașe",
+      "after": "",
+      "result": "orașe",
+      "note": "oraș → orașe"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_oras_orasul",
+      "type": "definite form",
+      "prompt": "definite singular of oraș",
+      "before": "",
+      "answer": "orașul",
+      "after": "",
+      "result": "orașul",
+      "note": "oraș → orașul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_orase_orasele",
+      "type": "definite plural",
+      "prompt": "definite plural of orașe",
+      "before": "",
+      "answer": "orașele",
+      "after": "",
+      "result": "orașele",
+      "note": "orașe → orașele"
+    },
+    {
+      "id": "ro_plural_femeie_plural_femei",
+      "type": "plural",
+      "prompt": "femeie plural",
+      "before": "",
+      "answer": "femei",
+      "after": "",
+      "result": "femei",
+      "note": "femeie → femei"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_femeie_femeia",
+      "type": "definite form",
+      "prompt": "definite singular of femeie",
+      "before": "",
+      "answer": "femeia",
+      "after": "",
+      "result": "femeia",
+      "note": "femeie → femeia"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_femei_femeile",
+      "type": "definite plural",
+      "prompt": "definite plural of femei",
+      "before": "",
+      "answer": "femeile",
+      "after": "",
+      "result": "femeile",
+      "note": "femei → femeile"
+    },
+    {
+      "id": "ro_plural_barbat_plural_barbati",
+      "type": "plural",
+      "prompt": "bărbat plural",
+      "before": "",
+      "answer": "bărbați",
+      "after": "",
+      "result": "bărbați",
+      "note": "bărbat → bărbați"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_barbat_barbatul",
+      "type": "definite form",
+      "prompt": "definite singular of bărbat",
+      "before": "",
+      "answer": "bărbatul",
+      "after": "",
+      "result": "bărbatul",
+      "note": "bărbat → bărbatul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_barbati_barbatii",
+      "type": "definite plural",
+      "prompt": "definite plural of bărbați",
+      "before": "",
+      "answer": "bărbații",
+      "after": "",
+      "result": "bărbații",
+      "note": "bărbați → bărbații"
+    },
+    {
+      "id": "ro_plural_drum_plural_drumuri",
+      "type": "plural",
+      "prompt": "drum plural",
+      "before": "",
+      "answer": "drumuri",
+      "after": "",
+      "result": "drumuri",
+      "note": "drum → drumuri"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_drum_drumul",
+      "type": "definite form",
+      "prompt": "definite singular of drum",
+      "before": "",
+      "answer": "drumul",
+      "after": "",
+      "result": "drumul",
+      "note": "drum → drumul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_drumuri_drumurile",
+      "type": "definite plural",
+      "prompt": "definite plural of drumuri",
+      "before": "",
+      "answer": "drumurile",
+      "after": "",
+      "result": "drumurile",
+      "note": "drumuri → drumurile"
+    },
+    {
+      "id": "ro_plural_tren_plural_trenuri",
+      "type": "plural",
+      "prompt": "tren plural",
+      "before": "",
+      "answer": "trenuri",
+      "after": "",
+      "result": "trenuri",
+      "note": "tren → trenuri"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_tren_trenul",
+      "type": "definite form",
+      "prompt": "definite singular of tren",
+      "before": "",
+      "answer": "trenul",
+      "after": "",
+      "result": "trenul",
+      "note": "tren → trenul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_trenuri_trenurile",
+      "type": "definite plural",
+      "prompt": "definite plural of trenuri",
+      "before": "",
+      "answer": "trenurile",
+      "after": "",
+      "result": "trenurile",
+      "note": "trenuri → trenurile"
+    },
+    {
+      "id": "ro_plural_magazin_plural_magazine",
+      "type": "plural",
+      "prompt": "magazin plural",
+      "before": "",
+      "answer": "magazine",
+      "after": "",
+      "result": "magazine",
+      "note": "magazin → magazine"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_magazin_magazinul",
+      "type": "definite form",
+      "prompt": "definite singular of magazin",
+      "before": "",
+      "answer": "magazinul",
+      "after": "",
+      "result": "magazinul",
+      "note": "magazin → magazinul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_magazine_magazinele",
+      "type": "definite plural",
+      "prompt": "definite plural of magazine",
+      "before": "",
+      "answer": "magazinele",
+      "after": "",
+      "result": "magazinele",
+      "note": "magazine → magazinele"
+    },
+    {
+      "id": "ro_plural_masa_plural_mese",
+      "type": "plural",
+      "prompt": "masă plural",
+      "before": "",
+      "answer": "mese",
+      "after": "",
+      "result": "mese",
+      "note": "masă → mese"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_masa_masa",
+      "type": "definite form",
+      "prompt": "definite singular of masă",
+      "before": "",
+      "answer": "masa",
+      "after": "",
+      "result": "masa",
+      "note": "masă → masa"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_mese_mesele",
+      "type": "definite plural",
+      "prompt": "definite plural of mese",
+      "before": "",
+      "answer": "mesele",
+      "after": "",
+      "result": "mesele",
+      "note": "mese → mesele"
+    },
+    {
+      "id": "ro_plural_scaun_plural_scaune",
+      "type": "plural",
+      "prompt": "scaun plural",
+      "before": "",
+      "answer": "scaune",
+      "after": "",
+      "result": "scaune",
+      "note": "scaun → scaune"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_scaun_scaunul",
+      "type": "definite form",
+      "prompt": "definite singular of scaun",
+      "before": "",
+      "answer": "scaunul",
+      "after": "",
+      "result": "scaunul",
+      "note": "scaun → scaunul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_scaune_scaunele",
+      "type": "definite plural",
+      "prompt": "definite plural of scaune",
+      "before": "",
+      "answer": "scaunele",
+      "after": "",
+      "result": "scaunele",
+      "note": "scaune → scaunele"
+    },
+    {
+      "id": "ro_plural_usa_plural_usi",
+      "type": "plural",
+      "prompt": "ușă plural",
+      "before": "",
+      "answer": "uși",
+      "after": "",
+      "result": "uși",
+      "note": "ușă → uși"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_usa_usa",
+      "type": "definite form",
+      "prompt": "definite singular of ușă",
+      "before": "",
+      "answer": "ușa",
+      "after": "",
+      "result": "ușa",
+      "note": "ușă → ușa"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_usi_usile",
+      "type": "definite plural",
+      "prompt": "definite plural of uși",
+      "before": "",
+      "answer": "ușile",
+      "after": "",
+      "result": "ușile",
+      "note": "uși → ușile"
+    },
+    {
+      "id": "ro_plural_fereastra_plural_ferestre",
+      "type": "plural",
+      "prompt": "fereastră plural",
+      "before": "",
+      "answer": "ferestre",
+      "after": "",
+      "result": "ferestre",
+      "note": "fereastră → ferestre"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_fereastra_fereastra",
+      "type": "definite form",
+      "prompt": "definite singular of fereastră",
+      "before": "",
+      "answer": "fereastra",
+      "after": "",
+      "result": "fereastra",
+      "note": "fereastră → fereastra"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_ferestre_ferestrele",
+      "type": "definite plural",
+      "prompt": "definite plural of ferestre",
+      "before": "",
+      "answer": "ferestrele",
+      "after": "",
+      "result": "ferestrele",
+      "note": "ferestre → ferestrele"
+    },
+    {
+      "id": "ro_plural_limba_plural_limbi",
+      "type": "plural",
+      "prompt": "limbă plural",
+      "before": "",
+      "answer": "limbi",
+      "after": "",
+      "result": "limbi",
+      "note": "limbă → limbi"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_limba_limba",
+      "type": "definite form",
+      "prompt": "definite singular of limbă",
+      "before": "",
+      "answer": "limba",
+      "after": "",
+      "result": "limba",
+      "note": "limbă → limba"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_limbi_limbile",
+      "type": "definite plural",
+      "prompt": "definite plural of limbi",
+      "before": "",
+      "answer": "limbile",
+      "after": "",
+      "result": "limbile",
+      "note": "limbi → limbile"
+    },
+    {
+      "id": "ro_plural_intrebare_plural_intrebari",
+      "type": "plural",
+      "prompt": "întrebare plural",
+      "before": "",
+      "answer": "întrebări",
+      "after": "",
+      "result": "întrebări",
+      "note": "întrebare → întrebări"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_intrebare_intrebarea",
+      "type": "definite form",
+      "prompt": "definite singular of întrebare",
+      "before": "",
+      "answer": "întrebarea",
+      "after": "",
+      "result": "întrebarea",
+      "note": "întrebare → întrebarea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_intrebari_intrebarile",
+      "type": "definite plural",
+      "prompt": "definite plural of întrebări",
+      "before": "",
+      "answer": "întrebările",
+      "after": "",
+      "result": "întrebările",
+      "note": "întrebări → întrebările"
+    },
+    {
+      "id": "ro_plural_raspuns_plural_raspunsuri",
+      "type": "plural",
+      "prompt": "răspuns plural",
+      "before": "",
+      "answer": "răspunsuri",
+      "after": "",
+      "result": "răspunsuri",
+      "note": "răspuns → răspunsuri"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_raspuns_raspunsul",
+      "type": "definite form",
+      "prompt": "definite singular of răspuns",
+      "before": "",
+      "answer": "răspunsul",
+      "after": "",
+      "result": "răspunsul",
+      "note": "răspuns → răspunsul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_raspunsuri_raspunsurile",
+      "type": "definite plural",
+      "prompt": "definite plural of răspunsuri",
+      "before": "",
+      "answer": "răspunsurile",
+      "after": "",
+      "result": "răspunsurile",
+      "note": "răspunsuri → răspunsurile"
+    },
+    {
+      "id": "ro_plural_document_plural_documente",
+      "type": "plural",
+      "prompt": "document plural",
+      "before": "",
+      "answer": "documente",
+      "after": "",
+      "result": "documente",
+      "note": "document → documente"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_document_documentul",
+      "type": "definite form",
+      "prompt": "definite singular of document",
+      "before": "",
+      "answer": "documentul",
+      "after": "",
+      "result": "documentul",
+      "note": "document → documentul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_documente_documentele",
+      "type": "definite plural",
+      "prompt": "definite plural of documente",
+      "before": "",
+      "answer": "documentele",
+      "after": "",
+      "result": "documentele",
+      "note": "documente → documentele"
+    },
+    {
+      "id": "ro_plural_cerere_plural_cereri",
+      "type": "plural",
+      "prompt": "cerere plural",
+      "before": "",
+      "answer": "cereri",
+      "after": "",
+      "result": "cereri",
+      "note": "cerere → cereri"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_cerere_cererea",
+      "type": "definite form",
+      "prompt": "definite singular of cerere",
+      "before": "",
+      "answer": "cererea",
+      "after": "",
+      "result": "cererea",
+      "note": "cerere → cererea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_cereri_cererile",
+      "type": "definite plural",
+      "prompt": "definite plural of cereri",
+      "before": "",
+      "answer": "cererile",
+      "after": "",
+      "result": "cererile",
+      "note": "cereri → cererile"
+    },
+    {
+      "id": "ro_plural_dosar_plural_dosare",
+      "type": "plural",
+      "prompt": "dosar plural",
+      "before": "",
+      "answer": "dosare",
+      "after": "",
+      "result": "dosare",
+      "note": "dosar → dosare"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_dosar_dosarul",
+      "type": "definite form",
+      "prompt": "definite singular of dosar",
+      "before": "",
+      "answer": "dosarul",
+      "after": "",
+      "result": "dosarul",
+      "note": "dosar → dosarul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_dosare_dosarele",
+      "type": "definite plural",
+      "prompt": "definite plural of dosare",
+      "before": "",
+      "answer": "dosarele",
+      "after": "",
+      "result": "dosarele",
+      "note": "dosare → dosarele"
+    },
+    {
+      "id": "ro_plural_cetatean_plural_cetateni",
+      "type": "plural",
+      "prompt": "cetățean plural",
+      "before": "",
+      "answer": "cetățeni",
+      "after": "",
+      "result": "cetățeni",
+      "note": "cetățean → cetățeni"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_cetatean_cetateanul",
+      "type": "definite form",
+      "prompt": "definite singular of cetățean",
+      "before": "",
+      "answer": "cetățeanul",
+      "after": "",
+      "result": "cetățeanul",
+      "note": "cetățean → cetățeanul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_cetateni_cetatenii",
+      "type": "definite plural",
+      "prompt": "definite plural of cetățeni",
+      "before": "",
+      "answer": "cetățenii",
+      "after": "",
+      "result": "cetățenii",
+      "note": "cetățeni → cetățenii"
+    },
+    {
+      "id": "ro_plural_tara_plural_tari",
+      "type": "plural",
+      "prompt": "țară plural",
+      "before": "",
+      "answer": "țări",
+      "after": "",
+      "result": "țări",
+      "note": "țară → țări"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_tara_tara",
+      "type": "definite form",
+      "prompt": "definite singular of țară",
+      "before": "",
+      "answer": "țara",
+      "after": "",
+      "result": "țara",
+      "note": "țară → țara"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_tari_tarile",
+      "type": "definite plural",
+      "prompt": "definite plural of țări",
+      "before": "",
+      "answer": "țările",
+      "after": "",
+      "result": "țările",
+      "note": "țări → țările"
+    },
+    {
+      "id": "ro_plural_lege_plural_legi",
+      "type": "plural",
+      "prompt": "lege plural",
+      "before": "",
+      "answer": "legi",
+      "after": "",
+      "result": "legi",
+      "note": "lege → legi"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_lege_legea",
+      "type": "definite form",
+      "prompt": "definite singular of lege",
+      "before": "",
+      "answer": "legea",
+      "after": "",
+      "result": "legea",
+      "note": "lege → legea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_legi_legile",
+      "type": "definite plural",
+      "prompt": "definite plural of legi",
+      "before": "",
+      "answer": "legile",
+      "after": "",
+      "result": "legile",
+      "note": "legi → legile"
+    },
+    {
+      "id": "ro_plural_traditie_plural_traditii",
+      "type": "plural",
+      "prompt": "tradiție plural",
+      "before": "",
+      "answer": "tradiții",
+      "after": "",
+      "result": "tradiții",
+      "note": "tradiție → tradiții"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_traditie_traditia",
+      "type": "definite form",
+      "prompt": "definite singular of tradiție",
+      "before": "",
+      "answer": "tradiția",
+      "after": "",
+      "result": "tradiția",
+      "note": "tradiție → tradiția"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_traditii_traditiile",
+      "type": "definite plural",
+      "prompt": "definite plural of tradiții",
+      "before": "",
+      "answer": "tradițiile",
+      "after": "",
+      "result": "tradițiile",
+      "note": "tradiții → tradițiile"
+    },
+    {
+      "id": "ro_plural_familie_plural_familii",
+      "type": "plural",
+      "prompt": "familie plural",
+      "before": "",
+      "answer": "familii",
+      "after": "",
+      "result": "familii",
+      "note": "familie → familii"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_familie_familia",
+      "type": "definite form",
+      "prompt": "definite singular of familie",
+      "before": "",
+      "answer": "familia",
+      "after": "",
+      "result": "familia",
+      "note": "familie → familia"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_familii_familiile",
+      "type": "definite plural",
+      "prompt": "definite plural of familii",
+      "before": "",
+      "answer": "familiile",
+      "after": "",
+      "result": "familiile",
+      "note": "familii → familiile"
+    },
+    {
+      "id": "ro_plural_prieten_plural_prieteni",
+      "type": "plural",
+      "prompt": "prieten plural",
+      "before": "",
+      "answer": "prieteni",
+      "after": "",
+      "result": "prieteni",
+      "note": "prieten → prieteni"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_prieten_prietenul",
+      "type": "definite form",
+      "prompt": "definite singular of prieten",
+      "before": "",
+      "answer": "prietenul",
+      "after": "",
+      "result": "prietenul",
+      "note": "prieten → prietenul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_prieteni_prietenii",
+      "type": "definite plural",
+      "prompt": "definite plural of prieteni",
+      "before": "",
+      "answer": "prietenii",
+      "after": "",
+      "result": "prietenii",
+      "note": "prieteni → prietenii"
+    },
+    {
+      "id": "ro_plural_profesor_plural_profesori",
+      "type": "plural",
+      "prompt": "profesor plural",
+      "before": "",
+      "answer": "profesori",
+      "after": "",
+      "result": "profesori",
+      "note": "profesor → profesori"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_profesor_profesorul",
+      "type": "definite form",
+      "prompt": "definite singular of profesor",
+      "before": "",
+      "answer": "profesorul",
+      "after": "",
+      "result": "profesorul",
+      "note": "profesor → profesorul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_profesori_profesorii",
+      "type": "definite plural",
+      "prompt": "definite plural of profesori",
+      "before": "",
+      "answer": "profesorii",
+      "after": "",
+      "result": "profesorii",
+      "note": "profesori → profesorii"
+    },
+    {
+      "id": "ro_plural_student_plural_studenti",
+      "type": "plural",
+      "prompt": "student plural",
+      "before": "",
+      "answer": "studenți",
+      "after": "",
+      "result": "studenți",
+      "note": "student → studenți"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_student_studentul",
+      "type": "definite form",
+      "prompt": "definite singular of student",
+      "before": "",
+      "answer": "studentul",
+      "after": "",
+      "result": "studentul",
+      "note": "student → studentul"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_studenti_studentii",
+      "type": "definite plural",
+      "prompt": "definite plural of studenți",
+      "before": "",
+      "answer": "studenții",
+      "after": "",
+      "result": "studenții",
+      "note": "studenți → studenții"
+    },
+    {
+      "id": "ro_plural_zi_plural_zile",
+      "type": "plural",
+      "prompt": "zi plural",
+      "before": "",
+      "answer": "zile",
+      "after": "",
+      "result": "zile",
+      "note": "zi → zile"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_zi_ziua",
+      "type": "definite form",
+      "prompt": "definite singular of zi",
+      "before": "",
+      "answer": "ziua",
+      "after": "",
+      "result": "ziua",
+      "note": "zi → ziua"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_zile_zilele",
+      "type": "definite plural",
+      "prompt": "definite plural of zile",
+      "before": "",
+      "answer": "zilele",
+      "after": "",
+      "result": "zilele",
+      "note": "zile → zilele"
+    },
+    {
+      "id": "ro_plural_noapte_plural_nopti",
+      "type": "plural",
+      "prompt": "noapte plural",
+      "before": "",
+      "answer": "nopți",
+      "after": "",
+      "result": "nopți",
+      "note": "noapte → nopți"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_noapte_noaptea",
+      "type": "definite form",
+      "prompt": "definite singular of noapte",
+      "before": "",
+      "answer": "noaptea",
+      "after": "",
+      "result": "noaptea",
+      "note": "noapte → noaptea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_nopti_noptile",
+      "type": "definite plural",
+      "prompt": "definite plural of nopți",
+      "before": "",
+      "answer": "nopțile",
+      "after": "",
+      "result": "nopțile",
+      "note": "nopți → nopțile"
+    },
+    {
+      "id": "ro_plural_problema_plural_probleme",
+      "type": "plural",
+      "prompt": "problemă plural",
+      "before": "",
+      "answer": "probleme",
+      "after": "",
+      "result": "probleme",
+      "note": "problemă → probleme"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_problema_problema",
+      "type": "definite form",
+      "prompt": "definite singular of problemă",
+      "before": "",
+      "answer": "problema",
+      "after": "",
+      "result": "problema",
+      "note": "problemă → problema"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_probleme_problemele",
+      "type": "definite plural",
+      "prompt": "definite plural of probleme",
+      "before": "",
+      "answer": "problemele",
+      "after": "",
+      "result": "problemele",
+      "note": "probleme → problemele"
+    },
+    {
+      "id": "ro_plural_solutie_plural_solutii",
+      "type": "plural",
+      "prompt": "soluție plural",
+      "before": "",
+      "answer": "soluții",
+      "after": "",
+      "result": "soluții",
+      "note": "soluție → soluții"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_solutie_solutia",
+      "type": "definite form",
+      "prompt": "definite singular of soluție",
+      "before": "",
+      "answer": "soluția",
+      "after": "",
+      "result": "soluția",
+      "note": "soluție → soluția"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_solutii_solutiile",
+      "type": "definite plural",
+      "prompt": "definite plural of soluții",
+      "before": "",
+      "answer": "soluțiile",
+      "after": "",
+      "result": "soluțiile",
+      "note": "soluții → soluțiile"
+    },
+    {
+      "id": "ro_plural_posibilitate_plural_posibilitati",
+      "type": "plural",
+      "prompt": "posibilitate plural",
+      "before": "",
+      "answer": "posibilități",
+      "after": "",
+      "result": "posibilități",
+      "note": "posibilitate → posibilități"
+    },
+    {
+      "id": "ro_definite_form_definite_singular_of_posibilitate_posibilitatea",
+      "type": "definite form",
+      "prompt": "definite singular of posibilitate",
+      "before": "",
+      "answer": "posibilitatea",
+      "after": "",
+      "result": "posibilitatea",
+      "note": "posibilitate → posibilitatea"
+    },
+    {
+      "id": "ro_definite_plural_definite_plural_of_posibilitati_posibilitatile",
+      "type": "definite plural",
+      "prompt": "definite plural of posibilități",
+      "before": "",
+      "answer": "posibilitățile",
+      "after": "",
+      "result": "posibilitățile",
+      "note": "posibilități → posibilitățile"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_bun_o_femeie_buna",
+      "type": "agreement",
+      "prompt": "feminine singular of bun",
+      "before": "o femeie ",
+      "answer": "bună",
+      "after": "",
+      "result": "o femeie bună",
+      "note": "bun → bună"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_bun_barbati_buni",
+      "type": "agreement",
+      "prompt": "masculine plural of bun",
+      "before": "bărbați ",
+      "answer": "buni",
+      "after": "",
+      "result": "bărbați buni",
+      "note": "bun → buni"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_bun_case_bune",
+      "type": "agreement",
+      "prompt": "feminine plural of bun",
+      "before": "case ",
+      "answer": "bune",
+      "after": "",
+      "result": "case bune",
+      "note": "bun → bune"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_bun_un_barbat_bun",
+      "type": "agreement",
+      "prompt": "masculine singular of bun",
+      "before": "un bărbat ",
+      "answer": "bun",
+      "after": "",
+      "result": "un bărbat bun",
+      "note": "bun masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_frumos_o_femeie_frumoasa",
+      "type": "agreement",
+      "prompt": "feminine singular of frumos",
+      "before": "o femeie ",
+      "answer": "frumoasă",
+      "after": "",
+      "result": "o femeie frumoasă",
+      "note": "frumos → frumoasă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_frumos_barbati_frumosi",
+      "type": "agreement",
+      "prompt": "masculine plural of frumos",
+      "before": "bărbați ",
+      "answer": "frumoși",
+      "after": "",
+      "result": "bărbați frumoși",
+      "note": "frumos → frumoși"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_frumos_case_frumoase",
+      "type": "agreement",
+      "prompt": "feminine plural of frumos",
+      "before": "case ",
+      "answer": "frumoase",
+      "after": "",
+      "result": "case frumoase",
+      "note": "frumos → frumoase"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_frumos_un_barbat_frumos",
+      "type": "agreement",
+      "prompt": "masculine singular of frumos",
+      "before": "un bărbat ",
+      "answer": "frumos",
+      "after": "",
+      "result": "un bărbat frumos",
+      "note": "frumos masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_mic_o_femeie_mica",
+      "type": "agreement",
+      "prompt": "feminine singular of mic",
+      "before": "o femeie ",
+      "answer": "mică",
+      "after": "",
+      "result": "o femeie mică",
+      "note": "mic → mică"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_mic_barbati_mici",
+      "type": "agreement",
+      "prompt": "masculine plural of mic",
+      "before": "bărbați ",
+      "answer": "mici",
+      "after": "",
+      "result": "bărbați mici",
+      "note": "mic → mici"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_mic_case_mici",
+      "type": "agreement",
+      "prompt": "feminine plural of mic",
+      "before": "case ",
+      "answer": "mici",
+      "after": "",
+      "result": "case mici",
+      "note": "mic → mici"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_mic_un_barbat_mic",
+      "type": "agreement",
+      "prompt": "masculine singular of mic",
+      "before": "un bărbat ",
+      "answer": "mic",
+      "after": "",
+      "result": "un bărbat mic",
+      "note": "mic masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_mare_o_femeie_mare",
+      "type": "agreement",
+      "prompt": "feminine singular of mare",
+      "before": "o femeie ",
+      "answer": "mare",
+      "after": "",
+      "result": "o femeie mare",
+      "note": "mare → mare"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_mare_barbati_mari",
+      "type": "agreement",
+      "prompt": "masculine plural of mare",
+      "before": "bărbați ",
+      "answer": "mari",
+      "after": "",
+      "result": "bărbați mari",
+      "note": "mare → mari"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_mare_case_mari",
+      "type": "agreement",
+      "prompt": "feminine plural of mare",
+      "before": "case ",
+      "answer": "mari",
+      "after": "",
+      "result": "case mari",
+      "note": "mare → mari"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_mare_un_barbat_mare",
+      "type": "agreement",
+      "prompt": "masculine singular of mare",
+      "before": "un bărbat ",
+      "answer": "mare",
+      "after": "",
+      "result": "un bărbat mare",
+      "note": "mare masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_nou_o_femeie_noua",
+      "type": "agreement",
+      "prompt": "feminine singular of nou",
+      "before": "o femeie ",
+      "answer": "nouă",
+      "after": "",
+      "result": "o femeie nouă",
+      "note": "nou → nouă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_nou_barbati_noi",
+      "type": "agreement",
+      "prompt": "masculine plural of nou",
+      "before": "bărbați ",
+      "answer": "noi",
+      "after": "",
+      "result": "bărbați noi",
+      "note": "nou → noi"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_nou_case_noi",
+      "type": "agreement",
+      "prompt": "feminine plural of nou",
+      "before": "case ",
+      "answer": "noi",
+      "after": "",
+      "result": "case noi",
+      "note": "nou → noi"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_nou_un_barbat_nou",
+      "type": "agreement",
+      "prompt": "masculine singular of nou",
+      "before": "un bărbat ",
+      "answer": "nou",
+      "after": "",
+      "result": "un bărbat nou",
+      "note": "nou masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_vechi_o_femeie_veche",
+      "type": "agreement",
+      "prompt": "feminine singular of vechi",
+      "before": "o femeie ",
+      "answer": "veche",
+      "after": "",
+      "result": "o femeie veche",
+      "note": "vechi → veche"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_vechi_barbati_vechi",
+      "type": "agreement",
+      "prompt": "masculine plural of vechi",
+      "before": "bărbați ",
+      "answer": "vechi",
+      "after": "",
+      "result": "bărbați vechi",
+      "note": "vechi → vechi"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_vechi_case_vechi",
+      "type": "agreement",
+      "prompt": "feminine plural of vechi",
+      "before": "case ",
+      "answer": "vechi",
+      "after": "",
+      "result": "case vechi",
+      "note": "vechi → vechi"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_vechi_un_barbat_vechi",
+      "type": "agreement",
+      "prompt": "masculine singular of vechi",
+      "before": "un bărbat ",
+      "answer": "vechi",
+      "after": "",
+      "result": "un bărbat vechi",
+      "note": "vechi masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_roman_o_femeie_romana",
+      "type": "agreement",
+      "prompt": "feminine singular of român",
+      "before": "o femeie ",
+      "answer": "română",
+      "after": "",
+      "result": "o femeie română",
+      "note": "român → română"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_roman_barbati_romani",
+      "type": "agreement",
+      "prompt": "masculine plural of român",
+      "before": "bărbați ",
+      "answer": "români",
+      "after": "",
+      "result": "bărbați români",
+      "note": "român → români"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_roman_case_romane",
+      "type": "agreement",
+      "prompt": "feminine plural of român",
+      "before": "case ",
+      "answer": "române",
+      "after": "",
+      "result": "case române",
+      "note": "român → române"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_roman_un_barbat_roman",
+      "type": "agreement",
+      "prompt": "masculine singular of român",
+      "before": "un bărbat ",
+      "answer": "român",
+      "after": "",
+      "result": "un bărbat român",
+      "note": "român masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_important_o_femeie_importanta",
+      "type": "agreement",
+      "prompt": "feminine singular of important",
+      "before": "o femeie ",
+      "answer": "importantă",
+      "after": "",
+      "result": "o femeie importantă",
+      "note": "important → importantă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_important_barbati_importanti",
+      "type": "agreement",
+      "prompt": "masculine plural of important",
+      "before": "bărbați ",
+      "answer": "importanți",
+      "after": "",
+      "result": "bărbați importanți",
+      "note": "important → importanți"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_important_case_importante",
+      "type": "agreement",
+      "prompt": "feminine plural of important",
+      "before": "case ",
+      "answer": "importante",
+      "after": "",
+      "result": "case importante",
+      "note": "important → importante"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_important_un_barbat_important",
+      "type": "agreement",
+      "prompt": "masculine singular of important",
+      "before": "un bărbat ",
+      "answer": "important",
+      "after": "",
+      "result": "un bărbat important",
+      "note": "important masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_simplu_o_femeie_simpla",
+      "type": "agreement",
+      "prompt": "feminine singular of simplu",
+      "before": "o femeie ",
+      "answer": "simplă",
+      "after": "",
+      "result": "o femeie simplă",
+      "note": "simplu → simplă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_simplu_barbati_simpli",
+      "type": "agreement",
+      "prompt": "masculine plural of simplu",
+      "before": "bărbați ",
+      "answer": "simpli",
+      "after": "",
+      "result": "bărbați simpli",
+      "note": "simplu → simpli"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_simplu_case_simple",
+      "type": "agreement",
+      "prompt": "feminine plural of simplu",
+      "before": "case ",
+      "answer": "simple",
+      "after": "",
+      "result": "case simple",
+      "note": "simplu → simple"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_simplu_un_barbat_simplu",
+      "type": "agreement",
+      "prompt": "masculine singular of simplu",
+      "before": "un bărbat ",
+      "answer": "simplu",
+      "after": "",
+      "result": "un bărbat simplu",
+      "note": "simplu masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_diferit_o_femeie_diferita",
+      "type": "agreement",
+      "prompt": "feminine singular of diferit",
+      "before": "o femeie ",
+      "answer": "diferită",
+      "after": "",
+      "result": "o femeie diferită",
+      "note": "diferit → diferită"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_diferit_barbati_diferiti",
+      "type": "agreement",
+      "prompt": "masculine plural of diferit",
+      "before": "bărbați ",
+      "answer": "diferiți",
+      "after": "",
+      "result": "bărbați diferiți",
+      "note": "diferit → diferiți"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_diferit_case_diferite",
+      "type": "agreement",
+      "prompt": "feminine plural of diferit",
+      "before": "case ",
+      "answer": "diferite",
+      "after": "",
+      "result": "case diferite",
+      "note": "diferit → diferite"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_diferit_un_barbat_diferit",
+      "type": "agreement",
+      "prompt": "masculine singular of diferit",
+      "before": "un bărbat ",
+      "answer": "diferit",
+      "after": "",
+      "result": "un bărbat diferit",
+      "note": "diferit masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_obosit_o_femeie_obosita",
+      "type": "agreement",
+      "prompt": "feminine singular of obosit",
+      "before": "o femeie ",
+      "answer": "obosită",
+      "after": "",
+      "result": "o femeie obosită",
+      "note": "obosit → obosită"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_obosit_barbati_obositi",
+      "type": "agreement",
+      "prompt": "masculine plural of obosit",
+      "before": "bărbați ",
+      "answer": "obosiți",
+      "after": "",
+      "result": "bărbați obosiți",
+      "note": "obosit → obosiți"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_obosit_case_obosite",
+      "type": "agreement",
+      "prompt": "feminine plural of obosit",
+      "before": "case ",
+      "answer": "obosite",
+      "after": "",
+      "result": "case obosite",
+      "note": "obosit → obosite"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_obosit_un_barbat_obosit",
+      "type": "agreement",
+      "prompt": "masculine singular of obosit",
+      "before": "un bărbat ",
+      "answer": "obosit",
+      "after": "",
+      "result": "un bărbat obosit",
+      "note": "obosit masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_sanatos_o_femeie_sanatoasa",
+      "type": "agreement",
+      "prompt": "feminine singular of sănătos",
+      "before": "o femeie ",
+      "answer": "sănătoasă",
+      "after": "",
+      "result": "o femeie sănătoasă",
+      "note": "sănătos → sănătoasă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_sanatos_barbati_sanatosi",
+      "type": "agreement",
+      "prompt": "masculine plural of sănătos",
+      "before": "bărbați ",
+      "answer": "sănătoși",
+      "after": "",
+      "result": "bărbați sănătoși",
+      "note": "sănătos → sănătoși"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_sanatos_case_sanatoase",
+      "type": "agreement",
+      "prompt": "feminine plural of sănătos",
+      "before": "case ",
+      "answer": "sănătoase",
+      "after": "",
+      "result": "case sănătoase",
+      "note": "sănătos → sănătoase"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_sanatos_un_barbat_sanatos",
+      "type": "agreement",
+      "prompt": "masculine singular of sănătos",
+      "before": "un bărbat ",
+      "answer": "sănătos",
+      "after": "",
+      "result": "un bărbat sănătos",
+      "note": "sănătos masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_politicos_o_femeie_politicoasa",
+      "type": "agreement",
+      "prompt": "feminine singular of politicos",
+      "before": "o femeie ",
+      "answer": "politicoasă",
+      "after": "",
+      "result": "o femeie politicoasă",
+      "note": "politicos → politicoasă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_politicos_barbati_politicosi",
+      "type": "agreement",
+      "prompt": "masculine plural of politicos",
+      "before": "bărbați ",
+      "answer": "politicoși",
+      "after": "",
+      "result": "bărbați politicoși",
+      "note": "politicos → politicoși"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_politicos_case_politicoase",
+      "type": "agreement",
+      "prompt": "feminine plural of politicos",
+      "before": "case ",
+      "answer": "politicoase",
+      "after": "",
+      "result": "case politicoase",
+      "note": "politicos → politicoase"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_politicos_un_barbat_politicos",
+      "type": "agreement",
+      "prompt": "masculine singular of politicos",
+      "before": "un bărbat ",
+      "answer": "politicos",
+      "after": "",
+      "result": "un bărbat politicos",
+      "note": "politicos masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_rapid_o_femeie_rapida",
+      "type": "agreement",
+      "prompt": "feminine singular of rapid",
+      "before": "o femeie ",
+      "answer": "rapidă",
+      "after": "",
+      "result": "o femeie rapidă",
+      "note": "rapid → rapidă"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_rapid_barbati_rapizi",
+      "type": "agreement",
+      "prompt": "masculine plural of rapid",
+      "before": "bărbați ",
+      "answer": "rapizi",
+      "after": "",
+      "result": "bărbați rapizi",
+      "note": "rapid → rapizi"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_rapid_case_rapide",
+      "type": "agreement",
+      "prompt": "feminine plural of rapid",
+      "before": "case ",
+      "answer": "rapide",
+      "after": "",
+      "result": "case rapide",
+      "note": "rapid → rapide"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_rapid_un_barbat_rapid",
+      "type": "agreement",
+      "prompt": "masculine singular of rapid",
+      "before": "un bărbat ",
+      "answer": "rapid",
+      "after": "",
+      "result": "un bărbat rapid",
+      "note": "rapid masculine singular"
+    },
+    {
+      "id": "ro_agreement_feminine_singular_of_greu_o_femeie_grea",
+      "type": "agreement",
+      "prompt": "feminine singular of greu",
+      "before": "o femeie ",
+      "answer": "grea",
+      "after": "",
+      "result": "o femeie grea",
+      "note": "greu → grea"
+    },
+    {
+      "id": "ro_agreement_masculine_plural_of_greu_barbati_grei",
+      "type": "agreement",
+      "prompt": "masculine plural of greu",
+      "before": "bărbați ",
+      "answer": "grei",
+      "after": "",
+      "result": "bărbați grei",
+      "note": "greu → grei"
+    },
+    {
+      "id": "ro_agreement_feminine_plural_of_greu_case_grele",
+      "type": "agreement",
+      "prompt": "feminine plural of greu",
+      "before": "case ",
+      "answer": "grele",
+      "after": "",
+      "result": "case grele",
+      "note": "greu → grele"
+    },
+    {
+      "id": "ro_agreement_masculine_singular_of_greu_un_barbat_greu",
+      "type": "agreement",
+      "prompt": "masculine singular of greu",
+      "before": "un bărbat ",
+      "answer": "greu",
+      "after": "",
+      "result": "un bărbat greu",
+      "note": "greu masculine singular"
+    },
+    {
+      "id": "ro_conjugation_i_am_eu_sunt",
+      "type": "conjugation",
+      "prompt": "I am",
+      "before": "eu ",
+      "answer": "sunt",
+      "after": "",
+      "result": "eu sunt",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_you_are_tu_esti",
+      "type": "conjugation",
+      "prompt": "you are",
+      "before": "tu ",
+      "answer": "ești",
+      "after": "",
+      "result": "tu ești",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_he_is_el_este",
+      "type": "conjugation",
+      "prompt": "he is",
+      "before": "el ",
+      "answer": "este",
+      "after": "",
+      "result": "el este",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_we_are_noi_suntem",
+      "type": "conjugation",
+      "prompt": "we are",
+      "before": "noi ",
+      "answer": "suntem",
+      "after": "",
+      "result": "noi suntem",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_you_plural_are_voi_sunteti",
+      "type": "conjugation",
+      "prompt": "you plural are",
+      "before": "voi ",
+      "answer": "sunteți",
+      "after": "",
+      "result": "voi sunteți",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_they_are_ei_sunt",
+      "type": "conjugation",
+      "prompt": "they are",
+      "before": "ei ",
+      "answer": "sunt",
+      "after": "",
+      "result": "ei sunt",
+      "note": "a fi"
+    },
+    {
+      "id": "ro_conjugation_i_have_eu_am",
+      "type": "conjugation",
+      "prompt": "I have",
+      "before": "eu a",
+      "answer": "m",
+      "after": "",
+      "result": "eu am",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_you_have_tu_ai",
+      "type": "conjugation",
+      "prompt": "you have",
+      "before": "tu a",
+      "answer": "i",
+      "after": "",
+      "result": "tu ai",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_he_has_el_are",
+      "type": "conjugation",
+      "prompt": "he has",
+      "before": "el ar",
+      "answer": "e",
+      "after": "",
+      "result": "el are",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_we_have_noi_avem",
+      "type": "conjugation",
+      "prompt": "we have",
+      "before": "noi av",
+      "answer": "em",
+      "after": "",
+      "result": "noi avem",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_you_plural_have_voi_aveti",
+      "type": "conjugation",
+      "prompt": "you plural have",
+      "before": "voi av",
+      "answer": "eți",
+      "after": "",
+      "result": "voi aveți",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_they_have_ei_au",
+      "type": "conjugation",
+      "prompt": "they have",
+      "before": "ei a",
+      "answer": "u",
+      "after": "",
+      "result": "ei au",
+      "note": "a avea"
+    },
+    {
+      "id": "ro_conjugation_you_go_tu_mergi",
+      "type": "conjugation",
+      "prompt": "you go",
+      "before": "tu merg",
+      "answer": "i",
+      "after": "",
+      "result": "tu mergi",
+      "note": "a merge"
+    },
+    {
+      "id": "ro_conjugation_he_goes_el_merge",
+      "type": "conjugation",
+      "prompt": "he goes",
+      "before": "el merg",
+      "answer": "e",
+      "after": "",
+      "result": "el merge",
+      "note": "a merge"
+    },
+    {
+      "id": "ro_conjugation_we_go_noi_mergem",
+      "type": "conjugation",
+      "prompt": "we go",
+      "before": "noi merg",
+      "answer": "em",
+      "after": "",
+      "result": "noi mergem",
+      "note": "a merge"
+    },
+    {
+      "id": "ro_conjugation_you_plural_go_voi_mergeti",
+      "type": "conjugation",
+      "prompt": "you plural go",
+      "before": "voi merg",
+      "answer": "eți",
+      "after": "",
+      "result": "voi mergeți",
+      "note": "a merge"
+    },
+    {
+      "id": "ro_conjugation_i_come_eu_vin",
+      "type": "conjugation",
+      "prompt": "I come",
+      "before": "eu v",
+      "answer": "in",
+      "after": "",
+      "result": "eu vin",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_you_come_tu_vii",
+      "type": "conjugation",
+      "prompt": "you come",
+      "before": "tu v",
+      "answer": "ii",
+      "after": "",
+      "result": "tu vii",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_he_comes_el_vine",
+      "type": "conjugation",
+      "prompt": "he comes",
+      "before": "el v",
+      "answer": "ine",
+      "after": "",
+      "result": "el vine",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_we_come_noi_venim",
+      "type": "conjugation",
+      "prompt": "we come",
+      "before": "noi ven",
+      "answer": "im",
+      "after": "",
+      "result": "noi venim",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_you_plural_come_voi_veniti",
+      "type": "conjugation",
+      "prompt": "you plural come",
+      "before": "voi ven",
+      "answer": "iți",
+      "after": "",
+      "result": "voi veniți",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_they_come_ei_vin",
+      "type": "conjugation",
+      "prompt": "they come",
+      "before": "ei v",
+      "answer": "in",
+      "after": "",
+      "result": "ei vin",
+      "note": "a veni"
+    },
+    {
+      "id": "ro_conjugation_you_do_tu_faci",
+      "type": "conjugation",
+      "prompt": "you do",
+      "before": "tu fac",
+      "answer": "i",
+      "after": "",
+      "result": "tu faci",
+      "note": "a face"
+    },
+    {
+      "id": "ro_conjugation_he_does_el_face",
+      "type": "conjugation",
+      "prompt": "he does",
+      "before": "el fac",
+      "answer": "e",
+      "after": "",
+      "result": "el face",
+      "note": "a face"
+    },
+    {
+      "id": "ro_conjugation_we_do_noi_facem",
+      "type": "conjugation",
+      "prompt": "we do",
+      "before": "noi fac",
+      "answer": "em",
+      "after": "",
+      "result": "noi facem",
+      "note": "a face"
+    },
+    {
+      "id": "ro_conjugation_you_plural_do_voi_faceti",
+      "type": "conjugation",
+      "prompt": "you plural do",
+      "before": "voi fac",
+      "answer": "eți",
+      "after": "",
+      "result": "voi faceți",
+      "note": "a face"
+    },
+    {
+      "id": "ro_conjugation_i_say_eu_spun",
+      "type": "conjugation",
+      "prompt": "I say",
+      "before": "eu sp",
+      "answer": "un",
+      "after": "",
+      "result": "eu spun",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_you_say_tu_spui",
+      "type": "conjugation",
+      "prompt": "you say",
+      "before": "tu sp",
+      "answer": "ui",
+      "after": "",
+      "result": "tu spui",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_he_says_el_spune",
+      "type": "conjugation",
+      "prompt": "he says",
+      "before": "el sp",
+      "answer": "une",
+      "after": "",
+      "result": "el spune",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_we_say_noi_spunem",
+      "type": "conjugation",
+      "prompt": "we say",
+      "before": "noi spun",
+      "answer": "em",
+      "after": "",
+      "result": "noi spunem",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_you_plural_say_voi_spuneti",
+      "type": "conjugation",
+      "prompt": "you plural say",
+      "before": "voi spun",
+      "answer": "eți",
+      "after": "",
+      "result": "voi spuneți",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_they_say_ei_spun",
+      "type": "conjugation",
+      "prompt": "they say",
+      "before": "ei sp",
+      "answer": "un",
+      "after": "",
+      "result": "ei spun",
+      "note": "a spune"
+    },
+    {
+      "id": "ro_conjugation_i_see_eu_vad",
+      "type": "conjugation",
+      "prompt": "I see",
+      "before": "eu v",
+      "answer": "ăd",
+      "after": "",
+      "result": "eu văd",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_you_see_tu_vezi",
+      "type": "conjugation",
+      "prompt": "you see",
+      "before": "tu vez",
+      "answer": "i",
+      "after": "",
+      "result": "tu vezi",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_he_sees_el_vede",
+      "type": "conjugation",
+      "prompt": "he sees",
+      "before": "el ved",
+      "answer": "e",
+      "after": "",
+      "result": "el vede",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_we_see_noi_vedem",
+      "type": "conjugation",
+      "prompt": "we see",
+      "before": "noi ved",
+      "answer": "em",
+      "after": "",
+      "result": "noi vedem",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_you_plural_see_voi_vedeti",
+      "type": "conjugation",
+      "prompt": "you plural see",
+      "before": "voi ved",
+      "answer": "eți",
+      "after": "",
+      "result": "voi vedeți",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_they_see_ei_vad",
+      "type": "conjugation",
+      "prompt": "they see",
+      "before": "ei v",
+      "answer": "ăd",
+      "after": "",
+      "result": "ei văd",
+      "note": "a vedea"
+    },
+    {
+      "id": "ro_conjugation_i_know_eu_stiu",
+      "type": "conjugation",
+      "prompt": "I know",
+      "before": "eu șt",
+      "answer": "iu",
+      "after": "",
+      "result": "eu știu",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_you_know_tu_stii",
+      "type": "conjugation",
+      "prompt": "you know",
+      "before": "tu șt",
+      "answer": "ii",
+      "after": "",
+      "result": "tu știi",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_he_knows_el_stie",
+      "type": "conjugation",
+      "prompt": "he knows",
+      "before": "el șt",
+      "answer": "ie",
+      "after": "",
+      "result": "el știe",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_we_know_noi_stim",
+      "type": "conjugation",
+      "prompt": "we know",
+      "before": "noi șt",
+      "answer": "im",
+      "after": "",
+      "result": "noi știm",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_you_plural_know_voi_stiti",
+      "type": "conjugation",
+      "prompt": "you plural know",
+      "before": "voi șt",
+      "answer": "iți",
+      "after": "",
+      "result": "voi știți",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_they_know_ei_stiu",
+      "type": "conjugation",
+      "prompt": "they know",
+      "before": "ei șt",
+      "answer": "iu",
+      "after": "",
+      "result": "ei știu",
+      "note": "a ști"
+    },
+    {
+      "id": "ro_conjugation_i_can_eu_pot",
+      "type": "conjugation",
+      "prompt": "I can",
+      "before": "eu p",
+      "answer": "ot",
+      "after": "",
+      "result": "eu pot",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_you_can_tu_poti",
+      "type": "conjugation",
+      "prompt": "you can",
+      "before": "tu poț",
+      "answer": "i",
+      "after": "",
+      "result": "tu poți",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_he_can_el_poate",
+      "type": "conjugation",
+      "prompt": "he can",
+      "before": "el poat",
+      "answer": "e",
+      "after": "",
+      "result": "el poate",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_we_can_noi_putem",
+      "type": "conjugation",
+      "prompt": "we can",
+      "before": "noi put",
+      "answer": "em",
+      "after": "",
+      "result": "noi putem",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_you_plural_can_voi_puteti",
+      "type": "conjugation",
+      "prompt": "you plural can",
+      "before": "voi put",
+      "answer": "eți",
+      "after": "",
+      "result": "voi puteți",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_they_can_ei_pot",
+      "type": "conjugation",
+      "prompt": "they can",
+      "before": "ei p",
+      "answer": "ot",
+      "after": "",
+      "result": "ei pot",
+      "note": "a putea"
+    },
+    {
+      "id": "ro_conjugation_i_want_eu_vreau",
+      "type": "conjugation",
+      "prompt": "I want",
+      "before": "eu vr",
+      "answer": "eau",
+      "after": "",
+      "result": "eu vreau",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_you_want_tu_vrei",
+      "type": "conjugation",
+      "prompt": "you want",
+      "before": "tu vr",
+      "answer": "ei",
+      "after": "",
+      "result": "tu vrei",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_he_wants_el_vrea",
+      "type": "conjugation",
+      "prompt": "he wants",
+      "before": "el vr",
+      "answer": "ea",
+      "after": "",
+      "result": "el vrea",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_we_want_noi_vrem",
+      "type": "conjugation",
+      "prompt": "we want",
+      "before": "noi vr",
+      "answer": "em",
+      "after": "",
+      "result": "noi vrem",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_you_plural_want_voi_vreti",
+      "type": "conjugation",
+      "prompt": "you plural want",
+      "before": "voi vr",
+      "answer": "eți",
+      "after": "",
+      "result": "voi vreți",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_they_want_ei_vreau",
+      "type": "conjugation",
+      "prompt": "they want",
+      "before": "ei vr",
+      "answer": "eau",
+      "after": "",
+      "result": "ei vreau",
+      "note": "a vrea"
+    },
+    {
+      "id": "ro_conjugation_i_work_eu_lucrez",
+      "type": "conjugation",
+      "prompt": "I work",
+      "before": "eu lucr",
+      "answer": "ez",
+      "after": "",
+      "result": "eu lucrez",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_you_work_tu_lucrezi",
+      "type": "conjugation",
+      "prompt": "you work",
+      "before": "tu lucr",
+      "answer": "ezi",
+      "after": "",
+      "result": "tu lucrezi",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_he_works_el_lucreaza",
+      "type": "conjugation",
+      "prompt": "he works",
+      "before": "el lucr",
+      "answer": "ează",
+      "after": "",
+      "result": "el lucrează",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_we_work_noi_lucram",
+      "type": "conjugation",
+      "prompt": "we work",
+      "before": "noi lucr",
+      "answer": "ăm",
+      "after": "",
+      "result": "noi lucrăm",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_you_plural_work_voi_lucrati",
+      "type": "conjugation",
+      "prompt": "you plural work",
+      "before": "voi lucr",
+      "answer": "ați",
+      "after": "",
+      "result": "voi lucrați",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_they_work_ei_lucreaza",
+      "type": "conjugation",
+      "prompt": "they work",
+      "before": "ei lucr",
+      "answer": "ează",
+      "after": "",
+      "result": "ei lucrează",
+      "note": "a lucra"
+    },
+    {
+      "id": "ro_conjugation_i_live_eu_locuiesc",
+      "type": "conjugation",
+      "prompt": "I live",
+      "before": "eu locu",
+      "answer": "iesc",
+      "after": "",
+      "result": "eu locuiesc",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_you_live_tu_locuiesti",
+      "type": "conjugation",
+      "prompt": "you live",
+      "before": "tu locu",
+      "answer": "iești",
+      "after": "",
+      "result": "tu locuiești",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_he_lives_el_locuieste",
+      "type": "conjugation",
+      "prompt": "he lives",
+      "before": "el locu",
+      "answer": "iește",
+      "after": "",
+      "result": "el locuiește",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_we_live_noi_locuim",
+      "type": "conjugation",
+      "prompt": "we live",
+      "before": "noi locu",
+      "answer": "im",
+      "after": "",
+      "result": "noi locuim",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_you_plural_live_voi_locuiti",
+      "type": "conjugation",
+      "prompt": "you plural live",
+      "before": "voi locu",
+      "answer": "iți",
+      "after": "",
+      "result": "voi locuiți",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_they_live_ei_locuiesc",
+      "type": "conjugation",
+      "prompt": "they live",
+      "before": "ei locu",
+      "answer": "iesc",
+      "after": "",
+      "result": "ei locuiesc",
+      "note": "a locui"
+    },
+    {
+      "id": "ro_conjugation_i_speak_eu_vorbesc",
+      "type": "conjugation",
+      "prompt": "I speak",
+      "before": "eu vorb",
+      "answer": "esc",
+      "after": "",
+      "result": "eu vorbesc",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_you_speak_tu_vorbesti",
+      "type": "conjugation",
+      "prompt": "you speak",
+      "before": "tu vorb",
+      "answer": "ești",
+      "after": "",
+      "result": "tu vorbești",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_he_speaks_el_vorbeste",
+      "type": "conjugation",
+      "prompt": "he speaks",
+      "before": "el vorb",
+      "answer": "ește",
+      "after": "",
+      "result": "el vorbește",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_we_speak_noi_vorbim",
+      "type": "conjugation",
+      "prompt": "we speak",
+      "before": "noi vorb",
+      "answer": "im",
+      "after": "",
+      "result": "noi vorbim",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_you_plural_speak_voi_vorbiti",
+      "type": "conjugation",
+      "prompt": "you plural speak",
+      "before": "voi vorb",
+      "answer": "iți",
+      "after": "",
+      "result": "voi vorbiți",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_they_speak_ei_vorbesc",
+      "type": "conjugation",
+      "prompt": "they speak",
+      "before": "ei vorb",
+      "answer": "esc",
+      "after": "",
+      "result": "ei vorbesc",
+      "note": "a vorbi"
+    },
+    {
+      "id": "ro_conjugation_i_learn_eu_invat",
+      "type": "conjugation",
+      "prompt": "I learn",
+      "before": "eu înv",
+      "answer": "ăț",
+      "after": "",
+      "result": "eu învăț",
+      "note": "a învăța"
+    }
+  ],
+  "reference": {
+    "title": "Romania",
+    "country": "Romania",
+    "citizenshipPledge": {
+      "title": "Jurământul de credință",
+      "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
+      "translation": "I swear to be devoted to the homeland and the Romanian people, to defend national rights and interests, and to respect the Constitution and the laws of Romania."
+    },
+    "anthem": {
+      "title": "Imnul național",
+      "name": "Deșteaptă-te, române!",
+      "nameTranslation": "Awaken thee, Romanian!",
+      "description": "The national anthem of Romania is “Deșteaptă-te, române!”",
+      "lyrics": "Deșteaptă-te, române, din somnul cel de moarte,\nÎn care te-adânciră barbarii de tirani!\nAcum ori niciodată croiește-ți altă soarte,\nLa care să se-nchine și cruzii tăi dușmani!\n\nAcum ori niciodată să dăm dovezi la lume\nCă-n aste mâni mai curge un sânge de român,\nȘi că-n a noastre piepturi păstrăm cu fală-un nume\nTriumfător în lupte, un nume de Traian!\n\nÎnalță-ți lata frunte și caută-n giur de tine,\nCum stau ca brazi în munte voinici sute de mii;\nUn glas ei mai așteaptă și sar ca lupi în stâne,\nBătrâni, bărbați, juni, tineri, din munți și din câmpii!\n\nPriviți, mărețe umbre, Mihai, Ștefan, Corvine,\nRomâna națiune, ai voștri strănepoți,\nCu brațele armate, cu focul vostru-n vine,\n\"Viață-n libertate ori moarte!\" strigă toți.\n\nPre voi vă nimiciră a pizmei răutate\nȘi oarba neunire la Milcov și Carpați!\nDar noi, pătrunși la suflet de sfânta libertate,\nJurăm că vom da mâna, să fim pururea frați!\n\nO mamă văduvită de la Mihai cel Mare\nPretinde de la fii-și azi mână d-ajutori,\nȘi blastămă cu lacrămi în ochi pe orișicare,\nÎn astfel de pericul s-ar face vânzători!\n\nDe fulgere să piară, de trăsnet și pucioasă,\nOricare s-ar retrage din gloriosul loc,\nCând patria sau mama, cu inima duioasă,\nVa cere ca să trecem prin sabie și foc!\n\nN-ajunse iataganul barbarei semilune,\nA cărui plăgi fatale și azi le mai simțim;\nAcum se vâră cnuta în vetrele străbune,\nDar martor ne e Domnul că vii nu o primim!\n\nN-ajunse despotismul cu-ntreaga lui orbie,\nAl cărui jug din seculi ca vitele-l purtăm;\nAcum se-ncearcă cruzii, în oarba lor trufie,\nSă ne răpească limba, dar morți numai o dăm!\n\nRomâni din patru unghiuri, acum ori niciodată\nUniți-vă în cuget, uniți-vă-n simțiri!\nStrigați în lumea largă că Dunărea-i furată\nPrin intrigă și silă, viclene uneltiri!\n\nPreoți, cu crucea-n frunte! căci oastea e creștină,\nDeviza-i libertate și scopul ei preasfânt.\nMurim mai bine-n luptă, cu glorie deplină,\nDecât să fim sclavi iarăși în vechiul nost'pământ!",
+      "translation": "Wake up, Romanian, from the sleep of death\nInto which barbaric tyrants sank you!\nNow or never, make yourself another fate,\nBefore which even your cruel enemies will bow!\n\nNow or never, let us show the world\nThat Roman blood still flows in these hands,\nAnd that in our chests we proudly keep a name\nTriumphant in battle, the name of Trajan!\n\nRaise your broad forehead and look around you,\nHow hundreds of thousands stand like fir trees in the mountains;\nThey await only one voice and leap like wolves into the folds:\nOld men, men, young men, youths, from mountains and plains!\n\nLook, great shadows, Michael, Stephen, Corvinus,\nThe Romanian nation, your great-grandchildren,\nWith armed hands, with your fire in their veins,\nAll cry: \"Life in freedom or death!\"\n\nYou were destroyed by the malice of envy\nAnd blind disunity at Milcov and the Carpathians!\nBut we, pierced in our souls by holy liberty,\nSwear that we will join hands and be brothers forever!\n\nA widowed mother from the time of Michael the Great\nNow asks her sons for a helping hand,\nAnd with tears in her eyes curses anyone\nWho, in such danger, would become a traitor!\n\nMay lightning, thunder, and brimstone destroy\nAnyone who withdraws from the glorious place,\nWhen the homeland or mother, with tender heart,\nAsks us to pass through sword and fire!\n\nThe yataghan of the barbarous crescent was not enough,\nWhose fatal wounds we still feel today;\nNow the knout enters the ancestral hearths,\nBut God is our witness that we will not receive it alive!\n\nDespotism with all its blindness was not enough,\nWhose yoke we have borne like cattle for centuries;\nNow the cruel ones, in their blind arrogance, try\nTo take our language, but only dead will we surrender it!\n\nRomanians from the four corners, now or never,\nUnite in thought, unite in feeling!\nProclaim to the wide world that the Danube is stolen\nThrough intrigue and force, treacherous plots!\n\nPriests, with the cross in front! for the army is Christian,\nIts motto is liberty and its purpose most holy.\nBetter to die in battle, in full glory,\nThan to be slaves again in our old land!"
+    },
+    "facts": [
+      {
+        "id": "national-day",
+        "label": "Ziua Națională",
+        "value": "Ziua Națională a României: 1 Decembrie",
+        "translation": "Romania's National Day is 1 December."
+      },
+      {
+        "id": "capital",
+        "label": "Capitala",
+        "value": "Capitala României: București",
+        "translation": "The capital of Romania is Bucharest."
+      },
+      {
+        "id": "official-language",
+        "label": "Limba oficială",
+        "value": "Limba oficială: limba română"
+      },
+      {
+        "id": "european-union",
+        "label": "Uniunea Europeană",
+        "value": "România este stat membru al Uniunii Europene.",
+        "translation": "Romania is a member state of the European Union."
+      }
+    ],
+    "flag": {
+      "title": "Drapelul României",
+      "asset": "packages/romanian/assets/flag.svg",
+      "colorsLocal": "Albastru · Galben · Roșu",
+      "translationLabel": "Blue · Yellow · Red",
+      "label": "Steagul României: albastru, galben și roșu",
+      "descriptionLocal": "Drapelul României este albastru, galben și roșu.",
+      "translation": "The Romanian flag is blue, yellow and red."
+    }
+  }
+}

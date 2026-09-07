@@ -1,0 +1,1057 @@
+{
+  "metadata": {
+    "id": "english-literature-starter",
+    "language": "English",
+    "languageCode": "en-lit",
+    "variant": "Literary",
+    "level": 0,
+    "title": "Literary English · Starter",
+    "description": "Formal and literary English often encountered in classic prose.",
+    "version": 9,
+    "wordCount": 96,
+    "textCount": 8,
+    "formCount": 50
+  },
+  "words": [
+    {
+      "id": "enlit_behold",
+      "term": "behold",
+      "translation": "to look at or see"
+    },
+    {
+      "id": "enlit_hence",
+      "term": "hence",
+      "translation": "from this time or place"
+    },
+    {
+      "id": "enlit_scarcely",
+      "term": "scarcely",
+      "translation": "almost not"
+    },
+    {
+      "id": "enlit_sorrow",
+      "term": "sorrow",
+      "translation": "deep sadness"
+    },
+    {
+      "id": "enlit_dwelling",
+      "term": "dwelling",
+      "translation": "a home or place of residence"
+    },
+    {
+      "id": "enlit_peculiar",
+      "term": "peculiar",
+      "translation": "strange or distinctive"
+    },
+    {
+      "id": "enlit_countenance",
+      "term": "countenance",
+      "translation": "face or facial expression"
+    },
+    {
+      "id": "enlit_virtue",
+      "term": "virtue",
+      "translation": "moral goodness"
+    },
+    {
+      "id": "enlit_folly",
+      "term": "folly",
+      "translation": "lack of good sense"
+    },
+    {
+      "id": "enlit_solemn",
+      "term": "solemn",
+      "translation": "serious and formal"
+    },
+    {
+      "id": "enlit_wretched",
+      "term": "wretched",
+      "translation": "very unhappy or unfortunate"
+    },
+    {
+      "id": "enlit_endeavour",
+      "term": "endeavour",
+      "translation": "serious attempt"
+    },
+    {
+      "id": "enlit_presently",
+      "term": "presently",
+      "translation": "soon or after a short time"
+    },
+    {
+      "id": "enlit_nevertheless",
+      "term": "nevertheless",
+      "translation": "despite that"
+    },
+    {
+      "id": "enlit_acquaintance",
+      "term": "acquaintance",
+      "translation": "person known but not close"
+    },
+    {
+      "id": "enlit_fortune",
+      "term": "fortune",
+      "translation": "luck or wealth"
+    },
+    {
+      "id": "enlit_ought",
+      "term": "ought",
+      "translation": "should"
+    },
+    {
+      "id": "enlit_indeed",
+      "term": "indeed",
+      "translation": "truly or certainly"
+    },
+    {
+      "id": "enlit_thus",
+      "term": "thus",
+      "translation": "in this way"
+    },
+    {
+      "id": "enlit_therefore",
+      "term": "therefore",
+      "translation": "for that reason"
+    },
+    {
+      "id": "enlit_whereas",
+      "term": "whereas",
+      "translation": "while in contrast"
+    },
+    {
+      "id": "enlit_among",
+      "term": "among",
+      "translation": "in the middle of several"
+    },
+    {
+      "id": "enlit_beneath",
+      "term": "beneath",
+      "translation": "under"
+    },
+    {
+      "id": "enlit_beyond",
+      "term": "beyond",
+      "translation": "farther than"
+    },
+    {
+      "id": "enlit_within",
+      "term": "within",
+      "translation": "inside"
+    },
+    {
+      "id": "enlit_without",
+      "term": "without",
+      "translation": "lacking or outside"
+    },
+    {
+      "id": "enlit_upon",
+      "term": "upon",
+      "translation": "on"
+    },
+    {
+      "id": "enlit_whilst",
+      "term": "whilst",
+      "translation": "while"
+    },
+    {
+      "id": "enlit_though",
+      "term": "though",
+      "translation": "although"
+    },
+    {
+      "id": "enlit_lest",
+      "term": "lest",
+      "translation": "to avoid the risk that"
+    },
+    {
+      "id": "enlit_amid",
+      "term": "amid",
+      "translation": "among or surrounded by"
+    },
+    {
+      "id": "enlit_ere",
+      "term": "ere",
+      "translation": "before"
+    },
+    {
+      "id": "enlit_hither",
+      "term": "hither",
+      "translation": "to this place"
+    },
+    {
+      "id": "enlit_thither",
+      "term": "thither",
+      "translation": "to that place"
+    },
+    {
+      "id": "enlit_yonder",
+      "term": "yonder",
+      "translation": "over there"
+    },
+    {
+      "id": "enlit_vow",
+      "term": "vow",
+      "translation": "serious promise"
+    },
+    {
+      "id": "enlit_grief",
+      "term": "grief",
+      "translation": "deep sadness"
+    },
+    {
+      "id": "enlit_delight",
+      "term": "delight",
+      "translation": "great pleasure"
+    },
+    {
+      "id": "enlit_dread",
+      "term": "dread",
+      "translation": "fear"
+    },
+    {
+      "id": "enlit_wrath",
+      "term": "wrath",
+      "translation": "anger"
+    },
+    {
+      "id": "enlit_mercy",
+      "term": "mercy",
+      "translation": "kind forgiveness"
+    },
+    {
+      "id": "enlit_honour",
+      "term": "honour",
+      "translation": "high respect"
+    },
+    {
+      "id": "enlit_shame",
+      "term": "shame",
+      "translation": "painful feeling of disgrace"
+    },
+    {
+      "id": "enlit_pride",
+      "term": "pride",
+      "translation": "self-respect or arrogance"
+    },
+    {
+      "id": "enlit_humble",
+      "term": "humble",
+      "translation": "modest or low in rank"
+    },
+    {
+      "id": "enlit_noble",
+      "term": "noble",
+      "translation": "morally fine or high-born"
+    },
+    {
+      "id": "enlit_gentle",
+      "term": "gentle",
+      "translation": "kind or mild"
+    },
+    {
+      "id": "enlit_fair",
+      "term": "fair",
+      "translation": "beautiful or just"
+    },
+    {
+      "id": "enlit_grave",
+      "term": "grave",
+      "translation": "serious"
+    },
+    {
+      "id": "enlit_fierce",
+      "term": "fierce",
+      "translation": "violent or intense"
+    },
+    {
+      "id": "enlit_weary",
+      "term": "weary",
+      "translation": "very tired"
+    },
+    {
+      "id": "enlit_silent",
+      "term": "silent",
+      "translation": "without sound"
+    },
+    {
+      "id": "enlit_lonely",
+      "term": "lonely",
+      "translation": "alone and sad"
+    },
+    {
+      "id": "enlit_ancient",
+      "term": "ancient",
+      "translation": "very old"
+    },
+    {
+      "id": "enlit_distant",
+      "term": "distant",
+      "translation": "far away"
+    },
+    {
+      "id": "enlit_strange",
+      "term": "strange",
+      "translation": "unfamiliar"
+    },
+    {
+      "id": "enlit_bright",
+      "term": "bright",
+      "translation": "full of light"
+    },
+    {
+      "id": "enlit_dim",
+      "term": "dim",
+      "translation": "not bright"
+    },
+    {
+      "id": "enlit_swift",
+      "term": "swift",
+      "translation": "quick"
+    },
+    {
+      "id": "enlit_idle",
+      "term": "idle",
+      "translation": "not working"
+    },
+    {
+      "id": "enlit_vain",
+      "term": "vain",
+      "translation": "useless or excessively proud"
+    },
+    {
+      "id": "enlit_faint",
+      "term": "faint",
+      "translation": "weak or unclear"
+    },
+    {
+      "id": "enlit_dear",
+      "term": "dear",
+      "translation": "loved or costly"
+    },
+    {
+      "id": "enlit_poor",
+      "term": "poor",
+      "translation": "having little money"
+    },
+    {
+      "id": "enlit_rich",
+      "term": "rich",
+      "translation": "having much wealth"
+    },
+    {
+      "id": "enlit_servant",
+      "term": "servant",
+      "translation": "person employed to serve"
+    },
+    {
+      "id": "enlit_master",
+      "term": "master",
+      "translation": "person in authority"
+    },
+    {
+      "id": "enlit_guest",
+      "term": "guest",
+      "translation": "visitor received at a place"
+    },
+    {
+      "id": "enlit_host",
+      "term": "host",
+      "translation": "person receiving guests"
+    },
+    {
+      "id": "enlit_traveller",
+      "term": "traveller",
+      "translation": "person on a journey"
+    },
+    {
+      "id": "enlit_stranger",
+      "term": "stranger",
+      "translation": "unknown person"
+    },
+    {
+      "id": "enlit_neighbour",
+      "term": "neighbour",
+      "translation": "person living nearby"
+    },
+    {
+      "id": "enlit_widow",
+      "term": "widow",
+      "translation": "woman whose spouse has died"
+    },
+    {
+      "id": "enlit_heir",
+      "term": "heir",
+      "translation": "person who receives inheritance"
+    },
+    {
+      "id": "enlit_letter",
+      "term": "letter",
+      "translation": "written message"
+    },
+    {
+      "id": "enlit_estate",
+      "term": "estate",
+      "translation": "large property or land"
+    },
+    {
+      "id": "enlit_inheritance",
+      "term": "inheritance",
+      "translation": "property received after death"
+    },
+    {
+      "id": "enlit_village",
+      "term": "village",
+      "translation": "small settlement"
+    },
+    {
+      "id": "enlit_path",
+      "term": "path",
+      "translation": "small road or track"
+    },
+    {
+      "id": "enlit_hearth",
+      "term": "hearth",
+      "translation": "fireplace area in a home"
+    },
+    {
+      "id": "enlit_chamber",
+      "term": "chamber",
+      "translation": "room"
+    },
+    {
+      "id": "enlit_threshold",
+      "term": "threshold",
+      "translation": "entrance or doorway"
+    },
+    {
+      "id": "enlit_curtain",
+      "term": "curtain",
+      "translation": "hanging cloth by a window"
+    },
+    {
+      "id": "enlit_portrait",
+      "term": "portrait",
+      "translation": "painted or photographed likeness"
+    },
+    {
+      "id": "enlit_candle",
+      "term": "candle",
+      "translation": "wax light with a flame"
+    },
+    {
+      "id": "enlit_storm",
+      "term": "storm",
+      "translation": "violent weather"
+    },
+    {
+      "id": "enlit_mist",
+      "term": "mist",
+      "translation": "thin fog"
+    },
+    {
+      "id": "enlit_shadow",
+      "term": "shadow",
+      "translation": "dark shape made by blocked light"
+    },
+    {
+      "id": "enlit_whisper",
+      "term": "whisper",
+      "translation": "quiet speech"
+    },
+    {
+      "id": "enlit_rumour",
+      "term": "rumour",
+      "translation": "unconfirmed story"
+    },
+    {
+      "id": "enlit_secret",
+      "term": "secret",
+      "translation": "hidden information"
+    },
+    {
+      "id": "enlit_promise",
+      "term": "promise",
+      "translation": "statement that one will do something"
+    },
+    {
+      "id": "enlit_choice",
+      "term": "choice",
+      "translation": "act of deciding"
+    },
+    {
+      "id": "enlit_ambition",
+      "term": "ambition",
+      "translation": "strong desire to succeed"
+    },
+    {
+      "id": "enlit_fate",
+      "term": "fate",
+      "translation": "power or events beyond control"
+    },
+    {
+      "id": "enlit_memory",
+      "term": "memory",
+      "translation": "something remembered"
+    }
+  ],
+  "texts": [
+    {
+      "id": "enlit_old_house",
+      "title": "The old house",
+      "text": "At dusk the {traveller} reached an old dwelling beyond the village. A dim {candle} burned in the window, and the door opened presently.",
+      "translation": "At dusk the traveller reached an old home beyond the village. A dim candle burned in the window, and the door opened soon.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_dinner",
+      "title": "A formal dinner",
+      "text": "The guests spoke with solemn courtesy, yet each {countenance} showed a different thought. Nevertheless, the host maintained a gentle {smile}.",
+      "translation": "The guests spoke very politely, but each face showed a different thought. Still, the host kept a gentle smile.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_letter",
+      "title": "An unexpected letter",
+      "text": "A letter arrived at noon and brought strange {news}. It spoke of an inheritance, a distant estate, and a promise made long {ago}.",
+      "translation": "A letter arrived at noon and brought strange news. It spoke of an inheritance, a distant estate, and an old promise.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_village_walk",
+      "title": "Through the village",
+      "text": "She walked beneath ancient trees, past the quiet {hearths} of neighbours, and wondered whether fortune had changed her {path}.",
+      "translation": "She walked under old trees, past the homes of neighbours, and wondered whether luck had changed her path.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_argument",
+      "title": "Between acquaintances",
+      "text": "The argument began as a small matter of {honour}. Soon pride overcame mercy, and neither acquaintance would speak the simple {truth}.",
+      "translation": "The argument began as a small matter of honour. Soon pride overcame mercy, and neither person would speak the simple truth.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_storm",
+      "title": "Storm at night",
+      "text": "The storm grew fierce after midnight. Rain struck the threshold, shadows moved upon the wall, and a lonely {whisper} crossed the chamber.",
+      "translation": "The storm became strong after midnight. Rain hit the doorway, shadows moved on the wall, and a lonely whisper crossed the room.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_abroad",
+      "title": "News from abroad",
+      "text": "News from abroad altered the family's hopes. The heir was alive, the estate was safe, and sorrow turned almost at once to {delight}.",
+      "translation": "News from another country changed the family's hopes. The heir was alive, the property was safe, and sadness quickly became joy.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "enlit_ambition",
+      "title": "Ambition",
+      "text": "Ambition may lift a person beyond fear, but without virtue it becomes vain. Thus a noble endeavour can become mere {folly}.",
+      "translation": "Ambition may help a person overcome fear, but without moral goodness it becomes empty. In this way a noble effort can become foolishness.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "enlit_past_behold_beheld_beheld",
+      "type": "past",
+      "prompt": "behold → beheld",
+      "before": "",
+      "answer": "beheld",
+      "after": "",
+      "result": "beheld",
+      "note": "past of behold"
+    },
+    {
+      "id": "enlit_past_write_wrote_wrote",
+      "type": "past",
+      "prompt": "write → wrote",
+      "before": "",
+      "answer": "wrote",
+      "after": "",
+      "result": "wrote",
+      "note": "past of write"
+    },
+    {
+      "id": "enlit_past_speak_spoke_spoke",
+      "type": "past",
+      "prompt": "speak → spoke",
+      "before": "",
+      "answer": "spoke",
+      "after": "",
+      "result": "spoke",
+      "note": "past of speak"
+    },
+    {
+      "id": "enlit_past_rise_rose_rose",
+      "type": "past",
+      "prompt": "rise → rose",
+      "before": "",
+      "answer": "rose",
+      "after": "",
+      "result": "rose",
+      "note": "past of rise"
+    },
+    {
+      "id": "enlit_past_fall_fell_fell",
+      "type": "past",
+      "prompt": "fall → fell",
+      "before": "",
+      "answer": "fell",
+      "after": "",
+      "result": "fell",
+      "note": "past of fall"
+    },
+    {
+      "id": "enlit_past_come_came_came",
+      "type": "past",
+      "prompt": "come → came",
+      "before": "",
+      "answer": "came",
+      "after": "",
+      "result": "came",
+      "note": "past of come"
+    },
+    {
+      "id": "enlit_past_go_went_went",
+      "type": "past",
+      "prompt": "go → went",
+      "before": "",
+      "answer": "went",
+      "after": "",
+      "result": "went",
+      "note": "past of go"
+    },
+    {
+      "id": "enlit_participle_write_written_written",
+      "type": "participle",
+      "prompt": "write → written",
+      "before": "",
+      "answer": "written",
+      "after": "",
+      "result": "written",
+      "note": "past participle"
+    },
+    {
+      "id": "enlit_participle_speak_spoken_spoken",
+      "type": "participle",
+      "prompt": "speak → spoken",
+      "before": "",
+      "answer": "spoken",
+      "after": "",
+      "result": "spoken",
+      "note": "past participle"
+    },
+    {
+      "id": "enlit_participle_break_broken_broken",
+      "type": "participle",
+      "prompt": "break → broken",
+      "before": "",
+      "answer": "broken",
+      "after": "",
+      "result": "broken",
+      "note": "past participle"
+    },
+    {
+      "id": "enlit_plural_one_gentleman_two_gentlemen",
+      "type": "plural",
+      "prompt": "one gentleman, two ___",
+      "before": "",
+      "answer": "gentlemen",
+      "after": "",
+      "result": "gentlemen",
+      "note": "irregular plural"
+    },
+    {
+      "id": "enlit_plural_one_lady_two_lad_ladies",
+      "type": "plural",
+      "prompt": "one lady, two lad___",
+      "before": "lad",
+      "answer": "ies",
+      "after": "",
+      "result": "ladies",
+      "note": "lady → ladies"
+    },
+    {
+      "id": "enlit_plural_one_story_two_stor_stories",
+      "type": "plural",
+      "prompt": "one story, two stor___",
+      "before": "stor",
+      "answer": "ies",
+      "after": "",
+      "result": "stories",
+      "note": "story → stories"
+    },
+    {
+      "id": "enlit_plural_one_wish_two_wish_wishes",
+      "type": "plural",
+      "prompt": "one wish, two wish___",
+      "before": "wish",
+      "answer": "es",
+      "after": "",
+      "result": "wishes",
+      "note": "wish → wishes"
+    },
+    {
+      "id": "enlit_derivation_solemn_solemn_solemnity",
+      "type": "derivation",
+      "prompt": "solemn → solemn___",
+      "before": "solemn",
+      "answer": "ity",
+      "after": "",
+      "result": "solemnity",
+      "note": "noun form"
+    },
+    {
+      "id": "enlit_derivation_virtuous_virtu_virtue",
+      "type": "derivation",
+      "prompt": "virtuous → virtu___",
+      "before": "virtu",
+      "answer": "e",
+      "after": "",
+      "result": "virtue",
+      "note": "related noun"
+    },
+    {
+      "id": "enlit_derivation_peculiar_peculiar_peculiarity",
+      "type": "derivation",
+      "prompt": "peculiar → peculiar___",
+      "before": "peculiar",
+      "answer": "ity",
+      "after": "",
+      "result": "peculiarity",
+      "note": "noun form"
+    },
+    {
+      "id": "enlit_derivation_noble_nobil_nobility",
+      "type": "derivation",
+      "prompt": "noble → nobil___",
+      "before": "nobil",
+      "answer": "ity",
+      "after": "",
+      "result": "nobility",
+      "note": "noun form"
+    },
+    {
+      "id": "enlit_derivation_humble_humil_humility",
+      "type": "derivation",
+      "prompt": "humble → humil___",
+      "before": "humil",
+      "answer": "ity",
+      "after": "",
+      "result": "humility",
+      "note": "noun form"
+    },
+    {
+      "id": "enlit_derivation_acquaint_acquaint_acquaintance",
+      "type": "derivation",
+      "prompt": "acquaint → acquaint___",
+      "before": "acquaint",
+      "answer": "ance",
+      "after": "",
+      "result": "acquaintance",
+      "note": "noun form"
+    },
+    {
+      "id": "enlit_adverb_solemn_solemn_solemnly",
+      "type": "adverb",
+      "prompt": "solemn → solemn___",
+      "before": "solemn",
+      "answer": "ly",
+      "after": "",
+      "result": "solemnly",
+      "note": "adverb form"
+    },
+    {
+      "id": "enlit_adverb_gentle_gent_gently",
+      "type": "adverb",
+      "prompt": "gentle → gent___",
+      "before": "gent",
+      "answer": "ly",
+      "after": "",
+      "result": "gently",
+      "note": "adverb form"
+    },
+    {
+      "id": "enlit_adverb_fierce_fierce_fiercely",
+      "type": "adverb",
+      "prompt": "fierce → fierce___",
+      "before": "fierce",
+      "answer": "ly",
+      "after": "",
+      "result": "fiercely",
+      "note": "adverb form"
+    },
+    {
+      "id": "enlit_adverb_scarcely_scarce_scarcely",
+      "type": "adverb",
+      "prompt": "scarcely → scarce___",
+      "before": "scarce",
+      "answer": "ly",
+      "after": "",
+      "result": "scarcely",
+      "note": "adverb spelling"
+    },
+    {
+      "id": "enlit_comparative_bright_bright_brighter",
+      "type": "comparative",
+      "prompt": "bright → bright___",
+      "before": "bright",
+      "answer": "er",
+      "after": "",
+      "result": "brighter",
+      "note": "comparative"
+    },
+    {
+      "id": "enlit_comparative_strange_strang_stranger",
+      "type": "comparative",
+      "prompt": "strange → strang___",
+      "before": "strang",
+      "answer": "er",
+      "after": "",
+      "result": "stranger",
+      "note": "drop final e"
+    },
+    {
+      "id": "enlit_comparative_weary_wear_wearier",
+      "type": "comparative",
+      "prompt": "weary → wear___",
+      "before": "wear",
+      "answer": "ier",
+      "after": "",
+      "result": "wearier",
+      "note": "y → ier"
+    },
+    {
+      "id": "enlit_superlative_noble_nobl_noblest",
+      "type": "superlative",
+      "prompt": "noble → nobl___",
+      "before": "nobl",
+      "answer": "est",
+      "after": "",
+      "result": "noblest",
+      "note": "superlative"
+    },
+    {
+      "id": "enlit_superlative_fair_fair_fairest",
+      "type": "superlative",
+      "prompt": "fair → fair___",
+      "before": "fair",
+      "answer": "est",
+      "after": "",
+      "result": "fairest",
+      "note": "superlative"
+    },
+    {
+      "id": "enlit_phrase_the_storm_he_waited_amid_the_storm_he_waited",
+      "type": "phrase",
+      "prompt": "___ the storm, he waited",
+      "before": "",
+      "answer": "Amid",
+      "after": " the storm, he waited",
+      "result": "Amid the storm, he waited",
+      "note": "literary preposition"
+    },
+    {
+      "id": "enlit_phrase_the_door_stood_a_guest_upon_the_door_stood_a_guest",
+      "type": "phrase",
+      "prompt": "___ the door stood a guest",
+      "before": "",
+      "answer": "Upon",
+      "after": " the door stood a guest",
+      "result": "Upon the door stood a guest",
+      "note": "formal/literary preposition"
+    },
+    {
+      "id": "enlit_phrase_he_leave_she_spoke_ere_he_leave_she_spoke",
+      "type": "phrase",
+      "prompt": "___ he leave, she spoke",
+      "before": "",
+      "answer": "Ere",
+      "after": " he leave, she spoke",
+      "result": "Ere he leave, she spoke",
+      "note": "older before"
+    },
+    {
+      "id": "enlit_phrase_he_came_he_came_hither",
+      "type": "phrase",
+      "prompt": "He came ___",
+      "before": "He came ",
+      "answer": "hither",
+      "after": "",
+      "result": "He came hither",
+      "note": "to this place"
+    },
+    {
+      "id": "enlit_phrase_she_went_she_went_thither",
+      "type": "phrase",
+      "prompt": "She went ___",
+      "before": "She went ",
+      "answer": "thither",
+      "after": "",
+      "result": "She went thither",
+      "note": "to that place"
+    },
+    {
+      "id": "enlit_phrase_the_house_the_house_yonder",
+      "type": "phrase",
+      "prompt": "The house ___",
+      "before": "The house ",
+      "answer": "yonder",
+      "after": "",
+      "result": "The house yonder",
+      "note": "over there"
+    },
+    {
+      "id": "enlit_modal_you_tell_the_truth_you_ought_tell_the_truth",
+      "type": "modal",
+      "prompt": "You ___ tell the truth",
+      "before": "You ",
+      "answer": "ought",
+      "after": " tell the truth",
+      "result": "You ought tell the truth",
+      "note": "ought as duty"
+    },
+    {
+      "id": "enlit_connector_he_was_tired_he_continued_he_was_tired_nevertheless_he_continued",
+      "type": "connector",
+      "prompt": "He was tired; ___, he continued",
+      "before": "He was tired; ",
+      "answer": "nevertheless",
+      "after": ", he continued",
+      "result": "He was tired; nevertheless, he continued",
+      "note": "contrast connector"
+    },
+    {
+      "id": "enlit_connector_she_was_honest_she_was_trusted_she_was_honest_therefore_she_was_trusted",
+      "type": "connector",
+      "prompt": "She was honest; ___ she was trusted",
+      "before": "She was honest; ",
+      "answer": "therefore",
+      "after": " she was trusted",
+      "result": "She was honest; therefore she was trusted",
+      "note": "result connector"
+    },
+    {
+      "id": "enlit_connector_he_spoke_softly_all_listened_he_spoke_softly_indeed_all_listened",
+      "type": "connector",
+      "prompt": "He spoke softly; ___, all listened",
+      "before": "He spoke softly; ",
+      "answer": "indeed",
+      "after": ", all listened",
+      "result": "He spoke softly; indeed, all listened",
+      "note": "emphasis"
+    },
+    {
+      "id": "enlit_noun_endeavour_endeavour_endeavours",
+      "type": "noun",
+      "prompt": "endeavour → endeavour___",
+      "before": "endeavour",
+      "answer": "s",
+      "after": "",
+      "result": "endeavours",
+      "note": "plural"
+    },
+    {
+      "id": "enlit_noun_fortune_fortune_fortunes",
+      "type": "noun",
+      "prompt": "fortune → fortune___",
+      "before": "fortune",
+      "answer": "s",
+      "after": "",
+      "result": "fortunes",
+      "note": "plural"
+    },
+    {
+      "id": "enlit_noun_virtue_virtue_virtues",
+      "type": "noun",
+      "prompt": "virtue → virtue___",
+      "before": "virtue",
+      "answer": "s",
+      "after": "",
+      "result": "virtues",
+      "note": "plural"
+    },
+    {
+      "id": "enlit_noun_dwelling_dwelling_dwellings",
+      "type": "noun",
+      "prompt": "dwelling → dwelling___",
+      "before": "dwelling",
+      "answer": "s",
+      "after": "",
+      "result": "dwellings",
+      "note": "plural"
+    },
+    {
+      "id": "enlit_possessive_the_traveller_cloak_the_traveller_s_cloak",
+      "type": "possessive",
+      "prompt": "the traveller ___ cloak",
+      "before": "the traveller",
+      "answer": "'s",
+      "after": " cloak",
+      "result": "the traveller's cloak",
+      "note": "possessive"
+    },
+    {
+      "id": "enlit_possessive_the_widow_letter_the_widow_s_letter",
+      "type": "possessive",
+      "prompt": "the widow ___ letter",
+      "before": "the widow",
+      "answer": "'s",
+      "after": " letter",
+      "result": "the widow's letter",
+      "note": "possessive"
+    },
+    {
+      "id": "enlit_past_seek_sought_sought",
+      "type": "past",
+      "prompt": "seek → sought",
+      "before": "",
+      "answer": "sought",
+      "after": "",
+      "result": "sought",
+      "note": "past of seek"
+    },
+    {
+      "id": "enlit_past_bring_brought_brought",
+      "type": "past",
+      "prompt": "bring → brought",
+      "before": "",
+      "answer": "brought",
+      "after": "",
+      "result": "brought",
+      "note": "past of bring"
+    },
+    {
+      "id": "enlit_past_think_thought_thought",
+      "type": "past",
+      "prompt": "think → thought",
+      "before": "",
+      "answer": "thought",
+      "after": "",
+      "result": "thought",
+      "note": "past of think"
+    },
+    {
+      "id": "enlit_past_weep_wept_wept",
+      "type": "past",
+      "prompt": "weep → wept",
+      "before": "",
+      "answer": "wept",
+      "after": "",
+      "result": "wept",
+      "note": "past of weep"
+    },
+    {
+      "id": "enlit_past_hear_heard_heard",
+      "type": "past",
+      "prompt": "hear → heard",
+      "before": "",
+      "answer": "heard",
+      "after": "",
+      "result": "heard",
+      "note": "past of hear"
+    }
+  ]
+}

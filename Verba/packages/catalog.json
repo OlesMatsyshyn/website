@@ -1,0 +1,209 @@
+{
+  "version": 9,
+  "packages": [
+    {
+      "id": "english-starter",
+      "language": "British English",
+      "languageCode": "en-GB",
+      "variant": "General",
+      "level": 0,
+      "title": "British English · Starter",
+      "description": "British English vocabulary, short texts, and common forms.",
+      "version": 9,
+      "wordCount": 112,
+      "textCount": 10,
+      "formCount": 50,
+      "path": "packages/english/starter.json"
+    },
+    {
+      "id": "english-medical-starter",
+      "language": "English",
+      "languageCode": "en-med",
+      "variant": "Medical",
+      "level": 0,
+      "title": "Medical English · Starter",
+      "description": "Practical medical and scientific English with plain definitions.",
+      "version": 9,
+      "wordCount": 93,
+      "textCount": 8,
+      "formCount": 50,
+      "path": "packages/english-medical/starter.json"
+    },
+    {
+      "id": "english-literature-starter",
+      "language": "English",
+      "languageCode": "en-lit",
+      "variant": "Literary",
+      "level": 0,
+      "title": "Literary English · Starter",
+      "description": "Formal and literary English often encountered in classic prose.",
+      "version": 9,
+      "wordCount": 96,
+      "textCount": 8,
+      "formCount": 50,
+      "path": "packages/english-literature/starter.json"
+    },
+    {
+      "id": "german-starter",
+      "language": "German",
+      "languageCode": "de",
+      "variant": "General",
+      "level": 0,
+      "title": "German · Starter",
+      "description": "Useful German vocabulary, short texts, and core grammar forms.",
+      "version": 9,
+      "wordCount": 101,
+      "textCount": 10,
+      "formCount": 58,
+      "characterSubstitutions": {
+        "ä": [
+          "a"
+        ],
+        "ö": [
+          "o"
+        ],
+        "ü": [
+          "u"
+        ],
+        "ß": [
+          "ss"
+        ]
+      },
+      "path": "packages/german/starter.json"
+    },
+    {
+      "id": "french-starter",
+      "language": "French",
+      "languageCode": "fr",
+      "variant": "General",
+      "level": 0,
+      "title": "French · Starter",
+      "description": "Useful French vocabulary, short texts, and core grammar forms.",
+      "version": 9,
+      "wordCount": 101,
+      "textCount": 10,
+      "formCount": 55,
+      "characterSubstitutions": {
+        "é": [
+          "e"
+        ],
+        "è": [
+          "e"
+        ],
+        "ê": [
+          "e"
+        ],
+        "ç": [
+          "c"
+        ],
+        "à": [
+          "a"
+        ],
+        "ù": [
+          "u"
+        ],
+        "î": [
+          "i"
+        ],
+        "ô": [
+          "o"
+        ]
+      },
+      "path": "packages/french/starter.json"
+    },
+    {
+      "id": "polish-starter",
+      "language": "Polish",
+      "languageCode": "pl",
+      "variant": "General",
+      "level": 0,
+      "title": "Polish · Starter",
+      "description": "Useful Polish vocabulary, short texts, and core grammar forms.",
+      "version": 9,
+      "wordCount": 101,
+      "textCount": 10,
+      "formCount": 60,
+      "characterSubstitutions": {
+        "ą": [
+          "a"
+        ],
+        "ć": [
+          "c"
+        ],
+        "ę": [
+          "e"
+        ],
+        "ł": [
+          "l"
+        ],
+        "ń": [
+          "n"
+        ],
+        "ó": [
+          "o"
+        ],
+        "ś": [
+          "s"
+        ],
+        "ż": [
+          "z"
+        ],
+        "ź": [
+          "z"
+        ]
+      },
+      "path": "packages/polish/starter.json"
+    },
+    {
+      "id": "ukrainian-starter",
+      "language": "Ukrainian",
+      "languageCode": "uk",
+      "variant": "General",
+      "level": 0,
+      "title": "Ukrainian · Starter",
+      "description": "Useful Ukrainian vocabulary, short Cyrillic texts, and core grammar forms.",
+      "version": 9,
+      "wordCount": 101,
+      "textCount": 10,
+      "formCount": 60,
+      "path": "packages/ukrainian/starter.json"
+    },
+    {
+      "id": "romanian-starter",
+      "language": "Romanian",
+      "languageCode": "ro",
+      "variant": "General",
+      "level": 0,
+      "title": "Romanian · Starter",
+      "description": "A substantial Romanian learning pack for everyday, grammar, and civic practice.",
+      "version": 9,
+      "wordCount": 560,
+      "textCount": 37,
+      "formCount": 240,
+      "characterSubstitutions": {
+        "ă": [
+          "a"
+        ],
+        "â": [
+          "a"
+        ],
+        "î": [
+          "i"
+        ],
+        "ș": [
+          "s"
+        ],
+        "ş": [
+          "s"
+        ],
+        "ț": [
+          "t"
+        ],
+        "ţ": [
+          "t"
+        ]
+      },
+      "path": "packages/romanian/starter.json"
+    }
+  ]
+}

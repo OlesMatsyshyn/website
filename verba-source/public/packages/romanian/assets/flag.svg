@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="900" height="600" role="img" aria-labelledby="title desc">
+  <title id="title">Flag of Romania</title>
+  <desc id="desc">Vertical blue, yellow and red tricolour.</desc>
+  <rect width="1" height="2" x="0" fill="#002B7F"/>
+  <rect width="1" height="2" x="1" fill="#FCD116"/>
+  <rect width="1" height="2" x="2" fill="#CE1126"/>
+</svg>

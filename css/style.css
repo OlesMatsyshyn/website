@@ -492,6 +492,64 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.project-carousel {
+  max-width: 1120px;
+  position: relative;
+  --carousel-fade-bg: #f7f2ea;
+  --carousel-fade-size: clamp(1.4rem, 5vw, 4.2rem);
+}
+
+.project-carousel-track {
+  max-width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, calc((100% - 2.5rem) / 3.08));
+  grid-template-columns: none;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.15rem 0 0.45rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.project-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.project-carousel-track .feature-card {
+  scroll-snap-align: start;
+}
+
+.project-carousel::before,
+.project-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--carousel-fade-size);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.project-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--carousel-fade-bg), rgba(247, 242, 234, 0));
+}
+
+.project-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--carousel-fade-bg), rgba(247, 242, 234, 0));
+}
+
+.project-carousel.is-scrollable:not(.is-at-start)::before,
+.project-carousel.is-scrollable:not(.is-at-end)::after {
+  opacity: 1;
+}
+
 .feature-card-secondary img {
   aspect-ratio: 16 / 8.5;
 }
@@ -1158,6 +1216,50 @@ p {
   font-family: var(--serif);
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   line-height: 1.45;
+}
+
+.verba-pack-section {
+  padding-top: 1.35rem;
+}
+
+.verba-pack-section h2 {
+  margin-bottom: 1rem;
+}
+
+.verba-pack-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(217, 207, 193, 0.82);
+}
+
+.verba-pack-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(217, 207, 193, 0.82);
+}
+
+.verba-pack-row h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.verba-pack-row .text-button {
+  justify-self: end;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.verba-file-note[hidden] {
+  display: none;
+}
+
+.verba-file-note {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .object-block {
@@ -2999,6 +3101,20 @@ figcaption {
 
   .chapter-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-carousel-track {
+    grid-auto-columns: minmax(260px, min(84vw, 340px));
+    grid-template-columns: none;
+  }
+
+  .verba-pack-row {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .verba-pack-row .text-button {
+    justify-self: start;
   }
 }
 

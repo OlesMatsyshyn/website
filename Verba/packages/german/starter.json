@@ -1,0 +1,1239 @@
+{
+  "metadata": {
+    "id": "german-starter",
+    "language": "German",
+    "languageCode": "de",
+    "variant": "General",
+    "level": 0,
+    "title": "German · Starter",
+    "description": "Useful German vocabulary, short texts, and core grammar forms.",
+    "version": 9,
+    "wordCount": 101,
+    "textCount": 10,
+    "formCount": 58,
+    "characterSubstitutions": {
+      "ä": [
+        "a"
+      ],
+      "ö": [
+        "o"
+      ],
+      "ü": [
+        "u"
+      ],
+      "ß": [
+        "ss"
+      ]
+    }
+  },
+  "words": [
+    {
+      "id": "de_das_haus",
+      "term": "das Haus",
+      "translation": "house"
+    },
+    {
+      "id": "de_die_wohnung",
+      "term": "die Wohnung",
+      "translation": "apartment"
+    },
+    {
+      "id": "de_die_kuche",
+      "term": "die Küche",
+      "translation": "kitchen"
+    },
+    {
+      "id": "de_das_zimmer",
+      "term": "das Zimmer",
+      "translation": "room"
+    },
+    {
+      "id": "de_die_tur",
+      "term": "die Tür",
+      "translation": "door"
+    },
+    {
+      "id": "de_das_fenster",
+      "term": "das Fenster",
+      "translation": "window"
+    },
+    {
+      "id": "de_der_tisch",
+      "term": "der Tisch",
+      "translation": "table"
+    },
+    {
+      "id": "de_der_stuhl",
+      "term": "der Stuhl",
+      "translation": "chair"
+    },
+    {
+      "id": "de_das_bett",
+      "term": "das Bett",
+      "translation": "bed"
+    },
+    {
+      "id": "de_die_lampe",
+      "term": "die Lampe",
+      "translation": "lamp"
+    },
+    {
+      "id": "de_das_wasser",
+      "term": "das Wasser",
+      "translation": "water"
+    },
+    {
+      "id": "de_das_brot",
+      "term": "das Brot",
+      "translation": "bread"
+    },
+    {
+      "id": "de_der_kase",
+      "term": "der Käse",
+      "translation": "cheese"
+    },
+    {
+      "id": "de_der_apfel",
+      "term": "der Apfel",
+      "translation": "apple"
+    },
+    {
+      "id": "de_die_banane",
+      "term": "die Banane",
+      "translation": "banana"
+    },
+    {
+      "id": "de_der_kaffee",
+      "term": "der Kaffee",
+      "translation": "coffee"
+    },
+    {
+      "id": "de_der_tee",
+      "term": "der Tee",
+      "translation": "tea"
+    },
+    {
+      "id": "de_das_fruhstuck",
+      "term": "das Frühstück",
+      "translation": "breakfast"
+    },
+    {
+      "id": "de_das_mittagessen",
+      "term": "das Mittagessen",
+      "translation": "lunch"
+    },
+    {
+      "id": "de_das_abendessen",
+      "term": "das Abendessen",
+      "translation": "dinner"
+    },
+    {
+      "id": "de_der_laden",
+      "term": "der Laden",
+      "translation": "shop"
+    },
+    {
+      "id": "de_der_markt",
+      "term": "der Markt",
+      "translation": "market"
+    },
+    {
+      "id": "de_das_geld",
+      "term": "das Geld",
+      "translation": "money"
+    },
+    {
+      "id": "de_der_preis",
+      "term": "der Preis",
+      "translation": "price"
+    },
+    {
+      "id": "de_die_karte",
+      "term": "die Karte",
+      "translation": "ticket or card"
+    },
+    {
+      "id": "de_der_zug",
+      "term": "der Zug",
+      "translation": "train"
+    },
+    {
+      "id": "de_der_bus",
+      "term": "der Bus",
+      "translation": "bus"
+    },
+    {
+      "id": "de_der_bahnhof",
+      "term": "der Bahnhof",
+      "translation": "train station"
+    },
+    {
+      "id": "de_der_flughafen",
+      "term": "der Flughafen",
+      "translation": "airport"
+    },
+    {
+      "id": "de_die_straße",
+      "term": "die Straße",
+      "translation": "street"
+    },
+    {
+      "id": "de_die_stadt",
+      "term": "die Stadt",
+      "translation": "city"
+    },
+    {
+      "id": "de_das_dorf",
+      "term": "das Dorf",
+      "translation": "village"
+    },
+    {
+      "id": "de_links",
+      "term": "links",
+      "translation": "left"
+    },
+    {
+      "id": "de_rechts",
+      "term": "rechts",
+      "translation": "right"
+    },
+    {
+      "id": "de_nah",
+      "term": "nah",
+      "translation": "near"
+    },
+    {
+      "id": "de_weit",
+      "term": "weit",
+      "translation": "far"
+    },
+    {
+      "id": "de_heute",
+      "term": "heute",
+      "translation": "today"
+    },
+    {
+      "id": "de_morgen",
+      "term": "morgen",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "de_gestern",
+      "term": "gestern",
+      "translation": "yesterday"
+    },
+    {
+      "id": "de_der_morgen",
+      "term": "der Morgen",
+      "translation": "morning"
+    },
+    {
+      "id": "de_der_abend",
+      "term": "der Abend",
+      "translation": "evening"
+    },
+    {
+      "id": "de_die_nacht",
+      "term": "die Nacht",
+      "translation": "night"
+    },
+    {
+      "id": "de_die_woche",
+      "term": "die Woche",
+      "translation": "week"
+    },
+    {
+      "id": "de_der_monat",
+      "term": "der Monat",
+      "translation": "month"
+    },
+    {
+      "id": "de_das_jahr",
+      "term": "das Jahr",
+      "translation": "year"
+    },
+    {
+      "id": "de_das_wetter",
+      "term": "das Wetter",
+      "translation": "weather"
+    },
+    {
+      "id": "de_der_regen",
+      "term": "der Regen",
+      "translation": "rain"
+    },
+    {
+      "id": "de_der_wind",
+      "term": "der Wind",
+      "translation": "wind"
+    },
+    {
+      "id": "de_die_sonne",
+      "term": "die Sonne",
+      "translation": "sun"
+    },
+    {
+      "id": "de_kalt",
+      "term": "kalt",
+      "translation": "cold"
+    },
+    {
+      "id": "de_warm",
+      "term": "warm",
+      "translation": "warm"
+    },
+    {
+      "id": "de_der_mensch",
+      "term": "der Mensch",
+      "translation": "person"
+    },
+    {
+      "id": "de_der_freund",
+      "term": "der Freund",
+      "translation": "friend"
+    },
+    {
+      "id": "de_die_familie",
+      "term": "die Familie",
+      "translation": "family"
+    },
+    {
+      "id": "de_das_kind",
+      "term": "das Kind",
+      "translation": "child"
+    },
+    {
+      "id": "de_der_lehrer",
+      "term": "der Lehrer",
+      "translation": "teacher"
+    },
+    {
+      "id": "de_der_arzt",
+      "term": "der Arzt",
+      "translation": "doctor"
+    },
+    {
+      "id": "de_der_arbeiter",
+      "term": "der Arbeiter",
+      "translation": "worker"
+    },
+    {
+      "id": "de_der_student",
+      "term": "der Student",
+      "translation": "student"
+    },
+    {
+      "id": "de_glucklich",
+      "term": "glücklich",
+      "translation": "happy"
+    },
+    {
+      "id": "de_traurig",
+      "term": "traurig",
+      "translation": "sad"
+    },
+    {
+      "id": "de_mude",
+      "term": "müde",
+      "translation": "tired"
+    },
+    {
+      "id": "de_beschaftigt",
+      "term": "beschäftigt",
+      "translation": "busy"
+    },
+    {
+      "id": "de_bereit",
+      "term": "bereit",
+      "translation": "ready"
+    },
+    {
+      "id": "de_wichtig",
+      "term": "wichtig",
+      "translation": "important"
+    },
+    {
+      "id": "de_einfach",
+      "term": "einfach",
+      "translation": "easy"
+    },
+    {
+      "id": "de_schwierig",
+      "term": "schwierig",
+      "translation": "difficult"
+    },
+    {
+      "id": "de_neu",
+      "term": "neu",
+      "translation": "new"
+    },
+    {
+      "id": "de_alt",
+      "term": "alt",
+      "translation": "old"
+    },
+    {
+      "id": "de_gut",
+      "term": "gut",
+      "translation": "good"
+    },
+    {
+      "id": "de_schlecht",
+      "term": "schlecht",
+      "translation": "bad"
+    },
+    {
+      "id": "de_klein",
+      "term": "klein",
+      "translation": "small"
+    },
+    {
+      "id": "de_groß",
+      "term": "groß",
+      "translation": "big"
+    },
+    {
+      "id": "de_sein",
+      "term": "sein",
+      "translation": "to be"
+    },
+    {
+      "id": "de_haben",
+      "term": "haben",
+      "translation": "to have"
+    },
+    {
+      "id": "de_gehen",
+      "term": "gehen",
+      "translation": "to go"
+    },
+    {
+      "id": "de_kommen",
+      "term": "kommen",
+      "translation": "to come"
+    },
+    {
+      "id": "de_machen",
+      "term": "machen",
+      "translation": "to make or do"
+    },
+    {
+      "id": "de_sehen",
+      "term": "sehen",
+      "translation": "to see"
+    },
+    {
+      "id": "de_sagen",
+      "term": "sagen",
+      "translation": "to say"
+    },
+    {
+      "id": "de_wissen",
+      "term": "wissen",
+      "translation": "to know a fact"
+    },
+    {
+      "id": "de_wollen",
+      "term": "wollen",
+      "translation": "to want"
+    },
+    {
+      "id": "de_brauchen",
+      "term": "brauchen",
+      "translation": "to need"
+    },
+    {
+      "id": "de_essen",
+      "term": "essen",
+      "translation": "to eat"
+    },
+    {
+      "id": "de_trinken",
+      "term": "trinken",
+      "translation": "to drink"
+    },
+    {
+      "id": "de_kaufen",
+      "term": "kaufen",
+      "translation": "to buy"
+    },
+    {
+      "id": "de_arbeiten",
+      "term": "arbeiten",
+      "translation": "to work"
+    },
+    {
+      "id": "de_lernen",
+      "term": "lernen",
+      "translation": "to learn"
+    },
+    {
+      "id": "de_sprechen",
+      "term": "sprechen",
+      "translation": "to speak"
+    },
+    {
+      "id": "de_lesen",
+      "term": "lesen",
+      "translation": "to read"
+    },
+    {
+      "id": "de_schreiben",
+      "term": "schreiben",
+      "translation": "to write"
+    },
+    {
+      "id": "de_fahren",
+      "term": "fahren",
+      "translation": "to travel by vehicle"
+    },
+    {
+      "id": "de_warten",
+      "term": "warten",
+      "translation": "to wait"
+    },
+    {
+      "id": "de_weil",
+      "term": "weil",
+      "translation": "because"
+    },
+    {
+      "id": "de_aber",
+      "term": "aber",
+      "translation": "but"
+    },
+    {
+      "id": "de_auch",
+      "term": "auch",
+      "translation": "also"
+    },
+    {
+      "id": "de_vielleicht",
+      "term": "vielleicht",
+      "translation": "maybe"
+    },
+    {
+      "id": "de_immer",
+      "term": "immer",
+      "translation": "always"
+    },
+    {
+      "id": "de_oft",
+      "term": "oft",
+      "translation": "often"
+    },
+    {
+      "id": "de_manchmal",
+      "term": "manchmal",
+      "translation": "sometimes"
+    },
+    {
+      "id": "de_nie",
+      "term": "nie",
+      "translation": "never"
+    }
+  ],
+  "texts": [
+    {
+      "id": "de_morgen",
+      "title": "Morgenroutine",
+      "text": "Am {Morgen} trinke ich Kaffee und esse Brot mit Käse. Danach gehe ich zur {Arbeit} und lese meine Nachrichten.",
+      "translation": "In the morning I drink coffee and eat bread with cheese. Then I go to work and read my messages.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_cafe",
+      "title": "Im Café",
+      "text": "Im Café bestelle ich einen {Kaffee} und ein kleines Stück Kuchen. Meine Freundin kommt später und wir {sprechen} über das Wochenende.",
+      "translation": "In the café I order a coffee and a small piece of cake. My friend comes later and we talk about the weekend.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_zug",
+      "title": "Mit dem Zug",
+      "text": "Der {Zug} fährt um acht Uhr vom Bahnhof ab. Ich kaufe eine Karte und suche einen Platz am {Fenster}.",
+      "translation": "The train leaves the station at eight. I buy a ticket and look for a seat by the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_arbeit",
+      "title": "Bei der Arbeit",
+      "text": "Bei der {Arbeit} habe ich zwei kurze Besprechungen. Danach schreibe ich einen Bericht und beantworte wichtige {Fragen}.",
+      "translation": "At work I have two short meetings. Then I write a report and answer important questions.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_wohnung",
+      "title": "Die Wohnung",
+      "text": "Meine {Wohnung} ist klein, aber hell. Die Küche ist neben dem Zimmer, und der Tisch steht am {Fenster}.",
+      "translation": "My apartment is small but bright. The kitchen is next to the room, and the table is by the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_wochenende",
+      "title": "Wochenende",
+      "text": "Am Wochenende wollen wir in die {Stadt} fahren. Wenn das Wetter gut ist, besuchen wir den Markt und essen draußen.",
+      "translation": "On the weekend we want to go to the city. If the weather is good, we visit the market and eat outside.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_supermarkt",
+      "title": "Im Supermarkt",
+      "text": "Im Supermarkt kaufe ich Wasser, Äpfel und {Brot}. Der Preis ist gut, und die Verkäuferin ist sehr freundlich.",
+      "translation": "In the supermarket I buy water, apples, and bread. The price is good, and the saleswoman is very friendly.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_besuch",
+      "title": "Besuch",
+      "text": "Heute besuche ich einen {Freund}. Er wohnt weit weg, deshalb fahre ich mit dem Bus und bringe etwas zu essen mit.",
+      "translation": "Today I visit a friend. He lives far away, so I go by bus and bring something to eat.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_wetter",
+      "title": "Wetter",
+      "text": "Das {Wetter} ist heute kalt und windig. Trotzdem gehe ich zu Fuß, weil der Weg kurz ist und die Sonne scheint.",
+      "translation": "The weather is cold and windy today. Still I walk, because the way is short and the sun is shining.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "de_reise",
+      "title": "Reiseplanung",
+      "text": "Für die {Reise} brauche ich einen Pass, eine Karte und eine Adresse. Morgen rufe ich das Hotel an.",
+      "translation": "For the trip I need a passport, a ticket, and an address. Tomorrow I call the hotel.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "de_plural_haus_plural_hauser",
+      "type": "plural",
+      "prompt": "Haus plural",
+      "before": "Häus",
+      "answer": "er",
+      "after": "",
+      "result": "Häuser",
+      "note": "Haus → Häuser"
+    },
+    {
+      "id": "de_plural_buch_plural_bucher",
+      "type": "plural",
+      "prompt": "Buch plural",
+      "before": "Büch",
+      "answer": "er",
+      "after": "",
+      "result": "Bücher",
+      "note": "Buch → Bücher"
+    },
+    {
+      "id": "de_plural_kind_plural_kinder",
+      "type": "plural",
+      "prompt": "Kind plural",
+      "before": "Kind",
+      "answer": "er",
+      "after": "",
+      "result": "Kinder",
+      "note": "Kind → Kinder"
+    },
+    {
+      "id": "de_plural_stadt_plural_stadte",
+      "type": "plural",
+      "prompt": "Stadt plural",
+      "before": "Städ",
+      "answer": "te",
+      "after": "",
+      "result": "Städte",
+      "note": "Stadt → Städte"
+    },
+    {
+      "id": "de_plural_dorf_plural_dorfer",
+      "type": "plural",
+      "prompt": "Dorf plural",
+      "before": "Dörf",
+      "answer": "er",
+      "after": "",
+      "result": "Dörfer",
+      "note": "Dorf → Dörfer"
+    },
+    {
+      "id": "de_plural_apfel_plural_apfel",
+      "type": "plural",
+      "prompt": "Apfel plural",
+      "before": "Äpf",
+      "answer": "el",
+      "after": "",
+      "result": "Äpfel",
+      "note": "Apfel → Äpfel"
+    },
+    {
+      "id": "de_plural_mann_plural_manner",
+      "type": "plural",
+      "prompt": "Mann plural",
+      "before": "Männ",
+      "answer": "er",
+      "after": "",
+      "result": "Männer",
+      "note": "Mann → Männer"
+    },
+    {
+      "id": "de_plural_frau_plural_frauen",
+      "type": "plural",
+      "prompt": "Frau plural",
+      "before": "Frau",
+      "answer": "en",
+      "after": "",
+      "result": "Frauen",
+      "note": "Frau → Frauen"
+    },
+    {
+      "id": "de_plural_zimmer_plural_zimmer",
+      "type": "plural",
+      "prompt": "Zimmer plural",
+      "before": "Zimm",
+      "answer": "er",
+      "after": "",
+      "result": "Zimmer",
+      "note": "Zimmer → Zimmer"
+    },
+    {
+      "id": "de_plural_fenster_plural_fenster",
+      "type": "plural",
+      "prompt": "Fenster plural",
+      "before": "Fenst",
+      "answer": "er",
+      "after": "",
+      "result": "Fenster",
+      "note": "Fenster → Fenster"
+    },
+    {
+      "id": "de_plural_tisch_plural_tische",
+      "type": "plural",
+      "prompt": "Tisch plural",
+      "before": "Tisc",
+      "answer": "he",
+      "after": "",
+      "result": "Tische",
+      "note": "Tisch → Tische"
+    },
+    {
+      "id": "de_plural_stuhl_plural_stuhle",
+      "type": "plural",
+      "prompt": "Stuhl plural",
+      "before": "Stüh",
+      "answer": "le",
+      "after": "",
+      "result": "Stühle",
+      "note": "Stuhl → Stühle"
+    },
+    {
+      "id": "de_plural_zug_plural_zuge",
+      "type": "plural",
+      "prompt": "Zug plural",
+      "before": "Zü",
+      "answer": "ge",
+      "after": "",
+      "result": "Züge",
+      "note": "Zug → Züge"
+    },
+    {
+      "id": "de_plural_bus_plural_busse",
+      "type": "plural",
+      "prompt": "Bus plural",
+      "before": "Bus",
+      "answer": "se",
+      "after": "",
+      "result": "Busse",
+      "note": "Bus → Busse"
+    },
+    {
+      "id": "de_plural_tag_plural_tage",
+      "type": "plural",
+      "prompt": "Tag plural",
+      "before": "Ta",
+      "answer": "ge",
+      "after": "",
+      "result": "Tage",
+      "note": "Tag → Tage"
+    },
+    {
+      "id": "de_article_der_mann_ist_hier_der_mann_ist_hier",
+      "type": "article",
+      "prompt": "Der Mann ist hier.",
+      "before": "",
+      "answer": "Der",
+      "after": " Mann ist hier.",
+      "result": "Der Mann ist hier.",
+      "note": "masculine nominative"
+    },
+    {
+      "id": "de_article_ich_sehe_den_mann_ich_sehe_den_mann",
+      "type": "article",
+      "prompt": "Ich sehe den Mann.",
+      "before": "Ich sehe ",
+      "answer": "den",
+      "after": " Mann.",
+      "result": "Ich sehe den Mann.",
+      "note": "masculine accusative"
+    },
+    {
+      "id": "de_article_ich_helfe_dem_mann_ich_helfe_dem_mann",
+      "type": "article",
+      "prompt": "Ich helfe dem Mann.",
+      "before": "Ich helfe ",
+      "answer": "dem",
+      "after": " Mann.",
+      "result": "Ich helfe dem Mann.",
+      "note": "masculine dative"
+    },
+    {
+      "id": "de_article_die_frau_ist_hier_die_frau_ist_hier",
+      "type": "article",
+      "prompt": "Die Frau ist hier.",
+      "before": "",
+      "answer": "Die",
+      "after": " Frau ist hier.",
+      "result": "Die Frau ist hier.",
+      "note": "feminine nominative"
+    },
+    {
+      "id": "de_article_ich_sehe_die_frau_ich_sehe_die_frau",
+      "type": "article",
+      "prompt": "Ich sehe die Frau.",
+      "before": "Ich sehe ",
+      "answer": "die",
+      "after": " Frau.",
+      "result": "Ich sehe die Frau.",
+      "note": "feminine accusative"
+    },
+    {
+      "id": "de_article_ich_helfe_der_frau_ich_helfe_der_frau",
+      "type": "article",
+      "prompt": "Ich helfe der Frau.",
+      "before": "Ich helfe ",
+      "answer": "der",
+      "after": " Frau.",
+      "result": "Ich helfe der Frau.",
+      "note": "feminine dative"
+    },
+    {
+      "id": "de_article_das_kind_ist_hier_das_kind_ist_hier",
+      "type": "article",
+      "prompt": "Das Kind ist hier.",
+      "before": "",
+      "answer": "Das",
+      "after": " Kind ist hier.",
+      "result": "Das Kind ist hier.",
+      "note": "neuter nominative"
+    },
+    {
+      "id": "de_article_ich_sehe_das_kind_ich_sehe_das_kind",
+      "type": "article",
+      "prompt": "Ich sehe das Kind.",
+      "before": "Ich sehe ",
+      "answer": "das",
+      "after": " Kind.",
+      "result": "Ich sehe das Kind.",
+      "note": "neuter accusative"
+    },
+    {
+      "id": "de_article_ich_helfe_dem_kind_ich_helfe_dem_kind",
+      "type": "article",
+      "prompt": "Ich helfe dem Kind.",
+      "before": "Ich helfe ",
+      "answer": "dem",
+      "after": " Kind.",
+      "result": "Ich helfe dem Kind.",
+      "note": "neuter dative"
+    },
+    {
+      "id": "de_conjugation_i_go_ich_gehe",
+      "type": "conjugation",
+      "prompt": "I go",
+      "before": "ich geh",
+      "answer": "e",
+      "after": "",
+      "result": "ich gehe",
+      "note": "gehen"
+    },
+    {
+      "id": "de_conjugation_you_go_du_gehst",
+      "type": "conjugation",
+      "prompt": "you go",
+      "before": "du geh",
+      "answer": "st",
+      "after": "",
+      "result": "du gehst",
+      "note": "gehen"
+    },
+    {
+      "id": "de_conjugation_he_goes_er_geht",
+      "type": "conjugation",
+      "prompt": "he goes",
+      "before": "er geh",
+      "answer": "t",
+      "after": "",
+      "result": "er geht",
+      "note": "gehen"
+    },
+    {
+      "id": "de_conjugation_we_go_wir_gehen",
+      "type": "conjugation",
+      "prompt": "we go",
+      "before": "wir geh",
+      "answer": "en",
+      "after": "",
+      "result": "wir gehen",
+      "note": "gehen"
+    },
+    {
+      "id": "de_conjugation_i_have_ich_habe",
+      "type": "conjugation",
+      "prompt": "I have",
+      "before": "ich hab",
+      "answer": "e",
+      "after": "",
+      "result": "ich habe",
+      "note": "haben"
+    },
+    {
+      "id": "de_conjugation_you_have_du_hast",
+      "type": "conjugation",
+      "prompt": "you have",
+      "before": "du ha",
+      "answer": "st",
+      "after": "",
+      "result": "du hast",
+      "note": "haben"
+    },
+    {
+      "id": "de_conjugation_he_has_er_hat",
+      "type": "conjugation",
+      "prompt": "he has",
+      "before": "er ha",
+      "answer": "t",
+      "after": "",
+      "result": "er hat",
+      "note": "haben"
+    },
+    {
+      "id": "de_conjugation_we_have_wir_haben",
+      "type": "conjugation",
+      "prompt": "we have",
+      "before": "wir hab",
+      "answer": "en",
+      "after": "",
+      "result": "wir haben",
+      "note": "haben"
+    },
+    {
+      "id": "de_conjugation_i_am_ich_bin",
+      "type": "conjugation",
+      "prompt": "I am",
+      "before": "ich ",
+      "answer": "bin",
+      "after": "",
+      "result": "ich bin",
+      "note": "sein"
+    },
+    {
+      "id": "de_conjugation_you_are_du_bist",
+      "type": "conjugation",
+      "prompt": "you are",
+      "before": "du ",
+      "answer": "bist",
+      "after": "",
+      "result": "du bist",
+      "note": "sein"
+    },
+    {
+      "id": "de_conjugation_he_is_er_ist",
+      "type": "conjugation",
+      "prompt": "he is",
+      "before": "er ",
+      "answer": "ist",
+      "after": "",
+      "result": "er ist",
+      "note": "sein"
+    },
+    {
+      "id": "de_conjugation_we_are_wir_sind",
+      "type": "conjugation",
+      "prompt": "we are",
+      "before": "wir ",
+      "answer": "sind",
+      "after": "",
+      "result": "wir sind",
+      "note": "sein"
+    },
+    {
+      "id": "de_conjugation_i_speak_ich_spreche",
+      "type": "conjugation",
+      "prompt": "I speak",
+      "before": "ich sprech",
+      "answer": "e",
+      "after": "",
+      "result": "ich spreche",
+      "note": "sprechen"
+    },
+    {
+      "id": "de_conjugation_you_speak_du_sprichst",
+      "type": "conjugation",
+      "prompt": "you speak",
+      "before": "du sprich",
+      "answer": "st",
+      "after": "",
+      "result": "du sprichst",
+      "note": "sprechen"
+    },
+    {
+      "id": "de_conjugation_he_speaks_er_spricht",
+      "type": "conjugation",
+      "prompt": "he speaks",
+      "before": "er sprich",
+      "answer": "t",
+      "after": "",
+      "result": "er spricht",
+      "note": "sprechen"
+    },
+    {
+      "id": "de_conjugation_we_speak_wir_sprechen",
+      "type": "conjugation",
+      "prompt": "we speak",
+      "before": "wir sprech",
+      "answer": "en",
+      "after": "",
+      "result": "wir sprechen",
+      "note": "sprechen"
+    },
+    {
+      "id": "de_conjugation_i_eat_ich_esse",
+      "type": "conjugation",
+      "prompt": "I eat",
+      "before": "ich ess",
+      "answer": "e",
+      "after": "",
+      "result": "ich esse",
+      "note": "essen"
+    },
+    {
+      "id": "de_conjugation_you_eat_du_isst",
+      "type": "conjugation",
+      "prompt": "you eat",
+      "before": "du iss",
+      "answer": "t",
+      "after": "",
+      "result": "du isst",
+      "note": "essen"
+    },
+    {
+      "id": "de_conjugation_he_eats_er_isst",
+      "type": "conjugation",
+      "prompt": "he eats",
+      "before": "er iss",
+      "answer": "t",
+      "after": "",
+      "result": "er isst",
+      "note": "essen"
+    },
+    {
+      "id": "de_conjugation_we_eat_wir_essen",
+      "type": "conjugation",
+      "prompt": "we eat",
+      "before": "wir ess",
+      "answer": "en",
+      "after": "",
+      "result": "wir essen",
+      "note": "essen"
+    },
+    {
+      "id": "de_conjugation_i_travel_ich_fahre",
+      "type": "conjugation",
+      "prompt": "I travel",
+      "before": "ich fahr",
+      "answer": "e",
+      "after": "",
+      "result": "ich fahre",
+      "note": "fahren"
+    },
+    {
+      "id": "de_conjugation_you_travel_du_fahrst",
+      "type": "conjugation",
+      "prompt": "you travel",
+      "before": "du fähr",
+      "answer": "st",
+      "after": "",
+      "result": "du fährst",
+      "note": "fahren"
+    },
+    {
+      "id": "de_conjugation_he_travels_er_fahrt",
+      "type": "conjugation",
+      "prompt": "he travels",
+      "before": "er fähr",
+      "answer": "t",
+      "after": "",
+      "result": "er fährt",
+      "note": "fahren"
+    },
+    {
+      "id": "de_conjugation_we_travel_wir_fahren",
+      "type": "conjugation",
+      "prompt": "we travel",
+      "before": "wir fahr",
+      "answer": "en",
+      "after": "",
+      "result": "wir fahren",
+      "note": "fahren"
+    },
+    {
+      "id": "de_agreement_ein_guter_mann_ein_guter_mann",
+      "type": "agreement",
+      "prompt": "ein guter Mann",
+      "before": "ein ",
+      "answer": "guter",
+      "after": " Mann",
+      "result": "ein guter Mann",
+      "note": "gut masculine nominative"
+    },
+    {
+      "id": "de_agreement_eine_gute_frau_eine_gute_frau",
+      "type": "agreement",
+      "prompt": "eine gute Frau",
+      "before": "eine ",
+      "answer": "gute",
+      "after": " Frau",
+      "result": "eine gute Frau",
+      "note": "gut feminine nominative"
+    },
+    {
+      "id": "de_agreement_ein_gutes_kind_ein_gutes_kind",
+      "type": "agreement",
+      "prompt": "ein gutes Kind",
+      "before": "ein ",
+      "answer": "gutes",
+      "after": " Kind",
+      "result": "ein gutes Kind",
+      "note": "gut neuter nominative"
+    },
+    {
+      "id": "de_agreement_den_guten_mann_den_guten_mann",
+      "type": "agreement",
+      "prompt": "den guten Mann",
+      "before": "den ",
+      "answer": "guten",
+      "after": " Mann",
+      "result": "den guten Mann",
+      "note": "accusative adjective"
+    },
+    {
+      "id": "de_agreement_mit_einem_guten_freund_mit_einem_guten_freund",
+      "type": "agreement",
+      "prompt": "mit einem guten Freund",
+      "before": "mit einem ",
+      "answer": "guten",
+      "after": " Freund",
+      "result": "mit einem guten Freund",
+      "note": "dative adjective"
+    },
+    {
+      "id": "de_agreement_eine_kleine_stadt_eine_kleine_stadt",
+      "type": "agreement",
+      "prompt": "eine kleine Stadt",
+      "before": "eine ",
+      "answer": "kleine",
+      "after": " Stadt",
+      "result": "eine kleine Stadt",
+      "note": "klein feminine"
+    },
+    {
+      "id": "de_agreement_ein_kleines_dorf_ein_kleines_dorf",
+      "type": "agreement",
+      "prompt": "ein kleines Dorf",
+      "before": "ein ",
+      "answer": "kleines",
+      "after": " Dorf",
+      "result": "ein kleines Dorf",
+      "note": "klein neuter"
+    },
+    {
+      "id": "de_agreement_die_großen_hauser_die_großen_hauser",
+      "type": "agreement",
+      "prompt": "die großen Häuser",
+      "before": "die ",
+      "answer": "großen",
+      "after": " Häuser",
+      "result": "die großen Häuser",
+      "note": "plural adjective"
+    },
+    {
+      "id": "de_agreement_ein_alter_bahnhof_ein_alter_bahnhof",
+      "type": "agreement",
+      "prompt": "ein alter Bahnhof",
+      "before": "ein ",
+      "answer": "alter",
+      "after": " Bahnhof",
+      "result": "ein alter Bahnhof",
+      "note": "alt masculine"
+    },
+    {
+      "id": "de_agreement_eine_neue_wohnung_eine_neue_wohnung",
+      "type": "agreement",
+      "prompt": "eine neue Wohnung",
+      "before": "eine ",
+      "answer": "neue",
+      "after": " Wohnung",
+      "result": "eine neue Wohnung",
+      "note": "neu feminine"
+    }
+  ],
+  "reference": {
+    "title": "Germany",
+    "country": "Germany",
+    "flag": {
+      "title": "Flagge Deutschlands",
+      "asset": "packages/german/assets/flag.svg",
+      "colorsLocal": "Schwarz · Rot · Gold",
+      "translationLabel": "Black · Red · Gold",
+      "label": "Flagge Deutschlands: schwarz, rot und gold",
+      "descriptionLocal": "Die Flagge Deutschlands ist schwarz, rot und gold.",
+      "translation": "The German flag is black, red and gold."
+    },
+    "anthem": {
+      "title": "Nationalhymne",
+      "name": "Das Lied der Deutschen",
+      "description": "Germany's national anthem is the third stanza of “Das Lied der Deutschen”."
+    },
+    "citizenshipPledge": {
+      "title": "Bekenntnis zur freiheitlichen demokratischen Grundordnung",
+      "text": "Einbürgerungsbewerber müssen sich zur freiheitlichen demokratischen Grundordnung des Grundgesetzes bekennen.",
+      "translation": "Applicants for naturalisation must commit to the free democratic basic order of the Basic Law."
+    },
+    "facts": [
+      {
+        "id": "capital",
+        "label": "Hauptstadt",
+        "value": "Die Hauptstadt Deutschlands ist Berlin.",
+        "translation": "The capital of Germany is Berlin."
+      },
+      {
+        "id": "national-day",
+        "label": "Nationalfeiertag",
+        "value": "Der Tag der Deutschen Einheit ist der 3. Oktober.",
+        "translation": "German Unity Day is 3 October."
+      },
+      {
+        "id": "official-language",
+        "label": "Amtssprache",
+        "value": "Die Amtssprache ist Deutsch.",
+        "translation": "The official language is German."
+      },
+      {
+        "id": "european-union",
+        "label": "Europäische Union",
+        "value": "Deutschland ist Mitgliedstaat der Europäischen Union.",
+        "translation": "Germany is a member state of the European Union."
+      }
+    ]
+  }
+}

@@ -18,3 +18,11 @@ wellcanvas-source/out/
 wellcanvas-source/tsconfig.tsbuildinfo
 wellcanvas-source/**/*.DS_Store
 WellCanvas/**/*.DS_Store
+
+# Verba source is tracked; generated/local artifacts stay local.
+verba-source/node_modules/
+verba-source/.next/
+verba-source/out/
+verba-source/tsconfig.tsbuildinfo
+verba-source/**/*.DS_Store
+Verba/**/*.DS_Store

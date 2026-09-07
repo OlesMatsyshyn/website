@@ -48,6 +48,16 @@ The static personal website lives at the repository root. The editable
 WellCanvas app source lives in `wellcanvas-source/`, and the generated GitHub
 Pages app build lives in `WellCanvas/`.
 
+Test the whole website locally through HTTP:
+
+```bash
+node scripts/serve-site.mjs
+```
+
+Then open `http://127.0.0.1:4173/website/`. This mirrors the GitHub Pages
+repository path closely enough for app links such as `/website/Verba/`; do not
+test the apps by opening the generated folders through `file://`.
+
 Install and run WellCanvas:
 
 ```bash
@@ -85,3 +95,38 @@ static output, then push to `main`.
 Personal WellCanvas records are browser-local. They are not stored in this Git
 repository; move them to a new computer by exporting a WellCanvas backup ZIP
 from Settings and importing that backup in the new browser installation.
+
+## Verba
+
+Verba is a small standalone language-practice PWA. The editable source lives in
+`verba-source/`, and the generated GitHub Pages app build lives in `Verba/`.
+Language content is stored as static package JSON under
+`verba-source/public/packages/`. Installed packages are copied into browser
+IndexedDB, while lightweight progress/settings remain in local browser storage.
+
+Install and run Verba:
+
+```bash
+cd verba-source
+pnpm install --frozen-lockfile
+pnpm run dev
+```
+
+The local Verba development server uses no GitHub Pages base path. Open the
+URL printed by Next, normally `http://localhost:3000/`.
+
+Build a local static copy for testing under `/Verba/`:
+
+```bash
+pnpm run build:local-site
+```
+
+Build the production GitHub Pages copy under `/website/Verba/`:
+
+```bash
+pnpm run build:github-pages
+```
+
+After a production build, sync the generated `verba-source/out/` contents into
+`../Verba/`, then commit both the Verba source changes and regenerated static
+output. The Verba build scripts perform this sync automatically.

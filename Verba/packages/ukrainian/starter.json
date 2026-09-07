@@ -1,0 +1,1243 @@
+{
+  "metadata": {
+    "id": "ukrainian-starter",
+    "language": "Ukrainian",
+    "languageCode": "uk",
+    "variant": "General",
+    "level": 0,
+    "title": "Ukrainian · Starter",
+    "description": "Useful Ukrainian vocabulary, short Cyrillic texts, and core grammar forms.",
+    "version": 9,
+    "wordCount": 101,
+    "textCount": 10,
+    "formCount": 60
+  },
+  "words": [
+    {
+      "id": "uk_дім",
+      "term": "дім",
+      "translation": "house"
+    },
+    {
+      "id": "uk_квартира",
+      "term": "квартира",
+      "translation": "apartment"
+    },
+    {
+      "id": "uk_кухня",
+      "term": "кухня",
+      "translation": "kitchen"
+    },
+    {
+      "id": "uk_кімната",
+      "term": "кімната",
+      "translation": "room"
+    },
+    {
+      "id": "uk_двері",
+      "term": "двері",
+      "translation": "door"
+    },
+    {
+      "id": "uk_вікно",
+      "term": "вікно",
+      "translation": "window"
+    },
+    {
+      "id": "uk_стіл",
+      "term": "стіл",
+      "translation": "table"
+    },
+    {
+      "id": "uk_стілець",
+      "term": "стілець",
+      "translation": "chair"
+    },
+    {
+      "id": "uk_ліжко",
+      "term": "ліжко",
+      "translation": "bed"
+    },
+    {
+      "id": "uk_лампа",
+      "term": "лампа",
+      "translation": "lamp"
+    },
+    {
+      "id": "uk_вода",
+      "term": "вода",
+      "translation": "water"
+    },
+    {
+      "id": "uk_хліб",
+      "term": "хліб",
+      "translation": "bread"
+    },
+    {
+      "id": "uk_сир",
+      "term": "сир",
+      "translation": "cheese"
+    },
+    {
+      "id": "uk_яблуко",
+      "term": "яблуко",
+      "translation": "apple"
+    },
+    {
+      "id": "uk_банан",
+      "term": "банан",
+      "translation": "banana"
+    },
+    {
+      "id": "uk_кава",
+      "term": "кава",
+      "translation": "coffee"
+    },
+    {
+      "id": "uk_чаи",
+      "term": "чай",
+      "translation": "tea"
+    },
+    {
+      "id": "uk_сніданок",
+      "term": "сніданок",
+      "translation": "breakfast"
+    },
+    {
+      "id": "uk_обід",
+      "term": "обід",
+      "translation": "lunch"
+    },
+    {
+      "id": "uk_вечеря",
+      "term": "вечеря",
+      "translation": "dinner"
+    },
+    {
+      "id": "uk_магазин",
+      "term": "магазин",
+      "translation": "shop"
+    },
+    {
+      "id": "uk_ринок",
+      "term": "ринок",
+      "translation": "market"
+    },
+    {
+      "id": "uk_гроші",
+      "term": "гроші",
+      "translation": "money"
+    },
+    {
+      "id": "uk_ціна",
+      "term": "ціна",
+      "translation": "price"
+    },
+    {
+      "id": "uk_квиток",
+      "term": "квиток",
+      "translation": "ticket"
+    },
+    {
+      "id": "uk_поізд",
+      "term": "поїзд",
+      "translation": "train"
+    },
+    {
+      "id": "uk_автобус",
+      "term": "автобус",
+      "translation": "bus"
+    },
+    {
+      "id": "uk_вокзал",
+      "term": "вокзал",
+      "translation": "station"
+    },
+    {
+      "id": "uk_аеропорт",
+      "term": "аеропорт",
+      "translation": "airport"
+    },
+    {
+      "id": "uk_вулиця",
+      "term": "вулиця",
+      "translation": "street"
+    },
+    {
+      "id": "uk_місто",
+      "term": "місто",
+      "translation": "city"
+    },
+    {
+      "id": "uk_село",
+      "term": "село",
+      "translation": "village"
+    },
+    {
+      "id": "uk_ліворуч",
+      "term": "ліворуч",
+      "translation": "to the left"
+    },
+    {
+      "id": "uk_праворуч",
+      "term": "праворуч",
+      "translation": "to the right"
+    },
+    {
+      "id": "uk_близько",
+      "term": "близько",
+      "translation": "near"
+    },
+    {
+      "id": "uk_далеко",
+      "term": "далеко",
+      "translation": "far"
+    },
+    {
+      "id": "uk_сьогодні",
+      "term": "сьогодні",
+      "translation": "today"
+    },
+    {
+      "id": "uk_завтра",
+      "term": "завтра",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "uk_учора",
+      "term": "учора",
+      "translation": "yesterday"
+    },
+    {
+      "id": "uk_ранок",
+      "term": "ранок",
+      "translation": "morning"
+    },
+    {
+      "id": "uk_вечір",
+      "term": "вечір",
+      "translation": "evening"
+    },
+    {
+      "id": "uk_ніч",
+      "term": "ніч",
+      "translation": "night"
+    },
+    {
+      "id": "uk_тиждень",
+      "term": "тиждень",
+      "translation": "week"
+    },
+    {
+      "id": "uk_місяць",
+      "term": "місяць",
+      "translation": "month"
+    },
+    {
+      "id": "uk_рік",
+      "term": "рік",
+      "translation": "year"
+    },
+    {
+      "id": "uk_погода",
+      "term": "погода",
+      "translation": "weather"
+    },
+    {
+      "id": "uk_дощ",
+      "term": "дощ",
+      "translation": "rain"
+    },
+    {
+      "id": "uk_вітер",
+      "term": "вітер",
+      "translation": "wind"
+    },
+    {
+      "id": "uk_сонце",
+      "term": "сонце",
+      "translation": "sun"
+    },
+    {
+      "id": "uk_холоднии",
+      "term": "холодний",
+      "translation": "cold"
+    },
+    {
+      "id": "uk_теплии",
+      "term": "теплий",
+      "translation": "warm"
+    },
+    {
+      "id": "uk_людина",
+      "term": "людина",
+      "translation": "person"
+    },
+    {
+      "id": "uk_друг",
+      "term": "друг",
+      "translation": "friend"
+    },
+    {
+      "id": "uk_родина",
+      "term": "родина",
+      "translation": "family"
+    },
+    {
+      "id": "uk_дитина",
+      "term": "дитина",
+      "translation": "child"
+    },
+    {
+      "id": "uk_учитель",
+      "term": "учитель",
+      "translation": "teacher"
+    },
+    {
+      "id": "uk_лікар",
+      "term": "лікар",
+      "translation": "doctor"
+    },
+    {
+      "id": "uk_працівник",
+      "term": "працівник",
+      "translation": "worker"
+    },
+    {
+      "id": "uk_студент",
+      "term": "студент",
+      "translation": "student"
+    },
+    {
+      "id": "uk_щасливии",
+      "term": "щасливий",
+      "translation": "happy"
+    },
+    {
+      "id": "uk_сумнии",
+      "term": "сумний",
+      "translation": "sad"
+    },
+    {
+      "id": "uk_втомлении",
+      "term": "втомлений",
+      "translation": "tired"
+    },
+    {
+      "id": "uk_заинятии",
+      "term": "зайнятий",
+      "translation": "busy"
+    },
+    {
+      "id": "uk_готовии",
+      "term": "готовий",
+      "translation": "ready"
+    },
+    {
+      "id": "uk_важливии",
+      "term": "важливий",
+      "translation": "important"
+    },
+    {
+      "id": "uk_легкии",
+      "term": "легкий",
+      "translation": "easy"
+    },
+    {
+      "id": "uk_важкии",
+      "term": "важкий",
+      "translation": "difficult"
+    },
+    {
+      "id": "uk_новии",
+      "term": "новий",
+      "translation": "new"
+    },
+    {
+      "id": "uk_старии",
+      "term": "старий",
+      "translation": "old"
+    },
+    {
+      "id": "uk_добрии",
+      "term": "добрий",
+      "translation": "good"
+    },
+    {
+      "id": "uk_погании",
+      "term": "поганий",
+      "translation": "bad"
+    },
+    {
+      "id": "uk_малии",
+      "term": "малий",
+      "translation": "small"
+    },
+    {
+      "id": "uk_великии",
+      "term": "великий",
+      "translation": "big"
+    },
+    {
+      "id": "uk_бути",
+      "term": "бути",
+      "translation": "to be"
+    },
+    {
+      "id": "uk_мати",
+      "term": "мати",
+      "translation": "to have"
+    },
+    {
+      "id": "uk_іти",
+      "term": "іти",
+      "translation": "to go on foot"
+    },
+    {
+      "id": "uk_іхати",
+      "term": "їхати",
+      "translation": "to go by vehicle"
+    },
+    {
+      "id": "uk_приити",
+      "term": "прийти",
+      "translation": "to come"
+    },
+    {
+      "id": "uk_робити",
+      "term": "робити",
+      "translation": "to do or make"
+    },
+    {
+      "id": "uk_бачити",
+      "term": "бачити",
+      "translation": "to see"
+    },
+    {
+      "id": "uk_казати",
+      "term": "казати",
+      "translation": "to say"
+    },
+    {
+      "id": "uk_знати",
+      "term": "знати",
+      "translation": "to know"
+    },
+    {
+      "id": "uk_хотіти",
+      "term": "хотіти",
+      "translation": "to want"
+    },
+    {
+      "id": "uk_потребувати",
+      "term": "потребувати",
+      "translation": "to need"
+    },
+    {
+      "id": "uk_істи",
+      "term": "їсти",
+      "translation": "to eat"
+    },
+    {
+      "id": "uk_пити",
+      "term": "пити",
+      "translation": "to drink"
+    },
+    {
+      "id": "uk_купити",
+      "term": "купити",
+      "translation": "to buy"
+    },
+    {
+      "id": "uk_працювати",
+      "term": "працювати",
+      "translation": "to work"
+    },
+    {
+      "id": "uk_вчитися",
+      "term": "вчитися",
+      "translation": "to learn or study"
+    },
+    {
+      "id": "uk_говорити",
+      "term": "говорити",
+      "translation": "to speak"
+    },
+    {
+      "id": "uk_читати",
+      "term": "читати",
+      "translation": "to read"
+    },
+    {
+      "id": "uk_писати",
+      "term": "писати",
+      "translation": "to write"
+    },
+    {
+      "id": "uk_чекати",
+      "term": "чекати",
+      "translation": "to wait"
+    },
+    {
+      "id": "uk_тому_що",
+      "term": "тому що",
+      "translation": "because"
+    },
+    {
+      "id": "uk_але",
+      "term": "але",
+      "translation": "but"
+    },
+    {
+      "id": "uk_також",
+      "term": "також",
+      "translation": "also"
+    },
+    {
+      "id": "uk_можливо",
+      "term": "можливо",
+      "translation": "maybe"
+    },
+    {
+      "id": "uk_завжди",
+      "term": "завжди",
+      "translation": "always"
+    },
+    {
+      "id": "uk_часто",
+      "term": "часто",
+      "translation": "often"
+    },
+    {
+      "id": "uk_іноді",
+      "term": "іноді",
+      "translation": "sometimes"
+    },
+    {
+      "id": "uk_ніколи",
+      "term": "ніколи",
+      "translation": "never"
+    }
+  ],
+  "texts": [
+    {
+      "id": "uk_ranok",
+      "title": "Ранок",
+      "text": "Вранці я п'ю {каву} і їм хліб із сиром. Потім іду на роботу і читаю повідомлення.",
+      "translation": "In the morning I drink coffee and eat bread with cheese. Then I go to work and read messages.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_misto",
+      "title": "Місто",
+      "text": "Моє {місто} велике, але зручне. Біля дому є магазин, парк і зупинка автобуса.",
+      "translation": "My city is large but convenient. Near the house there is a shop, a park, and a bus stop.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_transport",
+      "title": "Транспорт",
+      "text": "Я їду на роботу {автобусом}. Квиток у телефоні, а дорога займає двадцять хвилин.",
+      "translation": "I go to work by bus. The ticket is on my phone, and the trip takes twenty minutes.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_robota",
+      "title": "Робота",
+      "text": "На {роботі} я маю зустріч, пишу документ і відповідаю на важливі питання.",
+      "translation": "At work I have a meeting, write a document, and answer important questions.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_pokupky",
+      "title": "Покупки",
+      "text": "У магазині я купую воду, яблука і {хліб}. Ціна нормальна, і черга коротка.",
+      "translation": "In the shop I buy water, apples, and bread. The price is normal, and the line is short.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_kafe",
+      "title": "Кафе",
+      "text": "У кафе я зустрічаю {друга}. Ми замовляємо чай і говоримо про плани на вихідні.",
+      "translation": "In the café I meet a friend. We order tea and talk about weekend plans.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_dim",
+      "title": "Дім",
+      "text": "Моя квартира невелика, але світла. Стіл стоїть біля {вікна}, а кухня дуже зручна.",
+      "translation": "My apartment is small but bright. The table stands near the window, and the kitchen is very convenient.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_zustrich",
+      "title": "Зустріч",
+      "text": "Сьогодні ввечері я зустрічаю знайому людину. Ми говоримо українською і повторюємо нові {слова}.",
+      "translation": "This evening I meet someone I know. We speak Ukrainian and review new words.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_vyhidni",
+      "title": "Вихідні",
+      "text": "На вихідних ми хочемо піти в парк. Якщо буде {сонце}, візьмемо воду і трохи їжі.",
+      "translation": "On the weekend we want to go to the park. If it is sunny, we will take water and some food.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "uk_podorozh",
+      "title": "Подорож",
+      "text": "Завтра я їду в інше {місто}. Мені потрібні квиток, адреса і невелика сумка.",
+      "translation": "Tomorrow I travel to another city. I need a ticket, an address, and a small bag.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "uk_plural_дім_plural_доми",
+      "type": "plural",
+      "prompt": "дім plural",
+      "before": "",
+      "answer": "доми",
+      "after": "",
+      "result": "доми",
+      "note": "дім → доми"
+    },
+    {
+      "id": "uk_plural_місто_plural_міста",
+      "type": "plural",
+      "prompt": "місто plural",
+      "before": "",
+      "answer": "міста",
+      "after": "",
+      "result": "міста",
+      "note": "місто → міста"
+    },
+    {
+      "id": "uk_plural_село_plural_села",
+      "type": "plural",
+      "prompt": "село plural",
+      "before": "",
+      "answer": "села",
+      "after": "",
+      "result": "села",
+      "note": "село → села"
+    },
+    {
+      "id": "uk_plural_вікно_plural_вікна",
+      "type": "plural",
+      "prompt": "вікно plural",
+      "before": "",
+      "answer": "вікна",
+      "after": "",
+      "result": "вікна",
+      "note": "вікно → вікна"
+    },
+    {
+      "id": "uk_plural_книга_plural_книги",
+      "type": "plural",
+      "prompt": "книга plural",
+      "before": "",
+      "answer": "книги",
+      "after": "",
+      "result": "книги",
+      "note": "книга → книги"
+    },
+    {
+      "id": "uk_plural_дорога_plural_дороги",
+      "type": "plural",
+      "prompt": "дорога plural",
+      "before": "",
+      "answer": "дороги",
+      "after": "",
+      "result": "дороги",
+      "note": "дорога → дороги"
+    },
+    {
+      "id": "uk_plural_друг_plural_друзі",
+      "type": "plural",
+      "prompt": "друг plural",
+      "before": "",
+      "answer": "друзі",
+      "after": "",
+      "result": "друзі",
+      "note": "друг → друзі"
+    },
+    {
+      "id": "uk_plural_людина_plural_люди",
+      "type": "plural",
+      "prompt": "людина plural",
+      "before": "",
+      "answer": "люди",
+      "after": "",
+      "result": "люди",
+      "note": "людина → люди"
+    },
+    {
+      "id": "uk_plural_дитина_plural_діти",
+      "type": "plural",
+      "prompt": "дитина plural",
+      "before": "",
+      "answer": "діти",
+      "after": "",
+      "result": "діти",
+      "note": "дитина → діти"
+    },
+    {
+      "id": "uk_plural_стіл_plural_столи",
+      "type": "plural",
+      "prompt": "стіл plural",
+      "before": "",
+      "answer": "столи",
+      "after": "",
+      "result": "столи",
+      "note": "стіл → столи"
+    },
+    {
+      "id": "uk_plural_стілець_plural_стільці",
+      "type": "plural",
+      "prompt": "стілець plural",
+      "before": "",
+      "answer": "стільці",
+      "after": "",
+      "result": "стільці",
+      "note": "стілець → стільці"
+    },
+    {
+      "id": "uk_plural_поізд_plural_поізди",
+      "type": "plural",
+      "prompt": "поїзд plural",
+      "before": "",
+      "answer": "поїзди",
+      "after": "",
+      "result": "поїзди",
+      "note": "поїзд → поїзди"
+    },
+    {
+      "id": "uk_case_i_see_a_house_я_бачу_дім",
+      "type": "case",
+      "prompt": "I see a house",
+      "before": "Я бачу ",
+      "answer": "дім",
+      "after": "",
+      "result": "Я бачу дім",
+      "note": "accusative inanimate"
+    },
+    {
+      "id": "uk_case_i_see_a_friend_я_бачу_друга",
+      "type": "case",
+      "prompt": "I see a friend",
+      "before": "Я бачу друг",
+      "answer": "а",
+      "after": "",
+      "result": "Я бачу друга",
+      "note": "accusative animate"
+    },
+    {
+      "id": "uk_case_i_read_a_book_я_читаю_книгу",
+      "type": "case",
+      "prompt": "I read a book",
+      "before": "Я читаю книг",
+      "answer": "у",
+      "after": "",
+      "result": "Я читаю книгу",
+      "note": "accusative feminine"
+    },
+    {
+      "id": "uk_case_i_drink_water_я_п_ю_воду",
+      "type": "case",
+      "prompt": "I drink water",
+      "before": "Я п'ю вод",
+      "answer": "у",
+      "after": "",
+      "result": "Я п'ю воду",
+      "note": "accusative feminine"
+    },
+    {
+      "id": "uk_case_in_the_city_у_місті",
+      "type": "case",
+      "prompt": "in the city",
+      "before": "у міст",
+      "answer": "і",
+      "after": "",
+      "result": "у місті",
+      "note": "locative"
+    },
+    {
+      "id": "uk_case_in_the_house_у_домі",
+      "type": "case",
+      "prompt": "in the house",
+      "before": "у дом",
+      "answer": "і",
+      "after": "",
+      "result": "у домі",
+      "note": "locative"
+    },
+    {
+      "id": "uk_case_from_ukraine_з_украіни",
+      "type": "case",
+      "prompt": "from Ukraine",
+      "before": "з Україн",
+      "answer": "и",
+      "after": "",
+      "result": "з України",
+      "note": "genitive"
+    },
+    {
+      "id": "uk_case_without_water_без_води",
+      "type": "case",
+      "prompt": "without water",
+      "before": "без вод",
+      "answer": "и",
+      "after": "",
+      "result": "без води",
+      "note": "genitive"
+    },
+    {
+      "id": "uk_case_with_a_friend_з_другом",
+      "type": "case",
+      "prompt": "with a friend",
+      "before": "з друг",
+      "answer": "ом",
+      "after": "",
+      "result": "з другом",
+      "note": "instrumental"
+    },
+    {
+      "id": "uk_case_with_family_з_родиною",
+      "type": "case",
+      "prompt": "with family",
+      "before": "з родин",
+      "answer": "ою",
+      "after": "",
+      "result": "з родиною",
+      "note": "instrumental feminine"
+    },
+    {
+      "id": "uk_agreement_good_house_добрии_дім",
+      "type": "agreement",
+      "prompt": "good house",
+      "before": "",
+      "answer": "добрий",
+      "after": " дім",
+      "result": "добрий дім",
+      "note": "добрий дім"
+    },
+    {
+      "id": "uk_agreement_good_apartment_добра_квартира",
+      "type": "agreement",
+      "prompt": "good apartment",
+      "before": "",
+      "answer": "добра",
+      "after": " квартира",
+      "result": "добра квартира",
+      "note": "добра квартира"
+    },
+    {
+      "id": "uk_agreement_good_city_добре_місто",
+      "type": "agreement",
+      "prompt": "good city",
+      "before": "",
+      "answer": "добре",
+      "after": " місто",
+      "result": "добре місто",
+      "note": "добре місто"
+    },
+    {
+      "id": "uk_agreement_new_table_новии_стіл",
+      "type": "agreement",
+      "prompt": "new table",
+      "before": "",
+      "answer": "новий",
+      "after": " стіл",
+      "result": "новий стіл",
+      "note": "новий стіл"
+    },
+    {
+      "id": "uk_agreement_new_room_нова_кімната",
+      "type": "agreement",
+      "prompt": "new room",
+      "before": "",
+      "answer": "нова",
+      "after": " кімната",
+      "result": "нова кімната",
+      "note": "нова кімната"
+    },
+    {
+      "id": "uk_agreement_new_window_нове_вікно",
+      "type": "agreement",
+      "prompt": "new window",
+      "before": "",
+      "answer": "нове",
+      "after": " вікно",
+      "result": "нове вікно",
+      "note": "нове вікно"
+    },
+    {
+      "id": "uk_agreement_big_city_велике_місто",
+      "type": "agreement",
+      "prompt": "big city",
+      "before": "",
+      "answer": "велике",
+      "after": " місто",
+      "result": "велике місто",
+      "note": "велике місто"
+    },
+    {
+      "id": "uk_agreement_big_street_велика_вулиця",
+      "type": "agreement",
+      "prompt": "big street",
+      "before": "",
+      "answer": "велика",
+      "after": " вулиця",
+      "result": "велика вулиця",
+      "note": "велика вулиця"
+    },
+    {
+      "id": "uk_agreement_big_house_великии_дім",
+      "type": "agreement",
+      "prompt": "big house",
+      "before": "",
+      "answer": "великий",
+      "after": " дім",
+      "result": "великий дім",
+      "note": "великий дім"
+    },
+    {
+      "id": "uk_agreement_warm_tea_теплии_чаи",
+      "type": "agreement",
+      "prompt": "warm tea",
+      "before": "",
+      "answer": "теплий",
+      "after": " чай",
+      "result": "теплий чай",
+      "note": "теплий чай"
+    },
+    {
+      "id": "uk_agreement_warm_water_тепла_вода",
+      "type": "agreement",
+      "prompt": "warm water",
+      "before": "",
+      "answer": "тепла",
+      "after": " вода",
+      "result": "тепла вода",
+      "note": "тепла вода"
+    },
+    {
+      "id": "uk_agreement_warm_milk_тепле_молоко",
+      "type": "agreement",
+      "prompt": "warm milk",
+      "before": "",
+      "answer": "тепле",
+      "after": " молоко",
+      "result": "тепле молоко",
+      "note": "тепле молоко"
+    },
+    {
+      "id": "uk_conjugation_i_am_я_є",
+      "type": "conjugation",
+      "prompt": "I am",
+      "before": "я ",
+      "answer": "є",
+      "after": "",
+      "result": "я є",
+      "note": "бути"
+    },
+    {
+      "id": "uk_conjugation_we_are_ми_є",
+      "type": "conjugation",
+      "prompt": "we are",
+      "before": "ми ",
+      "answer": "є",
+      "after": "",
+      "result": "ми є",
+      "note": "бути"
+    },
+    {
+      "id": "uk_conjugation_i_have_я_маю",
+      "type": "conjugation",
+      "prompt": "I have",
+      "before": "я ма",
+      "answer": "ю",
+      "after": "",
+      "result": "я маю",
+      "note": "мати"
+    },
+    {
+      "id": "uk_conjugation_you_have_ти_маєш",
+      "type": "conjugation",
+      "prompt": "you have",
+      "before": "ти ма",
+      "answer": "єш",
+      "after": "",
+      "result": "ти маєш",
+      "note": "мати"
+    },
+    {
+      "id": "uk_conjugation_he_has_він_має",
+      "type": "conjugation",
+      "prompt": "he has",
+      "before": "він ма",
+      "answer": "є",
+      "after": "",
+      "result": "він має",
+      "note": "мати"
+    },
+    {
+      "id": "uk_conjugation_we_have_ми_маємо",
+      "type": "conjugation",
+      "prompt": "we have",
+      "before": "ми ма",
+      "answer": "ємо",
+      "after": "",
+      "result": "ми маємо",
+      "note": "мати"
+    },
+    {
+      "id": "uk_conjugation_i_go_я_іду",
+      "type": "conjugation",
+      "prompt": "I go",
+      "before": "я ід",
+      "answer": "у",
+      "after": "",
+      "result": "я іду",
+      "note": "іти"
+    },
+    {
+      "id": "uk_conjugation_you_go_ти_ідеш",
+      "type": "conjugation",
+      "prompt": "you go",
+      "before": "ти ід",
+      "answer": "еш",
+      "after": "",
+      "result": "ти ідеш",
+      "note": "іти"
+    },
+    {
+      "id": "uk_conjugation_he_goes_він_іде",
+      "type": "conjugation",
+      "prompt": "he goes",
+      "before": "він ід",
+      "answer": "е",
+      "after": "",
+      "result": "він іде",
+      "note": "іти"
+    },
+    {
+      "id": "uk_conjugation_we_go_ми_ідемо",
+      "type": "conjugation",
+      "prompt": "we go",
+      "before": "ми ід",
+      "answer": "емо",
+      "after": "",
+      "result": "ми ідемо",
+      "note": "іти"
+    },
+    {
+      "id": "uk_conjugation_i_work_я_працюю",
+      "type": "conjugation",
+      "prompt": "I work",
+      "before": "я працю",
+      "answer": "ю",
+      "after": "",
+      "result": "я працюю",
+      "note": "працювати"
+    },
+    {
+      "id": "uk_conjugation_you_work_ти_працюєш",
+      "type": "conjugation",
+      "prompt": "you work",
+      "before": "ти працю",
+      "answer": "єш",
+      "after": "",
+      "result": "ти працюєш",
+      "note": "працювати"
+    },
+    {
+      "id": "uk_conjugation_he_works_він_працює",
+      "type": "conjugation",
+      "prompt": "he works",
+      "before": "він працю",
+      "answer": "є",
+      "after": "",
+      "result": "він працює",
+      "note": "працювати"
+    },
+    {
+      "id": "uk_conjugation_we_work_ми_працюємо",
+      "type": "conjugation",
+      "prompt": "we work",
+      "before": "ми працю",
+      "answer": "ємо",
+      "after": "",
+      "result": "ми працюємо",
+      "note": "працювати"
+    },
+    {
+      "id": "uk_conjugation_i_speak_я_говорю",
+      "type": "conjugation",
+      "prompt": "I speak",
+      "before": "я говор",
+      "answer": "ю",
+      "after": "",
+      "result": "я говорю",
+      "note": "говорити"
+    },
+    {
+      "id": "uk_conjugation_you_speak_ти_говориш",
+      "type": "conjugation",
+      "prompt": "you speak",
+      "before": "ти говор",
+      "answer": "иш",
+      "after": "",
+      "result": "ти говориш",
+      "note": "говорити"
+    },
+    {
+      "id": "uk_conjugation_he_speaks_він_говорить",
+      "type": "conjugation",
+      "prompt": "he speaks",
+      "before": "він говор",
+      "answer": "ить",
+      "after": "",
+      "result": "він говорить",
+      "note": "говорити"
+    },
+    {
+      "id": "uk_conjugation_we_speak_ми_говоримо",
+      "type": "conjugation",
+      "prompt": "we speak",
+      "before": "ми говор",
+      "answer": "имо",
+      "after": "",
+      "result": "ми говоримо",
+      "note": "говорити"
+    },
+    {
+      "id": "uk_conjugation_i_read_я_читаю",
+      "type": "conjugation",
+      "prompt": "I read",
+      "before": "я чита",
+      "answer": "ю",
+      "after": "",
+      "result": "я читаю",
+      "note": "читати"
+    },
+    {
+      "id": "uk_conjugation_you_read_ти_читаєш",
+      "type": "conjugation",
+      "prompt": "you read",
+      "before": "ти чита",
+      "answer": "єш",
+      "after": "",
+      "result": "ти читаєш",
+      "note": "читати"
+    },
+    {
+      "id": "uk_conjugation_he_reads_він_читає",
+      "type": "conjugation",
+      "prompt": "he reads",
+      "before": "він чита",
+      "answer": "є",
+      "after": "",
+      "result": "він читає",
+      "note": "читати"
+    },
+    {
+      "id": "uk_conjugation_we_read_ми_читаємо",
+      "type": "conjugation",
+      "prompt": "we read",
+      "before": "ми чита",
+      "answer": "ємо",
+      "after": "",
+      "result": "ми читаємо",
+      "note": "читати"
+    },
+    {
+      "id": "uk_past_i_worked_male_я_працював",
+      "type": "past",
+      "prompt": "I worked (male)",
+      "before": "я працюва",
+      "answer": "в",
+      "after": "",
+      "result": "я працював",
+      "note": "masculine past"
+    },
+    {
+      "id": "uk_past_i_worked_female_я_працювала",
+      "type": "past",
+      "prompt": "I worked (female)",
+      "before": "я працюва",
+      "answer": "ла",
+      "after": "",
+      "result": "я працювала",
+      "note": "feminine past"
+    },
+    {
+      "id": "uk_past_he_was_він_був",
+      "type": "past",
+      "prompt": "he was",
+      "before": "він бу",
+      "answer": "в",
+      "after": "",
+      "result": "він був",
+      "note": "masculine past"
+    },
+    {
+      "id": "uk_past_she_was_вона_була",
+      "type": "past",
+      "prompt": "she was",
+      "before": "вона бу",
+      "answer": "ла",
+      "after": "",
+      "result": "вона була",
+      "note": "feminine past"
+    }
+  ],
+  "reference": {
+    "title": "Ukraine",
+    "country": "Ukraine",
+    "flag": {
+      "title": "Прапор України",
+      "asset": "packages/ukrainian/assets/flag.svg",
+      "colorsLocal": "Синій · Жовтий",
+      "translationLabel": "Blue · Yellow",
+      "label": "Прапор України: синій і жовтий",
+      "descriptionLocal": "Державний Прапор України має синю і жовту смуги.",
+      "translation": "The State Flag of Ukraine has blue and yellow bands."
+    },
+    "anthem": {
+      "title": "Державний Гімн України",
+      "name": "Ще не вмерла України і слава, і воля",
+      "nameTranslation": "Ukraine's glory and freedom have not yet perished",
+      "description": "The State Anthem of Ukraine uses the first verse and refrain of Pavlo Chubynskyi's text with music by Mykhailo Verbytskyi.",
+      "lyrics": "Ще не вмерла України і слава, і воля,\nЩе нам, браття молодії, усміхнеться доля.\nЗгинуть наші воріженьки, як роса на сонці,\nЗапануєм і ми, браття, у своїй сторонці.\n\nДушу й тіло ми положим за нашу свободу,\nІ покажем, що ми, браття, козацького роду.",
+      "translation": "Ukraine's glory and freedom have not yet perished,\nStill upon us, young brothers, fate will smile.\nOur enemies will vanish like dew in the sun,\nAnd we too, brothers, shall rule in our own land.\n\nWe will lay down soul and body for our freedom,\nAnd show that we, brothers, are of Cossack kin."
+    },
+    "facts": [
+      {
+        "id": "capital",
+        "label": "Столиця",
+        "value": "Столиця України — Київ.",
+        "translation": "The capital of Ukraine is Kyiv."
+      },
+      {
+        "id": "independence-day",
+        "label": "День Незалежності",
+        "value": "День Незалежності України — 24 серпня.",
+        "translation": "Ukraine's Independence Day is 24 August."
+      },
+      {
+        "id": "official-language",
+        "label": "Державна мова",
+        "value": "Державна мова України — українська мова.",
+        "translation": "The state language of Ukraine is Ukrainian."
+      },
+      {
+        "id": "european-union",
+        "label": "Європейський Союз",
+        "value": "Україна є країною-кандидатом на вступ до Європейського Союзу; переговори про вступ тривають.",
+        "translation": "Ukraine is an EU candidate country; accession negotiations are ongoing."
+      }
+    ]
+  }
+}

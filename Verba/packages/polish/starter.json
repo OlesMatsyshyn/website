@@ -1,0 +1,1275 @@
+{
+  "metadata": {
+    "id": "polish-starter",
+    "language": "Polish",
+    "languageCode": "pl",
+    "variant": "General",
+    "level": 0,
+    "title": "Polish · Starter",
+    "description": "Useful Polish vocabulary, short texts, and core grammar forms.",
+    "version": 9,
+    "wordCount": 101,
+    "textCount": 10,
+    "formCount": 60,
+    "characterSubstitutions": {
+      "ą": [
+        "a"
+      ],
+      "ć": [
+        "c"
+      ],
+      "ę": [
+        "e"
+      ],
+      "ł": [
+        "l"
+      ],
+      "ń": [
+        "n"
+      ],
+      "ó": [
+        "o"
+      ],
+      "ś": [
+        "s"
+      ],
+      "ż": [
+        "z"
+      ],
+      "ź": [
+        "z"
+      ]
+    }
+  },
+  "words": [
+    {
+      "id": "pl_dom",
+      "term": "dom",
+      "translation": "house"
+    },
+    {
+      "id": "pl_mieszkanie",
+      "term": "mieszkanie",
+      "translation": "apartment"
+    },
+    {
+      "id": "pl_kuchnia",
+      "term": "kuchnia",
+      "translation": "kitchen"
+    },
+    {
+      "id": "pl_pokoj",
+      "term": "pokój",
+      "translation": "room"
+    },
+    {
+      "id": "pl_drzwi",
+      "term": "drzwi",
+      "translation": "door"
+    },
+    {
+      "id": "pl_okno",
+      "term": "okno",
+      "translation": "window"
+    },
+    {
+      "id": "pl_stoł",
+      "term": "stół",
+      "translation": "table"
+    },
+    {
+      "id": "pl_krzesło",
+      "term": "krzesło",
+      "translation": "chair"
+    },
+    {
+      "id": "pl_łozko",
+      "term": "łóżko",
+      "translation": "bed"
+    },
+    {
+      "id": "pl_lampa",
+      "term": "lampa",
+      "translation": "lamp"
+    },
+    {
+      "id": "pl_woda",
+      "term": "woda",
+      "translation": "water"
+    },
+    {
+      "id": "pl_chleb",
+      "term": "chleb",
+      "translation": "bread"
+    },
+    {
+      "id": "pl_ser",
+      "term": "ser",
+      "translation": "cheese"
+    },
+    {
+      "id": "pl_jabłko",
+      "term": "jabłko",
+      "translation": "apple"
+    },
+    {
+      "id": "pl_banan",
+      "term": "banan",
+      "translation": "banana"
+    },
+    {
+      "id": "pl_kawa",
+      "term": "kawa",
+      "translation": "coffee"
+    },
+    {
+      "id": "pl_herbata",
+      "term": "herbata",
+      "translation": "tea"
+    },
+    {
+      "id": "pl_sniadanie",
+      "term": "śniadanie",
+      "translation": "breakfast"
+    },
+    {
+      "id": "pl_obiad",
+      "term": "obiad",
+      "translation": "lunch or dinner"
+    },
+    {
+      "id": "pl_kolacja",
+      "term": "kolacja",
+      "translation": "evening meal"
+    },
+    {
+      "id": "pl_sklep",
+      "term": "sklep",
+      "translation": "shop"
+    },
+    {
+      "id": "pl_rynek",
+      "term": "rynek",
+      "translation": "market"
+    },
+    {
+      "id": "pl_pieniadze",
+      "term": "pieniądze",
+      "translation": "money"
+    },
+    {
+      "id": "pl_cena",
+      "term": "cena",
+      "translation": "price"
+    },
+    {
+      "id": "pl_bilet",
+      "term": "bilet",
+      "translation": "ticket"
+    },
+    {
+      "id": "pl_pociag",
+      "term": "pociąg",
+      "translation": "train"
+    },
+    {
+      "id": "pl_autobus",
+      "term": "autobus",
+      "translation": "bus"
+    },
+    {
+      "id": "pl_dworzec",
+      "term": "dworzec",
+      "translation": "station"
+    },
+    {
+      "id": "pl_lotnisko",
+      "term": "lotnisko",
+      "translation": "airport"
+    },
+    {
+      "id": "pl_ulica",
+      "term": "ulica",
+      "translation": "street"
+    },
+    {
+      "id": "pl_miasto",
+      "term": "miasto",
+      "translation": "city"
+    },
+    {
+      "id": "pl_wies",
+      "term": "wieś",
+      "translation": "village"
+    },
+    {
+      "id": "pl_w_lewo",
+      "term": "w lewo",
+      "translation": "to the left"
+    },
+    {
+      "id": "pl_w_prawo",
+      "term": "w prawo",
+      "translation": "to the right"
+    },
+    {
+      "id": "pl_blisko",
+      "term": "blisko",
+      "translation": "near"
+    },
+    {
+      "id": "pl_daleko",
+      "term": "daleko",
+      "translation": "far"
+    },
+    {
+      "id": "pl_dzisiaj",
+      "term": "dzisiaj",
+      "translation": "today"
+    },
+    {
+      "id": "pl_jutro",
+      "term": "jutro",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "pl_wczoraj",
+      "term": "wczoraj",
+      "translation": "yesterday"
+    },
+    {
+      "id": "pl_rano",
+      "term": "rano",
+      "translation": "in the morning"
+    },
+    {
+      "id": "pl_wieczor",
+      "term": "wieczór",
+      "translation": "evening"
+    },
+    {
+      "id": "pl_noc",
+      "term": "noc",
+      "translation": "night"
+    },
+    {
+      "id": "pl_tydzien",
+      "term": "tydzień",
+      "translation": "week"
+    },
+    {
+      "id": "pl_miesiac",
+      "term": "miesiąc",
+      "translation": "month"
+    },
+    {
+      "id": "pl_rok",
+      "term": "rok",
+      "translation": "year"
+    },
+    {
+      "id": "pl_pogoda",
+      "term": "pogoda",
+      "translation": "weather"
+    },
+    {
+      "id": "pl_deszcz",
+      "term": "deszcz",
+      "translation": "rain"
+    },
+    {
+      "id": "pl_wiatr",
+      "term": "wiatr",
+      "translation": "wind"
+    },
+    {
+      "id": "pl_słonce",
+      "term": "słońce",
+      "translation": "sun"
+    },
+    {
+      "id": "pl_zimny",
+      "term": "zimny",
+      "translation": "cold"
+    },
+    {
+      "id": "pl_ciepły",
+      "term": "ciepły",
+      "translation": "warm"
+    },
+    {
+      "id": "pl_osoba",
+      "term": "osoba",
+      "translation": "person"
+    },
+    {
+      "id": "pl_przyjaciel",
+      "term": "przyjaciel",
+      "translation": "friend"
+    },
+    {
+      "id": "pl_rodzina",
+      "term": "rodzina",
+      "translation": "family"
+    },
+    {
+      "id": "pl_dziecko",
+      "term": "dziecko",
+      "translation": "child"
+    },
+    {
+      "id": "pl_nauczyciel",
+      "term": "nauczyciel",
+      "translation": "teacher"
+    },
+    {
+      "id": "pl_lekarz",
+      "term": "lekarz",
+      "translation": "doctor"
+    },
+    {
+      "id": "pl_pracownik",
+      "term": "pracownik",
+      "translation": "worker"
+    },
+    {
+      "id": "pl_student",
+      "term": "student",
+      "translation": "student"
+    },
+    {
+      "id": "pl_szczesliwy",
+      "term": "szczęśliwy",
+      "translation": "happy"
+    },
+    {
+      "id": "pl_smutny",
+      "term": "smutny",
+      "translation": "sad"
+    },
+    {
+      "id": "pl_zmeczony",
+      "term": "zmęczony",
+      "translation": "tired"
+    },
+    {
+      "id": "pl_zajety",
+      "term": "zajęty",
+      "translation": "busy"
+    },
+    {
+      "id": "pl_gotowy",
+      "term": "gotowy",
+      "translation": "ready"
+    },
+    {
+      "id": "pl_wazny",
+      "term": "ważny",
+      "translation": "important"
+    },
+    {
+      "id": "pl_łatwy",
+      "term": "łatwy",
+      "translation": "easy"
+    },
+    {
+      "id": "pl_trudny",
+      "term": "trudny",
+      "translation": "difficult"
+    },
+    {
+      "id": "pl_nowy",
+      "term": "nowy",
+      "translation": "new"
+    },
+    {
+      "id": "pl_stary",
+      "term": "stary",
+      "translation": "old"
+    },
+    {
+      "id": "pl_dobry",
+      "term": "dobry",
+      "translation": "good"
+    },
+    {
+      "id": "pl_zły",
+      "term": "zły",
+      "translation": "bad"
+    },
+    {
+      "id": "pl_mały",
+      "term": "mały",
+      "translation": "small"
+    },
+    {
+      "id": "pl_duzy",
+      "term": "duży",
+      "translation": "big"
+    },
+    {
+      "id": "pl_byc",
+      "term": "być",
+      "translation": "to be"
+    },
+    {
+      "id": "pl_miec",
+      "term": "mieć",
+      "translation": "to have"
+    },
+    {
+      "id": "pl_isc",
+      "term": "iść",
+      "translation": "to go on foot"
+    },
+    {
+      "id": "pl_jechac",
+      "term": "jechać",
+      "translation": "to go by vehicle"
+    },
+    {
+      "id": "pl_przyjsc",
+      "term": "przyjść",
+      "translation": "to come"
+    },
+    {
+      "id": "pl_robic",
+      "term": "robić",
+      "translation": "to do or make"
+    },
+    {
+      "id": "pl_widziec",
+      "term": "widzieć",
+      "translation": "to see"
+    },
+    {
+      "id": "pl_mowic",
+      "term": "mówić",
+      "translation": "to speak"
+    },
+    {
+      "id": "pl_wiedziec",
+      "term": "wiedzieć",
+      "translation": "to know a fact"
+    },
+    {
+      "id": "pl_chciec",
+      "term": "chcieć",
+      "translation": "to want"
+    },
+    {
+      "id": "pl_potrzebowac",
+      "term": "potrzebować",
+      "translation": "to need"
+    },
+    {
+      "id": "pl_jesc",
+      "term": "jeść",
+      "translation": "to eat"
+    },
+    {
+      "id": "pl_pic",
+      "term": "pić",
+      "translation": "to drink"
+    },
+    {
+      "id": "pl_kupic",
+      "term": "kupić",
+      "translation": "to buy"
+    },
+    {
+      "id": "pl_pracowac",
+      "term": "pracować",
+      "translation": "to work"
+    },
+    {
+      "id": "pl_uczyc_sie",
+      "term": "uczyć się",
+      "translation": "to learn"
+    },
+    {
+      "id": "pl_czytac",
+      "term": "czytać",
+      "translation": "to read"
+    },
+    {
+      "id": "pl_pisac",
+      "term": "pisać",
+      "translation": "to write"
+    },
+    {
+      "id": "pl_czekac",
+      "term": "czekać",
+      "translation": "to wait"
+    },
+    {
+      "id": "pl_rozumiec",
+      "term": "rozumieć",
+      "translation": "to understand"
+    },
+    {
+      "id": "pl_bo",
+      "term": "bo",
+      "translation": "because"
+    },
+    {
+      "id": "pl_ale",
+      "term": "ale",
+      "translation": "but"
+    },
+    {
+      "id": "pl_tez",
+      "term": "też",
+      "translation": "also"
+    },
+    {
+      "id": "pl_moze",
+      "term": "może",
+      "translation": "maybe"
+    },
+    {
+      "id": "pl_zawsze",
+      "term": "zawsze",
+      "translation": "always"
+    },
+    {
+      "id": "pl_czesto",
+      "term": "często",
+      "translation": "often"
+    },
+    {
+      "id": "pl_czasami",
+      "term": "czasami",
+      "translation": "sometimes"
+    },
+    {
+      "id": "pl_nigdy",
+      "term": "nigdy",
+      "translation": "never"
+    }
+  ],
+  "texts": [
+    {
+      "id": "pl_rano",
+      "title": "Rano",
+      "text": "Rano piję {kawę} i jem chleb z serem. Potem idę do pracy i sprawdzam wiadomości.",
+      "translation": "In the morning I drink coffee and eat bread with cheese. Then I go to work and check messages.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_zakupy",
+      "title": "Zakupy",
+      "text": "W sklepie kupuję wodę, jabłka i {chleb}. Cena jest dobra, więc płacę kartą.",
+      "translation": "In the shop I buy water, apples, and bread. The price is good, so I pay by card.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_praca",
+      "title": "Praca",
+      "text": "W pracy mam krótkie spotkanie. Piszę dokument, czytam {pytania} i odpowiadam spokojnie.",
+      "translation": "At work I have a short meeting. I write a document, read questions, and answer calmly.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_kawiarnia",
+      "title": "Kawiarnia",
+      "text": "W kawiarni spotykam {przyjaciela}. Zamawiamy herbatę i rozmawiamy o weekendzie.",
+      "translation": "In the café I meet a friend. We order tea and talk about the weekend.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_pociag",
+      "title": "Pociąg",
+      "text": "Pociąg odjeżdża z dworca o ósmej. Mam {bilet} i miejsce przy oknie.",
+      "translation": "The train leaves the station at eight. I have a ticket and a seat by the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_dom",
+      "title": "Dom",
+      "text": "Moje mieszkanie jest małe, ale wygodne. Kuchnia jest jasna, a stół stoi przy {oknie}.",
+      "translation": "My apartment is small but comfortable. The kitchen is bright, and the table stands by the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_rodzina",
+      "title": "Rodzina",
+      "text": "Wieczorem odwiedzam rodzinę. Razem gotujemy kolację i mówimy o planach na {jutro}.",
+      "translation": "In the evening I visit family. Together we cook dinner and talk about plans for tomorrow.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_miasto",
+      "title": "Miasto",
+      "text": "Miasto jest duże i głośne, ale lubię spacerować po małych ulicach blisko {rynku}.",
+      "translation": "The city is large and noisy, but I like walking along small streets near the market.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_pogoda",
+      "title": "Pogoda",
+      "text": "Dzisiaj pogoda jest zimna. Pada {deszcz}, więc biorę parasol i ciepłą kurtkę.",
+      "translation": "Today the weather is cold. It is raining, so I take an umbrella and a warm jacket.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "pl_weekend",
+      "title": "Weekend",
+      "text": "W weekend chcemy jechać do innego miasta. Jeśli będzie słońce, odwiedzimy park i {muzeum}.",
+      "translation": "On the weekend we want to go to another city. If it is sunny, we will visit a park and a museum.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "pl_plural_dom_plural_domy",
+      "type": "plural",
+      "prompt": "dom plural",
+      "before": "",
+      "answer": "domy",
+      "after": "",
+      "result": "domy",
+      "note": "dom → domy"
+    },
+    {
+      "id": "pl_plural_pokoj_plural_pokoje",
+      "type": "plural",
+      "prompt": "pokój plural",
+      "before": "",
+      "answer": "pokoje",
+      "after": "",
+      "result": "pokoje",
+      "note": "pokój → pokoje"
+    },
+    {
+      "id": "pl_plural_stoł_plural_stoły",
+      "type": "plural",
+      "prompt": "stół plural",
+      "before": "",
+      "answer": "stoły",
+      "after": "",
+      "result": "stoły",
+      "note": "stół → stoły"
+    },
+    {
+      "id": "pl_plural_krzesło_plural_krzesła",
+      "type": "plural",
+      "prompt": "krzesło plural",
+      "before": "",
+      "answer": "krzesła",
+      "after": "",
+      "result": "krzesła",
+      "note": "krzesło → krzesła"
+    },
+    {
+      "id": "pl_plural_okno_plural_okna",
+      "type": "plural",
+      "prompt": "okno plural",
+      "before": "",
+      "answer": "okna",
+      "after": "",
+      "result": "okna",
+      "note": "okno → okna"
+    },
+    {
+      "id": "pl_plural_miasto_plural_miasta",
+      "type": "plural",
+      "prompt": "miasto plural",
+      "before": "",
+      "answer": "miasta",
+      "after": "",
+      "result": "miasta",
+      "note": "miasto → miasta"
+    },
+    {
+      "id": "pl_plural_kobieta_plural_kobiety",
+      "type": "plural",
+      "prompt": "kobieta plural",
+      "before": "",
+      "answer": "kobiety",
+      "after": "",
+      "result": "kobiety",
+      "note": "kobieta → kobiety"
+    },
+    {
+      "id": "pl_plural_mezczyzna_plural_mezczyzni",
+      "type": "plural",
+      "prompt": "mężczyzna plural",
+      "before": "",
+      "answer": "mężczyźni",
+      "after": "",
+      "result": "mężczyźni",
+      "note": "mężczyzna → mężczyźni"
+    },
+    {
+      "id": "pl_plural_dziecko_plural_dzieci",
+      "type": "plural",
+      "prompt": "dziecko plural",
+      "before": "",
+      "answer": "dzieci",
+      "after": "",
+      "result": "dzieci",
+      "note": "dziecko → dzieci"
+    },
+    {
+      "id": "pl_plural_człowiek_plural_ludzie",
+      "type": "plural",
+      "prompt": "człowiek plural",
+      "before": "",
+      "answer": "ludzie",
+      "after": "",
+      "result": "ludzie",
+      "note": "człowiek → ludzie"
+    },
+    {
+      "id": "pl_plural_ksiazka_plural_ksiazki",
+      "type": "plural",
+      "prompt": "książka plural",
+      "before": "",
+      "answer": "książki",
+      "after": "",
+      "result": "książki",
+      "note": "książka → książki"
+    },
+    {
+      "id": "pl_plural_pociag_plural_pociagi",
+      "type": "plural",
+      "prompt": "pociąg plural",
+      "before": "",
+      "answer": "pociągi",
+      "after": "",
+      "result": "pociągi",
+      "note": "pociąg → pociągi"
+    },
+    {
+      "id": "pl_case_i_see_a_house_widze_dom",
+      "type": "case",
+      "prompt": "I see a house",
+      "before": "Widzę ",
+      "answer": "dom",
+      "after": "",
+      "result": "Widzę dom",
+      "note": "accusative masculine inanimate"
+    },
+    {
+      "id": "pl_case_i_see_a_woman_widze_kobiete",
+      "type": "case",
+      "prompt": "I see a woman",
+      "before": "Widzę kobiet",
+      "answer": "ę",
+      "after": "",
+      "result": "Widzę kobietę",
+      "note": "accusative feminine"
+    },
+    {
+      "id": "pl_case_i_read_a_book_czytam_ksiazke",
+      "type": "case",
+      "prompt": "I read a book",
+      "before": "Czytam książk",
+      "answer": "ę",
+      "after": "",
+      "result": "Czytam książkę",
+      "note": "accusative feminine"
+    },
+    {
+      "id": "pl_case_i_drink_water_pije_wode",
+      "type": "case",
+      "prompt": "I drink water",
+      "before": "Piję wod",
+      "answer": "ę",
+      "after": "",
+      "result": "Piję wodę",
+      "note": "accusative feminine"
+    },
+    {
+      "id": "pl_case_i_am_in_the_house_jestem_w_domu",
+      "type": "case",
+      "prompt": "I am in the house",
+      "before": "Jestem w dom",
+      "answer": "u",
+      "after": "",
+      "result": "Jestem w domu",
+      "note": "locative"
+    },
+    {
+      "id": "pl_case_i_am_in_the_city_jestem_w_miescie",
+      "type": "case",
+      "prompt": "I am in the city",
+      "before": "Jestem w mieści",
+      "answer": "e",
+      "after": "",
+      "result": "Jestem w mieście",
+      "note": "locative"
+    },
+    {
+      "id": "pl_case_i_talk_about_work_mowie_o_pracy",
+      "type": "case",
+      "prompt": "I talk about work",
+      "before": "Mówię o prac",
+      "answer": "y",
+      "after": "",
+      "result": "Mówię o pracy",
+      "note": "locative feminine"
+    },
+    {
+      "id": "pl_case_i_go_to_school_ide_do_szkoły",
+      "type": "case",
+      "prompt": "I go to school",
+      "before": "Idę do szkoł",
+      "answer": "y",
+      "after": "",
+      "result": "Idę do szkoły",
+      "note": "genitive after do"
+    },
+    {
+      "id": "pl_case_i_come_from_poland_jestem_z_polski",
+      "type": "case",
+      "prompt": "I come from Poland",
+      "before": "Jestem z Polsk",
+      "answer": "i",
+      "after": "",
+      "result": "Jestem z Polski",
+      "note": "genitive after z"
+    },
+    {
+      "id": "pl_case_without_water_bez_wody",
+      "type": "case",
+      "prompt": "without water",
+      "before": "bez wod",
+      "answer": "y",
+      "after": "",
+      "result": "bez wody",
+      "note": "genitive feminine"
+    },
+    {
+      "id": "pl_case_with_a_friend_z_przyjacielem",
+      "type": "case",
+      "prompt": "with a friend",
+      "before": "z przyjaciel",
+      "answer": "em",
+      "after": "",
+      "result": "z przyjacielem",
+      "note": "instrumental masculine"
+    },
+    {
+      "id": "pl_case_with_family_z_rodzina",
+      "type": "case",
+      "prompt": "with family",
+      "before": "z rodzin",
+      "answer": "ą",
+      "after": "",
+      "result": "z rodziną",
+      "note": "instrumental feminine"
+    },
+    {
+      "id": "pl_agreement_good_woman_dobra_kobieta",
+      "type": "agreement",
+      "prompt": "good woman",
+      "before": "",
+      "answer": "dobra",
+      "after": " kobieta",
+      "result": "dobra kobieta",
+      "note": "dobra kobieta"
+    },
+    {
+      "id": "pl_agreement_good_man_dobry_mezczyzna",
+      "type": "agreement",
+      "prompt": "good man",
+      "before": "",
+      "answer": "dobry",
+      "after": " mężczyzna",
+      "result": "dobry mężczyzna",
+      "note": "dobry mężczyzna"
+    },
+    {
+      "id": "pl_agreement_good_child_dobre_dziecko",
+      "type": "agreement",
+      "prompt": "good child",
+      "before": "",
+      "answer": "dobre",
+      "after": " dziecko",
+      "result": "dobre dziecko",
+      "note": "dobre dziecko"
+    },
+    {
+      "id": "pl_agreement_small_house_mały_dom",
+      "type": "agreement",
+      "prompt": "small house",
+      "before": "",
+      "answer": "mały",
+      "after": " dom",
+      "result": "mały dom",
+      "note": "mały dom"
+    },
+    {
+      "id": "pl_agreement_small_room_mały_pokoj",
+      "type": "agreement",
+      "prompt": "small room",
+      "before": "",
+      "answer": "mały",
+      "after": " pokój",
+      "result": "mały pokój",
+      "note": "mały pokój"
+    },
+    {
+      "id": "pl_agreement_small_city_małe_miasto",
+      "type": "agreement",
+      "prompt": "small city",
+      "before": "",
+      "answer": "małe",
+      "after": " miasto",
+      "result": "małe miasto",
+      "note": "małe miasto"
+    },
+    {
+      "id": "pl_agreement_new_book_nowa_ksiazka",
+      "type": "agreement",
+      "prompt": "new book",
+      "before": "",
+      "answer": "nowa",
+      "after": " książka",
+      "result": "nowa książka",
+      "note": "nowa książka"
+    },
+    {
+      "id": "pl_agreement_new_table_nowy_stoł",
+      "type": "agreement",
+      "prompt": "new table",
+      "before": "",
+      "answer": "nowy",
+      "after": " stół",
+      "result": "nowy stół",
+      "note": "nowy stół"
+    },
+    {
+      "id": "pl_agreement_new_window_nowe_okno",
+      "type": "agreement",
+      "prompt": "new window",
+      "before": "",
+      "answer": "nowe",
+      "after": " okno",
+      "result": "nowe okno",
+      "note": "nowe okno"
+    },
+    {
+      "id": "pl_agreement_warm_tea_ciepła_herbata",
+      "type": "agreement",
+      "prompt": "warm tea",
+      "before": "",
+      "answer": "ciepła",
+      "after": " herbata",
+      "result": "ciepła herbata",
+      "note": "ciepła herbata"
+    },
+    {
+      "id": "pl_agreement_warm_day_ciepły_dzien",
+      "type": "agreement",
+      "prompt": "warm day",
+      "before": "",
+      "answer": "ciepły",
+      "after": " dzień",
+      "result": "ciepły dzień",
+      "note": "ciepły dzień"
+    },
+    {
+      "id": "pl_agreement_warm_milk_ciepłe_mleko",
+      "type": "agreement",
+      "prompt": "warm milk",
+      "before": "",
+      "answer": "ciepłe",
+      "after": " mleko",
+      "result": "ciepłe mleko",
+      "note": "ciepłe mleko"
+    },
+    {
+      "id": "pl_conjugation_i_am_ja_jestem",
+      "type": "conjugation",
+      "prompt": "I am",
+      "before": "ja jest",
+      "answer": "em",
+      "after": "",
+      "result": "ja jestem",
+      "note": "być"
+    },
+    {
+      "id": "pl_conjugation_you_are_ty_jestes",
+      "type": "conjugation",
+      "prompt": "you are",
+      "before": "ty jest",
+      "answer": "eś",
+      "after": "",
+      "result": "ty jesteś",
+      "note": "być"
+    },
+    {
+      "id": "pl_conjugation_he_is_on_jest",
+      "type": "conjugation",
+      "prompt": "he is",
+      "before": "on ",
+      "answer": "jest",
+      "after": "",
+      "result": "on jest",
+      "note": "być"
+    },
+    {
+      "id": "pl_conjugation_we_are_my_jestesmy",
+      "type": "conjugation",
+      "prompt": "we are",
+      "before": "my jest",
+      "answer": "eśmy",
+      "after": "",
+      "result": "my jesteśmy",
+      "note": "być"
+    },
+    {
+      "id": "pl_conjugation_i_have_ja_mam",
+      "type": "conjugation",
+      "prompt": "I have",
+      "before": "ja m",
+      "answer": "am",
+      "after": "",
+      "result": "ja mam",
+      "note": "mieć"
+    },
+    {
+      "id": "pl_conjugation_you_have_ty_masz",
+      "type": "conjugation",
+      "prompt": "you have",
+      "before": "ty m",
+      "answer": "asz",
+      "after": "",
+      "result": "ty masz",
+      "note": "mieć"
+    },
+    {
+      "id": "pl_conjugation_he_has_on_ma",
+      "type": "conjugation",
+      "prompt": "he has",
+      "before": "on m",
+      "answer": "a",
+      "after": "",
+      "result": "on ma",
+      "note": "mieć"
+    },
+    {
+      "id": "pl_conjugation_we_have_my_mamy",
+      "type": "conjugation",
+      "prompt": "we have",
+      "before": "my m",
+      "answer": "amy",
+      "after": "",
+      "result": "my mamy",
+      "note": "mieć"
+    },
+    {
+      "id": "pl_conjugation_i_go_ja_ide",
+      "type": "conjugation",
+      "prompt": "I go",
+      "before": "ja id",
+      "answer": "ę",
+      "after": "",
+      "result": "ja idę",
+      "note": "iść"
+    },
+    {
+      "id": "pl_conjugation_you_go_ty_idziesz",
+      "type": "conjugation",
+      "prompt": "you go",
+      "before": "ty idzi",
+      "answer": "esz",
+      "after": "",
+      "result": "ty idziesz",
+      "note": "iść"
+    },
+    {
+      "id": "pl_conjugation_he_goes_on_idzie",
+      "type": "conjugation",
+      "prompt": "he goes",
+      "before": "on idzi",
+      "answer": "e",
+      "after": "",
+      "result": "on idzie",
+      "note": "iść"
+    },
+    {
+      "id": "pl_conjugation_we_go_my_idziemy",
+      "type": "conjugation",
+      "prompt": "we go",
+      "before": "my idzi",
+      "answer": "emy",
+      "after": "",
+      "result": "my idziemy",
+      "note": "iść"
+    },
+    {
+      "id": "pl_conjugation_i_work_ja_pracuje",
+      "type": "conjugation",
+      "prompt": "I work",
+      "before": "ja pracuj",
+      "answer": "ę",
+      "after": "",
+      "result": "ja pracuję",
+      "note": "pracować"
+    },
+    {
+      "id": "pl_conjugation_you_work_ty_pracujesz",
+      "type": "conjugation",
+      "prompt": "you work",
+      "before": "ty pracuj",
+      "answer": "esz",
+      "after": "",
+      "result": "ty pracujesz",
+      "note": "pracować"
+    },
+    {
+      "id": "pl_conjugation_he_works_on_pracuje",
+      "type": "conjugation",
+      "prompt": "he works",
+      "before": "on pracuj",
+      "answer": "e",
+      "after": "",
+      "result": "on pracuje",
+      "note": "pracować"
+    },
+    {
+      "id": "pl_conjugation_we_work_my_pracujemy",
+      "type": "conjugation",
+      "prompt": "we work",
+      "before": "my pracuj",
+      "answer": "emy",
+      "after": "",
+      "result": "my pracujemy",
+      "note": "pracować"
+    },
+    {
+      "id": "pl_conjugation_i_speak_ja_mowie",
+      "type": "conjugation",
+      "prompt": "I speak",
+      "before": "ja mów",
+      "answer": "ię",
+      "after": "",
+      "result": "ja mówię",
+      "note": "mówić"
+    },
+    {
+      "id": "pl_conjugation_you_speak_ty_mowisz",
+      "type": "conjugation",
+      "prompt": "you speak",
+      "before": "ty mów",
+      "answer": "isz",
+      "after": "",
+      "result": "ty mówisz",
+      "note": "mówić"
+    },
+    {
+      "id": "pl_conjugation_he_speaks_on_mowi",
+      "type": "conjugation",
+      "prompt": "he speaks",
+      "before": "on mów",
+      "answer": "i",
+      "after": "",
+      "result": "on mówi",
+      "note": "mówić"
+    },
+    {
+      "id": "pl_conjugation_we_speak_my_mowimy",
+      "type": "conjugation",
+      "prompt": "we speak",
+      "before": "my mów",
+      "answer": "imy",
+      "after": "",
+      "result": "my mówimy",
+      "note": "mówić"
+    },
+    {
+      "id": "pl_past_i_worked_male_pracowałem",
+      "type": "past",
+      "prompt": "I worked (male)",
+      "before": "pracowa",
+      "answer": "łem",
+      "after": "",
+      "result": "pracowałem",
+      "note": "masculine past"
+    },
+    {
+      "id": "pl_past_i_worked_female_pracowałam",
+      "type": "past",
+      "prompt": "I worked (female)",
+      "before": "pracowa",
+      "answer": "łam",
+      "after": "",
+      "result": "pracowałam",
+      "note": "feminine past"
+    },
+    {
+      "id": "pl_past_he_was_on_był",
+      "type": "past",
+      "prompt": "he was",
+      "before": "on by",
+      "answer": "ł",
+      "after": "",
+      "result": "on był",
+      "note": "masculine past"
+    },
+    {
+      "id": "pl_past_she_was_ona_była",
+      "type": "past",
+      "prompt": "she was",
+      "before": "ona by",
+      "answer": "ła",
+      "after": "",
+      "result": "ona była",
+      "note": "feminine past"
+    }
+  ],
+  "reference": {
+    "title": "Poland",
+    "country": "Poland",
+    "flag": {
+      "title": "Flaga Polski",
+      "asset": "packages/polish/assets/flag.svg",
+      "colorsLocal": "Biały · Czerwony",
+      "translationLabel": "White · Red",
+      "label": "Flaga Polski: biały i czerwony",
+      "descriptionLocal": "Flaga Polski jest biało-czerwona.",
+      "translation": "The Polish flag is white and red."
+    },
+    "anthem": {
+      "title": "Hymn państwowy",
+      "name": "Mazurek Dąbrowskiego",
+      "description": "The national anthem of Poland is “Mazurek Dąbrowskiego”."
+    },
+    "facts": [
+      {
+        "id": "capital",
+        "label": "Stolica",
+        "value": "Stolicą Polski jest Warszawa.",
+        "translation": "The capital of Poland is Warsaw."
+      },
+      {
+        "id": "national-day",
+        "label": "Święto narodowe",
+        "value": "Narodowe Święto Niepodległości przypada 11 listopada.",
+        "translation": "Poland's National Independence Day is 11 November."
+      },
+      {
+        "id": "constitution-day",
+        "label": "Święto Konstytucji",
+        "value": "Święto Narodowe Trzeciego Maja przypada 3 maja.",
+        "translation": "Constitution Day is observed on 3 May."
+      },
+      {
+        "id": "official-language",
+        "label": "Język urzędowy",
+        "value": "Językiem urzędowym jest język polski.",
+        "translation": "The official language is Polish."
+      },
+      {
+        "id": "european-union",
+        "label": "Unia Europejska",
+        "value": "Polska jest państwem członkowskim Unii Europejskiej.",
+        "translation": "Poland is a member state of the European Union."
+      }
+    ]
+  }
+}
