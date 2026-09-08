@@ -50,6 +50,24 @@ button:disabled {
   padding: 1rem;
 }
 
+.toast {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  z-index: 20;
+  max-width: min(92vw, 24rem);
+  transform: translateX(-50%);
+  border: 1px solid rgba(37, 99, 90, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: var(--shadow);
+  color: var(--green-dark);
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 850;
+  pointer-events: none;
+}
+
 .topbar,
 .exercise-header {
   display: flex;
@@ -726,10 +744,16 @@ h1 {
 .translate-feedback {
   display: grid;
   gap: 0.3rem;
+  overflow-wrap: anywhere;
 }
 
 .translate-feedback p {
   margin: 0;
+}
+
+.translate-next-button {
+  width: fit-content;
+  margin-top: 0.15rem;
 }
 
 .gap-input {

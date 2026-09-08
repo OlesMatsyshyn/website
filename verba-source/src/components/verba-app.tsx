@@ -73,8 +73,10 @@ export function VerbaApp() {
   const [requestedPackageId, setRequestedPackageId] = useState("");
   const [busyPackageId, setBusyPackageId] = useState("");
   const [libraryMessage, setLibraryMessage] = useState("");
+  const [homeToast, setHomeToast] = useState("");
   const [importKind, setImportKind] = useState<ImportKind | null>(null);
   const [managePackageId, setManagePackageId] = useState("");
+  const homeToastTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -118,6 +120,12 @@ export function VerbaApp() {
     });
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (homeToastTimeout.current) window.clearTimeout(homeToastTimeout.current);
+    };
+  }, []);
+
   const baseActivePackage = installed.find((item) => item.metadata.id === activePackageId) ?? null;
   const activePackage = baseActivePackage ? mergeCustomContent(baseActivePackage, customContent[baseActivePackage.metadata.id]) : null;
   const totals = activePackage ? progressTotals(progress, activePackage.metadata.id) : { attempts: 0, correct: 0, incorrect: 0, weak: 0 };
@@ -152,6 +160,12 @@ export function VerbaApp() {
   function goHome() {
     setPractice(null);
     setScreen("home");
+  }
+
+  function showHomeToast(message: string) {
+    setHomeToast(message);
+    if (homeToastTimeout.current) window.clearTimeout(homeToastTimeout.current);
+    homeToastTimeout.current = window.setTimeout(() => setHomeToast(""), 2000);
   }
 
   async function refreshInstalled(nextCatalog = catalog) {
@@ -201,8 +215,10 @@ export function VerbaApp() {
   function usePackage(packageId: string) {
     setActivePackageId(packageId);
     saveActivePackageId(packageId);
-    setLibraryMessage("Active package updated.");
+    const selected = installed.find((item) => item.metadata.id === packageId);
+    setLibraryMessage("");
     setScreen("home");
+    showHomeToast(`Using ${packageToastLabel(selected)}`);
   }
 
   async function createUserPackage(options: { title: string; language?: string; languageCode?: string; variant?: string }) {
@@ -256,6 +272,11 @@ export function VerbaApp() {
 
   return (
     <main className="app-shell">
+      {homeToast && (
+        <div className="toast" role="status" aria-live="polite">
+          {homeToast}
+        </div>
+      )}
       <header className="topbar">
         <button className="brand-button" type="button" onClick={goHome} aria-label="Vérba home">
           <img src={withBasePath("/icons/verba.svg")} alt="" width="44" height="44" />
@@ -635,6 +656,11 @@ function referenceSummary(reference: CivicReference) {
   return sections.join(" · ");
 }
 
+function packageToastLabel(coursePackage: CoursePackage | undefined) {
+  if (!coursePackage) return "package";
+  return coursePackage.metadata.title.replace(/\s*·\s*Starter$/u, "");
+}
+
 function LibraryScreen({
   catalog,
   installed,
@@ -735,7 +761,7 @@ function LibraryScreen({
                   </div>
                   <div className="package-actions">
                     <span className="installed-label">{isActive ? "Active" : "Local"}</span>
-                    <button className="ghost-button compact" type="button" onClick={() => onUse(coursePackage.metadata.id)} disabled={isActive}>
+                    <button className="ghost-button compact" type="button" onClick={() => onUse(coursePackage.metadata.id)}>
                       Use
                     </button>
                     <button className="ghost-button compact" type="button" onClick={() => onManageLocal(coursePackage.metadata.id)}>
@@ -775,7 +801,7 @@ function LibraryScreen({
                       {isInstalled ? (
                         <>
                           <span className="installed-label">{isActive ? "Active" : "Installed"}</span>
-                          <button className="ghost-button compact" type="button" onClick={() => onUse(item.id)} disabled={isActive}>
+                          <button className="ghost-button compact" type="button" onClick={() => onUse(item.id)}>
                             Use
                           </button>
                           <button className="ghost-button compact" type="button" onClick={() => onRemove(item.id)} disabled={busyPackageId === item.id}>
@@ -1351,6 +1377,7 @@ function TranslateExercise({
   }, []);
 
   function start() {
+    clearTranslateAdvanceTimer(advanceTimeout);
     const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, content.metadata.id);
     setQueue(nextQueue);
     setStarted(true);
@@ -1375,14 +1402,14 @@ function TranslateExercise({
     setCorrect(nextCorrect);
     setSessionWeak(nextWeak);
     setFeedback({ correct: isCorrect, exact: isExact, userAnswer: answer, expected });
+    clearTranslateAdvanceTimer(advanceTimeout);
     advanceTimeout.current = window.setTimeout(() => {
       advance(nextCorrect, nextWeak);
-    }, isCorrect ? 700 : 1400);
+    }, translateFeedbackDelay(isCorrect, expected, answer));
   }
 
   function advance(nextCorrect = correct, nextWeak = sessionWeak) {
-    if (advanceTimeout.current) window.clearTimeout(advanceTimeout.current);
-    advanceTimeout.current = null;
+    clearTranslateAdvanceTimer(advanceTimeout);
     if (currentIndex + 1 >= queue.length) {
       const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, queue.length)));
       setResults({ correct: nextCorrect, attempts: queue.length, weak });
@@ -1490,6 +1517,11 @@ function TranslateExercise({
               {feedback.correct ? "✓ Correct:" : "✗ Correct:"} <strong>{feedback.expected}</strong>
             </p>
             {!feedback.correct && <p>Your answer: {feedback.userAnswer || "(blank)"}</p>}
+            {!feedback.correct && (
+              <button className="ghost-button compact translate-next-button" type="button" onClick={() => advance()}>
+                Next
+              </button>
+            )}
           </div>
         )}
       </article>
@@ -2132,6 +2164,18 @@ function translateAnswerMatches(input: string, answer: string, tolerant: boolean
   const normalizedAnswer = normalizeTranslateAnswer(answer);
   if (normalizedInput === normalizedAnswer) return true;
   return answerMatches(normalizedInput, normalizedAnswer, tolerant, substitutions);
+}
+
+function translateFeedbackDelay(isCorrect: boolean, expected: string, userAnswer: string) {
+  if (isCorrect) return 700;
+  const textLength = Math.max(expected.trim().length, userAnswer.trim().length);
+  return Math.min(6000, 2500 + textLength * 35);
+}
+
+function clearTranslateAdvanceTimer(timer: { current: number | null }) {
+  if (!timer.current) return;
+  window.clearTimeout(timer.current);
+  timer.current = null;
 }
 
 function normalizeTranslateAnswer(value: string) {
