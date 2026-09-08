@@ -1,7 +1,15 @@
 const STORAGE_KEY = "verba.progress.v2";
 const LEGACY_STORAGE_KEY = "verba.progress.v1";
 
-export type PracticeKind = "match" | "text" | "forms";
+export type PracticeKind = "match" | "translate" | "text" | "forms";
+
+export type TranslateDirectionKey = "termToTranslation" | "translationToTerm";
+
+type DirectionProgress = {
+  attempts: number;
+  correct: number;
+  incorrect: number;
+};
 
 export type ItemProgress = {
   attempts: number;
@@ -11,11 +19,14 @@ export type ItemProgress = {
   earlyMatches?: number;
   lateMatches?: number;
   confidence?: number;
+  termToTranslation?: DirectionProgress;
+  translationToTerm?: DirectionProgress;
   lastPracticed: string | null;
 };
 
 export type PackageProgress = {
   match: Record<string, ItemProgress>;
+  translate: Record<string, ItemProgress>;
   text: Record<string, ItemProgress>;
   forms: Record<string, ItemProgress>;
 };
@@ -27,6 +38,7 @@ export type VerbaProgress = {
 
 const emptyPackageProgress = (): PackageProgress => ({
   match: {},
+  translate: {},
   text: {},
   forms: {},
 });
@@ -142,6 +154,54 @@ export function recordMatchAttempt(
   };
 }
 
+export function recordTranslateAttempt(
+  progress: VerbaProgress,
+  packageId: string,
+  itemId: string,
+  wasCorrect: boolean,
+  wasExact: boolean,
+  direction: TranslateDirectionKey,
+): VerbaProgress {
+  const packageProgress = progress.packages[packageId] ?? emptyPackageProgress();
+  const current = packageProgress.translate[itemId] ?? {
+    attempts: 0,
+    correct: 0,
+    incorrect: 0,
+    mistakes: 0,
+    confidence: 0,
+    lastPracticed: null,
+  };
+  const currentDirection = current[direction] ?? { attempts: 0, correct: 0, incorrect: 0 };
+  const confidenceDelta = wasCorrect ? (wasExact ? 1.8 : 1.2) : -4;
+
+  return {
+    ...progress,
+    packages: {
+      ...progress.packages,
+      [packageId]: {
+        ...packageProgress,
+        translate: {
+          ...packageProgress.translate,
+          [itemId]: {
+            ...current,
+            attempts: current.attempts + 1,
+            correct: current.correct + (wasCorrect ? 1 : 0),
+            incorrect: current.incorrect + (wasCorrect ? 0 : 1),
+            mistakes: current.mistakes + (wasCorrect ? 0 : 1),
+            confidence: Math.max(-20, Math.min(20, (current.confidence ?? 0) + confidenceDelta)),
+            [direction]: {
+              attempts: currentDirection.attempts + 1,
+              correct: currentDirection.correct + (wasCorrect ? 1 : 0),
+              incorrect: currentDirection.incorrect + (wasCorrect ? 0 : 1),
+            },
+            lastPracticed: new Date().toISOString(),
+          },
+        },
+      },
+    },
+  };
+}
+
 export function weakItems(progress: VerbaProgress, packageId: string, kind: PracticeKind) {
   return Object.entries((progress.packages[packageId] ?? emptyPackageProgress())[kind])
     .filter(([, item]) => item.mistakes > 0 || (item.confidence ?? 0) < 0 || (item.lateMatches ?? 0) > (item.earlyMatches ?? 0))
@@ -151,7 +211,7 @@ export function weakItems(progress: VerbaProgress, packageId: string, kind: Prac
 
 export function progressTotals(progress: VerbaProgress, packageId: string) {
   const groups = progress.packages[packageId] ?? emptyPackageProgress();
-  const all = [...Object.values(groups.match), ...Object.values(groups.text), ...Object.values(groups.forms)];
+  const all = [...Object.values(groups.match), ...Object.values(groups.translate), ...Object.values(groups.text), ...Object.values(groups.forms)];
   return all.reduce(
     (total, item) => ({
       attempts: total.attempts + item.attempts,
@@ -166,13 +226,18 @@ export function progressTotals(progress: VerbaProgress, packageId: string) {
 function normalizePackages(packages: unknown): Record<string, PackageProgress> {
   if (!packages || typeof packages !== "object") return {};
   return Object.fromEntries(
-    Object.entries(packages as Record<string, Partial<PackageProgress>>).map(([packageId, value]) => [
-      packageId,
-      {
-        ...emptyPackageProgress(),
-        ...value,
-      },
-    ]),
+    Object.entries(packages as Record<string, Partial<PackageProgress>>).map(([packageId, value]) => {
+      const fallback = emptyPackageProgress();
+      return [
+        packageId,
+        {
+          match: value.match ?? fallback.match,
+          translate: value.translate ?? fallback.translate,
+          text: value.text ?? fallback.text,
+          forms: value.forms ?? fallback.forms,
+        },
+      ];
+    }),
   );
 }
 
@@ -213,6 +278,7 @@ function migrateLegacyProgress(): VerbaProgress {
       packages: {
         "romanian-starter": {
           match: romanian.match ?? {},
+          translate: {},
           text: romanian.text ?? {},
           forms: romanian.endings ?? {},
         },

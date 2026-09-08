@@ -7,10 +7,11 @@
     "level": 0,
     "title": "Literary English · Starter",
     "description": "Formal and literary English often encountered in classic prose.",
-    "version": 11,
+    "version": 12,
     "wordCount": 1000,
     "textCount": 0,
-    "formCount": 0
+    "formCount": 0,
+    "preferredTranslateDirection": "translation-to-term"
   },
   "words": [
     {

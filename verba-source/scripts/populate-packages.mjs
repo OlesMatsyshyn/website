@@ -3,12 +3,28 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "public", "packages");
-const packageVersion = 11;
+const packageVersion = 12;
 
 const meta = {
   "english-starter": ["British English", "en-GB", "General", "British English · Starter", "British English vocabulary, short texts, and common forms.", {}],
-  "english-medical-starter": ["English", "en-med", "Medical", "Medical English · Starter", "Practical medical and scientific English with plain definitions.", {}],
-  "english-literature-starter": ["English", "en-lit", "Literary", "Literary English · Starter", "Formal and literary English often encountered in classic prose.", {}],
+  "english-medical-starter": [
+    "English",
+    "en-med",
+    "Medical",
+    "Medical English · Starter",
+    "Practical medical and scientific English with plain definitions.",
+    {},
+    { preferredTranslateDirection: "translation-to-term" },
+  ],
+  "english-literature-starter": [
+    "English",
+    "en-lit",
+    "Literary",
+    "Literary English · Starter",
+    "Formal and literary English often encountered in classic prose.",
+    {},
+    { preferredTranslateDirection: "translation-to-term" },
+  ],
   "german-starter": ["German", "de", "General", "German · Starter", "Useful German vocabulary, short texts, and core grammar forms.", { "ä": ["a"], "ö": ["o"], "ü": ["u"], "ß": ["ss"] }],
   "french-starter": ["French", "fr", "General", "French · Starter", "Useful French vocabulary, short texts, and core grammar forms.", { "é": ["e"], "è": ["e"], "ê": ["e"], "ç": ["c"], "à": ["a"], "ù": ["u"], "î": ["i"], "ô": ["o"] }],
   "polish-starter": ["Polish", "pl", "General", "Polish · Starter", "Useful Polish vocabulary, short texts, and core grammar forms.", { "ą": ["a"], "ć": ["c"], "ę": ["e"], "ł": ["l"], "ń": ["n"], "ó": ["o"], "ś": ["s"], "ż": ["z"], "ź": ["z"] }],
@@ -562,7 +578,7 @@ function uniqueById(items) {
 }
 
 function savePackage(id, additions) {
-  const [language, languageCode, variant, title, description, characterSubstitutions] = meta[id];
+  const [language, languageCode, variant, title, description, characterSubstitutions, extraMetadata = {}] = meta[id];
   const pkg = {
     metadata: {
       id,
@@ -577,6 +593,7 @@ function savePackage(id, additions) {
       textCount: 0,
       formCount: 0,
       ...(Object.keys(characterSubstitutions).length ? { characterSubstitutions } : {}),
+      ...extraMetadata,
     },
     words: uniqueById(additions.words),
     texts: uniqueById(additions.texts),

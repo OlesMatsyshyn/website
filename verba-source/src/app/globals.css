@@ -162,6 +162,7 @@ h1 {
 .panel,
 .stat-card,
 .text-card,
+.translate-card,
 .ending-card {
   border: 1px solid var(--line);
   border-radius: 1.35rem;
@@ -190,6 +191,15 @@ h1 {
 .progress-strip small {
   color: rgba(24, 51, 47, 0.72);
   font-size: 1rem;
+}
+
+.vocabulary-mode-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.compact-mode-card {
+  min-height: 5.9rem;
 }
 
 .primary-card {
@@ -562,6 +572,12 @@ h1 {
   margin: 0;
 }
 
+.import-helper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .examples-toggle {
   width: fit-content;
 }
@@ -661,6 +677,59 @@ h1 {
   padding: 1.1rem;
   font-size: 1.18rem;
   line-height: 2.25;
+}
+
+.translate-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.15rem;
+}
+
+.translate-card h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 7vw, 2.4rem);
+  line-height: 1.12;
+}
+
+.translate-card.is-right {
+  border-color: #2f8c65;
+  background: #e3f7e9;
+}
+
+.translate-card.is-wrong {
+  border-color: #bf473d;
+  background: #ffe4df;
+}
+
+.translate-answer {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.translate-answer span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.translate-answer input {
+  width: 100%;
+  min-height: 3.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  background: white;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.translate-feedback {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.translate-feedback p {
+  margin: 0;
 }
 
 .gap-input {
@@ -786,6 +855,10 @@ h1 {
 
   .exercise-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vocabulary-mode-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .exercise-card {

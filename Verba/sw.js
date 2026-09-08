@@ -1,4 +1,4 @@
-const CACHE_VERSION = "verba-v15";
+const CACHE_VERSION = "verba-v17";
 const PACKAGE_ASSET_CACHE = "verba-package-assets-v2";
 const CORE_ASSETS = [
   "./",
@@ -7,13 +7,13 @@ const CORE_ASSETS = [
   "./icons/verba-192.png",
   "./icons/verba-512.png",
   "./packages/catalog.json",
-  "./_next/static/chunks/04crh1a1xdjlt.css",
+  "./_next/static/chunks/42dtkvd1evz-9.css",
   "./_next/static/chunks/1q3jxv4k22mzw.js",
   "./_next/static/chunks/2m7g1n7woz_7n.js",
   "./_next/static/chunks/1qxpuizk7zz82.js",
   "./_next/static/chunks/turbopack-2b2m7ur_qx03m.js",
   "./_next/static/chunks/0x662v0g_zpv0.js",
-  "./_next/static/chunks/2mfxhx8msyjg2.js",
+  "./_next/static/chunks/3v9a43sc0w_s5.js",
   "./_next/static/chunks/0cz1d0mv5g_q7.js"
 ];
 

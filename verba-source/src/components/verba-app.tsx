@@ -28,15 +28,18 @@ import {
   readProgress,
   recordAttempt,
   recordMatchAttempt,
+  recordTranslateAttempt,
   saveProgress,
   weakItems,
   itemWeaknessScore,
   type ItemProgress,
   type PracticeKind,
+  type TranslateDirectionKey,
   type VerbaProgress,
 } from "@/lib/progress";
 import type {
   AnthemReference,
+  CharacterSubstitutions,
   CivicReference,
   CorrectionMode,
   CoursePackage,
@@ -49,10 +52,12 @@ import type {
   CustomPackageContent,
 } from "@/lib/types";
 
-type Screen = "home" | "match" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
+type Screen = "home" | "words" | "match" | "translate" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
 type ImportKind = "words" | "texts" | "forms";
+type TranslateDirection = "term-to-translation" | "translation-to-term" | "mixed";
 
 const pairOptions = [3, 5, 10, 20];
+const translateQuestionOptions = [5, 10, 20, 50];
 const textLevels = [1, 2, 3, 4, 5] as const;
 const sessionSize = 10;
 
@@ -130,6 +135,15 @@ export function VerbaApp() {
     if (!activePackage) return;
     setProgress((current) => {
       const next = recordMatchAttempt(current, activePackage.metadata.id, itemId, wasCorrect, rank, total);
+      saveProgress(next);
+      return next;
+    });
+  }
+
+  function recordTranslate(itemId: string, wasCorrect: boolean, wasExact: boolean, direction: TranslateDirectionKey) {
+    if (!activePackage) return;
+    setProgress((current) => {
+      const next = recordTranslateAttempt(current, activePackage.metadata.id, itemId, wasCorrect, wasExact, direction);
       saveProgress(next);
       return next;
     });
@@ -334,6 +348,23 @@ export function VerbaApp() {
         <AnthemScreen anthem={activePackage.reference.anthem} onBack={() => setScreen("reference")} />
       )}
 
+      {activePackage && screen === "words" && (
+        <WordsScreen
+          packageTitle={activePackage.metadata.title}
+          wordCount={activePackage.words.length}
+          onBack={goHome}
+          onMatch={() => {
+            setPractice(null);
+            setScreen("match");
+          }}
+          onTranslate={() => {
+            setPractice(null);
+            setScreen("translate");
+          }}
+          onAddContent={() => setImportKind("words")}
+        />
+      )}
+
       {activePackage && screen === "match" && (
         <MatchExercise
           key={`${activePackage.metadata.id}-match-${practice?.kind === "match" ? practice.ids.join("-") : "fresh"}`}
@@ -342,9 +373,24 @@ export function VerbaApp() {
           words={activePackage.words}
           languageLabel={activePackage.metadata.language}
           matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
+          translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "match", ids })}
           onRecordMatch={recordMatch}
+          onAddContent={() => setImportKind("words")}
+        />
+      )}
+
+      {activePackage && screen === "translate" && (
+        <TranslateExercise
+          key={`${activePackage.metadata.id}-translate-${practice?.kind === "translate" ? practice.ids.join("-") : "fresh"}`}
+          content={activePackage}
+          practiceIds={practice?.kind === "translate" ? practice.ids : []}
+          translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
+          matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
+          onBack={goHome}
+          onPracticeMistakes={(ids) => setPractice({ kind: "translate", ids })}
+          onRecordTranslate={recordTranslate}
           onAddContent={() => setImportKind("words")}
         />
       )}
@@ -378,7 +424,7 @@ export function VerbaApp() {
       {importKind && activePackage && (
         <ImportDialog
           kind={importKind}
-          packageTitle={activePackage.metadata.title}
+          activePackage={activePackage}
           onCancel={() => setImportKind(null)}
           onImport={async (raw) => importCustomEntries(importKind, raw)}
         />
@@ -416,8 +462,8 @@ function HomeScreen({
       </div>
 
       <div className="exercise-grid">
-        <button className="exercise-card primary-card" type="button" onClick={() => onOpen("match")}>
-          <span>Match</span>
+        <button className="exercise-card primary-card" type="button" onClick={() => onOpen("words")}>
+          <span>Words</span>
           <small>Vocabulary</small>
         </button>
         <button className="exercise-card warm-card" type="button" onClick={() => onOpen("text")}>
@@ -442,6 +488,42 @@ function HomeScreen({
           <em>Open</em>
         </button>
       )}
+    </section>
+  );
+}
+
+function WordsScreen({
+  packageTitle,
+  wordCount,
+  onBack,
+  onMatch,
+  onTranslate,
+  onAddContent,
+}: {
+  packageTitle: string;
+  wordCount: number;
+  onBack: () => void;
+  onMatch: () => void;
+  onTranslate: () => void;
+  onAddContent: () => void;
+}) {
+  return (
+    <section className="workout">
+      <ExerciseHeader title="Words" onBack={onBack} meta={packageTitle} />
+      <div className="vocabulary-mode-grid">
+        <button className="exercise-card primary-card compact-mode-card" type="button" onClick={onMatch} disabled={!wordCount}>
+          <span>Match</span>
+          <small>Match vocabulary pairs.</small>
+        </button>
+        <button className="exercise-card warm-card compact-mode-card" type="button" onClick={onTranslate} disabled={!wordCount}>
+          <span>Translate</span>
+          <small>Type the other side from memory.</small>
+        </button>
+      </div>
+      {!wordCount && <p className="setup-help">No vocabulary yet. Add words manually to start practicing this package.</p>}
+      <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+        Add words manually
+      </button>
     </section>
   );
 }
@@ -837,19 +919,28 @@ function LocalContentSection<T extends { id: string }>({
 
 function ImportDialog({
   kind,
-  packageTitle,
+  activePackage,
   onCancel,
   onImport,
 }: {
   kind: ImportKind;
-  packageTitle: string;
+  activePackage: CoursePackage;
   onCancel: () => void;
   onImport: (raw: string) => Promise<{ added: number; duplicates: number; ignored: number }>;
 }) {
   const [raw, setRaw] = useState("");
   const [showExamples, setShowExamples] = useState(false);
   const [summary, setSummary] = useState("");
+  const [clipboardMessage, setClipboardMessage] = useState("");
   const [isImporting, setIsImporting] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const messageTimeout = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (messageTimeout.current) window.clearTimeout(messageTimeout.current);
+    };
+  }, []);
 
   async function submit() {
     setIsImporting(true);
@@ -862,12 +953,44 @@ function ImportDialog({
     }
   }
 
+  function showClipboardMessage(message: string) {
+    setClipboardMessage(message);
+    if (messageTimeout.current) window.clearTimeout(messageTimeout.current);
+    messageTimeout.current = window.setTimeout(() => setClipboardMessage(""), 1600);
+  }
+
+  async function copyTemplate() {
+    try {
+      await navigator.clipboard.writeText(importTemplate(kind, activePackage));
+      showClipboardMessage("Copied");
+    } catch {
+      showClipboardMessage("Clipboard access was blocked. Select the template text and copy it manually.");
+    }
+  }
+
+  async function pasteFromClipboard() {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (!text) {
+        showClipboardMessage("Clipboard is empty. Copy some text, then try again.");
+        window.setTimeout(() => textareaRef.current?.focus(), 0);
+        return;
+      }
+      setRaw(text);
+      showClipboardMessage("Pasted");
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
+    } catch {
+      showClipboardMessage("Clipboard access was blocked. Click the text box and press Ctrl+V.");
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
+    }
+  }
+
   return (
     <div className="modal-backdrop" role="presentation">
       <section className="import-dialog" role="dialog" aria-modal="true" aria-label={`Add ${kind} manually`}>
         <header className="import-header">
           <div>
-            <p className="eyebrow">{packageTitle}</p>
+            <p className="eyebrow">{activePackage.metadata.title}</p>
             <h2>Add {kind} manually</h2>
           </div>
           <button className="ghost-button compact" type="button" onClick={onCancel}>
@@ -875,11 +998,32 @@ function ImportDialog({
           </button>
         </header>
         <p className="setup-help">{importHelp(kind)}</p>
-        <button className="ghost-button compact examples-toggle" type="button" onClick={() => setShowExamples((value) => !value)}>
-          {showExamples ? "Hide examples" : "Show format"}
-        </button>
+        <div className="import-helper-actions">
+          <button className="ghost-button compact examples-toggle" type="button" onClick={() => setShowExamples((value) => !value)}>
+            {showExamples ? "Hide examples" : "Show format"}
+          </button>
+          <button className="ghost-button compact" type="button" onClick={copyTemplate}>
+            Copy template
+          </button>
+          <button className="ghost-button compact" type="button" onClick={pasteFromClipboard}>
+            Paste from clipboard
+          </button>
+        </div>
         {showExamples && <pre className="format-example">{importExample(kind)}</pre>}
-        <textarea value={raw} onChange={(event) => setRaw(event.target.value)} rows={10} spellCheck={false} />
+        <textarea
+          ref={textareaRef}
+          value={raw}
+          onChange={(event) => setRaw(event.target.value)}
+          onKeyDown={(event) => {
+            if ((event.ctrlKey || event.metaKey) && event.key === "Enter" && raw.trim() && !isImporting) {
+              event.preventDefault();
+              void submit();
+            }
+          }}
+          rows={10}
+          spellCheck={false}
+        />
+        {clipboardMessage && <p className="library-message">{clipboardMessage}</p>}
         {summary && <p className="library-message">{summary}</p>}
         <button className="primary-button" type="button" onClick={submit} disabled={!raw.trim() || isImporting}>
           {isImporting ? "Importing" : "Import"}
@@ -895,6 +1039,7 @@ function MatchExercise({
   packageTitle,
   languageLabel,
   matchProgress,
+  translateProgress,
   onBack,
   onAddContent,
   onPracticeMistakes,
@@ -905,6 +1050,7 @@ function MatchExercise({
   packageTitle: string;
   languageLabel: string;
   matchProgress: Record<string, ItemProgress>;
+  translateProgress: Record<string, ItemProgress>;
   onBack: () => void;
   onAddContent: () => void;
   onPracticeMistakes: (ids: string[]) => void;
@@ -947,7 +1093,7 @@ function MatchExercise({
   function beginRound(roundNumber: number, weakMap = sessionWeak, alreadySeen = seenIds) {
     shuffleSeedRef.current += 1;
     const shuffleSalt = `${roundNumber}-${shuffleSeedRef.current}`;
-    const selected = sampleMatchRound(words, practiceIds, pairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, shuffleSalt);
+    const selected = sampleMatchRound(words, practiceIds, pairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, translateProgress, shuffleSalt);
     const nextSeen = Array.from(new Set([...alreadySeen, ...selected.map((word) => word.id)]));
     setCurrentRound(roundNumber);
     setRoundWords(selected);
@@ -1048,7 +1194,11 @@ function MatchExercise({
 
     window.setTimeout(() => {
       if (currentRound >= roundCount) {
-        setResults({ correct: nextCorrect, attempts: nextCorrect + nextMistakes, weak: Object.keys(nextWeak) });
+        setResults({
+          correct: nextCorrect,
+          attempts: nextCorrect + nextMistakes,
+          weak: selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, roundWords.length * roundCount))),
+        });
         setAdvancing(false);
         return;
       }
@@ -1154,6 +1304,198 @@ function MatchExercise({
           Submit
         </button>
       )}
+    </section>
+  );
+}
+
+function TranslateExercise({
+  content,
+  practiceIds,
+  translateProgress,
+  matchProgress,
+  onBack,
+  onAddContent,
+  onPracticeMistakes,
+  onRecordTranslate,
+}: {
+  content: CoursePackage;
+  practiceIds: string[];
+  translateProgress: Record<string, ItemProgress>;
+  matchProgress: Record<string, ItemProgress>;
+  onBack: () => void;
+  onAddContent: () => void;
+  onPracticeMistakes: (ids: string[]) => void;
+  onRecordTranslate: (itemId: string, wasCorrect: boolean, wasExact: boolean, direction: TranslateDirectionKey) => void;
+}) {
+  const preferredDirection = content.metadata.preferredTranslateDirection ?? "mixed";
+  const [direction, setDirection] = useState<TranslateDirection>(practiceIds.length ? "mixed" : preferredDirection);
+  const [mode, setMode] = useState<EndingMode>("tolerant");
+  const [questionCount, setQuestionCount] = useState(10);
+  const [started, setStarted] = useState(false);
+  const [queue, setQueue] = useState<TranslateQuestion[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState<TranslateFeedback | null>(null);
+  const [correct, setCorrect] = useState(0);
+  const [sessionWeak, setSessionWeak] = useState<Record<string, number>>({});
+  const [results, setResults] = useState<{ correct: number; attempts: number; weak: string[] } | null>(null);
+  const advanceTimeout = useRef<number | null>(null);
+  const words = content.words;
+  const directionLabels = translateDirectionLabels(content);
+  const current = queue[currentIndex];
+
+  useEffect(() => {
+    return () => {
+      if (advanceTimeout.current) window.clearTimeout(advanceTimeout.current);
+    };
+  }, []);
+
+  function start() {
+    const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, content.metadata.id);
+    setQueue(nextQueue);
+    setStarted(true);
+    setCurrentIndex(0);
+    setAnswer("");
+    setFeedback(null);
+    setCorrect(0);
+    setSessionWeak({});
+    setResults(null);
+  }
+
+  function check() {
+    if (!current || feedback) return;
+    const expected = translateExpected(current);
+    const isExact = normalizeTranslateAnswer(answer) === normalizeTranslateAnswer(expected);
+    const isCorrect = isExact || (mode === "tolerant" && translateAnswerMatches(answer, expected, true, content.metadata.characterSubstitutions));
+    const directionKey = translateDirectionKey(current.direction);
+    onRecordTranslate(current.word.id, isCorrect, isExact, directionKey);
+    const nextCorrect = correct + (isCorrect ? 1 : 0);
+    const weaknessDelta = isCorrect ? (isExact ? 0 : 0.8) : 5;
+    const nextWeak = weaknessDelta > 0 ? { ...sessionWeak, [current.word.id]: (sessionWeak[current.word.id] ?? 0) + weaknessDelta } : sessionWeak;
+    setCorrect(nextCorrect);
+    setSessionWeak(nextWeak);
+    setFeedback({ correct: isCorrect, exact: isExact, userAnswer: answer, expected });
+    advanceTimeout.current = window.setTimeout(() => {
+      advance(nextCorrect, nextWeak);
+    }, isCorrect ? 700 : 1400);
+  }
+
+  function advance(nextCorrect = correct, nextWeak = sessionWeak) {
+    if (advanceTimeout.current) window.clearTimeout(advanceTimeout.current);
+    advanceTimeout.current = null;
+    if (currentIndex + 1 >= queue.length) {
+      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, queue.length)));
+      setResults({ correct: nextCorrect, attempts: queue.length, weak });
+      return;
+    }
+    setCurrentIndex((index) => index + 1);
+    setAnswer("");
+    setFeedback(null);
+  }
+
+  if (!started) {
+    return (
+      <SetupPanel title="Translate" onBack={onBack} onStart={start} startDisabled={!words.length}>
+        <p className="setup-package">{content.metadata.title}</p>
+        <Segmented
+          label="Direction"
+          options={["term-to-translation", "translation-to-term", "mixed"]}
+          labels={directionLabels}
+          value={direction}
+          onChange={(value) => setDirection(value as TranslateDirection)}
+        />
+        <p className="setup-help">{translateDirectionHelp(direction, directionLabels)}</p>
+        <Segmented label="Questions" options={translateQuestionOptions.map(String)} value={String(questionCount)} onChange={(value) => setQuestionCount(Number(value))} />
+        <p className="setup-help">Number of typed translations in this session.</p>
+        <Segmented
+          label="Answer checking"
+          options={["tolerant", "strict"]}
+          labels={{ tolerant: "Tolerant", strict: "Strict" }}
+          value={mode}
+          onChange={(value) => setMode(value as EndingMode)}
+        />
+        <p className="setup-help">
+          {mode === "tolerant" ? "Allows configured keyboard/diacritic equivalents." : "Exact spelling and characters required, ignoring capitalization."}
+        </p>
+        {!words.length && <p className="setup-help">No vocabulary yet. Add words manually to start practicing this package.</p>}
+        <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+          Add words manually
+        </button>
+      </SetupPanel>
+    );
+  }
+
+  if (results) {
+    const weakNames = results.weak.map((id) => termForWord(words.find((word) => word.id === id) ?? { id, term: id, translation: id }));
+    return (
+      <ResultsPanel
+        title="Translate results"
+        correct={results.correct}
+        attempts={results.attempts}
+        mistakes={results.attempts - results.correct}
+        weak={weakNames}
+        onBack={onBack}
+        backLabel="Finish"
+        practiceLabel="Practice weak words"
+        onPracticeMistakes={results.weak.length ? () => onPracticeMistakes(results.weak) : undefined}
+      />
+    );
+  }
+
+  if (!current) {
+    return (
+      <section className="workout">
+        <ExerciseHeader title="Translate" onBack={onBack} meta={content.metadata.title} />
+        <div className="panel">
+          <h2>No vocabulary yet.</h2>
+          <p>Add words manually to start practicing this package.</p>
+          <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+            Add words manually
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="workout">
+      <ExerciseHeader title="Translate" onBack={onBack} meta={`Question ${currentIndex + 1} of ${queue.length}`} />
+      <article className={`translate-card${feedback ? (feedback.correct ? " is-right" : " is-wrong") : ""}`}>
+        <p className="eyebrow">{directionLabels[current.direction]}</p>
+        <h2>{translatePrompt(current)}</h2>
+        <label className="translate-answer">
+          <span>Your answer</span>
+          <input
+            autoFocus
+            autoCapitalize="off"
+            autoCorrect="off"
+            value={answer}
+            onChange={(event) => setAnswer(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                if (feedback) {
+                  advance();
+                } else {
+                  check();
+                }
+              }
+            }}
+            disabled={Boolean(feedback)}
+          />
+        </label>
+        {feedback && (
+          <div className="translate-feedback">
+            <p>
+              {feedback.correct ? "✓ Correct:" : "✗ Correct:"} <strong>{feedback.expected}</strong>
+            </p>
+            {!feedback.correct && <p>Your answer: {feedback.userAnswer || "(blank)"}</p>}
+          </div>
+        )}
+      </article>
+      <button className="primary-button" type="button" onClick={feedback ? () => advance() : check} disabled={!answer.trim() && !feedback}>
+        {feedback ? "Next" : "Check"}
+      </button>
     </section>
   );
 }
@@ -1493,6 +1835,7 @@ function ProgressScreen({
   const packageId = content.metadata.id;
   const totals = progressTotals(progress, packageId);
   const weakMatch = weakItems(progress, packageId, "match");
+  const weakTranslate = weakItems(progress, packageId, "translate");
   const weakText = weakItems(progress, packageId, "text");
   const weakForms = weakItems(progress, packageId, "forms");
 
@@ -1510,6 +1853,12 @@ function ProgressScreen({
         ids={weakMatch}
         labelFor={(id) => termForWord(content.words.find((item) => item.id === id) ?? { id, term: id, translation: id })}
         onPractice={() => onPractice("match", weakMatch)}
+      />
+      <WeakPanel
+        title="Translate"
+        ids={weakTranslate}
+        labelFor={(id) => termForWord(content.words.find((item) => item.id === id) ?? { id, term: id, translation: id })}
+        onPractice={() => onPractice("translate", weakTranslate)}
       />
       <WeakPanel title="Text gaps" ids={weakText} labelFor={(id) => id.replace(":", " gap ")} onPractice={() => onPractice("text", weakText)} />
       <WeakPanel
@@ -1668,6 +2017,127 @@ function WeakPanel({
   );
 }
 
+type TranslateQuestion = {
+  word: WordPair;
+  direction: Exclude<TranslateDirection, "mixed">;
+};
+
+type TranslateFeedback = {
+  correct: boolean;
+  exact: boolean;
+  userAnswer: string;
+  expected: string;
+};
+
+function sampleTranslateQueue(
+  words: WordPair[],
+  practiceIds: string[],
+  questionCount: number,
+  direction: TranslateDirection,
+  translateProgress: Record<string, ItemProgress>,
+  matchProgress: Record<string, ItemProgress>,
+  packageId: string,
+): TranslateQuestion[] {
+  const pool = practiceIds.length ? words.filter((word) => practiceIds.includes(word.id)) : words;
+  if (!pool.length) return [];
+  const queue: TranslateQuestion[] = [];
+  let cycle = 0;
+  while (queue.length < questionCount) {
+    const salt = `translate-${packageId}-${cycle}-${Date.now()}`;
+    const ordered = stableShuffle(pool, salt).sort(
+      (a, b) => vocabularySelectionWeakness(b.id, translateProgress, matchProgress) - vocabularySelectionWeakness(a.id, translateProgress, matchProgress),
+    );
+    for (const word of ordered) {
+      if (queue.length >= questionCount) break;
+      if (queue.at(-1)?.word.id === word.id && ordered.length > 1) continue;
+      queue.push({ word, direction: chooseTranslateDirection(word.id, direction, translateProgress, salt) });
+    }
+    cycle += 1;
+  }
+  return queue;
+}
+
+function chooseTranslateDirection(
+  itemId: string,
+  direction: TranslateDirection,
+  translateProgress: Record<string, ItemProgress>,
+  salt: string,
+): Exclude<TranslateDirection, "mixed"> {
+  if (direction !== "mixed") return direction;
+  const item = translateProgress[itemId];
+  const termToTranslationWeakness = directionWeakness(item?.termToTranslation);
+  const translationToTermWeakness = directionWeakness(item?.translationToTerm);
+  if (Math.abs(termToTranslationWeakness - translationToTermWeakness) >= 0.2) {
+    return termToTranslationWeakness > translationToTermWeakness ? "term-to-translation" : "translation-to-term";
+  }
+  return stableShuffle(["term-to-translation", "translation-to-term"], `${itemId}-${salt}`)[0] as Exclude<TranslateDirection, "mixed">;
+}
+
+function directionWeakness(direction: ItemProgress[TranslateDirectionKey] | undefined) {
+  if (!direction || direction.attempts === 0) return 0.4;
+  return direction.incorrect * 2 + (1 - direction.correct / direction.attempts);
+}
+
+function vocabularySelectionWeakness(itemId: string, translateProgress: Record<string, ItemProgress>, matchProgress: Record<string, ItemProgress>) {
+  return itemWeaknessScore(translateProgress[itemId]) * 1.6 + itemWeaknessScore(matchProgress[itemId]);
+}
+
+function selectWeakVocabularyIds(
+  words: WordPair[],
+  sessionWeak: Record<string, number>,
+  translateProgress: Record<string, ItemProgress>,
+  matchProgress: Record<string, ItemProgress>,
+  limit: number,
+) {
+  return [...words]
+    .filter((word) => (sessionWeak[word.id] ?? 0) > 0 || vocabularySelectionWeakness(word.id, translateProgress, matchProgress) > 0)
+    .sort((a, b) => {
+      const left = (sessionWeak[b.id] ?? 0) * 2 + vocabularySelectionWeakness(b.id, translateProgress, matchProgress);
+      const right = (sessionWeak[a.id] ?? 0) * 2 + vocabularySelectionWeakness(a.id, translateProgress, matchProgress);
+      return left - right;
+    })
+    .slice(0, limit)
+    .map((word) => word.id);
+}
+
+function translateDirectionLabels(content: CoursePackage): Record<TranslateDirection, string> {
+  const target = content.metadata.languageCode.startsWith("en") ? "Term" : content.metadata.language;
+  const meaning = content.metadata.languageCode.startsWith("en") ? "Meaning" : "English";
+  return {
+    "term-to-translation": `${target} → ${meaning}`,
+    "translation-to-term": `${meaning} → ${target}`,
+    mixed: "Mixed",
+  };
+}
+
+function translateDirectionHelp(direction: TranslateDirection, labels: Record<TranslateDirection, string>) {
+  if (direction === "mixed") return "Randomly alternates directions, with more attention to the weaker side.";
+  return `Type the missing side: ${labels[direction]}.`;
+}
+
+function translatePrompt(question: TranslateQuestion) {
+  return question.direction === "term-to-translation" ? termForWord(question.word) : translationForWord(question.word);
+}
+
+function translateExpected(question: TranslateQuestion) {
+  return question.direction === "term-to-translation" ? translationForWord(question.word) : termForWord(question.word);
+}
+
+function translateDirectionKey(direction: Exclude<TranslateDirection, "mixed">): TranslateDirectionKey {
+  return direction === "term-to-translation" ? "termToTranslation" : "translationToTerm";
+}
+
+function translateAnswerMatches(input: string, answer: string, tolerant: boolean, substitutions: CharacterSubstitutions = {}) {
+  const normalizedInput = normalizeTranslateAnswer(input);
+  const normalizedAnswer = normalizeTranslateAnswer(answer);
+  if (normalizedInput === normalizedAnswer) return true;
+  return answerMatches(normalizedInput, normalizedAnswer, tolerant, substitutions);
+}
+
+function normalizeTranslateAnswer(value: string) {
+  return value.trim().replace(/\s+/g, " ").replace(/[.。]+$/u, "").toLocaleLowerCase();
+}
+
 function choiceClass(id: string, selected: boolean, done: boolean, feedback: { ids: string[]; state: "right" | "wrong" } | null) {
   const state = feedback?.ids.includes(id) ? ` is-${feedback.state}` : "";
   return `match-choice${selected ? " is-selected" : ""}${done ? " is-complete" : ""}${state}`;
@@ -1681,6 +2151,7 @@ function sampleMatchRound(
   weakMap: Record<string, number>,
   seenIds: string[],
   matchProgress: Record<string, ItemProgress>,
+  translateProgress: Record<string, ItemProgress>,
   seed: string,
 ) {
   const pool = practiceIds.length ? words.filter((word) => practiceIds.includes(word.id)) : words;
@@ -1690,11 +2161,11 @@ function sampleMatchRound(
   const weakCount = Math.min(Math.max(1, Math.floor(count / 5)), Math.max(0, count - 1));
   const weakWords = stableShuffle(
     [...pool]
-      .filter((word) => (weakMap[word.id] ?? 0) > 0 || itemWeaknessScore(matchProgress[word.id]) > 0)
-      .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress)),
+      .filter((word) => (weakMap[word.id] ?? 0) > 0 || itemWeaknessScore(matchProgress[word.id]) > 0 || itemWeaknessScore(translateProgress[word.id]) > 0)
+      .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, translateProgress)),
     `weak-${salt}`,
   )
-    .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress))
+    .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, translateProgress))
     .slice(0, weakCount);
   const selected = new Set(weakWords.map((word) => word.id));
   const unseenWords = stableShuffle(
@@ -1709,8 +2180,13 @@ function sampleMatchRound(
   return [...weakWords, ...unseenWords, ...repeatWords].slice(0, count);
 }
 
-function matchSelectionWeakness(id: string, sessionWeak: Record<string, number>, matchProgress: Record<string, ItemProgress>) {
-  return (sessionWeak[id] ?? 0) * 2 + itemWeaknessScore(matchProgress[id]);
+function matchSelectionWeakness(
+  id: string,
+  sessionWeak: Record<string, number>,
+  matchProgress: Record<string, ItemProgress>,
+  translateProgress: Record<string, ItemProgress>,
+) {
+  return (sessionWeak[id] ?? 0) * 2 + itemWeaknessScore(matchProgress[id]) + itemWeaknessScore(translateProgress[id]) * 1.4;
 }
 
 function matchRoundWeaknessSignal(wasCorrect: boolean, rank: number, total: number) {
@@ -1814,6 +2290,107 @@ the man is here -- [Der] Mann ist hier. -- masculine nominative definite article
 [
   { "prompt": "we work", "before": "noi lucr", "answer": "ăm", "after": "", "note": "present tense" }
 ]`;
+}
+
+function importTemplate(kind: ImportKind, activePackage: CoursePackage) {
+  if (kind === "words") return wordImportTemplate(activePackage);
+  if (kind === "texts") return textImportTemplate(activePackage);
+  return formsImportTemplate(activePackage);
+}
+
+function wordImportTemplate(activePackage: CoursePackage) {
+  const labels = vocabularySideLabels(activePackage);
+  return `Create vocabulary entries for ${activePackage.metadata.title} practice.
+
+Return ONLY one entry per line in this format:
+
+${labels.term} -- ${labels.translation}
+
+Example:
+${wordTemplateExamples(activePackage)}
+
+Do not number the lines.
+Do not add explanations.
+Use correct spelling${activePackage.metadata.characterSubstitutions ? " and diacritics" : ""}.`;
+}
+
+function textImportTemplate(activePackage: CoursePackage) {
+  const target = activePackage.metadata.language;
+  const explanation = activePackage.metadata.languageCode.startsWith("en") ? "EXPLANATION OR PARAPHRASE" : "ENGLISH TRANSLATION";
+  return `Create short practice texts in ${target}.
+
+Return ONLY one text per line using:
+
+TARGET TEXT -- ${explanation}
+
+Put braces around words that may become gaps.
+
+Example:
+${textTemplateExample(activePackage)}
+
+Do not number the entries.
+Do not add explanations outside the format.
+Use correct spelling${activePackage.metadata.characterSubstitutions ? " and diacritics" : ""}.`;
+}
+
+function formsImportTemplate(activePackage: CoursePackage) {
+  return `Create grammar-form exercises for ${activePackage.metadata.language}.
+
+Return ONLY one exercise per line using:
+
+PROMPT -- SENTENCE WITH [ANSWER] -- OPTIONAL NOTE
+
+Examples:
+we work -- noi lucr[ăm] -- present tense, first person plural
+the man is here -- [Der] Mann ist hier. -- masculine nominative definite article
+
+Exactly one answer must be placed inside [square brackets].
+Do not number the entries.
+Do not add explanations outside the format.`;
+}
+
+function vocabularySideLabels(activePackage: CoursePackage) {
+  if (activePackage.metadata.languageCode === "en-med") {
+    return { term: "Medical English term", translation: "concise definition" };
+  }
+  if (activePackage.metadata.languageCode === "en-lit") {
+    return { term: "Literary English term", translation: "concise modern definition" };
+  }
+  if (activePackage.metadata.languageCode.startsWith("en")) {
+    return { term: `${activePackage.metadata.language} term`, translation: "concise meaning" };
+  }
+  return { term: `${activePackage.metadata.language} word`, translation: "English translation" };
+}
+
+function wordTemplateExamples(activePackage: CoursePackage) {
+  if (activePackage.words.length) {
+    return activePackage.words
+      .slice(0, 3)
+      .map((word) => `${termForWord(word)} -- ${translationForWord(word)}`)
+      .join("\n");
+  }
+  if (activePackage.metadata.languageCode === "de") return "Haus -- house\nKind -- child\nBuch -- book";
+  if (activePackage.metadata.languageCode === "en-med") {
+    return "placental abruption -- premature separation of the placenta from the uterine wall\nuterine atony -- failure of the uterus to contract adequately after delivery";
+  }
+  if (activePackage.metadata.languageCode === "en-lit") {
+    return "countenance -- a person's face or facial expression\npecuniary -- relating to money or financial matters";
+  }
+  if (activePackage.metadata.languageCode === "nb") return "hus -- house\nbarn -- child\nbrød -- bread";
+  return "casă -- house\ncopil -- child\ncarte -- book";
+}
+
+function textTemplateExample(activePackage: CoursePackage) {
+  if (activePackage.texts.length) {
+    const text = activePackage.texts[0];
+    return `${text.text} -- ${text.translation || "brief explanation or translation"}`;
+  }
+  if (activePackage.metadata.languageCode === "de") return "Ich {wohne} in Berlin und {arbeite} heute. -- I live in Berlin and work today.";
+  if (activePackage.metadata.languageCode === "nb") return "Jeg {bor} i Oslo og {arbeider} i dag. -- I live in Oslo and work today.";
+  if (activePackage.metadata.languageCode.startsWith("en")) {
+    return "The patient reported {dyspnoea} after exertion. -- The patient had shortness of breath after activity.";
+  }
+  return "Eu {locuiesc} în Singapore și {lucrez} la universitate. -- I live in Singapore and work at the university.";
 }
 
 function parseImport(kind: ImportKind, raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {

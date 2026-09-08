@@ -44,6 +44,7 @@ export type PackageMetadata = {
   textCount: number;
   formCount: number;
   characterSubstitutions?: CharacterSubstitutions;
+  preferredTranslateDirection?: "term-to-translation" | "translation-to-term";
   source?: "catalog" | "local";
 };
 
