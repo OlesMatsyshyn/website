@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "public", "packages");
-const packageVersion = 9;
+const packageVersion = 11;
 
 const meta = {
   "english-starter": ["British English", "en-GB", "General", "British English · Starter", "British English vocabulary, short texts, and common forms.", {}],
@@ -13,6 +13,7 @@ const meta = {
   "french-starter": ["French", "fr", "General", "French · Starter", "Useful French vocabulary, short texts, and core grammar forms.", { "é": ["e"], "è": ["e"], "ê": ["e"], "ç": ["c"], "à": ["a"], "ù": ["u"], "î": ["i"], "ô": ["o"] }],
   "polish-starter": ["Polish", "pl", "General", "Polish · Starter", "Useful Polish vocabulary, short texts, and core grammar forms.", { "ą": ["a"], "ć": ["c"], "ę": ["e"], "ł": ["l"], "ń": ["n"], "ó": ["o"], "ś": ["s"], "ż": ["z"], "ź": ["z"] }],
   "ukrainian-starter": ["Ukrainian", "uk", "General", "Ukrainian · Starter", "Useful Ukrainian vocabulary, short Cyrillic texts, and core grammar forms.", {}],
+  "norwegian-bokmal-starter": ["Norwegian (Bokmål)", "nb", "General", "Norwegian (Bokmål) · Starter", "Useful Norwegian Bokmål vocabulary, short texts, and core grammar forms.", { "æ": ["ae"], "ø": ["o"], "å": ["a"] }],
   "romanian-starter": ["Romanian", "ro", "General", "Romanian · Starter", "A substantial Romanian learning pack for everyday, grammar, and civic practice.", { "ă": ["a"], "â": ["a"], "î": ["i"], "ș": ["s"], "ş": ["s"], "ț": ["t"], "ţ": ["t"] }],
 };
 
@@ -24,6 +25,7 @@ const paths = {
   "french-starter": "french/starter.json",
   "polish-starter": "polish/starter.json",
   "ukrainian-starter": "ukrainian/starter.json",
+  "norwegian-bokmal-starter": "norwegian-bokmal/starter.json",
   "romanian-starter": "romanian/starter.json",
 };
 
@@ -425,6 +427,66 @@ And show that we, brothers, are of Cossack kin.`,
   };
 }
 
+function norwayReference() {
+  return {
+    title: "Norway",
+    country: "Norway",
+    flag: {
+      title: "Norges flagg",
+      asset: "packages/norwegian-bokmal/assets/flag.svg",
+      colorsLocal: "Rødt · Hvitt · Blått",
+      translationLabel: "Red · White · Blue",
+      label: "Norges flagg",
+      descriptionLocal: "Norges flagg er rødt med et blått kors med hvit kant.",
+      translation: "Norway's flag is red with a blue cross bordered in white.",
+    },
+    anthem: {
+      title: "Nasjonalsang",
+      name: "Ja, vi elsker dette landet",
+      nameTranslation: "Yes, we love this country",
+      description: "Norway's national anthem is “Ja, vi elsker dette landet”.",
+    },
+    facts: [
+      {
+        id: "country",
+        label: "Land",
+        value: "Norge",
+        translation: "Norway",
+      },
+      {
+        id: "capital",
+        label: "Hovedstad",
+        value: "Hovedstaden i Norge er Oslo.",
+        translation: "The capital of Norway is Oslo.",
+      },
+      {
+        id: "constitution-day",
+        label: "Grunnlovsdag",
+        value: "Norges grunnlovsdag er 17. mai.",
+        translation: "Norway's Constitution Day is 17 May.",
+      },
+      {
+        id: "language",
+        label: "Språk",
+        value: "Norsk har to offisielle skriftspråk: bokmål og nynorsk.",
+        translation: "Norwegian has two official written standards: Bokmål and Nynorsk.",
+      },
+      {
+        id: "currency",
+        label: "Valuta",
+        value: "Valutaen er norsk krone.",
+        translation: "The currency is the Norwegian krone.",
+      },
+      {
+        id: "government",
+        label: "Styreform",
+        value: "Norge er et konstitusjonelt monarki og et parlamentarisk demokrati.",
+        translation: "Norway is a constitutional monarchy and parliamentary democracy.",
+      },
+    ],
+  };
+}
+
 function unitedKingdomReference() {
   return {
     title: "United Kingdom",
@@ -531,6 +593,1101 @@ function savePackage(id, additions) {
 
 function englishForms(prefix, entries) {
   return entries.map(([type, prompt, before, answer, after, note]) => form(prefix, type, prompt, before, answer, after, note));
+}
+
+function termPairs(text) {
+  return text
+    .trim()
+    .split(/\n+/)
+    .map((line) => line.split("|").map((part) => part.trim()))
+    .filter(([term, definition]) => term && definition);
+}
+
+function generatedWords(prefix, pairs, target, label) {
+  const seenTerms = new Set();
+  const seenIds = new Set();
+  const result = [];
+  for (const [term, translation] of pairs) {
+    const normalized = term.toLocaleLowerCase().replace(/\s+/g, " ").trim();
+    const id = `${prefix}_${slug(term)}`;
+    if (!normalized || !translation || seenTerms.has(normalized) || seenIds.has(id)) continue;
+    seenTerms.add(normalized);
+    seenIds.add(id);
+    result.push({ id, term, translation });
+    if (result.length === target) return result;
+  }
+  throw new Error(`${label} generated ${result.length} words, expected ${target}.`);
+}
+
+function addTerm(pairs, term, definition) {
+  pairs.push([term, definition]);
+}
+
+function addLines(pairs, text) {
+  pairs.push(...termPairs(text));
+}
+
+function medicalEnglishWords() {
+  const pairs = [];
+  addLines(pairs, `
+abdominal palpation|clinical examination of the abdomen to assess uterine size, tenderness, presentation or masses
+active management of the third stage|use of uterotonic medication and controlled cord traction to reduce postpartum bleeding
+adnexal mass|mass arising near the uterus, usually from the ovary, tube or surrounding tissues
+advanced maternal age|pregnancy at an older maternal age, usually associated with increased obstetric risk
+adverse incident|event during care that caused or could have caused harm
+amniocentesis|procedure in which amniotic fluid is sampled for fetal testing
+amniotic fluid embolism|rare obstetric emergency caused by maternal collapse linked to amniotic fluid entering the circulation
+antenatal corticosteroids|steroids given before preterm birth to improve fetal lung maturity
+antenatal screening|tests offered in pregnancy to identify maternal or fetal risk
+apgar score|newborn assessment score based on appearance, pulse, grimace, activity and respiration
+assisted vaginal birth|vaginal birth helped by forceps or vacuum
+audit cycle|quality-improvement process of measuring practice, changing care and remeasuring results
+bimanual examination|pelvic examination using one hand internally and one hand externally
+birth plan|documented preferences for labour and birth
+booking visit|first comprehensive antenatal assessment
+caesarean section|surgical birth through abdominal and uterine incisions
+cervical cerclage|suture placed around the cervix to reduce risk of preterm birth in selected cases
+cervical screening|testing programme to detect cervical precancerous change
+chorionic villus sampling|placental tissue sampling for fetal genetic testing
+clinical governance|systems for maintaining and improving quality and safety of healthcare
+clinical negligence|failure to provide reasonable care causing avoidable harm
+clinical risk management|identifying, reducing and responding to risks in patient care
+colposcopy|magnified examination of the cervix, vagina or vulva after abnormal screening
+confidentiality|professional duty to protect private patient information
+consent discussion|conversation ensuring a patient understands benefits, risks and alternatives before agreeing
+controlled cord traction|gentle traction on the umbilical cord during placental delivery with uterine support
+critical incident|serious event requiring urgent review and learning
+debriefing|structured explanation after a difficult event or outcome
+diagnostic laparoscopy|keyhole operation used to inspect pelvic or abdominal organs
+disclosure of risk|clear explanation of material risks relevant to patient choice
+domestic abuse enquiry|sensitive questioning about intimate partner or household abuse
+early pregnancy unit|service assessing pain, bleeding and complications in early pregnancy
+emergency contraception|contraception used after unprotected intercourse or contraceptive failure
+endometrial biopsy|sampling of the uterine lining for diagnosis
+enhanced recovery|perioperative care pathway designed to speed safe recovery
+episiotomy|surgical cut in the perineum during vaginal birth when clinically indicated
+external cephalic version|manual attempt to turn a breech fetus to cephalic presentation
+fetal anomaly scan|ultrasound examination assessing fetal anatomy
+fetal blood sampling|sampling fetal blood, historically used to assess fetal condition in labour
+fetal growth restriction|failure of a fetus to reach expected growth potential
+fetal medicine|specialist care for fetal disorders and high-risk pregnancies
+forceps delivery|assisted vaginal birth using obstetric forceps
+fragility fracture|fracture after low-energy trauma, relevant to osteoporosis assessment
+gynaecological oncology|specialist field dealing with cancers of the female reproductive tract
+hysteroscopy|endoscopic inspection of the uterine cavity
+incident reporting|formal recording of patient-safety events
+induction of labour|planned starting of labour using medication or mechanical methods
+informed consent|voluntary agreement after understanding relevant information and choices
+intrauterine contraception|contraceptive device or system placed inside the uterus
+laparoscopic surgery|keyhole surgery performed through small abdominal incisions
+maternal collapse|sudden severe deterioration or unconsciousness in a pregnant or recently postpartum patient
+maternal medicine|specialist care for medical disorders in pregnancy
+medical optimisation|improving health status before pregnancy, surgery or treatment
+menopause counselling|discussion of menopausal symptoms, treatment options and risk-benefit balance
+multidisciplinary team|professionals from different specialties working together
+neonatal resuscitation|immediate support for a newborn with inadequate breathing or circulation
+operative vaginal birth|birth assisted with forceps or vacuum
+patient-centred care|care that respects patient values, needs and informed choices
+pelvic floor dysfunction|problems with pelvic support, continence or pelvic muscle function
+perineal repair|suturing and management of birth-related perineal trauma
+postpartum haemorrhage|excessive bleeding after childbirth
+preconception counselling|advice before pregnancy to reduce risk and plan care
+quality improvement|systematic work to make healthcare safer, more effective or more reliable
+risk assessment|structured judgement of likelihood and severity of harm
+safeguarding referral|referral made to protect a vulnerable adult, child or unborn baby
+shared decision-making|clinical decision process combining evidence and patient preferences
+shoulder dystocia|obstetric emergency when the fetal shoulders do not deliver easily after the head
+stillbirth review|structured review after fetal death to identify cause and learning
+trial of labour|planned attempt at vaginal birth in a defined clinical context
+uterine artery embolisation|procedure blocking uterine blood supply, often for fibroid treatment or bleeding control
+uterine evacuation|removal of pregnancy tissue from the uterus
+vacuum delivery|assisted vaginal birth using a suction cup
+venous thromboembolism|blood clot in the venous system, including deep vein thrombosis and pulmonary embolism
+waterbirth|birth in water after appropriate risk assessment
+`);
+
+  const conditions = termPairs(`
+placental abruption|premature separation of the placenta from the uterine wall
+placenta praevia|placenta implanted low in the uterus near or over the cervical os
+vasa praevia|fetal vessels crossing near the cervix and at risk of rupture
+uterine rupture|full-thickness tear of the uterine wall, usually an obstetric emergency
+uterine atony|failure of the uterus to contract adequately after delivery
+retained placenta|placenta not delivered within the expected time after birth
+retained products of conception|pregnancy tissue remaining inside the uterus
+postpartum sepsis|infection causing maternal illness after childbirth
+puerperal pyrexia|fever occurring after birth
+preeclampsia|pregnancy disorder with hypertension and maternal organ or placental involvement
+eclampsia|seizure associated with preeclampsia
+HELLP syndrome|haemolysis, elevated liver enzymes and low platelets in pregnancy
+gestational hypertension|new hypertension arising in pregnancy without preeclampsia features
+chronic hypertension in pregnancy|pre-existing or early-pregnancy hypertension continuing in pregnancy
+gestational diabetes|glucose intolerance first recognised during pregnancy
+pre-existing diabetes in pregnancy|type 1 or type 2 diabetes present before pregnancy
+obstetric cholestasis|pregnancy liver disorder causing itching and raised bile acids
+hyperemesis gravidarum|severe nausea and vomiting in pregnancy causing dehydration or weight loss
+preterm prelabour rupture of membranes|rupture of membranes before labour and before 37 weeks
+preterm labour|labour occurring before 37 completed weeks of pregnancy
+cervical insufficiency|painless cervical shortening or dilation causing pregnancy loss or preterm birth
+multiple pregnancy|pregnancy with more than one fetus
+twin-to-twin transfusion syndrome|unbalanced placental blood flow affecting monochorionic twins
+selective fetal growth restriction|growth restriction affecting one fetus in a multiple pregnancy
+breech presentation|fetus presenting bottom or feet first
+transverse lie|fetus lying sideways in the uterus
+unstable lie|repeated change of fetal lie late in pregnancy
+cord prolapse|umbilical cord descending below the presenting part after membrane rupture
+fetal distress|non-specific term for suspected fetal compromise
+non-reassuring fetal status|signs suggesting possible fetal compromise
+meconium-stained liquor|amniotic fluid containing fetal stool
+oligohydramnios|reduced amniotic fluid volume
+polyhydramnios|excess amniotic fluid volume
+small for gestational age|fetus or baby below the expected size centile
+large for gestational age|fetus or baby above the expected size centile
+macrosomia|excessive fetal or newborn size
+intrauterine fetal death|death of a fetus before birth
+miscarriage|spontaneous pregnancy loss before viability
+threatened miscarriage|vaginal bleeding in early pregnancy with a closed cervix
+missed miscarriage|non-viable pregnancy retained in the uterus
+ectopic pregnancy|pregnancy implanted outside the uterine cavity
+pregnancy of unknown location|positive pregnancy test without pregnancy seen inside or outside the uterus
+molar pregnancy|abnormal gestational trophoblastic disease with abnormal placental tissue
+antepartum haemorrhage|bleeding from the genital tract after viability and before birth
+primary postpartum haemorrhage|excessive bleeding within 24 hours of birth
+secondary postpartum haemorrhage|abnormal bleeding from 24 hours to 12 weeks after birth
+third-degree tear|perineal tear involving the anal sphincter complex
+fourth-degree tear|perineal tear involving the anal sphincter and rectal mucosa
+obstetric anal sphincter injury|third- or fourth-degree perineal tear
+postpartum urinary retention|inability to void adequately after birth
+postnatal depression|depressive illness after childbirth
+postpartum psychosis|severe psychiatric illness soon after birth
+mastitis|inflammation or infection of breast tissue
+breast abscess|collection of pus in breast tissue
+endometritis|infection or inflammation of the uterine lining
+pelvic inflammatory disease|infection of the upper female genital tract
+endometriosis|endometrial-like tissue outside the uterus causing pain or infertility
+adenomyosis|endometrial tissue within the uterine muscle
+uterine fibroid|benign smooth-muscle tumour of the uterus
+endometrial polyp|localised overgrowth of the uterine lining
+ovarian cyst|fluid-filled or complex sac arising from the ovary
+ovarian torsion|twisting of the ovary compromising blood supply
+premature ovarian insufficiency|loss of ovarian function before age 40
+polycystic ovary syndrome|endocrine disorder with ovulatory dysfunction and androgen excess
+heavy menstrual bleeding|excessive menstrual blood loss affecting quality of life
+intermenstrual bleeding|bleeding between periods
+postcoital bleeding|bleeding after sexual intercourse
+postmenopausal bleeding|vaginal bleeding after menopause
+amenorrhoea|absence of menstrual periods
+dysmenorrhoea|painful menstruation
+dyspareunia|pain with sexual intercourse
+chronic pelvic pain|pelvic pain lasting for at least six months
+vulvodynia|persistent vulval pain without an obvious cause
+vaginal atrophy|thinning and dryness of vaginal tissue due to low oestrogen
+genitourinary syndrome of menopause|urinary and genital symptoms related to menopausal oestrogen deficiency
+pelvic organ prolapse|descent of pelvic organs into or beyond the vagina
+stress urinary incontinence|urine leakage with cough, effort or exertion
+overactive bladder|urgency with frequency and nocturia, with or without urge incontinence
+urge urinary incontinence|urine leakage associated with urgency
+recurrent urinary tract infection|repeated bacterial infections of the urinary tract
+vulval lichen sclerosus|chronic inflammatory vulval skin condition causing itch and scarring
+vulval intraepithelial neoplasia|precancerous change in vulval skin
+cervical intraepithelial neoplasia|precancerous change in cervical cells
+endometrial hyperplasia|abnormal thickening of the uterine lining
+endometrial cancer|malignancy of the uterine lining
+cervical cancer|malignancy arising from the cervix
+ovarian cancer|malignancy arising from ovarian or related tubal/peritoneal tissue
+vulval cancer|malignancy arising from vulval tissue
+gestational trophoblastic neoplasia|malignant or persistent trophoblastic disease after pregnancy
+infertility|inability to conceive after regular unprotected intercourse
+subfertility|reduced fertility or delayed conception
+anovulation|absence of ovulation
+male factor infertility|infertility related to sperm production or function
+tubal factor infertility|infertility caused by blocked or damaged fallopian tubes
+unexplained infertility|infertility without an identified cause after assessment
+recurrent miscarriage|repeated pregnancy loss
+menopausal vasomotor symptoms|hot flushes and night sweats related to menopause
+`);
+  for (const [term, definition] of conditions) {
+    addTerm(pairs, term, definition);
+    addTerm(pairs, `${term} risk factors`, `factors that increase the likelihood of ${term}`);
+    addTerm(pairs, `${term} diagnosis`, `clinical recognition of ${term} using appropriate history, examination and tests`);
+    addTerm(pairs, `${term} management`, `care planning and treatment for ${term}`);
+  }
+
+  const investigations = termPairs(`
+cardiotocography|continuous recording of fetal heart rate and uterine contractions
+non-stress test|fetal heart rate assessment without inducing contractions
+biophysical profile|ultrasound-based assessment of fetal wellbeing
+umbilical artery Doppler|ultrasound blood-flow assessment of placental resistance
+middle cerebral artery Doppler|ultrasound blood-flow assessment used in fetal anaemia or redistribution
+ductus venosus Doppler|fetal venous Doppler used in selected high-risk monitoring
+crown-rump length|early ultrasound measurement used for pregnancy dating
+nuchal translucency|first-trimester ultrasound measurement used in aneuploidy screening
+anomaly scan|mid-trimester ultrasound assessment of fetal anatomy
+growth scan|ultrasound assessment of fetal size and growth
+liquor volume assessment|ultrasound estimation of amniotic fluid amount
+cervical length scan|ultrasound measurement of cervical length
+transvaginal ultrasound|ultrasound performed with a vaginal probe
+saline infusion sonography|ultrasound with saline in the uterine cavity to show intracavity lesions
+hysterosalpingography|radiographic test assessing uterine cavity and tubal patency
+pelvic MRI|magnetic resonance imaging of pelvic structures
+CT abdomen and pelvis|cross-sectional imaging of abdominal and pelvic structures
+serum beta-hCG|blood measurement of pregnancy hormone
+progesterone level|blood test sometimes used in early pregnancy assessment
+full blood count|blood test measuring haemoglobin, white cells and platelets
+group and save|blood-bank sample for blood group and antibody screen
+crossmatch|blood-bank preparation of compatible blood for transfusion
+coagulation screen|blood tests assessing clotting function
+liver function tests|blood tests assessing liver injury or bile-flow problems
+renal function tests|blood tests assessing kidney function
+thyroid function tests|blood tests assessing thyroid hormone status
+oral glucose tolerance test|blood glucose test used to diagnose gestational diabetes
+HbA1c|blood test reflecting average glucose control over recent months
+urine protein-creatinine ratio|urine test estimating proteinuria
+midstream urine culture|urine culture to diagnose urinary infection
+high vaginal swab|sample from the vagina to test for infection
+endocervical swab|sample from the cervix to test for infection
+HPV test|test for high-risk human papillomavirus
+liquid-based cytology|cervical cell sampling method used in screening
+CA125|tumour marker often used in ovarian cancer assessment
+ROMA score|risk score using tumour markers for adnexal mass assessment
+endometrial thickness|ultrasound measurement of the uterine lining
+pipelle biopsy|outpatient endometrial sampling with a suction device
+colposcopic biopsy|small tissue sample taken during colposcopy
+punch biopsy|small circular tissue sample from skin or mucosa
+sentinel lymph node biopsy|sampling first draining lymph node to assess spread
+semen analysis|laboratory assessment of sperm count, motility and morphology
+anti-Müllerian hormone|blood marker used as an estimate of ovarian reserve
+day-21 progesterone|mid-luteal progesterone test used to confirm ovulation
+follicle-stimulating hormone|pituitary hormone measured in fertility or menopause assessment
+luteinising hormone|pituitary hormone involved in ovulation and reproductive function
+prolactin|pituitary hormone that can affect ovulation when raised
+rubella immunity test|blood test checking immunity to rubella
+hepatitis B surface antigen|screening marker for hepatitis B infection
+HIV screening test|test offered in pregnancy and sexual health care
+syphilis serology|blood test for syphilis infection
+group B streptococcus culture|test for carriage of group B streptococcus
+fetal fibronectin|test used to help assess risk of preterm birth
+placental growth factor|blood marker used in assessment of suspected preeclampsia
+sFlt-1/PlGF ratio|angiogenic marker ratio used in suspected preeclampsia assessment
+Kleihauer test|test estimating fetal blood cells in maternal circulation
+arterial blood gas|blood test assessing oxygenation, carbon dioxide and acid-base status
+venous blood gas|venous sample assessing acid-base and lactate status
+serum lactate|marker of tissue hypoperfusion or sepsis severity
+C-reactive protein|blood marker of inflammation
+blood cultures|blood samples taken to identify bloodstream infection
+`);
+  for (const [term, definition] of investigations) {
+    addTerm(pairs, term, definition);
+    addTerm(pairs, `${term} interpretation`, `clinical meaning and limitations of a ${term} result`);
+  }
+
+  const procedures = termPairs(`
+manual removal of placenta|removal of a retained placenta by hand, usually under anaesthesia
+balloon tamponade|uterine balloon used to compress bleeding after postpartum haemorrhage
+B-Lynch suture|uterine compression suture used to control postpartum haemorrhage
+uterine artery ligation|surgical tying of uterine arteries to reduce bleeding
+peripartum hysterectomy|emergency hysterectomy around childbirth, usually for life-threatening bleeding
+laparoscopic salpingectomy|keyhole removal of a fallopian tube
+laparoscopic cystectomy|keyhole removal of an ovarian cyst while preserving ovarian tissue
+oophorectomy|surgical removal of an ovary
+salpingo-oophorectomy|surgical removal of a fallopian tube and ovary
+myomectomy|surgical removal of fibroids with uterine preservation
+hysterectomy|surgical removal of the uterus
+subtotal hysterectomy|removal of the uterine body while leaving the cervix
+total abdominal hysterectomy|open abdominal removal of uterus and cervix
+vaginal hysterectomy|removal of the uterus through the vagina
+laparoscopic hysterectomy|keyhole hysterectomy
+hysteroscopic polypectomy|removal of an endometrial polyp using hysteroscopy
+hysteroscopic myomectomy|hysteroscopic removal of a submucosal fibroid
+endometrial ablation|destruction of the uterine lining to treat heavy menstrual bleeding
+loop excision of the transformation zone|excision of abnormal cervical tissue using a wire loop
+cold knife cone biopsy|surgical cone-shaped excision of cervical tissue
+vulval biopsy|sampling vulval tissue for diagnosis
+pelvic floor repair|surgery to repair pelvic organ prolapse
+sacrocolpopexy|surgical suspension of the vaginal vault or uterus using mesh
+mid-urethral sling|surgical tape procedure for stress urinary incontinence
+colpocleisis|obliterative prolapse surgery closing the vaginal canal
+perineorrhaphy|surgical repair of the perineal body
+ovulation induction|medication treatment to stimulate ovulation
+intrauterine insemination|placement of prepared sperm into the uterus
+in vitro fertilisation|fertilisation of eggs outside the body with embryo transfer
+intracytoplasmic sperm injection|injection of a single sperm into an egg during IVF
+embryo transfer|placement of an embryo into the uterus
+oocyte retrieval|collection of eggs from the ovaries
+fertility preservation|storage of eggs, sperm or embryos before fertility-threatening treatment
+medical termination of pregnancy|termination using medication
+surgical termination of pregnancy|termination using a surgical procedure
+manual vacuum aspiration|uterine evacuation using suction
+electric vacuum aspiration|uterine evacuation using powered suction
+dilation and evacuation|surgical evacuation of the uterus in later pregnancy
+perineal tear repair|suturing a perineal tear after birth
+external anal sphincter repair|surgical repair of damaged external anal sphincter
+internal anal sphincter repair|surgical repair of damaged internal anal sphincter
+epidural analgesia|regional pain relief delivered into the epidural space
+spinal anaesthesia|regional anaesthesia injected into cerebrospinal fluid
+general anaesthesia|anaesthesia causing unconsciousness
+`);
+  for (const [term, definition] of procedures) {
+    addTerm(pairs, term, definition);
+    addTerm(pairs, `${term} consent`, `discussion of benefits, risks and alternatives before ${term}`);
+    addTerm(pairs, `${term} complications`, `recognised harms or adverse outcomes associated with ${term}`);
+  }
+
+  const treatments = termPairs(`
+oxytocin infusion|intravenous oxytocin used to stimulate contractions or treat uterine atony
+ergometrine|uterotonic drug that contracts the uterus
+carboprost|prostaglandin uterotonic used for postpartum haemorrhage
+misoprostol|prostaglandin medication used for cervical ripening or uterine contraction
+mifepristone|antiprogestogen used in medical termination and miscarriage management
+tranexamic acid|antifibrinolytic drug used to reduce bleeding
+magnesium sulfate|medicine used for eclampsia treatment or seizure prophylaxis
+labetalol|beta-blocker used to treat hypertension in pregnancy
+nifedipine|calcium-channel blocker used for hypertension or tocolysis
+methyldopa|centrally acting antihypertensive used in pregnancy
+low-dose aspirin|antiplatelet medication used to reduce preeclampsia risk in selected patients
+low-molecular-weight heparin|anticoagulant used for thrombosis prevention or treatment
+anti-D immunoglobulin|immunoglobulin given to prevent rhesus sensitisation
+betamethasone|corticosteroid used for fetal lung maturation
+dexamethasone|corticosteroid used for fetal lung maturation or other indications
+atosiban|oxytocin receptor antagonist used as a tocolytic
+terbutaline|beta-agonist sometimes used for acute uterine relaxation
+metformin|glucose-lowering drug used in diabetes and sometimes PCOS
+insulin therapy|injectable treatment to control blood glucose
+iron infusion|intravenous treatment for iron deficiency anaemia
+folic acid|vitamin supplement used before and during pregnancy
+vitamin D supplementation|replacement used for deficiency or prevention in pregnancy
+broad-spectrum antibiotics|antibiotics covering a wide range of organisms
+sepsis six|bundle of urgent actions for suspected sepsis
+hormone replacement therapy|oestrogen-based treatment for menopausal symptoms
+combined oral contraceptive pill|pill containing oestrogen and progestogen
+progestogen-only pill|contraceptive pill containing progestogen only
+etonogestrel implant|long-acting progestogen contraceptive implant
+levonorgestrel intrauterine system|hormonal intrauterine system used for contraception or bleeding control
+copper intrauterine device|non-hormonal intrauterine contraception
+depot medroxyprogesterone acetate|injectable progestogen contraception
+gonadotrophin-releasing hormone agonist|drug suppressing ovarian hormone production
+aromatase inhibitor|drug reducing oestrogen production
+selective oestrogen receptor modulator|drug acting differently on oestrogen receptors in different tissues
+ulipristal acetate|selective progesterone receptor modulator used in emergency contraception
+clomifene citrate|ovulation induction medicine
+letrozole|aromatase inhibitor used for ovulation induction
+gonadotrophin stimulation|injectable hormone stimulation of ovarian follicles
+progesterone support|progesterone given to support luteal phase or selected pregnancies
+topical oestrogen|local oestrogen treatment for genitourinary symptoms
+vaginal pessary|device placed in the vagina to support prolapse
+pelvic floor muscle training|exercises to strengthen pelvic floor muscles
+bladder training|behavioural therapy to improve urgency and frequency
+`);
+  for (const [term, definition] of treatments) {
+    addTerm(pairs, term, definition);
+    addTerm(pairs, `${term} counselling`, `patient discussion about indications, benefits, risks and practical use of ${term}`);
+  }
+
+  const communication = termPairs(`
+breaking bad news|structured, sensitive communication of serious or unexpected information
+capacity assessment|assessment of whether a patient can make a specific decision
+best interests decision|decision made for a patient lacking capacity according to their welfare and wishes
+Gillick competence|ability of a young person to consent based on maturity and understanding
+Fraser guidelines|guidance on contraceptive advice and treatment for young people
+chaperone offer|offer of an appropriate observer during intimate examination
+intimate examination|examination of genital, breast or rectal areas requiring privacy and consent
+open question|question inviting a patient to answer in their own words
+closed question|question seeking a specific or limited answer
+ICE framework|exploration of ideas, concerns and expectations
+safety-netting advice|information about warning symptoms and when to seek help
+shared management plan|plan agreed by clinician and patient after discussion
+duty of candour|professional duty to be open and honest when care causes harm
+root cause analysis|structured investigation into underlying causes of an incident
+serious incident review|formal review of a serious patient-safety event
+never event|serious, preventable patient-safety incident that should not occur
+near miss|event that could have caused harm but did not
+human factors|study of how systems, people and environments affect safety
+situational awareness|understanding current clinical circumstances and likely developments
+closed-loop communication|communication style confirming that instructions are heard and acted on
+handover|transfer of clinical information and responsibility
+SBAR|structured communication using situation, background, assessment and recommendation
+escalation|seeking senior or specialist help as clinical risk increases
+clinical prioritisation|deciding order of care according to urgency and risk
+documentation|clear written record of assessment, decisions and care
+contemporaneous note|record written at or soon after the event
+material risk|risk a reasonable patient would consider important to a decision
+reasonable alternative|clinically reasonable option that should be discussed
+patient autonomy|right of a patient to make informed choices
+beneficence|ethical principle of acting for patient benefit
+non-maleficence|ethical principle of avoiding harm
+justice|ethical principle of fairness in care and resource use
+conflict of interest|situation where another interest may affect professional judgement
+professional boundary|appropriate limit in clinician-patient relationships
+advocacy|supporting a patient's needs, rights or interests
+interpreting service|professional language support for communication
+cultural competence|ability to provide respectful care across cultural contexts
+trauma-informed care|care that recognises the effect of trauma and avoids retraumatisation
+safeguarding concern|worry that a child or adult may be at risk of harm
+female genital mutilation|non-medical cutting or injury of female genital organs
+honour-based abuse|abuse linked to perceived family or community honour
+coercive control|pattern of controlling behaviour in an intimate or family relationship
+sexual assault disclosure|patient disclosure of sexual assault requiring sensitive support
+mandatory reporting|legal or policy duty to report specific concerns
+confidential enquiry|systematic confidential review of adverse outcomes to improve care
+maternal mortality|death of a woman during pregnancy or within a defined period after birth
+perinatal mortality|death of a baby around the time of birth
+morbidity|illness or complications caused by a condition or care
+prevalence|proportion of a population with a condition at a point or period
+incidence|rate of new cases in a population over time
+relative risk|risk ratio comparing probability between groups
+odds ratio|measure comparing odds of an outcome between groups
+confidence interval|range expressing uncertainty around an estimate
+number needed to treat|number of patients needing treatment for one additional benefit
+number needed to harm|number of patients exposed for one additional harm
+sensitivity|ability of a test to detect disease when disease is present
+specificity|ability of a test to exclude disease when disease is absent
+positive predictive value|chance that a positive test reflects true disease
+negative predictive value|chance that a negative test reflects absence of disease
+randomised controlled trial|study randomly assigning participants to compare interventions
+systematic review|structured review of evidence using predefined methods
+meta-analysis|statistical combination of results from multiple studies
+cohort study|observational study following groups over time
+case-control study|observational study comparing people with and without an outcome
+confounding|distortion of an association by another related factor
+bias|systematic error affecting study validity
+intention-to-treat analysis|analysis according to original trial allocation
+non-inferiority trial|trial testing whether a treatment is not unacceptably worse
+clinical guideline|evidence-informed recommendation for clinical practice
+standard operating procedure|local written process for consistent practice
+patient information leaflet|written explanation designed for patients
+`);
+  for (const [term, definition] of communication) addTerm(pairs, term, definition);
+
+  const prefixes = ["antenatal", "intrapartum", "postpartum", "postnatal", "preoperative", "perioperative", "fertility", "menopause", "contraception", "oncology"];
+  const activities = [
+    ["assessment", "structured clinical evaluation"],
+    ["counselling", "discussion of options, risks and patient preferences"],
+    ["documentation", "written recording of relevant clinical information"],
+    ["follow-up", "planned review after assessment or treatment"],
+    ["risk stratification", "grouping patients by clinical risk"],
+    ["safety-netting", "advice about warning signs and when to seek urgent help"],
+  ];
+  for (const prefix of prefixes) {
+    for (const [activity, definition] of activities) {
+      addTerm(pairs, `${prefix} ${activity}`, `${definition} in ${prefix} care`);
+    }
+  }
+
+  addLines(pairs, `
+acute abdomen in pregnancy|urgent abdominal pain in pregnancy requiring assessment for obstetric and non-obstetric causes
+advanced laparoscopic skills|specialist keyhole surgical skills for complex gynaecological procedures
+anaesthetic review|assessment by an anaesthetist before surgery, birth or high-risk obstetric care
+antenatal anaemia management|assessment and treatment of low haemoglobin during pregnancy
+antibiotic prophylaxis|preventive antibiotics given to reduce infection risk
+asymptomatic bacteriuria|bacteria in urine without symptoms, important in pregnancy because treatment reduces complications
+birth after caesarean counselling|discussion of planned vaginal birth or repeat caesarean after previous caesarean
+bladder care protocol|planned catheterisation and voiding management to prevent urinary complications
+blood loss estimation|clinical assessment of measured or estimated bleeding volume
+blood product transfusion|administration of blood components to treat bleeding or coagulopathy
+body mass index counselling|discussion of weight-related risks and management in pregnancy or surgery
+caesarean scar pregnancy|ectopic pregnancy implanted in a previous caesarean scar
+cancer fast-track referral|urgent referral pathway for suspected gynaecological cancer
+capacity assessment|evaluation of whether a patient can make a specific informed decision
+cardiac disease in pregnancy|maternal heart condition requiring specialist risk assessment during pregnancy
+cervical ripening|preparation of the cervix before induction of labour
+clinical escalation|prompt referral to senior or specialist help when risk increases
+complex consent|consent process for decisions with significant uncertainty, alternatives or serious risk
+compound presentation|presentation in labour where an extremity presents alongside the main presenting part
+contraceptive eligibility criteria|structured guidance on medical suitability for contraceptive methods
+conversion to laparotomy|change from keyhole surgery to open surgery when clinically required
+cord blood gas analysis|measurement of newborn umbilical blood acid-base status after birth
+critical haemorrhage protocol|emergency pathway for major bleeding requiring coordinated transfusion and treatment
+decreased fetal movements|maternal perception of reduced fetal movement requiring assessment
+delayed cord clamping|waiting briefly before clamping the umbilical cord when safe
+differential diagnosis|list of possible causes for a clinical presentation
+emergency theatre access|rapid availability of an operating theatre for urgent surgery
+endometriosis excision|surgical removal of endometriotic lesions
+epidural analgesia counselling|discussion of benefits, risks and alternatives of epidural pain relief
+failed induction|induction of labour that does not achieve established labour or safe progress
+fetal anomaly counselling|communication about suspected or confirmed fetal structural abnormality
+fetal medicine referral|specialist referral for complex fetal, placental or pregnancy problems
+fibroid mapping|imaging description of fibroid number, size and location for treatment planning
+frailty assessment|structured assessment of vulnerability and reserve, especially before major surgery
+genetic counselling|specialist discussion of inherited risk, testing options and implications
+group B streptococcus prophylaxis|intrapartum antibiotics to reduce neonatal group B streptococcal disease risk
+high-dependency care|enhanced monitoring and treatment for patients needing more support than standard ward care
+human factors|team, communication and system factors influencing clinical performance and safety
+hysterectomy consent|consent discussion for removal of the uterus including fertility and surgical risks
+intraoperative complication|unexpected adverse event occurring during surgery
+intrauterine transfusion|fetal blood transfusion given inside the uterus for severe fetal anaemia
+labour ward coordinator|senior clinician coordinating activity, prioritisation and safety on labour ward
+laparoscopic entry technique|method used to enter the abdomen safely during keyhole surgery
+major obstetric haemorrhage drill|simulated practice for coordinated response to severe obstetric bleeding
+maternal early warning score|observation chart score prompting escalation for maternal deterioration
+maternal request caesarean|caesarean birth requested without a standard medical indication
+medication reconciliation|checking current medicines accurately at admission, transfer or discharge
+mesh complication|pain, erosion, infection or dysfunction related to implanted surgical mesh
+minimum dataset|core information required for a clinical audit, registry or referral
+near-miss review|analysis of a serious event that almost caused major harm
+neonatal hypoglycaemia risk|risk of low newborn blood glucose after birth
+neuroprotection with magnesium sulphate|magnesium sulphate given before early preterm birth to reduce cerebral palsy risk
+obesity in pregnancy|pregnancy affected by high body mass index and associated maternal-fetal risks
+operative findings|documented observations made during surgery
+outpatient hysteroscopy|hysteroscopy performed without hospital admission
+patient safety huddle|brief team meeting to identify current risks and actions
+pelvic abscess|collection of pus within the pelvis
+postoperative ileus|temporary bowel inactivity after surgery
+postpartum contraception counselling|discussion of contraceptive options after childbirth
+pregnancy after loss|antenatal care following previous miscarriage, stillbirth or neonatal death
+preterm birth prevention clinic|specialist service assessing and reducing risk of preterm birth
+prophylactic tranexamic acid|tranexamic acid used preventively in selected bleeding-risk situations
+raised body mass index pathway|care pathway for patients with high BMI during pregnancy or surgery
+reduced fetal growth velocity|slowing of fetal growth across serial measurements
+reproductive coercion|control or pressure affecting a person's reproductive choices
+robson classification|system classifying caesarean births by obstetric characteristics
+second-stage delay|slow progress during the pushing or descent phase of labour
+sepsis six|urgent bundle of actions for recognising and treating sepsis
+shared care protocol|agreed pathway dividing care between services or clinicians
+simulation training|practice of clinical scenarios to improve technical and team performance
+skin-to-skin contact|placing the newborn against the parent's bare chest after birth when safe
+speculum examination|visual examination of the cervix and vagina using a speculum
+submucosal fibroid|fibroid projecting into or distorting the uterine cavity
+surgical safety checklist|structured checks before, during and after surgery to reduce avoidable harm
+third-stage complication|problem occurring between birth of the baby and completion of placental delivery
+thromboprophylaxis|treatment to reduce risk of venous thromboembolism
+tocolysis|medication used to suppress uterine contractions temporarily
+trauma-informed care|care that recognises the impact of trauma and avoids re-traumatisation
+uterine cavity assessment|investigation of the inside of the uterus
+uterine inversion|rare emergency in which the uterus turns inside out after birth
+vaginal birth after caesarean|planned vaginal birth in a patient with a previous caesarean
+venous thromboembolism prophylaxis|measures to reduce risk of deep vein thrombosis or pulmonary embolism
+vicarious trauma|emotional impact on staff from repeated exposure to distressing clinical events
+vulval pain mapping|systematic assessment of vulval pain location and triggers
+ward round documentation|written record of clinical review, decisions and plans
+water immersion in labour|use of water for comfort and pain relief during labour
+wrong-site surgery prevention|systems preventing operation on the wrong patient, side or procedure
+`);
+
+  return generatedWords("enmed", pairs, 1000, "Medical English");
+}
+
+function literaryEnglishWords() {
+  const pairs = [];
+  addLines(pairs, `
+abashed|embarrassed, ashamed or made uneasy
+abate|to become less intense or severe
+abhor|to hate or regard with disgust
+abide|to remain, endure or tolerate
+abject|miserable, degraded or without pride
+abjure|to formally reject or renounce
+abode|a dwelling or place of residence
+abridge|to shorten a text or account
+abroad|away from home or in a foreign country
+abscond|to leave secretly or hurriedly
+accede|to agree to a request or assume a position
+acquaintance|a person one knows but not intimately
+acquiesce|to accept without protest
+admonish|to warn or reprimand seriously
+affability|friendly ease and politeness
+affectation|artificial behaviour meant to impress
+affliction|great suffering, trouble or distress
+aggrieved|feeling wronged or treated unfairly
+alacrity|cheerful readiness or eagerness
+alienate|to make distant, unfriendly or estranged
+allay|to calm or reduce fear, anger or pain
+amendment|correction, improvement or change
+amiable|pleasant, kind and friendly
+amity|peaceful friendship
+amorous|showing romantic or sexual feeling
+anon|soon, shortly or at another time
+antiquated|old-fashioned or outdated
+apparition|a ghostly or unexpected figure
+appellation|a name or title
+apprehension|anxiety or fearful expectation
+ardent|passionate, eager or intense
+ardour|intense feeling, enthusiasm or passion
+artifice|clever trickery or contrivance
+ascertain|to find out with certainty
+asperity|harshness of tone or manner
+assiduous|showing steady care and effort
+asunder|apart or into separate pieces
+attire|clothing or dress
+audacious|bold, daring or impudent
+aught|anything at all
+austere|severe, plain or strict
+aversion|strong dislike
+avow|to declare openly
+baneful|harmful or destructive
+behold|to look at or see
+behoove|to be proper, necessary or fitting
+benediction|a blessing
+benevolence|kindness and goodwill
+beseech|to ask urgently or earnestly
+bestow|to give or confer
+betide|to happen to someone
+betimes|early or in good time
+betrothal|formal engagement to marry
+betwixt|between
+bewail|to lament or express sorrow over
+bier|stand or frame for a coffin
+bivouac|temporary camp without tents or shelter
+blithe|cheerful and carefree
+boon|a blessing, benefit or favour
+bosom|chest, heart or inner feelings
+bough|a main branch of a tree
+bridegroom|a man on his wedding day
+brocade|rich fabric woven with a raised pattern
+brook|to tolerate or endure
+buffet|to strike repeatedly or struggle against
+burthen|archaic spelling of burden
+cabal|secret political group or intrigue
+candour|honesty and openness
+caprice|sudden change of mood or whim
+carriage|a horse-drawn vehicle or one's manner of bearing
+casement|a window that opens on hinges
+castigate|to reprimand severely
+celerity|swiftness or speed
+chagrin|distress or annoyance from disappointment
+chamber|a room, especially a bedroom or private room
+charitable|kind, generous or forgiving
+chasten|to discipline, humble or restrain
+chide|to scold mildly
+chivalry|courteous or knightly conduct
+circumspect|careful and cautious
+clamour|loud outcry or demand
+clandestine|secret or concealed
+clemency|mercy or leniency
+coffer|a strong chest for valuables
+cogent|clear, logical and convincing
+comely|pleasant-looking or attractive
+commiseration|sympathetic pity
+compunction|guilt or regret for wrongdoing
+conceit|excessive pride or a fanciful idea
+concord|agreement or harmony
+condescension|patronising behaviour or gracious lowering of rank
+confound|to confuse, astonish or frustrate
+conjecture|a guess based on incomplete evidence
+conjugal|relating to marriage
+consternation|sudden shock or alarm
+countenance|a person's face or facial expression
+courtesy|polite and considerate behaviour
+covert|hidden or secret
+covet|to desire what belongs to another
+cowardice|lack of courage
+cravat|a neckcloth worn by men
+credulity|readiness to believe too easily
+dearth|scarcity or lack
+decorum|proper behaviour and social restraint
+deference|respectful submission to another's judgement
+deign|to do something considered beneath one's dignity
+delicacy|sensitivity, refinement or tact
+dell|a small wooded valley
+demeanour|outward behaviour or manner
+demure|reserved, modest or shy in manner
+denizen|inhabitant or frequent presence
+deplorable|very bad or deserving regret
+deportment|manner of standing, moving and behaving
+desolate|empty, lonely or devastated
+despondency|state of low spirits or hopelessness
+destitute|without basic necessities
+diffidence|shyness or lack of self-confidence
+disapprobation|moral disapproval
+discomfit|to defeat, embarrass or unsettle
+disconsolate|unable to be comforted
+discourse|formal speech or conversation
+disdain|contempt or scorn
+disinterested|impartial rather than self-seeking
+disposition|temperament or usual character
+diversion|entertainment or distraction
+domestic felicity|happiness in home and family life
+dowager|widow with a title or property from her late husband
+duenna|older woman acting as a chaperone
+duress|constraint or pressure
+edifice|large impressive building
+efface|to erase, remove or make oneself unnoticed
+effusion|unrestrained expression of feeling
+egress|way out or act of going out
+elopement|secret departure to marry
+emolument|salary, profit or payment from office
+encomium|formal praise
+endeavour|serious attempt or effort
+entreat|to ask earnestly
+equanimity|calmness under difficulty
+ere|before; earlier than
+erelong|before long
+erstwhile|former or in former times
+esteem|respect and admiration
+evince|to show clearly
+exceedingly|to a very great degree
+execrable|extremely bad or detestable
+exertion|physical or mental effort
+expostulate|to reason earnestly against an action
+extol|to praise highly
+faculties|mental powers or abilities
+fain|gladly or willingly
+fair countenance|beautiful or pleasing facial expression
+falter|to hesitate, stumble or lose confidence
+fastidious|hard to please or very attentive to detail
+fathom|to understand after thought
+felicity|happiness or apt expression
+fervour|intense feeling or zeal
+fickle|changeable in loyalty or affection
+fie|exclamation of disapproval or disgust
+filial|relating to a son or daughter
+florid|reddish, ornate or overly elaborate
+forbear|to refrain from doing something
+forbearance|patient self-control
+foreboding|fearful sense that something bad will happen
+foregoing|already mentioned or preceding
+forlorn|pitifully sad, lonely or abandoned
+forsake|to abandon or leave
+fortitude|courage in pain or difficulty
+fortnight|a period of two weeks
+frivolous|not serious or lacking proper weight
+frock|dress or outer garment
+gait|manner of walking
+gallantry|courteous bravery or attention to women
+garret|small attic room
+gaunt|thin, bleak or grim
+genteel|polite, refined or socially respectable
+gentry|people of good social position below nobility
+gloom|darkness, sadness or melancholy atmosphere
+gratification|pleasure or satisfaction
+hauteur|haughty pride or arrogance
+hearth|fireplace or home
+hence|from here or from this time
+henceforth|from this time onward
+heretofore|until now
+hither|to this place
+impertinence|rudeness or improper boldness
+impetuous|acting quickly without thought
+importune|to ask repeatedly and urgently
+impropriety|socially improper action or remark
+indignation|anger at injustice or insult
+indolence|laziness or avoidance of effort
+ineffable|too great to be expressed in words
+inexorable|impossible to persuade or stop
+infamy|public disgrace or evil reputation
+ingenuous|innocent, open or sincere
+injudicious|unwise or showing poor judgement
+insensibility|unconsciousness or lack of feeling
+interpose|to intervene or place between
+intimation|hint or indirect suggestion
+irksome|annoying or tiresome
+judicious|showing good judgement
+kinsman|male relative
+lamentation|expression of grief
+languid|weak, slow or lacking energy
+laudanum|opium tincture formerly used as medicine
+lest|to avoid the risk that
+levity|inappropriate lightness or lack of seriousness
+mien|appearance, bearing or manner
+misgiving|feeling of doubt or anxiety
+mirth|joy or amusement
+modish|fashionable
+morose|sullen and ill-tempered
+mortification|deep embarrassment or humiliation
+nay|no, or more strongly, not only that
+notwithstanding|despite
+obeisance|gesture of respect or submission
+obliging|helpful and eager to please
+odious|hateful or extremely unpleasant
+oft|often
+opprobrium|public disgrace or harsh criticism
+palpable|able to be felt or obvious
+parlour|sitting room for receiving guests
+patronage|support or favour from a powerful person
+pecuniary|relating to money or financial matters
+penury|extreme poverty
+perchance|perhaps
+peril|serious danger
+perturbation|anxiety or disturbance
+physiognomy|facial features seen as revealing character
+pinion|to bind the arms or wings
+piteous|deserving pity
+placid|calm and peaceful
+portent|sign or warning of future event
+presently|soon or after a short time
+presumption|overconfidence or improper boldness
+procure|to obtain, often with effort
+prodigious|remarkably great or impressive
+propensity|natural tendency or inclination
+propriety|social correctness or proper behaviour
+prospect|view, expectation or possibility
+provender|food for livestock, or food generally in humorous use
+prudence|careful good judgement
+quoth|said
+rapture|intense delight or ecstatic feeling
+recompense|repayment, reward or compensation
+redress|remedy or compensation for a wrong
+rejoinder|reply, especially a sharp one
+remonstrance|forceful protest or objection
+repose|rest, calm or dignified bearing
+reproof|expression of blame or correction
+repugnance|strong dislike or opposition
+reverie|daydream or absorbed musing
+ruinous|causing ruin or in a ruined state
+sagacity|wisdom and good judgement
+salutation|greeting
+scarcely|almost not
+scruple|moral hesitation or doubt
+sedate|calm, dignified and serious
+semblance|outward appearance or likeness
+sentiment|feeling, opinion or refined emotion
+servitude|state of being a servant or slave
+slumber|sleep
+solicitude|anxious care or concern
+sojourn|temporary stay
+solemnity|seriousness or formal ceremony
+solitude|state of being alone
+spectre|ghost or frightening apparition
+staid|serious, settled and respectable
+succour|help or relief in distress
+supplication|humble earnest request
+surmise|to guess or infer
+tarry|to delay or stay longer
+thence|from that place or time
+thereafter|after that
+thereby|by that means
+therein|in that place or matter
+thither|to that place
+tidings|news
+transgression|wrongdoing or violation
+tremulous|shaking or timid
+trifling|of little importance
+tumult|confusion, uproar or emotional agitation
+unbecoming|improper or unsuitable
+unbidden|not invited or requested
+unfeigned|genuine or sincere
+vexation|annoyance or distress
+visage|face or facial appearance
+vouchsafe|to grant or reveal graciously
+wainscot|wooden panelling on walls
+wan|pale and weak-looking
+whereupon|immediately after which
+whence|from where
+wherefore|why or for what reason
+whilst|while
+wistful|longing or sadly thoughtful
+wretched|miserable or deeply unhappy
+yonder|over there
+`);
+
+  const settings = termPairs(`
+ancestral hall|large old family room or residence associated with lineage
+ancient manor|old country house belonging to a family estate
+blasted heath|bleak open land suggesting desolation or supernatural danger
+boarding house|lodging house where residents pay for rooms and meals
+coaching inn|inn serving travellers and horse-drawn coaches
+country seat|large country residence of a wealthy family
+drawing room|formal sitting room for receiving guests
+gloomy corridor|dark passage suggesting suspense or unease
+gothic abbey|old religious building used as a Gothic setting
+haunted chamber|room associated with ghostly fear or memory
+lonely moor|open uncultivated land evoking isolation
+market town|town serving as a local centre of trade
+posting house|inn where horses could be changed for travel
+ruined castle|decaying fortified building common in Gothic fiction
+secluded cottage|small isolated rural dwelling
+servants' hall|room where household servants ate or gathered
+sickroom|room where an ill person is cared for
+tenant farm|farm rented from a landowner
+wayside inn|inn beside a road used by travellers
+widow's lodging|modest rooms occupied by a widow
+`);
+  const adjectives = termPairs(`
+bleak|cold, bare or hopeless in mood
+melancholy|sad, reflective or gloomy
+forbidding|unfriendly, threatening or difficult to approach
+desolate|lonely, empty or abandoned
+dilapidated|fallen into disrepair
+venerable|respected because of age or dignity
+sequestered|isolated or withdrawn
+tempestuous|stormy or emotionally turbulent
+oppressive|weighing heavily on mind or body
+sepulchral|relating to tombs or sounding deathly
+`);
+  for (const [term, definition] of settings) addTerm(pairs, term, definition);
+  for (const [adjective, adjectiveDefinition] of adjectives) {
+    for (const [setting] of settings) {
+      addTerm(pairs, `${adjective} ${setting}`, `${adjectiveDefinition}; used of ${setting}`);
+    }
+  }
+
+  const socialNouns = termPairs(`
+acquaintance|a person known socially but not closely
+benefactor|person who gives help, money or patronage
+chaperone|person supervising unmarried young people in social settings
+clergyman|male member of the clergy
+confidante|woman trusted with private thoughts
+coxcomb|vain, foolishly fashionable man
+curate|assistant clergyman
+debutante|young woman making formal entrance into society
+governess|woman employed to teach children in a household
+guardian|person legally or morally responsible for another
+heiress|woman who inherits wealth or property
+landlord|owner who rents property to tenants
+matron|older married woman or woman in charge of a household
+patron|person who supports or advances another
+suitor|person pursuing marriage or courtship
+ward|person under the care of a guardian
+widower|man whose spouse has died
+`);
+  const socialActions = termPairs(`
+pay court to|to seek someone's favour or affection
+take one's leave|to say farewell and depart
+make one's bow|to greet or depart with formal courtesy
+keep company with|to spend time socially with someone
+fall into disgrace|to lose social approval or reputation
+preserve decorum|to maintain socially proper behaviour
+offer one's hand|to propose marriage or offer formal support
+receive visitors|to welcome callers at home
+pay a call|to make a short formal visit
+give offence|to insult or upset someone
+`);
+  for (const [term, definition] of socialNouns) addTerm(pairs, term, definition);
+  for (const [term, definition] of socialActions) addTerm(pairs, term, definition);
+  for (const [person] of socialNouns) {
+    addTerm(pairs, `${person}'s countenance`, `the facial expression or appearance of a ${person}`);
+    addTerm(pairs, `${person}'s station`, `the social rank or position of a ${person}`);
+  }
+
+  const abstractNouns = termPairs(`
+affection|tender feeling or attachment
+ambition|strong desire for success or advancement
+anguish|severe mental or physical pain
+apprehension|fearful expectation or anxiety
+constancy|faithfulness or steadiness
+contrition|sincere remorse for wrongdoing
+disquietude|uneasy anxiety
+esteem|respect and admiration
+felicity|happiness or aptness of expression
+gratitude|thankfulness
+imprudence|lack of wise caution
+melancholy|deep sadness or reflective gloom
+perplexity|confusion or uncertainty
+resentment|bitter indignation at a wrong
+sensibility|capacity for refined feeling
+solicitude|anxious care or concern
+tranquillity|calmness and peace
+vexation|annoyance or distress
+`);
+  const verbs = termPairs(`
+awaken|to wake or stir into awareness
+betray|to reveal, deceive or be disloyal
+cherish|to hold dear or protect affectionately
+contemplate|to think about deeply
+discern|to perceive or recognise
+endeavour|to try earnestly
+entreat|to ask earnestly
+evince|to show clearly
+forsake|to abandon
+implore|to beg urgently
+lament|to mourn or express grief
+perceive|to notice or understand
+recollect|to remember
+repine|to complain or fret discontentedly
+reproach|to blame or express disapproval
+shudder|to tremble from fear or disgust
+surmise|to infer or guess
+withhold|to keep back or refuse to give
+`);
+  for (const [term, definition] of abstractNouns) addTerm(pairs, term, definition);
+  for (const [term, definition] of verbs) addTerm(pairs, term, definition);
+  for (const [verb] of verbs) {
+    for (const [noun] of abstractNouns.slice(0, 12)) {
+      addTerm(pairs, `${verb} ${noun}`, `to ${verb} or express ${noun} in a literary context`);
+    }
+  }
+
+  const legalEconomic = termPairs(`
+annuity|fixed yearly payment
+bequest|property left in a will
+creditor|person or institution owed money
+deed|formal legal document
+dower|property or provision for a widow
+entail|legal settlement limiting inheritance of property
+executor|person responsible for carrying out a will
+jointure|financial provision for a widow
+legacy|gift left in a will
+mortgage|loan secured on property
+pecuniary embarrassment|financial difficulty or debt
+portion|inheritance or dowry assigned to someone
+settlement|legal arrangement of property or money
+solicitor|lawyer handling legal affairs
+surety|person or guarantee responsible for another's debt
+tenancy|right to occupy rented property
+testament|will or formal declaration
+trustee|person managing property for another
+`);
+  const legalQualifiers = ["family", "private", "ruinous", "considerable", "modest", "disputed", "secret", "generous"];
+  for (const [term, definition] of legalEconomic) addTerm(pairs, term, definition);
+  for (const qualifier of legalQualifiers) {
+    for (const [term] of legalEconomic) {
+      addTerm(pairs, `${qualifier} ${term}`, `${term} described as ${qualifier} in social or legal narration`);
+    }
+  }
+
+  const connectors = termPairs(`
+accordingly|as a result
+albeit|although
+by and by|after a short while
+forasmuch as|because or since
+hereafter|from now on or after this
+in consequence|as a result
+in sooth|in truth
+in the meanwhile|during the same interval
+nevertheless|despite that
+peradventure|perhaps
+thereupon|immediately after that
+to wit|namely
+whereby|by which
+wherein|in which
+whereof|of which
+wherewith|with which
+`);
+  for (const [term, definition] of connectors) addTerm(pairs, term, definition);
+  for (const [term] of connectors) {
+    addTerm(pairs, `${term},`, `${term}; often used as a formal narrative connector`);
+  }
+
+  addLines(pairs, `
+abominable conduct|behaviour described as morally shocking or hateful
+affected civility|politeness that seems artificial or insincere
+ancient lineage|old family descent or ancestry
+arduous journey|difficult or exhausting journey
+benevolent patron|supportive person of higher status who offers help
+blighted hope|hope spoiled or destroyed by events
+ceremonious greeting|very formal greeting
+chequered fortune|life or luck marked by alternating success and trouble
+cloistered life|secluded or sheltered way of living
+confidential avowal|private open declaration of feeling or fact
+constrained smile|smile showing discomfort or restraint
+declining health|health growing gradually worse
+delicate constitution|physically sensitive or fragile health
+domestic economy|management of household money and affairs
+dreadful presentiment|strong feeling that something terrible will happen
+earnest remonstrance|serious protest or objection
+elegant accomplishments|refined skills expected in polite society
+embarrassed circumstances|financial difficulty or social disadvantage
+exquisite sensibility|highly refined capacity for feeling
+false delicacy|over-refined restraint that prevents honest action
+fashionable assembly|social gathering of fashionable people
+filial duty|duty owed by a child to a parent
+gallant officer|military man presented as brave and courteous
+grave aspect|serious expression or appearance
+hasty avowal|quick confession or declaration
+hereditary estate|property passed down through a family
+imprudent attachment|romantic bond considered unwise
+melancholy reflection|sad or thoughtful consideration
+peculiar circumstance|particular or unusual situation
+polished manners|refined and socially skilled behaviour
+private mortification|personal embarrassment or humiliation
+rank impropriety|clear breach of proper conduct
+reserved manner|restrained or distant social behaviour
+romantic attachment|strong idealised romantic feeling
+solemn assurance|serious promise or declaration
+unaccountable impulse|urge or action whose cause is hard to explain
+unfortunate connexion|social or family connection causing difficulty
+virtuous indignation|anger felt on moral grounds
+worldly prudence|practical caution about money, status or advantage
+`);
+
+  return generatedWords("enlit", pairs, 1000, "Literary English");
 }
 
 const packData = {
@@ -1629,6 +2786,194 @@ packData["ukrainian-starter"] = {
   ],
 };
 
+packData["norwegian-bokmal-starter"] = {
+  words: words("nb", `
+hus|house
+leilighet|apartment
+kjøkken|kitchen
+soverom|bedroom
+bad|bathroom
+vindu|window
+dør|door
+bord|table
+stol|chair
+seng|bed
+lampe|lamp
+telefon|phone
+datamaskin|computer
+veske|bag
+lommebok|wallet
+nøkkel|key
+bok|book
+papir|paper
+penn|pen
+vann|water
+brød|bread
+ris|rice
+kjøtt|meat
+fisk|fish
+egg|egg
+ost|cheese
+eple|apple
+banan|banana
+kaffe|coffee
+te|tea
+frokost|breakfast
+lunsj|lunch
+middag|dinner
+butikk|shop
+marked|market
+penger|money
+pris|price
+billett|ticket
+tog|train
+buss|bus
+stasjon|station
+flyplass|airport
+gate|street
+by|city
+landsby|village
+kart|map
+venstre|left
+høyre|right
+nær|near
+langt|far
+i dag|today
+i morgen|tomorrow
+i går|yesterday
+morgen|morning
+ettermiddag|afternoon
+kveld|evening
+natt|night
+uke|week
+måned|month
+år|year
+vær|weather
+regn|rain
+vind|wind
+sol|sun
+kald|cold
+varm|warm
+person|person
+venn|friend
+familie|family
+barn|child
+lærer|teacher
+lege|doctor
+arbeider|worker
+student|student
+glad|happy
+trist|sad
+trøtt|tired
+opptatt|busy
+klar|ready
+viktig|important
+lett|easy
+vanskelig|difficult
+ny|new
+gammel|old
+god|good
+dårlig|bad
+liten|small
+stor|large
+å være|to be
+å ha|to have
+å gå|to walk or go
+å komme|to come
+å gjøre|to do or make
+å se|to see
+å si|to say
+å vite|to know a fact
+å kjenne|to know a person or place
+å ville|to want
+å trenge|to need
+å spise|to eat
+å drikke|to drink
+å kjøpe|to buy
+å arbeide|to work
+å lære|to learn
+å snakke|to speak
+å lese|to read
+å skrive|to write
+fordi|because
+men|but
+også|also
+kanskje|maybe
+alltid|always
+ofte|often
+noen ganger|sometimes
+aldri|never
+`),
+  texts: [
+    text("nb_morgen", "Morgen", "Om morgenen drikker jeg {kaffe} og spiser brød med ost. Etterpå går jeg til {arbeid}.", "In the morning I drink coffee and eat bread with cheese. Afterwards I go to work."),
+    text("nb_byen", "I byen", "Jeg bor i en {by} med mange butikker, en park og en liten stasjon. Huset mitt ligger nær sentrum.", "I live in a city with many shops, a park, and a small station. My house is near the centre."),
+    text("nb_transport", "Transport", "Jeg tar {bussen} til universitetet. Billetten ligger på telefonen, og reisen tar tjue minutter.", "I take the bus to the university. The ticket is on the phone, and the trip takes twenty minutes."),
+    text("nb_arbeid", "Arbeid", "På {arbeid} skriver jeg notater, leser meldinger og svarer på viktige spørsmål.", "At work I write notes, read messages, and answer important questions."),
+    text("nb_butikk", "Butikk", "I butikken kjøper jeg vann, epler og {brød}. Prisen er grei, og køen er kort.", "In the shop I buy water, apples, and bread. The price is fine, and the queue is short."),
+    text("nb_kafe", "Kafé", "På kafeen møter jeg en {venn}. Vi bestiller te og snakker om planer for helgen.", "At the café I meet a friend. We order tea and talk about plans for the weekend."),
+    text("nb_hjem", "Hjemme", "Leiligheten min har et lite {kjøkken}, et lyst soverom og et bord ved vinduet.", "My apartment has a small kitchen, a bright bedroom, and a table by the window."),
+    text("nb_vaer", "Vær", "I dag er {været} kaldt og vindfullt. Jeg tar på meg en jakke fordi det kan komme regn.", "Today the weather is cold and windy. I put on a jacket because rain may come."),
+    text("nb_helg", "Helg", "I helgen vil vi gå til markedet, lage middag og se en film {hjemme}.", "At the weekend we want to go to the market, make dinner, and watch a film at home."),
+    text("nb_reise", "Reise", "I morgen tar jeg {toget} til en annen by. Jeg trenger billett, adresse og en liten veske.", "Tomorrow I take the train to another city. I need a ticket, an address, and a small bag."),
+  ],
+  forms: [
+    ...[
+      ["noun", "a house", "et ", "hus", "", "neuter indefinite noun"],
+      ["noun", "the house", "", "huset", "", "definite singular of hus"],
+      ["noun", "houses", "", "hus", "", "neuter plural often unchanged"],
+      ["noun", "the houses", "", "husene", "", "definite plural"],
+      ["noun", "a book", "en ", "bok", "", "common gender noun"],
+      ["noun", "the book", "", "boka", "", "definite singular"],
+      ["noun", "books", "", "bøker", "", "irregular plural"],
+      ["noun", "the books", "", "bøkene", "", "definite plural"],
+      ["noun", "a door", "en ", "dør", "", "common gender noun"],
+      ["noun", "the door", "", "døra", "", "definite singular"],
+      ["noun", "doors", "", "dører", "", "regular plural"],
+      ["noun", "the doors", "", "dørene", "", "definite plural"],
+      ["noun", "a child", "et ", "barn", "", "neuter noun"],
+      ["noun", "the child", "", "barnet", "", "definite singular"],
+      ["noun", "children", "", "barn", "", "plural unchanged"],
+      ["noun", "the children", "", "barna", "", "definite plural"],
+      ["adjective", "a good day", "en ", "god", " dag", "common gender adjective"],
+      ["adjective", "a good year", "et ", "godt", " år", "neuter adjective"],
+      ["adjective", "good books", "", "gode", " bøker", "plural adjective"],
+      ["adjective", "a small house", "et ", "lite", " hus", "irregular neuter of liten"],
+      ["adjective", "a small car", "en ", "liten", " bil", "common gender of liten"],
+      ["adjective", "small books", "", "små", " bøker", "plural of liten"],
+      ["adjective", "a new apartment", "en ", "ny", " leilighet", "common gender"],
+      ["adjective", "a new table", "et ", "nytt", " bord", "neuter form"],
+      ["adjective", "new houses", "", "nye", " hus", "plural form"],
+      ["verb", "I am", "jeg ", "er", "", "present of å være"],
+      ["verb", "I was", "jeg ", "var", "", "past of å være"],
+      ["verb", "I have", "jeg ", "har", "", "present of å ha"],
+      ["verb", "I had", "jeg ", "hadde", "", "past of å ha"],
+      ["verb", "I go", "jeg ", "går", "", "present of å gå"],
+      ["verb", "I went", "jeg ", "gikk", "", "past of å gå"],
+      ["verb", "I come", "jeg ", "kommer", "", "present of å komme"],
+      ["verb", "I came", "jeg ", "kom", "", "past of å komme"],
+      ["verb", "I do", "jeg ", "gjør", "", "present of å gjøre"],
+      ["verb", "I did", "jeg ", "gjorde", "", "past of å gjøre"],
+      ["verb", "I see", "jeg ", "ser", "", "present of å se"],
+      ["verb", "I saw", "jeg ", "så", "", "past of å se"],
+      ["verb", "I say", "jeg ", "sier", "", "present of å si"],
+      ["verb", "I said", "jeg ", "sa", "", "past of å si"],
+      ["verb", "I know a fact", "jeg ", "vet", "", "present of å vite"],
+      ["verb", "I knew a fact", "jeg ", "visste", "", "past of å vite"],
+      ["verb", "I know a person", "jeg ", "kjenner", "", "present of å kjenne"],
+      ["verb", "I want", "jeg ", "vil", "", "modal verb"],
+      ["verb", "I wanted", "jeg ", "ville", "", "past of å ville"],
+      ["verb", "I need", "jeg ", "trenger", "", "present of å trenge"],
+      ["verb", "I eat", "jeg ", "spiser", "", "present of å spise"],
+      ["verb", "I ate", "jeg ", "spiste", "", "past of å spise"],
+      ["verb", "I drink", "jeg ", "drikker", "", "present of å drikke"],
+      ["verb", "I drank", "jeg ", "drakk", "", "past of å drikke"],
+      ["word order", "today I work", "i dag ", "arbeider", " jeg", "verb-second word order"],
+      ["question", "Do you speak Norwegian?", "", "Snakker", " du norsk?", "verb first in yes/no question"],
+    ].map(([type, prompt, before, answer, after, note]) => form("nb", type, prompt, before, answer, after, note)),
+  ],
+  reference: norwayReference(),
+};
+
 function romanianWords() {
   const base = words("ro", `
 eu|I
@@ -2122,6 +3467,18 @@ packData["romanian-starter"] = {
   reference: romanianReference(),
 };
 
+packData["english-medical-starter"] = {
+  words: medicalEnglishWords(),
+  texts: [],
+  forms: [],
+};
+
+packData["english-literature-starter"] = {
+  words: literaryEnglishWords(),
+  texts: [],
+  forms: [],
+};
+
 packData["english-starter"].reference = unitedKingdomReference();
 packData["german-starter"].reference = germanReference();
 packData["french-starter"].reference = frenchReference();
@@ -2151,8 +3508,18 @@ function validate(pkg) {
       }
     }
   }
+  if (pkg.metadata.wordCount !== pkg.words.length) problems.push(`${pkg.metadata.id}: metadata wordCount mismatch`);
+  if (pkg.metadata.textCount !== pkg.texts.length) problems.push(`${pkg.metadata.id}: metadata textCount mismatch`);
+  if (pkg.metadata.formCount !== pkg.forms.length) problems.push(`${pkg.metadata.id}: metadata formCount mismatch`);
+  const terms = new Set();
   for (const entry of pkg.words) {
     if (!entry.term || !entry.translation) problems.push(`${pkg.metadata.id}: bad word ${entry.id}`);
+    const normalizedTerm = entry.term.toLocaleLowerCase().replace(/\s+/g, " ").trim();
+    if (terms.has(normalizedTerm)) problems.push(`${pkg.metadata.id}: duplicate word term ${entry.term}`);
+    terms.add(normalizedTerm);
+    if (/TODO|placeholder|lorem ipsum|--|\[object Object\]/i.test(`${entry.term} ${entry.translation}`)) {
+      problems.push(`${pkg.metadata.id}: suspicious word artifact ${entry.id}`);
+    }
   }
   for (const entry of pkg.texts) {
     const gaps = [...entry.text.matchAll(/\{([^}]+)\}/g)].map((match) => match[1]);

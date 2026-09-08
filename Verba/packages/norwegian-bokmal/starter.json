@@ -1,0 +1,1244 @@
+{
+  "metadata": {
+    "id": "norwegian-bokmal-starter",
+    "language": "Norwegian (Bokmål)",
+    "languageCode": "nb",
+    "variant": "General",
+    "level": 0,
+    "title": "Norwegian (Bokmål) · Starter",
+    "description": "Useful Norwegian Bokmål vocabulary, short texts, and core grammar forms.",
+    "version": 11,
+    "wordCount": 115,
+    "textCount": 10,
+    "formCount": 51,
+    "characterSubstitutions": {
+      "æ": [
+        "ae"
+      ],
+      "ø": [
+        "o"
+      ],
+      "å": [
+        "a"
+      ]
+    }
+  },
+  "words": [
+    {
+      "id": "nb_hus",
+      "term": "hus",
+      "translation": "house"
+    },
+    {
+      "id": "nb_leilighet",
+      "term": "leilighet",
+      "translation": "apartment"
+    },
+    {
+      "id": "nb_kjøkken",
+      "term": "kjøkken",
+      "translation": "kitchen"
+    },
+    {
+      "id": "nb_soverom",
+      "term": "soverom",
+      "translation": "bedroom"
+    },
+    {
+      "id": "nb_bad",
+      "term": "bad",
+      "translation": "bathroom"
+    },
+    {
+      "id": "nb_vindu",
+      "term": "vindu",
+      "translation": "window"
+    },
+    {
+      "id": "nb_dør",
+      "term": "dør",
+      "translation": "door"
+    },
+    {
+      "id": "nb_bord",
+      "term": "bord",
+      "translation": "table"
+    },
+    {
+      "id": "nb_stol",
+      "term": "stol",
+      "translation": "chair"
+    },
+    {
+      "id": "nb_seng",
+      "term": "seng",
+      "translation": "bed"
+    },
+    {
+      "id": "nb_lampe",
+      "term": "lampe",
+      "translation": "lamp"
+    },
+    {
+      "id": "nb_telefon",
+      "term": "telefon",
+      "translation": "phone"
+    },
+    {
+      "id": "nb_datamaskin",
+      "term": "datamaskin",
+      "translation": "computer"
+    },
+    {
+      "id": "nb_veske",
+      "term": "veske",
+      "translation": "bag"
+    },
+    {
+      "id": "nb_lommebok",
+      "term": "lommebok",
+      "translation": "wallet"
+    },
+    {
+      "id": "nb_nøkkel",
+      "term": "nøkkel",
+      "translation": "key"
+    },
+    {
+      "id": "nb_bok",
+      "term": "bok",
+      "translation": "book"
+    },
+    {
+      "id": "nb_papir",
+      "term": "papir",
+      "translation": "paper"
+    },
+    {
+      "id": "nb_penn",
+      "term": "penn",
+      "translation": "pen"
+    },
+    {
+      "id": "nb_vann",
+      "term": "vann",
+      "translation": "water"
+    },
+    {
+      "id": "nb_brød",
+      "term": "brød",
+      "translation": "bread"
+    },
+    {
+      "id": "nb_ris",
+      "term": "ris",
+      "translation": "rice"
+    },
+    {
+      "id": "nb_kjøtt",
+      "term": "kjøtt",
+      "translation": "meat"
+    },
+    {
+      "id": "nb_fisk",
+      "term": "fisk",
+      "translation": "fish"
+    },
+    {
+      "id": "nb_egg",
+      "term": "egg",
+      "translation": "egg"
+    },
+    {
+      "id": "nb_ost",
+      "term": "ost",
+      "translation": "cheese"
+    },
+    {
+      "id": "nb_eple",
+      "term": "eple",
+      "translation": "apple"
+    },
+    {
+      "id": "nb_banan",
+      "term": "banan",
+      "translation": "banana"
+    },
+    {
+      "id": "nb_kaffe",
+      "term": "kaffe",
+      "translation": "coffee"
+    },
+    {
+      "id": "nb_te",
+      "term": "te",
+      "translation": "tea"
+    },
+    {
+      "id": "nb_frokost",
+      "term": "frokost",
+      "translation": "breakfast"
+    },
+    {
+      "id": "nb_lunsj",
+      "term": "lunsj",
+      "translation": "lunch"
+    },
+    {
+      "id": "nb_middag",
+      "term": "middag",
+      "translation": "dinner"
+    },
+    {
+      "id": "nb_butikk",
+      "term": "butikk",
+      "translation": "shop"
+    },
+    {
+      "id": "nb_marked",
+      "term": "marked",
+      "translation": "market"
+    },
+    {
+      "id": "nb_penger",
+      "term": "penger",
+      "translation": "money"
+    },
+    {
+      "id": "nb_pris",
+      "term": "pris",
+      "translation": "price"
+    },
+    {
+      "id": "nb_billett",
+      "term": "billett",
+      "translation": "ticket"
+    },
+    {
+      "id": "nb_tog",
+      "term": "tog",
+      "translation": "train"
+    },
+    {
+      "id": "nb_buss",
+      "term": "buss",
+      "translation": "bus"
+    },
+    {
+      "id": "nb_stasjon",
+      "term": "stasjon",
+      "translation": "station"
+    },
+    {
+      "id": "nb_flyplass",
+      "term": "flyplass",
+      "translation": "airport"
+    },
+    {
+      "id": "nb_gate",
+      "term": "gate",
+      "translation": "street"
+    },
+    {
+      "id": "nb_by",
+      "term": "by",
+      "translation": "city"
+    },
+    {
+      "id": "nb_landsby",
+      "term": "landsby",
+      "translation": "village"
+    },
+    {
+      "id": "nb_kart",
+      "term": "kart",
+      "translation": "map"
+    },
+    {
+      "id": "nb_venstre",
+      "term": "venstre",
+      "translation": "left"
+    },
+    {
+      "id": "nb_høyre",
+      "term": "høyre",
+      "translation": "right"
+    },
+    {
+      "id": "nb_nær",
+      "term": "nær",
+      "translation": "near"
+    },
+    {
+      "id": "nb_langt",
+      "term": "langt",
+      "translation": "far"
+    },
+    {
+      "id": "nb_i_dag",
+      "term": "i dag",
+      "translation": "today"
+    },
+    {
+      "id": "nb_i_morgen",
+      "term": "i morgen",
+      "translation": "tomorrow"
+    },
+    {
+      "id": "nb_i_gar",
+      "term": "i går",
+      "translation": "yesterday"
+    },
+    {
+      "id": "nb_morgen",
+      "term": "morgen",
+      "translation": "morning"
+    },
+    {
+      "id": "nb_ettermiddag",
+      "term": "ettermiddag",
+      "translation": "afternoon"
+    },
+    {
+      "id": "nb_kveld",
+      "term": "kveld",
+      "translation": "evening"
+    },
+    {
+      "id": "nb_natt",
+      "term": "natt",
+      "translation": "night"
+    },
+    {
+      "id": "nb_uke",
+      "term": "uke",
+      "translation": "week"
+    },
+    {
+      "id": "nb_maned",
+      "term": "måned",
+      "translation": "month"
+    },
+    {
+      "id": "nb_ar",
+      "term": "år",
+      "translation": "year"
+    },
+    {
+      "id": "nb_vær",
+      "term": "vær",
+      "translation": "weather"
+    },
+    {
+      "id": "nb_regn",
+      "term": "regn",
+      "translation": "rain"
+    },
+    {
+      "id": "nb_vind",
+      "term": "vind",
+      "translation": "wind"
+    },
+    {
+      "id": "nb_sol",
+      "term": "sol",
+      "translation": "sun"
+    },
+    {
+      "id": "nb_kald",
+      "term": "kald",
+      "translation": "cold"
+    },
+    {
+      "id": "nb_varm",
+      "term": "varm",
+      "translation": "warm"
+    },
+    {
+      "id": "nb_person",
+      "term": "person",
+      "translation": "person"
+    },
+    {
+      "id": "nb_venn",
+      "term": "venn",
+      "translation": "friend"
+    },
+    {
+      "id": "nb_familie",
+      "term": "familie",
+      "translation": "family"
+    },
+    {
+      "id": "nb_barn",
+      "term": "barn",
+      "translation": "child"
+    },
+    {
+      "id": "nb_lærer",
+      "term": "lærer",
+      "translation": "teacher"
+    },
+    {
+      "id": "nb_lege",
+      "term": "lege",
+      "translation": "doctor"
+    },
+    {
+      "id": "nb_arbeider",
+      "term": "arbeider",
+      "translation": "worker"
+    },
+    {
+      "id": "nb_student",
+      "term": "student",
+      "translation": "student"
+    },
+    {
+      "id": "nb_glad",
+      "term": "glad",
+      "translation": "happy"
+    },
+    {
+      "id": "nb_trist",
+      "term": "trist",
+      "translation": "sad"
+    },
+    {
+      "id": "nb_trøtt",
+      "term": "trøtt",
+      "translation": "tired"
+    },
+    {
+      "id": "nb_opptatt",
+      "term": "opptatt",
+      "translation": "busy"
+    },
+    {
+      "id": "nb_klar",
+      "term": "klar",
+      "translation": "ready"
+    },
+    {
+      "id": "nb_viktig",
+      "term": "viktig",
+      "translation": "important"
+    },
+    {
+      "id": "nb_lett",
+      "term": "lett",
+      "translation": "easy"
+    },
+    {
+      "id": "nb_vanskelig",
+      "term": "vanskelig",
+      "translation": "difficult"
+    },
+    {
+      "id": "nb_ny",
+      "term": "ny",
+      "translation": "new"
+    },
+    {
+      "id": "nb_gammel",
+      "term": "gammel",
+      "translation": "old"
+    },
+    {
+      "id": "nb_god",
+      "term": "god",
+      "translation": "good"
+    },
+    {
+      "id": "nb_darlig",
+      "term": "dårlig",
+      "translation": "bad"
+    },
+    {
+      "id": "nb_liten",
+      "term": "liten",
+      "translation": "small"
+    },
+    {
+      "id": "nb_stor",
+      "term": "stor",
+      "translation": "large"
+    },
+    {
+      "id": "nb_a_være",
+      "term": "å være",
+      "translation": "to be"
+    },
+    {
+      "id": "nb_a_ha",
+      "term": "å ha",
+      "translation": "to have"
+    },
+    {
+      "id": "nb_a_ga",
+      "term": "å gå",
+      "translation": "to walk or go"
+    },
+    {
+      "id": "nb_a_komme",
+      "term": "å komme",
+      "translation": "to come"
+    },
+    {
+      "id": "nb_a_gjøre",
+      "term": "å gjøre",
+      "translation": "to do or make"
+    },
+    {
+      "id": "nb_a_se",
+      "term": "å se",
+      "translation": "to see"
+    },
+    {
+      "id": "nb_a_si",
+      "term": "å si",
+      "translation": "to say"
+    },
+    {
+      "id": "nb_a_vite",
+      "term": "å vite",
+      "translation": "to know a fact"
+    },
+    {
+      "id": "nb_a_kjenne",
+      "term": "å kjenne",
+      "translation": "to know a person or place"
+    },
+    {
+      "id": "nb_a_ville",
+      "term": "å ville",
+      "translation": "to want"
+    },
+    {
+      "id": "nb_a_trenge",
+      "term": "å trenge",
+      "translation": "to need"
+    },
+    {
+      "id": "nb_a_spise",
+      "term": "å spise",
+      "translation": "to eat"
+    },
+    {
+      "id": "nb_a_drikke",
+      "term": "å drikke",
+      "translation": "to drink"
+    },
+    {
+      "id": "nb_a_kjøpe",
+      "term": "å kjøpe",
+      "translation": "to buy"
+    },
+    {
+      "id": "nb_a_arbeide",
+      "term": "å arbeide",
+      "translation": "to work"
+    },
+    {
+      "id": "nb_a_lære",
+      "term": "å lære",
+      "translation": "to learn"
+    },
+    {
+      "id": "nb_a_snakke",
+      "term": "å snakke",
+      "translation": "to speak"
+    },
+    {
+      "id": "nb_a_lese",
+      "term": "å lese",
+      "translation": "to read"
+    },
+    {
+      "id": "nb_a_skrive",
+      "term": "å skrive",
+      "translation": "to write"
+    },
+    {
+      "id": "nb_fordi",
+      "term": "fordi",
+      "translation": "because"
+    },
+    {
+      "id": "nb_men",
+      "term": "men",
+      "translation": "but"
+    },
+    {
+      "id": "nb_ogsa",
+      "term": "også",
+      "translation": "also"
+    },
+    {
+      "id": "nb_kanskje",
+      "term": "kanskje",
+      "translation": "maybe"
+    },
+    {
+      "id": "nb_alltid",
+      "term": "alltid",
+      "translation": "always"
+    },
+    {
+      "id": "nb_ofte",
+      "term": "ofte",
+      "translation": "often"
+    },
+    {
+      "id": "nb_noen_ganger",
+      "term": "noen ganger",
+      "translation": "sometimes"
+    },
+    {
+      "id": "nb_aldri",
+      "term": "aldri",
+      "translation": "never"
+    }
+  ],
+  "texts": [
+    {
+      "id": "nb_morgen",
+      "title": "Morgen",
+      "text": "Om morgenen drikker jeg {kaffe} og spiser brød med ost. Etterpå går jeg til {arbeid}.",
+      "translation": "In the morning I drink coffee and eat bread with cheese. Afterwards I go to work.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_byen",
+      "title": "I byen",
+      "text": "Jeg bor i en {by} med mange butikker, en park og en liten stasjon. Huset mitt ligger nær sentrum.",
+      "translation": "I live in a city with many shops, a park, and a small station. My house is near the centre.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_transport",
+      "title": "Transport",
+      "text": "Jeg tar {bussen} til universitetet. Billetten ligger på telefonen, og reisen tar tjue minutter.",
+      "translation": "I take the bus to the university. The ticket is on the phone, and the trip takes twenty minutes.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_arbeid",
+      "title": "Arbeid",
+      "text": "På {arbeid} skriver jeg notater, leser meldinger og svarer på viktige spørsmål.",
+      "translation": "At work I write notes, read messages, and answer important questions.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_butikk",
+      "title": "Butikk",
+      "text": "I butikken kjøper jeg vann, epler og {brød}. Prisen er grei, og køen er kort.",
+      "translation": "In the shop I buy water, apples, and bread. The price is fine, and the queue is short.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_kafe",
+      "title": "Kafé",
+      "text": "På kafeen møter jeg en {venn}. Vi bestiller te og snakker om planer for helgen.",
+      "translation": "At the café I meet a friend. We order tea and talk about plans for the weekend.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_hjem",
+      "title": "Hjemme",
+      "text": "Leiligheten min har et lite {kjøkken}, et lyst soverom og et bord ved vinduet.",
+      "translation": "My apartment has a small kitchen, a bright bedroom, and a table by the window.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_vaer",
+      "title": "Vær",
+      "text": "I dag er {været} kaldt og vindfullt. Jeg tar på meg en jakke fordi det kan komme regn.",
+      "translation": "Today the weather is cold and windy. I put on a jacket because rain may come.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_helg",
+      "title": "Helg",
+      "text": "I helgen vil vi gå til markedet, lage middag og se en film {hjemme}.",
+      "translation": "At the weekend we want to go to the market, make dinner, and watch a film at home.",
+      "translationLanguage": "English"
+    },
+    {
+      "id": "nb_reise",
+      "title": "Reise",
+      "text": "I morgen tar jeg {toget} til en annen by. Jeg trenger billett, adresse og en liten veske.",
+      "translation": "Tomorrow I take the train to another city. I need a ticket, an address, and a small bag.",
+      "translationLanguage": "English"
+    }
+  ],
+  "forms": [
+    {
+      "id": "nb_noun_a_house_et_hus",
+      "type": "noun",
+      "prompt": "a house",
+      "before": "et ",
+      "answer": "hus",
+      "after": "",
+      "result": "et hus",
+      "note": "neuter indefinite noun"
+    },
+    {
+      "id": "nb_noun_the_house_huset",
+      "type": "noun",
+      "prompt": "the house",
+      "before": "",
+      "answer": "huset",
+      "after": "",
+      "result": "huset",
+      "note": "definite singular of hus"
+    },
+    {
+      "id": "nb_noun_houses_hus",
+      "type": "noun",
+      "prompt": "houses",
+      "before": "",
+      "answer": "hus",
+      "after": "",
+      "result": "hus",
+      "note": "neuter plural often unchanged"
+    },
+    {
+      "id": "nb_noun_the_houses_husene",
+      "type": "noun",
+      "prompt": "the houses",
+      "before": "",
+      "answer": "husene",
+      "after": "",
+      "result": "husene",
+      "note": "definite plural"
+    },
+    {
+      "id": "nb_noun_a_book_en_bok",
+      "type": "noun",
+      "prompt": "a book",
+      "before": "en ",
+      "answer": "bok",
+      "after": "",
+      "result": "en bok",
+      "note": "common gender noun"
+    },
+    {
+      "id": "nb_noun_the_book_boka",
+      "type": "noun",
+      "prompt": "the book",
+      "before": "",
+      "answer": "boka",
+      "after": "",
+      "result": "boka",
+      "note": "definite singular"
+    },
+    {
+      "id": "nb_noun_books_bøker",
+      "type": "noun",
+      "prompt": "books",
+      "before": "",
+      "answer": "bøker",
+      "after": "",
+      "result": "bøker",
+      "note": "irregular plural"
+    },
+    {
+      "id": "nb_noun_the_books_bøkene",
+      "type": "noun",
+      "prompt": "the books",
+      "before": "",
+      "answer": "bøkene",
+      "after": "",
+      "result": "bøkene",
+      "note": "definite plural"
+    },
+    {
+      "id": "nb_noun_a_door_en_dør",
+      "type": "noun",
+      "prompt": "a door",
+      "before": "en ",
+      "answer": "dør",
+      "after": "",
+      "result": "en dør",
+      "note": "common gender noun"
+    },
+    {
+      "id": "nb_noun_the_door_døra",
+      "type": "noun",
+      "prompt": "the door",
+      "before": "",
+      "answer": "døra",
+      "after": "",
+      "result": "døra",
+      "note": "definite singular"
+    },
+    {
+      "id": "nb_noun_doors_dører",
+      "type": "noun",
+      "prompt": "doors",
+      "before": "",
+      "answer": "dører",
+      "after": "",
+      "result": "dører",
+      "note": "regular plural"
+    },
+    {
+      "id": "nb_noun_the_doors_dørene",
+      "type": "noun",
+      "prompt": "the doors",
+      "before": "",
+      "answer": "dørene",
+      "after": "",
+      "result": "dørene",
+      "note": "definite plural"
+    },
+    {
+      "id": "nb_noun_a_child_et_barn",
+      "type": "noun",
+      "prompt": "a child",
+      "before": "et ",
+      "answer": "barn",
+      "after": "",
+      "result": "et barn",
+      "note": "neuter noun"
+    },
+    {
+      "id": "nb_noun_the_child_barnet",
+      "type": "noun",
+      "prompt": "the child",
+      "before": "",
+      "answer": "barnet",
+      "after": "",
+      "result": "barnet",
+      "note": "definite singular"
+    },
+    {
+      "id": "nb_noun_children_barn",
+      "type": "noun",
+      "prompt": "children",
+      "before": "",
+      "answer": "barn",
+      "after": "",
+      "result": "barn",
+      "note": "plural unchanged"
+    },
+    {
+      "id": "nb_noun_the_children_barna",
+      "type": "noun",
+      "prompt": "the children",
+      "before": "",
+      "answer": "barna",
+      "after": "",
+      "result": "barna",
+      "note": "definite plural"
+    },
+    {
+      "id": "nb_adjective_a_good_day_en_god_dag",
+      "type": "adjective",
+      "prompt": "a good day",
+      "before": "en ",
+      "answer": "god",
+      "after": " dag",
+      "result": "en god dag",
+      "note": "common gender adjective"
+    },
+    {
+      "id": "nb_adjective_a_good_year_et_godt_ar",
+      "type": "adjective",
+      "prompt": "a good year",
+      "before": "et ",
+      "answer": "godt",
+      "after": " år",
+      "result": "et godt år",
+      "note": "neuter adjective"
+    },
+    {
+      "id": "nb_adjective_good_books_gode_bøker",
+      "type": "adjective",
+      "prompt": "good books",
+      "before": "",
+      "answer": "gode",
+      "after": " bøker",
+      "result": "gode bøker",
+      "note": "plural adjective"
+    },
+    {
+      "id": "nb_adjective_a_small_house_et_lite_hus",
+      "type": "adjective",
+      "prompt": "a small house",
+      "before": "et ",
+      "answer": "lite",
+      "after": " hus",
+      "result": "et lite hus",
+      "note": "irregular neuter of liten"
+    },
+    {
+      "id": "nb_adjective_a_small_car_en_liten_bil",
+      "type": "adjective",
+      "prompt": "a small car",
+      "before": "en ",
+      "answer": "liten",
+      "after": " bil",
+      "result": "en liten bil",
+      "note": "common gender of liten"
+    },
+    {
+      "id": "nb_adjective_small_books_sma_bøker",
+      "type": "adjective",
+      "prompt": "small books",
+      "before": "",
+      "answer": "små",
+      "after": " bøker",
+      "result": "små bøker",
+      "note": "plural of liten"
+    },
+    {
+      "id": "nb_adjective_a_new_apartment_en_ny_leilighet",
+      "type": "adjective",
+      "prompt": "a new apartment",
+      "before": "en ",
+      "answer": "ny",
+      "after": " leilighet",
+      "result": "en ny leilighet",
+      "note": "common gender"
+    },
+    {
+      "id": "nb_adjective_a_new_table_et_nytt_bord",
+      "type": "adjective",
+      "prompt": "a new table",
+      "before": "et ",
+      "answer": "nytt",
+      "after": " bord",
+      "result": "et nytt bord",
+      "note": "neuter form"
+    },
+    {
+      "id": "nb_adjective_new_houses_nye_hus",
+      "type": "adjective",
+      "prompt": "new houses",
+      "before": "",
+      "answer": "nye",
+      "after": " hus",
+      "result": "nye hus",
+      "note": "plural form"
+    },
+    {
+      "id": "nb_verb_i_am_jeg_er",
+      "type": "verb",
+      "prompt": "I am",
+      "before": "jeg ",
+      "answer": "er",
+      "after": "",
+      "result": "jeg er",
+      "note": "present of å være"
+    },
+    {
+      "id": "nb_verb_i_was_jeg_var",
+      "type": "verb",
+      "prompt": "I was",
+      "before": "jeg ",
+      "answer": "var",
+      "after": "",
+      "result": "jeg var",
+      "note": "past of å være"
+    },
+    {
+      "id": "nb_verb_i_have_jeg_har",
+      "type": "verb",
+      "prompt": "I have",
+      "before": "jeg ",
+      "answer": "har",
+      "after": "",
+      "result": "jeg har",
+      "note": "present of å ha"
+    },
+    {
+      "id": "nb_verb_i_had_jeg_hadde",
+      "type": "verb",
+      "prompt": "I had",
+      "before": "jeg ",
+      "answer": "hadde",
+      "after": "",
+      "result": "jeg hadde",
+      "note": "past of å ha"
+    },
+    {
+      "id": "nb_verb_i_go_jeg_gar",
+      "type": "verb",
+      "prompt": "I go",
+      "before": "jeg ",
+      "answer": "går",
+      "after": "",
+      "result": "jeg går",
+      "note": "present of å gå"
+    },
+    {
+      "id": "nb_verb_i_went_jeg_gikk",
+      "type": "verb",
+      "prompt": "I went",
+      "before": "jeg ",
+      "answer": "gikk",
+      "after": "",
+      "result": "jeg gikk",
+      "note": "past of å gå"
+    },
+    {
+      "id": "nb_verb_i_come_jeg_kommer",
+      "type": "verb",
+      "prompt": "I come",
+      "before": "jeg ",
+      "answer": "kommer",
+      "after": "",
+      "result": "jeg kommer",
+      "note": "present of å komme"
+    },
+    {
+      "id": "nb_verb_i_came_jeg_kom",
+      "type": "verb",
+      "prompt": "I came",
+      "before": "jeg ",
+      "answer": "kom",
+      "after": "",
+      "result": "jeg kom",
+      "note": "past of å komme"
+    },
+    {
+      "id": "nb_verb_i_do_jeg_gjør",
+      "type": "verb",
+      "prompt": "I do",
+      "before": "jeg ",
+      "answer": "gjør",
+      "after": "",
+      "result": "jeg gjør",
+      "note": "present of å gjøre"
+    },
+    {
+      "id": "nb_verb_i_did_jeg_gjorde",
+      "type": "verb",
+      "prompt": "I did",
+      "before": "jeg ",
+      "answer": "gjorde",
+      "after": "",
+      "result": "jeg gjorde",
+      "note": "past of å gjøre"
+    },
+    {
+      "id": "nb_verb_i_see_jeg_ser",
+      "type": "verb",
+      "prompt": "I see",
+      "before": "jeg ",
+      "answer": "ser",
+      "after": "",
+      "result": "jeg ser",
+      "note": "present of å se"
+    },
+    {
+      "id": "nb_verb_i_saw_jeg_sa",
+      "type": "verb",
+      "prompt": "I saw",
+      "before": "jeg ",
+      "answer": "så",
+      "after": "",
+      "result": "jeg så",
+      "note": "past of å se"
+    },
+    {
+      "id": "nb_verb_i_say_jeg_sier",
+      "type": "verb",
+      "prompt": "I say",
+      "before": "jeg ",
+      "answer": "sier",
+      "after": "",
+      "result": "jeg sier",
+      "note": "present of å si"
+    },
+    {
+      "id": "nb_verb_i_said_jeg_sa",
+      "type": "verb",
+      "prompt": "I said",
+      "before": "jeg ",
+      "answer": "sa",
+      "after": "",
+      "result": "jeg sa",
+      "note": "past of å si"
+    },
+    {
+      "id": "nb_verb_i_know_a_fact_jeg_vet",
+      "type": "verb",
+      "prompt": "I know a fact",
+      "before": "jeg ",
+      "answer": "vet",
+      "after": "",
+      "result": "jeg vet",
+      "note": "present of å vite"
+    },
+    {
+      "id": "nb_verb_i_knew_a_fact_jeg_visste",
+      "type": "verb",
+      "prompt": "I knew a fact",
+      "before": "jeg ",
+      "answer": "visste",
+      "after": "",
+      "result": "jeg visste",
+      "note": "past of å vite"
+    },
+    {
+      "id": "nb_verb_i_know_a_person_jeg_kjenner",
+      "type": "verb",
+      "prompt": "I know a person",
+      "before": "jeg ",
+      "answer": "kjenner",
+      "after": "",
+      "result": "jeg kjenner",
+      "note": "present of å kjenne"
+    },
+    {
+      "id": "nb_verb_i_want_jeg_vil",
+      "type": "verb",
+      "prompt": "I want",
+      "before": "jeg ",
+      "answer": "vil",
+      "after": "",
+      "result": "jeg vil",
+      "note": "modal verb"
+    },
+    {
+      "id": "nb_verb_i_wanted_jeg_ville",
+      "type": "verb",
+      "prompt": "I wanted",
+      "before": "jeg ",
+      "answer": "ville",
+      "after": "",
+      "result": "jeg ville",
+      "note": "past of å ville"
+    },
+    {
+      "id": "nb_verb_i_need_jeg_trenger",
+      "type": "verb",
+      "prompt": "I need",
+      "before": "jeg ",
+      "answer": "trenger",
+      "after": "",
+      "result": "jeg trenger",
+      "note": "present of å trenge"
+    },
+    {
+      "id": "nb_verb_i_eat_jeg_spiser",
+      "type": "verb",
+      "prompt": "I eat",
+      "before": "jeg ",
+      "answer": "spiser",
+      "after": "",
+      "result": "jeg spiser",
+      "note": "present of å spise"
+    },
+    {
+      "id": "nb_verb_i_ate_jeg_spiste",
+      "type": "verb",
+      "prompt": "I ate",
+      "before": "jeg ",
+      "answer": "spiste",
+      "after": "",
+      "result": "jeg spiste",
+      "note": "past of å spise"
+    },
+    {
+      "id": "nb_verb_i_drink_jeg_drikker",
+      "type": "verb",
+      "prompt": "I drink",
+      "before": "jeg ",
+      "answer": "drikker",
+      "after": "",
+      "result": "jeg drikker",
+      "note": "present of å drikke"
+    },
+    {
+      "id": "nb_verb_i_drank_jeg_drakk",
+      "type": "verb",
+      "prompt": "I drank",
+      "before": "jeg ",
+      "answer": "drakk",
+      "after": "",
+      "result": "jeg drakk",
+      "note": "past of å drikke"
+    },
+    {
+      "id": "nb_word_order_today_i_work_i_dag_arbeider_jeg",
+      "type": "word order",
+      "prompt": "today I work",
+      "before": "i dag ",
+      "answer": "arbeider",
+      "after": " jeg",
+      "result": "i dag arbeider jeg",
+      "note": "verb-second word order"
+    },
+    {
+      "id": "nb_question_do_you_speak_norwegian_snakker_du_norsk",
+      "type": "question",
+      "prompt": "Do you speak Norwegian?",
+      "before": "",
+      "answer": "Snakker",
+      "after": " du norsk?",
+      "result": "Snakker du norsk?",
+      "note": "verb first in yes/no question"
+    }
+  ],
+  "reference": {
+    "title": "Norway",
+    "country": "Norway",
+    "flag": {
+      "title": "Norges flagg",
+      "asset": "packages/norwegian-bokmal/assets/flag.svg",
+      "colorsLocal": "Rødt · Hvitt · Blått",
+      "translationLabel": "Red · White · Blue",
+      "label": "Norges flagg",
+      "descriptionLocal": "Norges flagg er rødt med et blått kors med hvit kant.",
+      "translation": "Norway's flag is red with a blue cross bordered in white."
+    },
+    "anthem": {
+      "title": "Nasjonalsang",
+      "name": "Ja, vi elsker dette landet",
+      "nameTranslation": "Yes, we love this country",
+      "description": "Norway's national anthem is “Ja, vi elsker dette landet”."
+    },
+    "facts": [
+      {
+        "id": "country",
+        "label": "Land",
+        "value": "Norge",
+        "translation": "Norway"
+      },
+      {
+        "id": "capital",
+        "label": "Hovedstad",
+        "value": "Hovedstaden i Norge er Oslo.",
+        "translation": "The capital of Norway is Oslo."
+      },
+      {
+        "id": "constitution-day",
+        "label": "Grunnlovsdag",
+        "value": "Norges grunnlovsdag er 17. mai.",
+        "translation": "Norway's Constitution Day is 17 May."
+      },
+      {
+        "id": "language",
+        "label": "Språk",
+        "value": "Norsk har to offisielle skriftspråk: bokmål og nynorsk.",
+        "translation": "Norwegian has two official written standards: Bokmål and Nynorsk."
+      },
+      {
+        "id": "currency",
+        "label": "Valuta",
+        "value": "Valutaen er norsk krone.",
+        "translation": "The currency is the Norwegian krone."
+      },
+      {
+        "id": "government",
+        "label": "Styreform",
+        "value": "Norge er et konstitusjonelt monarki og et parlamentarisk demokrati.",
+        "translation": "Norway is a constitutional monarchy and parliamentary democracy."
+      }
+    ]
+  }
+}

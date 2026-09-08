@@ -2,6 +2,7 @@ export type WordPair = {
   id: string;
   term: string;
   translation: string;
+  custom?: boolean;
   ro?: string;
   en?: string;
 };
@@ -12,6 +13,7 @@ export type TextExercise = {
   text: string;
   translation: string;
   translationLanguage?: string;
+  custom?: boolean;
 };
 
 export type FormExercise = {
@@ -23,6 +25,7 @@ export type FormExercise = {
   after: string;
   result: string;
   note: string;
+  custom?: boolean;
   prefix?: string;
 };
 
@@ -41,6 +44,7 @@ export type PackageMetadata = {
   textCount: number;
   formCount: number;
   characterSubstitutions?: CharacterSubstitutions;
+  source?: "catalog" | "local";
 };
 
 export type ReferenceFact = {
@@ -106,6 +110,13 @@ export type CoursePackage = {
   texts: TextExercise[];
   forms: FormExercise[];
   reference?: CivicReference;
+};
+
+export type CustomPackageContent = {
+  packageId: string;
+  words: WordPair[];
+  texts: TextExercise[];
+  forms: FormExercise[];
 };
 
 export type CourseContent = CoursePackage;

@@ -5,13 +5,19 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { withBasePath } from "@/lib/deployment";
 import {
+  appendCustomContent,
+  createLocalPackage,
+  deleteLocalPackage,
   downloadPackage,
   formBefore,
   loadCatalog,
+  mergeCustomContent,
   readActivePackageId,
+  readAllCustomContent,
   readInstalledPackages,
   removeInstalledPackage,
   saveActivePackageId,
+  saveCustomContent,
   termForWord,
   translationForWord,
 } from "@/lib/packages";
@@ -40,9 +46,11 @@ import type {
   PackageCatalogItem,
   TextExercise,
   WordPair,
+  CustomPackageContent,
 } from "@/lib/types";
 
-type Screen = "home" | "match" | "text" | "forms" | "progress" | "library" | "reference" | "anthem";
+type Screen = "home" | "match" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
+type ImportKind = "words" | "texts" | "forms";
 
 const pairOptions = [3, 5, 10, 20];
 const textLevels = [1, 2, 3, 4, 5] as const;
@@ -51,6 +59,7 @@ const sessionSize = 10;
 export function VerbaApp() {
   const [catalog, setCatalog] = useState<PackageCatalog | null>(null);
   const [installed, setInstalled] = useState<CoursePackage[]>([]);
+  const [customContent, setCustomContent] = useState<Record<string, CustomPackageContent>>({});
   const [activePackageId, setActivePackageId] = useState("");
   const [loadError, setLoadError] = useState("");
   const [screen, setScreen] = useState<Screen>("home");
@@ -59,6 +68,8 @@ export function VerbaApp() {
   const [requestedPackageId, setRequestedPackageId] = useState("");
   const [busyPackageId, setBusyPackageId] = useState("");
   const [libraryMessage, setLibraryMessage] = useState("");
+  const [importKind, setImportKind] = useState<ImportKind | null>(null);
+  const [managePackageId, setManagePackageId] = useState("");
 
   useEffect(() => {
     let mounted = true;
@@ -66,12 +77,13 @@ export function VerbaApp() {
     async function start() {
       try {
         const requested = new URLSearchParams(window.location.search).get("package") ?? "";
-        const [nextCatalog, storedInstalled] = await Promise.all([loadCatalog(), readInstalledPackages()]);
+        const [nextCatalog, storedInstalled, storedCustom] = await Promise.all([loadCatalog(), readInstalledPackages(), readAllCustomContent()]);
         const nextInstalled = await refreshOutdatedInstalledPackages(nextCatalog, storedInstalled);
         if (!mounted) return;
 
         setCatalog(nextCatalog);
         setInstalled(sortPackages(nextInstalled, nextCatalog));
+        setCustomContent(storedCustom);
         setRequestedPackageId(requested);
         if (requested) setScreen("library");
 
@@ -95,13 +107,14 @@ export function VerbaApp() {
   }, []);
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
+    if (process.env.NODE_ENV !== "production" || typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
     navigator.serviceWorker.register(withBasePath("/sw.js"), { scope: withBasePath("/") }).catch(() => {
       // Service worker support is helpful, but the app should still work online without it.
     });
   }, []);
 
-  const activePackage = installed.find((item) => item.metadata.id === activePackageId) ?? null;
+  const baseActivePackage = installed.find((item) => item.metadata.id === activePackageId) ?? null;
+  const activePackage = baseActivePackage ? mergeCustomContent(baseActivePackage, customContent[baseActivePackage.metadata.id]) : null;
   const totals = activePackage ? progressTotals(progress, activePackage.metadata.id) : { attempts: 0, correct: 0, incorrect: 0, weak: 0 };
 
   function record(kind: PracticeKind, itemId: string, wasCorrect: boolean) {
@@ -128,9 +141,10 @@ export function VerbaApp() {
   }
 
   async function refreshInstalled(nextCatalog = catalog) {
-    const nextInstalled = await readInstalledPackages();
+    const [nextInstalled, nextCustom] = await Promise.all([readInstalledPackages(), readAllCustomContent()]);
     const sorted = nextCatalog ? sortPackages(nextInstalled, nextCatalog) : nextInstalled;
     setInstalled(sorted);
+    setCustomContent(nextCustom);
     return sorted;
   }
 
@@ -175,6 +189,55 @@ export function VerbaApp() {
     saveActivePackageId(packageId);
     setLibraryMessage("Active package updated.");
     setScreen("home");
+  }
+
+  async function createUserPackage(options: { title: string; language?: string; languageCode?: string; variant?: string }) {
+    setLibraryMessage("");
+    try {
+      const coursePackage = await createLocalPackage(options.title, options.language || options.title, options.languageCode || "local", options.variant || "Local");
+      const nextInstalled = await refreshInstalled();
+      const selected = nextInstalled.find((item) => item.metadata.id === coursePackage.metadata.id) ?? coursePackage;
+      setActivePackageId(selected.metadata.id);
+      saveActivePackageId(selected.metadata.id);
+      setLibraryMessage(`${selected.metadata.title} created and selected.`);
+    } catch (error) {
+      setLibraryMessage(error instanceof Error ? error.message : "Local package could not be created.");
+    }
+  }
+
+  async function deleteUserPackage(packageId: string) {
+    const target = installed.find((item) => item.metadata.id === packageId);
+    if (!target || target.metadata.source !== "local") return;
+    if (!window.confirm(`Delete local package "${target.metadata.title}" and its local content?`)) return;
+    await deleteLocalPackage(packageId);
+    const nextInstalled = await refreshInstalled();
+    if (activePackageId === packageId) {
+      const nextActive = nextInstalled[0]?.metadata.id ?? "";
+      setActivePackageId(nextActive);
+      saveActivePackageId(nextActive);
+    }
+    setLibraryMessage("Local package deleted.");
+  }
+
+  async function importCustomEntries(kind: ImportKind, raw: string) {
+    if (!activePackage) return { added: 0, duplicates: 0, ignored: 0 };
+    const parsed = parseImport(kind, raw, activePackage, customContent[activePackage.metadata.id]);
+    if (parsed.added > 0) {
+      const additions = kind === "words" ? { words: parsed.words } : kind === "texts" ? { texts: parsed.texts } : { forms: parsed.forms };
+      await appendCustomContent(activePackage.metadata.id, additions);
+      await refreshInstalled();
+    }
+    return { added: parsed.added, duplicates: parsed.duplicates, ignored: parsed.ignored };
+  }
+
+  function manageLocalContent(packageId: string) {
+    setManagePackageId(packageId);
+    setScreen("manage-local");
+  }
+
+  async function updateCustomPackageContent(packageId: string, content: CustomPackageContent) {
+    await saveCustomContent(content);
+    setCustomContent(await readAllCustomContent());
   }
 
   return (
@@ -232,6 +295,20 @@ export function VerbaApp() {
           onInstall={installCatalogPackage}
           onRemove={removePackage}
           onUse={usePackage}
+          onCreateLocal={createUserPackage}
+          onDeleteLocal={deleteUserPackage}
+          customContent={customContent}
+          onManageLocal={manageLocalContent}
+        />
+      )}
+
+      {catalog && screen === "manage-local" && (
+        <ManageLocalContentScreen
+          packageId={managePackageId || activePackageId}
+          installed={installed}
+          customContent={customContent}
+          onBack={() => setScreen("library")}
+          onSave={updateCustomPackageContent}
         />
       )}
 
@@ -268,6 +345,7 @@ export function VerbaApp() {
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "match", ids })}
           onRecordMatch={recordMatch}
+          onAddContent={() => setImportKind("words")}
         />
       )}
 
@@ -280,6 +358,7 @@ export function VerbaApp() {
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "text", ids })}
           onRecord={record}
+          onAddContent={() => setImportKind("texts")}
         />
       )}
 
@@ -292,6 +371,16 @@ export function VerbaApp() {
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "forms", ids })}
           onRecord={record}
+          onAddContent={() => setImportKind("forms")}
+        />
+      )}
+
+      {importKind && activePackage && (
+        <ImportDialog
+          kind={importKind}
+          packageTitle={activePackage.metadata.title}
+          onCancel={() => setImportKind(null)}
+          onImport={async (raw) => importCustomEntries(importKind, raw)}
         />
       )}
     </main>
@@ -471,10 +560,14 @@ function LibraryScreen({
   requestedPackageId,
   busyPackageId,
   message,
+  customContent,
   onBack,
   onInstall,
   onRemove,
   onUse,
+  onCreateLocal,
+  onDeleteLocal,
+  onManageLocal,
 }: {
   catalog: PackageCatalog;
   installed: CoursePackage[];
@@ -482,19 +575,100 @@ function LibraryScreen({
   requestedPackageId: string;
   busyPackageId: string;
   message: string;
+  customContent: Record<string, CustomPackageContent>;
   onBack: () => void;
   onInstall: (item: PackageCatalogItem) => void;
   onRemove: (packageId: string) => void;
   onUse: (packageId: string) => void;
+  onCreateLocal: (options: { title: string; language?: string; languageCode?: string; variant?: string }) => void;
+  onDeleteLocal: (packageId: string) => void;
+  onManageLocal: (packageId: string) => void;
 }) {
   const installedIds = new Set(installed.map((item) => item.metadata.id));
   const groups = groupCatalog(catalog.packages);
+  const localPackages = installed.filter((item) => item.metadata.source === "local");
+  const [isCreating, setIsCreating] = useState(false);
+  const [title, setTitle] = useState("");
+  const [languageCode, setLanguageCode] = useState("");
 
   return (
     <section className="workout">
       <ExerciseHeader title="Library" onBack={onBack} meta={`${installed.length} installed`} />
       {requestedPackageId && <p className="library-message">Requested package: {catalog.packages.find((item) => item.id === requestedPackageId)?.title ?? requestedPackageId}</p>}
       {message && <p className="library-message">{message}</p>}
+      <section className="panel local-package-panel">
+        <div>
+          <h2>Local packages</h2>
+          <p className="setup-help">Create an empty package and fill it with your own words, texts, and forms on this device.</p>
+        </div>
+        {!isCreating ? (
+          <button className="ghost-button compact" type="button" onClick={() => setIsCreating(true)}>
+            New local package
+          </button>
+        ) : (
+          <form
+            className="local-package-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              const trimmedTitle = title.trim();
+              if (!trimmedTitle) return;
+              onCreateLocal({ title: trimmedTitle, languageCode: languageCode.trim() || "local" });
+              setTitle("");
+              setLanguageCode("");
+              setIsCreating(false);
+            }}
+          >
+            <label>
+              <span>Title</span>
+              <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="My Norwegian" />
+            </label>
+            <label>
+              <span>Language/code optional</span>
+              <input value={languageCode} onChange={(event) => setLanguageCode(event.target.value)} placeholder="nb, de, custom" />
+            </label>
+            <div className="package-actions">
+              <button className="primary-button compact-button" type="submit" disabled={!title.trim()}>
+                Create
+              </button>
+              <button className="ghost-button compact" type="button" onClick={() => setIsCreating(false)}>
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
+      </section>
+      {localPackages.length > 0 && (
+        <section className="panel package-group">
+          <h2>On this device</h2>
+          <div className="package-list">
+            {localPackages.map((coursePackage) => {
+              const local = customCounts(customContent[coursePackage.metadata.id]);
+              const isActive = activePackageId === coursePackage.metadata.id;
+              return (
+                <article className="package-card" key={coursePackage.metadata.id}>
+                  <div>
+                    <h3>{coursePackage.metadata.title}</h3>
+                    <p className="package-stage">Local package</p>
+                    <p className="package-level">{countLine(local.words, local.texts, local.forms)}</p>
+                  </div>
+                  <div className="package-actions">
+                    <span className="installed-label">{isActive ? "Active" : "Local"}</span>
+                    <button className="ghost-button compact" type="button" onClick={() => onUse(coursePackage.metadata.id)} disabled={isActive}>
+                      Use
+                    </button>
+                    <button className="ghost-button compact" type="button" onClick={() => onManageLocal(coursePackage.metadata.id)}>
+                      Manage local content
+                    </button>
+                    <button className="ghost-button compact" type="button" onClick={() => onDeleteLocal(coursePackage.metadata.id)}>
+                      Delete
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )}
       <div className="library-groups">
         {groups.map((group) => (
           <section className="panel package-group" key={group.name}>
@@ -504,6 +678,7 @@ function LibraryScreen({
                 const isInstalled = installedIds.has(item.id);
                 const isActive = activePackageId === item.id;
                 const isRequested = requestedPackageId === item.id;
+                const local = customCounts(customContent[item.id]);
                 return (
                   <article className={`package-card${isRequested ? " is-requested" : ""}`} key={item.id}>
                     <div>
@@ -512,6 +687,7 @@ function LibraryScreen({
                       <p className="package-level">
                         {item.wordCount} words · {item.textCount} texts · {item.formCount} forms
                       </p>
+                      {local.total > 0 && <p className="package-local-count">+ {countLine(local.words, local.texts, local.forms)} local</p>}
                     </div>
                     <div className="package-actions">
                       {isInstalled ? (
@@ -522,6 +698,9 @@ function LibraryScreen({
                           </button>
                           <button className="ghost-button compact" type="button" onClick={() => onRemove(item.id)} disabled={busyPackageId === item.id}>
                             Remove
+                          </button>
+                          <button className="ghost-button compact" type="button" onClick={() => onManageLocal(item.id)}>
+                            Manage local content
                           </button>
                         </>
                       ) : (
@@ -555,6 +734,161 @@ function ChoosePackagePanel({ onBack, onLibrary }: { onBack: () => void; onLibra
   );
 }
 
+function ManageLocalContentScreen({
+  packageId,
+  installed,
+  customContent,
+  onBack,
+  onSave,
+}: {
+  packageId: string;
+  installed: CoursePackage[];
+  customContent: Record<string, CustomPackageContent>;
+  onBack: () => void;
+  onSave: (packageId: string, content: CustomPackageContent) => void;
+}) {
+  const coursePackage = installed.find((item) => item.metadata.id === packageId);
+  const content = customContent[packageId] ?? { packageId, words: [], texts: [], forms: [] };
+
+  function removeEntry(kind: ImportKind, id: string) {
+    const next = {
+      ...content,
+      [kind]: content[kind].filter((item) => item.id !== id),
+    };
+    onSave(packageId, next);
+  }
+
+  function clearKind(kind: ImportKind) {
+    const count = content[kind].length;
+    if (!count) return;
+    if (!window.confirm(`Remove ${count} local ${kind} from "${coursePackage?.metadata.title ?? "this package"}"?`)) return;
+    onSave(packageId, { ...content, [kind]: [] });
+  }
+
+  return (
+    <section className="workout">
+      <ExerciseHeader title="Manage local content" onBack={onBack} meta={coursePackage?.metadata.title ?? "Local additions"} />
+      <LocalContentSection
+        title="Words"
+        items={content.words}
+        labelFor={(item) => `${termForWord(item)} — ${translationForWord(item)}`}
+        onRemove={(id) => removeEntry("words", id)}
+        onClear={() => clearKind("words")}
+      />
+      <LocalContentSection
+        title="Texts"
+        items={content.texts}
+        labelFor={(item) => item.title || item.text.slice(0, 70)}
+        onRemove={(id) => removeEntry("texts", id)}
+        onClear={() => clearKind("texts")}
+      />
+      <LocalContentSection
+        title="Forms"
+        items={content.forms}
+        labelFor={(item) => `${item.prompt} — ${formBefore(item)}[${item.answer}]${item.after}`}
+        onRemove={(id) => removeEntry("forms", id)}
+        onClear={() => clearKind("forms")}
+      />
+    </section>
+  );
+}
+
+function LocalContentSection<T extends { id: string }>({
+  title,
+  items,
+  labelFor,
+  onRemove,
+  onClear,
+}: {
+  title: string;
+  items: T[];
+  labelFor: (item: T) => string;
+  onRemove: (id: string) => void;
+  onClear: () => void;
+}) {
+  return (
+    <section className="panel local-content-section">
+      <div className="local-content-heading">
+        <div>
+          <h2>{title}</h2>
+          <p className="setup-help">{items.length} local {items.length === 1 ? "entry" : "entries"}</p>
+        </div>
+        <button className="ghost-button compact" type="button" onClick={onClear} disabled={!items.length}>
+          Clear local {title.toLocaleLowerCase()}
+        </button>
+      </div>
+      {items.length ? (
+        <div className="local-entry-list">
+          {items.map((item) => (
+            <article className="local-entry" key={item.id}>
+              <span>{labelFor(item)}</span>
+              <button className="ghost-button compact" type="button" onClick={() => onRemove(item.id)}>
+                Remove
+              </button>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="setup-help">No local {title.toLocaleLowerCase()} added yet.</p>
+      )}
+    </section>
+  );
+}
+
+function ImportDialog({
+  kind,
+  packageTitle,
+  onCancel,
+  onImport,
+}: {
+  kind: ImportKind;
+  packageTitle: string;
+  onCancel: () => void;
+  onImport: (raw: string) => Promise<{ added: number; duplicates: number; ignored: number }>;
+}) {
+  const [raw, setRaw] = useState("");
+  const [showExamples, setShowExamples] = useState(false);
+  const [summary, setSummary] = useState("");
+  const [isImporting, setIsImporting] = useState(false);
+
+  async function submit() {
+    setIsImporting(true);
+    try {
+      const result = await onImport(raw);
+      setSummary(`${result.added} added · ${result.duplicates} duplicates · ${result.ignored} ignored`);
+      if (result.added > 0) setRaw("");
+    } finally {
+      setIsImporting(false);
+    }
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <section className="import-dialog" role="dialog" aria-modal="true" aria-label={`Add ${kind} manually`}>
+        <header className="import-header">
+          <div>
+            <p className="eyebrow">{packageTitle}</p>
+            <h2>Add {kind} manually</h2>
+          </div>
+          <button className="ghost-button compact" type="button" onClick={onCancel}>
+            Cancel
+          </button>
+        </header>
+        <p className="setup-help">{importHelp(kind)}</p>
+        <button className="ghost-button compact examples-toggle" type="button" onClick={() => setShowExamples((value) => !value)}>
+          {showExamples ? "Hide examples" : "Show format"}
+        </button>
+        {showExamples && <pre className="format-example">{importExample(kind)}</pre>}
+        <textarea value={raw} onChange={(event) => setRaw(event.target.value)} rows={10} spellCheck={false} />
+        {summary && <p className="library-message">{summary}</p>}
+        <button className="primary-button" type="button" onClick={submit} disabled={!raw.trim() || isImporting}>
+          {isImporting ? "Importing" : "Import"}
+        </button>
+      </section>
+    </div>
+  );
+}
+
 function MatchExercise({
   words,
   practiceIds,
@@ -562,6 +896,7 @@ function MatchExercise({
   languageLabel,
   matchProgress,
   onBack,
+  onAddContent,
   onPracticeMistakes,
   onRecordMatch,
 }: {
@@ -571,6 +906,7 @@ function MatchExercise({
   languageLabel: string;
   matchProgress: Record<string, ItemProgress>;
   onBack: () => void;
+  onAddContent: () => void;
   onPracticeMistakes: (ids: string[]) => void;
   onRecordMatch: (itemId: string, wasCorrect: boolean, rank: number, total: number) => void;
 }) {
@@ -727,7 +1063,7 @@ function MatchExercise({
 
   if (!started) {
     return (
-      <SetupPanel title="Match" onBack={onBack} onStart={start}>
+      <SetupPanel title="Match" onBack={onBack} onStart={start} startDisabled={!words.length}>
         <p className="setup-package">{packageTitle}</p>
         <Segmented
           label="Words per round"
@@ -735,12 +1071,14 @@ function MatchExercise({
           value={String(pairsPerRound)}
           onChange={(value) => setPairsPerRound(Number(value))}
         />
+        <p className="setup-help">Number of matching pairs visible on one board.</p>
         <Segmented
           label="Rounds"
           options={["5", "10", "20"]}
           value={String(roundCount)}
           onChange={(value) => setRoundCount(Number(value))}
         />
+        <p className="setup-help">{pairsPerRound} pairs per board · {roundCount} boards in this session.</p>
         <Segmented
           label="Correction"
           options={["immediate", "submit"]}
@@ -748,6 +1086,10 @@ function MatchExercise({
           value={mode}
           onChange={(value) => setMode(value as CorrectionMode)}
         />
+        <p className="setup-help">{mode === "immediate" ? "Check each match as you make it." : "Complete the board first, then check all matches."}</p>
+        <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+          Add words manually
+        </button>
       </SetupPanel>
     );
   }
@@ -821,6 +1163,7 @@ function TextExerciseView({
   practiceIds,
   packageTitle,
   onBack,
+  onAddContent,
   onPracticeMistakes,
   onRecord,
 }: {
@@ -828,6 +1171,7 @@ function TextExerciseView({
   practiceIds: string[];
   packageTitle: string;
   onBack: () => void;
+  onAddContent: () => void;
   onPracticeMistakes: (ids: string[]) => void;
   onRecord: (kind: PracticeKind, itemId: string, wasCorrect: boolean) => void;
 }) {
@@ -910,9 +1254,10 @@ function TextExerciseView({
 
   if (!text || !parsed) {
     return (
-      <SetupPanel title="Text" onBack={onBack} onStart={start}>
+      <SetupPanel title="Text" onBack={onBack} onStart={start} startDisabled={!texts.length}>
         <p className="setup-package">{packageTitle}</p>
         <Segmented label="Level" options={textLevels.map(String)} value={String(level)} onChange={(value) => setLevel(Number(value) as typeof level)} />
+        <p className="setup-help">{textLevelHelp(level)}</p>
         <Segmented
           label="Correction"
           options={["immediate", "submit"]}
@@ -920,6 +1265,11 @@ function TextExerciseView({
           value={mode}
           onChange={(value) => setMode(value as CorrectionMode)}
         />
+        <p className="setup-help">{mode === "immediate" ? "Check answers as each gap is filled." : "Fill the passage first, then check all gaps."}</p>
+        {!texts.length && <p className="setup-help">No text exercises yet. Add texts manually to practice this package locally.</p>}
+        <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+          Add texts manually
+        </button>
       </SetupPanel>
     );
   }
@@ -1001,6 +1351,7 @@ function FormsExercise({
   practiceIds,
   content,
   onBack,
+  onAddContent,
   onPracticeMistakes,
   onRecord,
 }: {
@@ -1008,6 +1359,7 @@ function FormsExercise({
   practiceIds: string[];
   content: CoursePackage;
   onBack: () => void;
+  onAddContent: () => void;
   onPracticeMistakes: (ids: string[]) => void;
   onRecord: (kind: PracticeKind, itemId: string, wasCorrect: boolean) => void;
 }) {
@@ -1057,7 +1409,7 @@ function FormsExercise({
 
   if (!started) {
     return (
-      <SetupPanel title="Forms" onBack={onBack} onStart={start}>
+      <SetupPanel title="Forms" onBack={onBack} onStart={start} startDisabled={!forms.length}>
         <p className="setup-package">{content.metadata.title}</p>
         <Segmented
           label="Answer mode"
@@ -1066,6 +1418,11 @@ function FormsExercise({
           value={mode}
           onChange={(value) => setMode(value as EndingMode)}
         />
+        <p className="setup-help">{mode === "tolerant" ? "Allows configured keyboard/diacritic equivalents." : "Exact spelling and characters required."}</p>
+        {!forms.length && <p className="setup-help">No form exercises yet. Add forms manually to practice this package locally.</p>}
+        <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+          Add forms manually
+        </button>
       </SetupPanel>
     );
   }
@@ -1109,9 +1466,11 @@ function FormsExercise({
           </p>
         )}
         {message === "right" && <p className="feedback-line">Correct: {current.result}</p>}
-        <p className="note">
-          {current.type}: {current.note}
-        </p>
+        {message && current.note && (
+          <p className="note">
+            {current.type}: {current.note}
+          </p>
+        )}
       </article>
       <button className="primary-button" type="button" onClick={check}>
         Check
@@ -1168,17 +1527,19 @@ function SetupPanel({
   children,
   onBack,
   onStart,
+  startDisabled = false,
 }: {
   title: string;
   children: React.ReactNode;
   onBack: () => void;
   onStart: () => void;
+  startDisabled?: boolean;
 }) {
   return (
     <section className="workout">
       <ExerciseHeader title={title} onBack={onBack} meta="Setup" />
       <div className="panel controls-panel">{children}</div>
-      <button className="primary-button" type="button" onClick={onStart}>
+      <button className="primary-button" type="button" onClick={onStart} disabled={startDisabled}>
         Start
       </button>
     </section>
@@ -1412,6 +1773,268 @@ function normalizeTextAnswer(value: string) {
 
 function gapClass(state: boolean | undefined) {
   return `gap-input${state === true ? " is-right" : ""}${state === false ? " is-wrong" : ""}`;
+}
+
+function textLevelHelp(level: number) {
+  if (level === 1) return "Few gaps · choose from a word bank.";
+  if (level === 2) return "More gaps · choose from a word bank.";
+  if (level === 3) return "Few gaps · type the answers.";
+  if (level === 4) return "More gaps · type the answers.";
+  return "Most annotated words removed · exact typed answers.";
+}
+
+function importHelp(kind: ImportKind) {
+  if (kind === "words") return "Paste one pair per line as word -- translation, or paste JSON with term and translation fields.";
+  if (kind === "texts") return "Paste one annotated passage per line as target text -- translation, or paste JSON with text and translation fields.";
+  return "Paste one form per line as prompt -- form with [answer] -- optional note, or paste JSON with prompt, before, answer, and after.";
+}
+
+function importExample(kind: ImportKind) {
+  if (kind === "words") {
+    return `casă -- house
+copil -- child
+carte -- book
+
+[
+  { "term": "Haus", "translation": "house" },
+  { "term": "Kind", "translation": "child" }
+]`;
+  }
+  if (kind === "texts") {
+    return `Eu {locuiesc} în Singapore. -- I live in Singapore.
+Ich {wohne} in Berlin und {arbeite} heute. -- I live in Berlin and work today.
+
+[
+  { "text": "Eu {locuiesc} în Singapore.", "translation": "I live in Singapore." }
+]`;
+  }
+  return `we work -- noi lucr[ăm] -- present tense
+the man is here -- [Der] Mann ist hier. -- masculine nominative definite article
+
+[
+  { "prompt": "we work", "before": "noi lucr", "answer": "ăm", "after": "", "note": "present tense" }
+]`;
+}
+
+function parseImport(kind: ImportKind, raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
+  if (kind === "words") return parseWordImport(raw, activePackage, custom);
+  if (kind === "texts") return parseTextImport(raw, activePackage, custom);
+  return parseFormImport(raw, activePackage, custom);
+}
+
+function parseWordImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
+  const existing = new Set([...activePackage.words, ...(custom?.words ?? [])].map((word) => normalizeDuplicateKey(termForWord(word), translationForWord(word))));
+  const words: WordPair[] = [];
+  let ignored = 0;
+  let duplicates = 0;
+
+  for (const item of readImportItems(raw, "words")) {
+    const parsed = typeof item === "string" ? parseWordLine(item) : parseWordObject(item);
+    if (!parsed) {
+      ignored += 1;
+      continue;
+    }
+    const key = normalizeDuplicateKey(parsed.term, parsed.translation);
+    if (existing.has(key)) {
+      duplicates += 1;
+      continue;
+    }
+    existing.add(key);
+    words.push({ id: localId("word"), term: parsed.term, translation: parsed.translation, custom: true });
+  }
+
+  return { words, texts: [], forms: [], added: words.length, duplicates, ignored };
+}
+
+function parseTextImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
+  const existing = new Set([...activePackage.texts, ...(custom?.texts ?? [])].map((item) => normalizeDuplicateKey(item.text)));
+  const texts: TextExercise[] = [];
+  let ignored = 0;
+  let duplicates = 0;
+
+  for (const item of readImportItems(raw, "texts")) {
+    const parsed = typeof item === "string" ? parseTextLine(item) : parseTextObject(item);
+    const targetText = parsed?.text ?? "";
+    if (!targetText || !hasTextGaps(targetText)) {
+      ignored += 1;
+      continue;
+    }
+    const key = normalizeDuplicateKey(targetText);
+    if (existing.has(key)) {
+      duplicates += 1;
+      continue;
+    }
+    existing.add(key);
+    texts.push({
+      id: localId("text"),
+      title: parsed?.title || "Custom text",
+      text: targetText,
+      translation: parsed?.translation ?? "",
+      translationLanguage: parsed?.translationLanguage ?? "English",
+      custom: true,
+    });
+  }
+
+  return { words: [], texts, forms: [], added: texts.length, duplicates, ignored };
+}
+
+function parseFormImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
+  const existing = new Set([...activePackage.forms, ...(custom?.forms ?? [])].map((item) => normalizeDuplicateKey(item.prompt, formBefore(item), item.answer, item.after)));
+  const forms: FormExercise[] = [];
+  let ignored = 0;
+  let duplicates = 0;
+
+  for (const item of readImportItems(raw, "forms")) {
+    const parsed = typeof item === "string" ? parseFormLine(item) : parseFormObject(item);
+    const prompt = parsed?.prompt ?? "";
+    const before = parsed?.before ?? "";
+    const answer = parsed?.answer ?? "";
+    const after = parsed?.after ?? "";
+    if (!prompt || !answer) {
+      ignored += 1;
+      continue;
+    }
+    const key = normalizeDuplicateKey(prompt, before, answer, after);
+    if (existing.has(key)) {
+      duplicates += 1;
+      continue;
+    }
+    existing.add(key);
+    forms.push({
+      id: localId("form"),
+      type: parsed?.type ?? "form",
+      prompt,
+      before,
+      answer,
+      after,
+      result: parsed?.result ?? `${before}${answer}${after}`,
+      note: parsed?.note ?? "",
+      custom: true,
+    });
+  }
+
+  return { words: [], texts: [], forms, added: forms.length, duplicates, ignored };
+}
+
+function readImportItems(raw: string, packageKey: "words" | "texts" | "forms"): Array<string | Record<string, unknown>> {
+  const trimmed = raw.trim();
+  if (!trimmed) return [];
+  if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+    try {
+      const parsed = JSON.parse(trimmed) as unknown;
+      if (Array.isArray(parsed)) return parsed.filter(isRecord);
+      if (isRecord(parsed) && Array.isArray(parsed[packageKey])) return (parsed[packageKey] as unknown[]).filter(isRecord);
+      if (isRecord(parsed)) return [parsed];
+    } catch {
+      return trimmed.split(/\r?\n/);
+    }
+  }
+  return trimmed.split(/\r?\n/);
+}
+
+function parseWordLine(line: string) {
+  const parts = splitImportLine(line, 2);
+  if (!parts) return null;
+  const [term, translation] = parts;
+  return term && translation ? { term, translation } : null;
+}
+
+function parseWordObject(item: Record<string, unknown>) {
+  const term = stringValue(item.term ?? item.ro ?? item.word);
+  const translation = stringValue(item.translation ?? item.en ?? item.meaning ?? item.definition);
+  return term && translation ? { term, translation } : null;
+}
+
+function parseTextLine(line: string): Partial<TextExercise> | null {
+  const parts = line.includes("--") ? splitImportLine(line, 1) : [line.trim()];
+  if (!parts) return null;
+  const [text, translation = ""] = parts;
+  return text ? { text, translation } : null;
+}
+
+function parseTextObject(item: Record<string, unknown>): Partial<TextExercise> | null {
+  const text = stringValue(item.text);
+  if (!text) return null;
+  return {
+    title: stringValue(item.title),
+    text,
+    translation: stringValue(item.translation),
+    translationLanguage: stringValue(item.translationLanguage) || "English",
+  };
+}
+
+function parseFormLine(line: string): Partial<FormExercise> | null {
+  const parts = splitImportLine(line, 2);
+  if (!parts) return null;
+  const [prompt, formWithAnswer, note = ""] = parts;
+  const matches = [...formWithAnswer.matchAll(/\[([^\]]+)\]/g)];
+  if (!prompt || matches.length !== 1) return null;
+  const match = matches[0];
+  const answer = match[1].trim();
+  if (!answer) return null;
+  return {
+    type: "form",
+    prompt,
+    before: formWithAnswer.slice(0, match.index).trimEnd(),
+    answer,
+    after: formWithAnswer.slice((match.index ?? 0) + match[0].length).trimStart(),
+    note,
+  };
+}
+
+function parseFormObject(item: Record<string, unknown>): Partial<FormExercise> | null {
+  const prompt = stringValue(item.prompt);
+  const answer = stringValue(item.answer);
+  if (!prompt || !answer) return null;
+  const before = stringValue(item.before ?? item.prefix);
+  const after = stringValue(item.after);
+  return {
+    type: stringValue(item.type) || "form",
+    prompt,
+    before,
+    answer,
+    after,
+    result: stringValue(item.result) || `${before}${answer}${after}`,
+    note: stringValue(item.note),
+  };
+}
+
+function splitImportLine(line: string, minParts: number) {
+  const parts = line.split("--").map((part) => part.trim());
+  if (parts.length < minParts || parts.slice(0, minParts).some((part) => !part)) return null;
+  return parts;
+}
+
+function hasTextGaps(value: string) {
+  return /\{[^}]+\}/.test(value);
+}
+
+function normalizeDuplicateKey(...parts: string[]) {
+  return parts.map((part) => part.trim().toLocaleLowerCase()).join("\u0001");
+}
+
+function stringValue(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function localId(kind: string) {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) return `custom-${kind}-${crypto.randomUUID()}`;
+  return `custom-${kind}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function customCounts(content: CustomPackageContent | undefined) {
+  const words = content?.words.length ?? 0;
+  const texts = content?.texts.length ?? 0;
+  const forms = content?.forms.length ?? 0;
+  return { words, texts, forms, total: words + texts + forms };
+}
+
+function countLine(words: number, texts: number, forms: number) {
+  return `${words} words · ${texts} texts · ${forms} forms`;
 }
 
 function groupCatalog(items: PackageCatalogItem[]) {

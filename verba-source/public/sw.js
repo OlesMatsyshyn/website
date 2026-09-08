@@ -1,4 +1,4 @@
-const CACHE_VERSION = "verba-v14";
+const CACHE_VERSION = "verba-v15";
 const PACKAGE_ASSET_CACHE = "verba-package-assets-v2";
 const CORE_ASSETS = [
   "./",

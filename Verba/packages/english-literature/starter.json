@@ -7,171 +7,931 @@
     "level": 0,
     "title": "Literary English · Starter",
     "description": "Formal and literary English often encountered in classic prose.",
-    "version": 9,
-    "wordCount": 96,
-    "textCount": 8,
-    "formCount": 50
+    "version": 11,
+    "wordCount": 1000,
+    "textCount": 0,
+    "formCount": 0
   },
   "words": [
+    {
+      "id": "enlit_abashed",
+      "term": "abashed",
+      "translation": "embarrassed, ashamed or made uneasy"
+    },
+    {
+      "id": "enlit_abate",
+      "term": "abate",
+      "translation": "to become less intense or severe"
+    },
+    {
+      "id": "enlit_abhor",
+      "term": "abhor",
+      "translation": "to hate or regard with disgust"
+    },
+    {
+      "id": "enlit_abide",
+      "term": "abide",
+      "translation": "to remain, endure or tolerate"
+    },
+    {
+      "id": "enlit_abject",
+      "term": "abject",
+      "translation": "miserable, degraded or without pride"
+    },
+    {
+      "id": "enlit_abjure",
+      "term": "abjure",
+      "translation": "to formally reject or renounce"
+    },
+    {
+      "id": "enlit_abode",
+      "term": "abode",
+      "translation": "a dwelling or place of residence"
+    },
+    {
+      "id": "enlit_abridge",
+      "term": "abridge",
+      "translation": "to shorten a text or account"
+    },
+    {
+      "id": "enlit_abroad",
+      "term": "abroad",
+      "translation": "away from home or in a foreign country"
+    },
+    {
+      "id": "enlit_abscond",
+      "term": "abscond",
+      "translation": "to leave secretly or hurriedly"
+    },
+    {
+      "id": "enlit_accede",
+      "term": "accede",
+      "translation": "to agree to a request or assume a position"
+    },
+    {
+      "id": "enlit_acquaintance",
+      "term": "acquaintance",
+      "translation": "a person one knows but not intimately"
+    },
+    {
+      "id": "enlit_acquiesce",
+      "term": "acquiesce",
+      "translation": "to accept without protest"
+    },
+    {
+      "id": "enlit_admonish",
+      "term": "admonish",
+      "translation": "to warn or reprimand seriously"
+    },
+    {
+      "id": "enlit_affability",
+      "term": "affability",
+      "translation": "friendly ease and politeness"
+    },
+    {
+      "id": "enlit_affectation",
+      "term": "affectation",
+      "translation": "artificial behaviour meant to impress"
+    },
+    {
+      "id": "enlit_affliction",
+      "term": "affliction",
+      "translation": "great suffering, trouble or distress"
+    },
+    {
+      "id": "enlit_aggrieved",
+      "term": "aggrieved",
+      "translation": "feeling wronged or treated unfairly"
+    },
+    {
+      "id": "enlit_alacrity",
+      "term": "alacrity",
+      "translation": "cheerful readiness or eagerness"
+    },
+    {
+      "id": "enlit_alienate",
+      "term": "alienate",
+      "translation": "to make distant, unfriendly or estranged"
+    },
+    {
+      "id": "enlit_allay",
+      "term": "allay",
+      "translation": "to calm or reduce fear, anger or pain"
+    },
+    {
+      "id": "enlit_amendment",
+      "term": "amendment",
+      "translation": "correction, improvement or change"
+    },
+    {
+      "id": "enlit_amiable",
+      "term": "amiable",
+      "translation": "pleasant, kind and friendly"
+    },
+    {
+      "id": "enlit_amity",
+      "term": "amity",
+      "translation": "peaceful friendship"
+    },
+    {
+      "id": "enlit_amorous",
+      "term": "amorous",
+      "translation": "showing romantic or sexual feeling"
+    },
+    {
+      "id": "enlit_anon",
+      "term": "anon",
+      "translation": "soon, shortly or at another time"
+    },
+    {
+      "id": "enlit_antiquated",
+      "term": "antiquated",
+      "translation": "old-fashioned or outdated"
+    },
+    {
+      "id": "enlit_apparition",
+      "term": "apparition",
+      "translation": "a ghostly or unexpected figure"
+    },
+    {
+      "id": "enlit_appellation",
+      "term": "appellation",
+      "translation": "a name or title"
+    },
+    {
+      "id": "enlit_apprehension",
+      "term": "apprehension",
+      "translation": "anxiety or fearful expectation"
+    },
+    {
+      "id": "enlit_ardent",
+      "term": "ardent",
+      "translation": "passionate, eager or intense"
+    },
+    {
+      "id": "enlit_ardour",
+      "term": "ardour",
+      "translation": "intense feeling, enthusiasm or passion"
+    },
+    {
+      "id": "enlit_artifice",
+      "term": "artifice",
+      "translation": "clever trickery or contrivance"
+    },
+    {
+      "id": "enlit_ascertain",
+      "term": "ascertain",
+      "translation": "to find out with certainty"
+    },
+    {
+      "id": "enlit_asperity",
+      "term": "asperity",
+      "translation": "harshness of tone or manner"
+    },
+    {
+      "id": "enlit_assiduous",
+      "term": "assiduous",
+      "translation": "showing steady care and effort"
+    },
+    {
+      "id": "enlit_asunder",
+      "term": "asunder",
+      "translation": "apart or into separate pieces"
+    },
+    {
+      "id": "enlit_attire",
+      "term": "attire",
+      "translation": "clothing or dress"
+    },
+    {
+      "id": "enlit_audacious",
+      "term": "audacious",
+      "translation": "bold, daring or impudent"
+    },
+    {
+      "id": "enlit_aught",
+      "term": "aught",
+      "translation": "anything at all"
+    },
+    {
+      "id": "enlit_austere",
+      "term": "austere",
+      "translation": "severe, plain or strict"
+    },
+    {
+      "id": "enlit_aversion",
+      "term": "aversion",
+      "translation": "strong dislike"
+    },
+    {
+      "id": "enlit_avow",
+      "term": "avow",
+      "translation": "to declare openly"
+    },
+    {
+      "id": "enlit_baneful",
+      "term": "baneful",
+      "translation": "harmful or destructive"
+    },
     {
       "id": "enlit_behold",
       "term": "behold",
       "translation": "to look at or see"
     },
     {
-      "id": "enlit_hence",
-      "term": "hence",
-      "translation": "from this time or place"
+      "id": "enlit_behoove",
+      "term": "behoove",
+      "translation": "to be proper, necessary or fitting"
     },
     {
-      "id": "enlit_scarcely",
-      "term": "scarcely",
-      "translation": "almost not"
+      "id": "enlit_benediction",
+      "term": "benediction",
+      "translation": "a blessing"
     },
     {
-      "id": "enlit_sorrow",
-      "term": "sorrow",
-      "translation": "deep sadness"
+      "id": "enlit_benevolence",
+      "term": "benevolence",
+      "translation": "kindness and goodwill"
     },
     {
-      "id": "enlit_dwelling",
-      "term": "dwelling",
-      "translation": "a home or place of residence"
+      "id": "enlit_beseech",
+      "term": "beseech",
+      "translation": "to ask urgently or earnestly"
     },
     {
-      "id": "enlit_peculiar",
-      "term": "peculiar",
-      "translation": "strange or distinctive"
+      "id": "enlit_bestow",
+      "term": "bestow",
+      "translation": "to give or confer"
+    },
+    {
+      "id": "enlit_betide",
+      "term": "betide",
+      "translation": "to happen to someone"
+    },
+    {
+      "id": "enlit_betimes",
+      "term": "betimes",
+      "translation": "early or in good time"
+    },
+    {
+      "id": "enlit_betrothal",
+      "term": "betrothal",
+      "translation": "formal engagement to marry"
+    },
+    {
+      "id": "enlit_betwixt",
+      "term": "betwixt",
+      "translation": "between"
+    },
+    {
+      "id": "enlit_bewail",
+      "term": "bewail",
+      "translation": "to lament or express sorrow over"
+    },
+    {
+      "id": "enlit_bier",
+      "term": "bier",
+      "translation": "stand or frame for a coffin"
+    },
+    {
+      "id": "enlit_bivouac",
+      "term": "bivouac",
+      "translation": "temporary camp without tents or shelter"
+    },
+    {
+      "id": "enlit_blithe",
+      "term": "blithe",
+      "translation": "cheerful and carefree"
+    },
+    {
+      "id": "enlit_boon",
+      "term": "boon",
+      "translation": "a blessing, benefit or favour"
+    },
+    {
+      "id": "enlit_bosom",
+      "term": "bosom",
+      "translation": "chest, heart or inner feelings"
+    },
+    {
+      "id": "enlit_bough",
+      "term": "bough",
+      "translation": "a main branch of a tree"
+    },
+    {
+      "id": "enlit_bridegroom",
+      "term": "bridegroom",
+      "translation": "a man on his wedding day"
+    },
+    {
+      "id": "enlit_brocade",
+      "term": "brocade",
+      "translation": "rich fabric woven with a raised pattern"
+    },
+    {
+      "id": "enlit_brook",
+      "term": "brook",
+      "translation": "to tolerate or endure"
+    },
+    {
+      "id": "enlit_buffet",
+      "term": "buffet",
+      "translation": "to strike repeatedly or struggle against"
+    },
+    {
+      "id": "enlit_burthen",
+      "term": "burthen",
+      "translation": "archaic spelling of burden"
+    },
+    {
+      "id": "enlit_cabal",
+      "term": "cabal",
+      "translation": "secret political group or intrigue"
+    },
+    {
+      "id": "enlit_candour",
+      "term": "candour",
+      "translation": "honesty and openness"
+    },
+    {
+      "id": "enlit_caprice",
+      "term": "caprice",
+      "translation": "sudden change of mood or whim"
+    },
+    {
+      "id": "enlit_carriage",
+      "term": "carriage",
+      "translation": "a horse-drawn vehicle or one's manner of bearing"
+    },
+    {
+      "id": "enlit_casement",
+      "term": "casement",
+      "translation": "a window that opens on hinges"
+    },
+    {
+      "id": "enlit_castigate",
+      "term": "castigate",
+      "translation": "to reprimand severely"
+    },
+    {
+      "id": "enlit_celerity",
+      "term": "celerity",
+      "translation": "swiftness or speed"
+    },
+    {
+      "id": "enlit_chagrin",
+      "term": "chagrin",
+      "translation": "distress or annoyance from disappointment"
+    },
+    {
+      "id": "enlit_chamber",
+      "term": "chamber",
+      "translation": "a room, especially a bedroom or private room"
+    },
+    {
+      "id": "enlit_charitable",
+      "term": "charitable",
+      "translation": "kind, generous or forgiving"
+    },
+    {
+      "id": "enlit_chasten",
+      "term": "chasten",
+      "translation": "to discipline, humble or restrain"
+    },
+    {
+      "id": "enlit_chide",
+      "term": "chide",
+      "translation": "to scold mildly"
+    },
+    {
+      "id": "enlit_chivalry",
+      "term": "chivalry",
+      "translation": "courteous or knightly conduct"
+    },
+    {
+      "id": "enlit_circumspect",
+      "term": "circumspect",
+      "translation": "careful and cautious"
+    },
+    {
+      "id": "enlit_clamour",
+      "term": "clamour",
+      "translation": "loud outcry or demand"
+    },
+    {
+      "id": "enlit_clandestine",
+      "term": "clandestine",
+      "translation": "secret or concealed"
+    },
+    {
+      "id": "enlit_clemency",
+      "term": "clemency",
+      "translation": "mercy or leniency"
+    },
+    {
+      "id": "enlit_coffer",
+      "term": "coffer",
+      "translation": "a strong chest for valuables"
+    },
+    {
+      "id": "enlit_cogent",
+      "term": "cogent",
+      "translation": "clear, logical and convincing"
+    },
+    {
+      "id": "enlit_comely",
+      "term": "comely",
+      "translation": "pleasant-looking or attractive"
+    },
+    {
+      "id": "enlit_commiseration",
+      "term": "commiseration",
+      "translation": "sympathetic pity"
+    },
+    {
+      "id": "enlit_compunction",
+      "term": "compunction",
+      "translation": "guilt or regret for wrongdoing"
+    },
+    {
+      "id": "enlit_conceit",
+      "term": "conceit",
+      "translation": "excessive pride or a fanciful idea"
+    },
+    {
+      "id": "enlit_concord",
+      "term": "concord",
+      "translation": "agreement or harmony"
+    },
+    {
+      "id": "enlit_condescension",
+      "term": "condescension",
+      "translation": "patronising behaviour or gracious lowering of rank"
+    },
+    {
+      "id": "enlit_confound",
+      "term": "confound",
+      "translation": "to confuse, astonish or frustrate"
+    },
+    {
+      "id": "enlit_conjecture",
+      "term": "conjecture",
+      "translation": "a guess based on incomplete evidence"
+    },
+    {
+      "id": "enlit_conjugal",
+      "term": "conjugal",
+      "translation": "relating to marriage"
+    },
+    {
+      "id": "enlit_consternation",
+      "term": "consternation",
+      "translation": "sudden shock or alarm"
     },
     {
       "id": "enlit_countenance",
       "term": "countenance",
-      "translation": "face or facial expression"
+      "translation": "a person's face or facial expression"
     },
     {
-      "id": "enlit_virtue",
-      "term": "virtue",
-      "translation": "moral goodness"
+      "id": "enlit_courtesy",
+      "term": "courtesy",
+      "translation": "polite and considerate behaviour"
     },
     {
-      "id": "enlit_folly",
-      "term": "folly",
-      "translation": "lack of good sense"
+      "id": "enlit_covert",
+      "term": "covert",
+      "translation": "hidden or secret"
     },
     {
-      "id": "enlit_solemn",
-      "term": "solemn",
-      "translation": "serious and formal"
+      "id": "enlit_covet",
+      "term": "covet",
+      "translation": "to desire what belongs to another"
     },
     {
-      "id": "enlit_wretched",
-      "term": "wretched",
-      "translation": "very unhappy or unfortunate"
+      "id": "enlit_cowardice",
+      "term": "cowardice",
+      "translation": "lack of courage"
+    },
+    {
+      "id": "enlit_cravat",
+      "term": "cravat",
+      "translation": "a neckcloth worn by men"
+    },
+    {
+      "id": "enlit_credulity",
+      "term": "credulity",
+      "translation": "readiness to believe too easily"
+    },
+    {
+      "id": "enlit_dearth",
+      "term": "dearth",
+      "translation": "scarcity or lack"
+    },
+    {
+      "id": "enlit_decorum",
+      "term": "decorum",
+      "translation": "proper behaviour and social restraint"
+    },
+    {
+      "id": "enlit_deference",
+      "term": "deference",
+      "translation": "respectful submission to another's judgement"
+    },
+    {
+      "id": "enlit_deign",
+      "term": "deign",
+      "translation": "to do something considered beneath one's dignity"
+    },
+    {
+      "id": "enlit_delicacy",
+      "term": "delicacy",
+      "translation": "sensitivity, refinement or tact"
+    },
+    {
+      "id": "enlit_dell",
+      "term": "dell",
+      "translation": "a small wooded valley"
+    },
+    {
+      "id": "enlit_demeanour",
+      "term": "demeanour",
+      "translation": "outward behaviour or manner"
+    },
+    {
+      "id": "enlit_demure",
+      "term": "demure",
+      "translation": "reserved, modest or shy in manner"
+    },
+    {
+      "id": "enlit_denizen",
+      "term": "denizen",
+      "translation": "inhabitant or frequent presence"
+    },
+    {
+      "id": "enlit_deplorable",
+      "term": "deplorable",
+      "translation": "very bad or deserving regret"
+    },
+    {
+      "id": "enlit_deportment",
+      "term": "deportment",
+      "translation": "manner of standing, moving and behaving"
+    },
+    {
+      "id": "enlit_desolate",
+      "term": "desolate",
+      "translation": "empty, lonely or devastated"
+    },
+    {
+      "id": "enlit_despondency",
+      "term": "despondency",
+      "translation": "state of low spirits or hopelessness"
+    },
+    {
+      "id": "enlit_destitute",
+      "term": "destitute",
+      "translation": "without basic necessities"
+    },
+    {
+      "id": "enlit_diffidence",
+      "term": "diffidence",
+      "translation": "shyness or lack of self-confidence"
+    },
+    {
+      "id": "enlit_disapprobation",
+      "term": "disapprobation",
+      "translation": "moral disapproval"
+    },
+    {
+      "id": "enlit_discomfit",
+      "term": "discomfit",
+      "translation": "to defeat, embarrass or unsettle"
+    },
+    {
+      "id": "enlit_disconsolate",
+      "term": "disconsolate",
+      "translation": "unable to be comforted"
+    },
+    {
+      "id": "enlit_discourse",
+      "term": "discourse",
+      "translation": "formal speech or conversation"
+    },
+    {
+      "id": "enlit_disdain",
+      "term": "disdain",
+      "translation": "contempt or scorn"
+    },
+    {
+      "id": "enlit_disinterested",
+      "term": "disinterested",
+      "translation": "impartial rather than self-seeking"
+    },
+    {
+      "id": "enlit_disposition",
+      "term": "disposition",
+      "translation": "temperament or usual character"
+    },
+    {
+      "id": "enlit_diversion",
+      "term": "diversion",
+      "translation": "entertainment or distraction"
+    },
+    {
+      "id": "enlit_domestic_felicity",
+      "term": "domestic felicity",
+      "translation": "happiness in home and family life"
+    },
+    {
+      "id": "enlit_dowager",
+      "term": "dowager",
+      "translation": "widow with a title or property from her late husband"
+    },
+    {
+      "id": "enlit_duenna",
+      "term": "duenna",
+      "translation": "older woman acting as a chaperone"
+    },
+    {
+      "id": "enlit_duress",
+      "term": "duress",
+      "translation": "constraint or pressure"
+    },
+    {
+      "id": "enlit_edifice",
+      "term": "edifice",
+      "translation": "large impressive building"
+    },
+    {
+      "id": "enlit_efface",
+      "term": "efface",
+      "translation": "to erase, remove or make oneself unnoticed"
+    },
+    {
+      "id": "enlit_effusion",
+      "term": "effusion",
+      "translation": "unrestrained expression of feeling"
+    },
+    {
+      "id": "enlit_egress",
+      "term": "egress",
+      "translation": "way out or act of going out"
+    },
+    {
+      "id": "enlit_elopement",
+      "term": "elopement",
+      "translation": "secret departure to marry"
+    },
+    {
+      "id": "enlit_emolument",
+      "term": "emolument",
+      "translation": "salary, profit or payment from office"
+    },
+    {
+      "id": "enlit_encomium",
+      "term": "encomium",
+      "translation": "formal praise"
     },
     {
       "id": "enlit_endeavour",
       "term": "endeavour",
-      "translation": "serious attempt"
+      "translation": "serious attempt or effort"
     },
     {
-      "id": "enlit_presently",
-      "term": "presently",
-      "translation": "soon or after a short time"
+      "id": "enlit_entreat",
+      "term": "entreat",
+      "translation": "to ask earnestly"
     },
     {
-      "id": "enlit_nevertheless",
-      "term": "nevertheless",
-      "translation": "despite that"
-    },
-    {
-      "id": "enlit_acquaintance",
-      "term": "acquaintance",
-      "translation": "person known but not close"
-    },
-    {
-      "id": "enlit_fortune",
-      "term": "fortune",
-      "translation": "luck or wealth"
-    },
-    {
-      "id": "enlit_ought",
-      "term": "ought",
-      "translation": "should"
-    },
-    {
-      "id": "enlit_indeed",
-      "term": "indeed",
-      "translation": "truly or certainly"
-    },
-    {
-      "id": "enlit_thus",
-      "term": "thus",
-      "translation": "in this way"
-    },
-    {
-      "id": "enlit_therefore",
-      "term": "therefore",
-      "translation": "for that reason"
-    },
-    {
-      "id": "enlit_whereas",
-      "term": "whereas",
-      "translation": "while in contrast"
-    },
-    {
-      "id": "enlit_among",
-      "term": "among",
-      "translation": "in the middle of several"
-    },
-    {
-      "id": "enlit_beneath",
-      "term": "beneath",
-      "translation": "under"
-    },
-    {
-      "id": "enlit_beyond",
-      "term": "beyond",
-      "translation": "farther than"
-    },
-    {
-      "id": "enlit_within",
-      "term": "within",
-      "translation": "inside"
-    },
-    {
-      "id": "enlit_without",
-      "term": "without",
-      "translation": "lacking or outside"
-    },
-    {
-      "id": "enlit_upon",
-      "term": "upon",
-      "translation": "on"
-    },
-    {
-      "id": "enlit_whilst",
-      "term": "whilst",
-      "translation": "while"
-    },
-    {
-      "id": "enlit_though",
-      "term": "though",
-      "translation": "although"
-    },
-    {
-      "id": "enlit_lest",
-      "term": "lest",
-      "translation": "to avoid the risk that"
-    },
-    {
-      "id": "enlit_amid",
-      "term": "amid",
-      "translation": "among or surrounded by"
+      "id": "enlit_equanimity",
+      "term": "equanimity",
+      "translation": "calmness under difficulty"
     },
     {
       "id": "enlit_ere",
       "term": "ere",
-      "translation": "before"
+      "translation": "before; earlier than"
+    },
+    {
+      "id": "enlit_erelong",
+      "term": "erelong",
+      "translation": "before long"
+    },
+    {
+      "id": "enlit_erstwhile",
+      "term": "erstwhile",
+      "translation": "former or in former times"
+    },
+    {
+      "id": "enlit_esteem",
+      "term": "esteem",
+      "translation": "respect and admiration"
+    },
+    {
+      "id": "enlit_evince",
+      "term": "evince",
+      "translation": "to show clearly"
+    },
+    {
+      "id": "enlit_exceedingly",
+      "term": "exceedingly",
+      "translation": "to a very great degree"
+    },
+    {
+      "id": "enlit_execrable",
+      "term": "execrable",
+      "translation": "extremely bad or detestable"
+    },
+    {
+      "id": "enlit_exertion",
+      "term": "exertion",
+      "translation": "physical or mental effort"
+    },
+    {
+      "id": "enlit_expostulate",
+      "term": "expostulate",
+      "translation": "to reason earnestly against an action"
+    },
+    {
+      "id": "enlit_extol",
+      "term": "extol",
+      "translation": "to praise highly"
+    },
+    {
+      "id": "enlit_faculties",
+      "term": "faculties",
+      "translation": "mental powers or abilities"
+    },
+    {
+      "id": "enlit_fain",
+      "term": "fain",
+      "translation": "gladly or willingly"
+    },
+    {
+      "id": "enlit_fair_countenance",
+      "term": "fair countenance",
+      "translation": "beautiful or pleasing facial expression"
+    },
+    {
+      "id": "enlit_falter",
+      "term": "falter",
+      "translation": "to hesitate, stumble or lose confidence"
+    },
+    {
+      "id": "enlit_fastidious",
+      "term": "fastidious",
+      "translation": "hard to please or very attentive to detail"
+    },
+    {
+      "id": "enlit_fathom",
+      "term": "fathom",
+      "translation": "to understand after thought"
+    },
+    {
+      "id": "enlit_felicity",
+      "term": "felicity",
+      "translation": "happiness or apt expression"
+    },
+    {
+      "id": "enlit_fervour",
+      "term": "fervour",
+      "translation": "intense feeling or zeal"
+    },
+    {
+      "id": "enlit_fickle",
+      "term": "fickle",
+      "translation": "changeable in loyalty or affection"
+    },
+    {
+      "id": "enlit_fie",
+      "term": "fie",
+      "translation": "exclamation of disapproval or disgust"
+    },
+    {
+      "id": "enlit_filial",
+      "term": "filial",
+      "translation": "relating to a son or daughter"
+    },
+    {
+      "id": "enlit_florid",
+      "term": "florid",
+      "translation": "reddish, ornate or overly elaborate"
+    },
+    {
+      "id": "enlit_forbear",
+      "term": "forbear",
+      "translation": "to refrain from doing something"
+    },
+    {
+      "id": "enlit_forbearance",
+      "term": "forbearance",
+      "translation": "patient self-control"
+    },
+    {
+      "id": "enlit_foreboding",
+      "term": "foreboding",
+      "translation": "fearful sense that something bad will happen"
+    },
+    {
+      "id": "enlit_foregoing",
+      "term": "foregoing",
+      "translation": "already mentioned or preceding"
+    },
+    {
+      "id": "enlit_forlorn",
+      "term": "forlorn",
+      "translation": "pitifully sad, lonely or abandoned"
+    },
+    {
+      "id": "enlit_forsake",
+      "term": "forsake",
+      "translation": "to abandon or leave"
+    },
+    {
+      "id": "enlit_fortitude",
+      "term": "fortitude",
+      "translation": "courage in pain or difficulty"
+    },
+    {
+      "id": "enlit_fortnight",
+      "term": "fortnight",
+      "translation": "a period of two weeks"
+    },
+    {
+      "id": "enlit_frivolous",
+      "term": "frivolous",
+      "translation": "not serious or lacking proper weight"
+    },
+    {
+      "id": "enlit_frock",
+      "term": "frock",
+      "translation": "dress or outer garment"
+    },
+    {
+      "id": "enlit_gait",
+      "term": "gait",
+      "translation": "manner of walking"
+    },
+    {
+      "id": "enlit_gallantry",
+      "term": "gallantry",
+      "translation": "courteous bravery or attention to women"
+    },
+    {
+      "id": "enlit_garret",
+      "term": "garret",
+      "translation": "small attic room"
+    },
+    {
+      "id": "enlit_gaunt",
+      "term": "gaunt",
+      "translation": "thin, bleak or grim"
+    },
+    {
+      "id": "enlit_genteel",
+      "term": "genteel",
+      "translation": "polite, refined or socially respectable"
+    },
+    {
+      "id": "enlit_gentry",
+      "term": "gentry",
+      "translation": "people of good social position below nobility"
+    },
+    {
+      "id": "enlit_gloom",
+      "term": "gloom",
+      "translation": "darkness, sadness or melancholy atmosphere"
+    },
+    {
+      "id": "enlit_gratification",
+      "term": "gratification",
+      "translation": "pleasure or satisfaction"
+    },
+    {
+      "id": "enlit_hauteur",
+      "term": "hauteur",
+      "translation": "haughty pride or arrogance"
+    },
+    {
+      "id": "enlit_hearth",
+      "term": "hearth",
+      "translation": "fireplace or home"
+    },
+    {
+      "id": "enlit_hence",
+      "term": "hence",
+      "translation": "from here or from this time"
+    },
+    {
+      "id": "enlit_henceforth",
+      "term": "henceforth",
+      "translation": "from this time onward"
+    },
+    {
+      "id": "enlit_heretofore",
+      "term": "heretofore",
+      "translation": "until now"
     },
     {
       "id": "enlit_hither",
@@ -179,9 +939,559 @@
       "translation": "to this place"
     },
     {
+      "id": "enlit_impertinence",
+      "term": "impertinence",
+      "translation": "rudeness or improper boldness"
+    },
+    {
+      "id": "enlit_impetuous",
+      "term": "impetuous",
+      "translation": "acting quickly without thought"
+    },
+    {
+      "id": "enlit_importune",
+      "term": "importune",
+      "translation": "to ask repeatedly and urgently"
+    },
+    {
+      "id": "enlit_impropriety",
+      "term": "impropriety",
+      "translation": "socially improper action or remark"
+    },
+    {
+      "id": "enlit_indignation",
+      "term": "indignation",
+      "translation": "anger at injustice or insult"
+    },
+    {
+      "id": "enlit_indolence",
+      "term": "indolence",
+      "translation": "laziness or avoidance of effort"
+    },
+    {
+      "id": "enlit_ineffable",
+      "term": "ineffable",
+      "translation": "too great to be expressed in words"
+    },
+    {
+      "id": "enlit_inexorable",
+      "term": "inexorable",
+      "translation": "impossible to persuade or stop"
+    },
+    {
+      "id": "enlit_infamy",
+      "term": "infamy",
+      "translation": "public disgrace or evil reputation"
+    },
+    {
+      "id": "enlit_ingenuous",
+      "term": "ingenuous",
+      "translation": "innocent, open or sincere"
+    },
+    {
+      "id": "enlit_injudicious",
+      "term": "injudicious",
+      "translation": "unwise or showing poor judgement"
+    },
+    {
+      "id": "enlit_insensibility",
+      "term": "insensibility",
+      "translation": "unconsciousness or lack of feeling"
+    },
+    {
+      "id": "enlit_interpose",
+      "term": "interpose",
+      "translation": "to intervene or place between"
+    },
+    {
+      "id": "enlit_intimation",
+      "term": "intimation",
+      "translation": "hint or indirect suggestion"
+    },
+    {
+      "id": "enlit_irksome",
+      "term": "irksome",
+      "translation": "annoying or tiresome"
+    },
+    {
+      "id": "enlit_judicious",
+      "term": "judicious",
+      "translation": "showing good judgement"
+    },
+    {
+      "id": "enlit_kinsman",
+      "term": "kinsman",
+      "translation": "male relative"
+    },
+    {
+      "id": "enlit_lamentation",
+      "term": "lamentation",
+      "translation": "expression of grief"
+    },
+    {
+      "id": "enlit_languid",
+      "term": "languid",
+      "translation": "weak, slow or lacking energy"
+    },
+    {
+      "id": "enlit_laudanum",
+      "term": "laudanum",
+      "translation": "opium tincture formerly used as medicine"
+    },
+    {
+      "id": "enlit_lest",
+      "term": "lest",
+      "translation": "to avoid the risk that"
+    },
+    {
+      "id": "enlit_levity",
+      "term": "levity",
+      "translation": "inappropriate lightness or lack of seriousness"
+    },
+    {
+      "id": "enlit_mien",
+      "term": "mien",
+      "translation": "appearance, bearing or manner"
+    },
+    {
+      "id": "enlit_misgiving",
+      "term": "misgiving",
+      "translation": "feeling of doubt or anxiety"
+    },
+    {
+      "id": "enlit_mirth",
+      "term": "mirth",
+      "translation": "joy or amusement"
+    },
+    {
+      "id": "enlit_modish",
+      "term": "modish",
+      "translation": "fashionable"
+    },
+    {
+      "id": "enlit_morose",
+      "term": "morose",
+      "translation": "sullen and ill-tempered"
+    },
+    {
+      "id": "enlit_mortification",
+      "term": "mortification",
+      "translation": "deep embarrassment or humiliation"
+    },
+    {
+      "id": "enlit_nay",
+      "term": "nay",
+      "translation": "no, or more strongly, not only that"
+    },
+    {
+      "id": "enlit_notwithstanding",
+      "term": "notwithstanding",
+      "translation": "despite"
+    },
+    {
+      "id": "enlit_obeisance",
+      "term": "obeisance",
+      "translation": "gesture of respect or submission"
+    },
+    {
+      "id": "enlit_obliging",
+      "term": "obliging",
+      "translation": "helpful and eager to please"
+    },
+    {
+      "id": "enlit_odious",
+      "term": "odious",
+      "translation": "hateful or extremely unpleasant"
+    },
+    {
+      "id": "enlit_oft",
+      "term": "oft",
+      "translation": "often"
+    },
+    {
+      "id": "enlit_opprobrium",
+      "term": "opprobrium",
+      "translation": "public disgrace or harsh criticism"
+    },
+    {
+      "id": "enlit_palpable",
+      "term": "palpable",
+      "translation": "able to be felt or obvious"
+    },
+    {
+      "id": "enlit_parlour",
+      "term": "parlour",
+      "translation": "sitting room for receiving guests"
+    },
+    {
+      "id": "enlit_patronage",
+      "term": "patronage",
+      "translation": "support or favour from a powerful person"
+    },
+    {
+      "id": "enlit_pecuniary",
+      "term": "pecuniary",
+      "translation": "relating to money or financial matters"
+    },
+    {
+      "id": "enlit_penury",
+      "term": "penury",
+      "translation": "extreme poverty"
+    },
+    {
+      "id": "enlit_perchance",
+      "term": "perchance",
+      "translation": "perhaps"
+    },
+    {
+      "id": "enlit_peril",
+      "term": "peril",
+      "translation": "serious danger"
+    },
+    {
+      "id": "enlit_perturbation",
+      "term": "perturbation",
+      "translation": "anxiety or disturbance"
+    },
+    {
+      "id": "enlit_physiognomy",
+      "term": "physiognomy",
+      "translation": "facial features seen as revealing character"
+    },
+    {
+      "id": "enlit_pinion",
+      "term": "pinion",
+      "translation": "to bind the arms or wings"
+    },
+    {
+      "id": "enlit_piteous",
+      "term": "piteous",
+      "translation": "deserving pity"
+    },
+    {
+      "id": "enlit_placid",
+      "term": "placid",
+      "translation": "calm and peaceful"
+    },
+    {
+      "id": "enlit_portent",
+      "term": "portent",
+      "translation": "sign or warning of future event"
+    },
+    {
+      "id": "enlit_presently",
+      "term": "presently",
+      "translation": "soon or after a short time"
+    },
+    {
+      "id": "enlit_presumption",
+      "term": "presumption",
+      "translation": "overconfidence or improper boldness"
+    },
+    {
+      "id": "enlit_procure",
+      "term": "procure",
+      "translation": "to obtain, often with effort"
+    },
+    {
+      "id": "enlit_prodigious",
+      "term": "prodigious",
+      "translation": "remarkably great or impressive"
+    },
+    {
+      "id": "enlit_propensity",
+      "term": "propensity",
+      "translation": "natural tendency or inclination"
+    },
+    {
+      "id": "enlit_propriety",
+      "term": "propriety",
+      "translation": "social correctness or proper behaviour"
+    },
+    {
+      "id": "enlit_prospect",
+      "term": "prospect",
+      "translation": "view, expectation or possibility"
+    },
+    {
+      "id": "enlit_provender",
+      "term": "provender",
+      "translation": "food for livestock, or food generally in humorous use"
+    },
+    {
+      "id": "enlit_prudence",
+      "term": "prudence",
+      "translation": "careful good judgement"
+    },
+    {
+      "id": "enlit_quoth",
+      "term": "quoth",
+      "translation": "said"
+    },
+    {
+      "id": "enlit_rapture",
+      "term": "rapture",
+      "translation": "intense delight or ecstatic feeling"
+    },
+    {
+      "id": "enlit_recompense",
+      "term": "recompense",
+      "translation": "repayment, reward or compensation"
+    },
+    {
+      "id": "enlit_redress",
+      "term": "redress",
+      "translation": "remedy or compensation for a wrong"
+    },
+    {
+      "id": "enlit_rejoinder",
+      "term": "rejoinder",
+      "translation": "reply, especially a sharp one"
+    },
+    {
+      "id": "enlit_remonstrance",
+      "term": "remonstrance",
+      "translation": "forceful protest or objection"
+    },
+    {
+      "id": "enlit_repose",
+      "term": "repose",
+      "translation": "rest, calm or dignified bearing"
+    },
+    {
+      "id": "enlit_reproof",
+      "term": "reproof",
+      "translation": "expression of blame or correction"
+    },
+    {
+      "id": "enlit_repugnance",
+      "term": "repugnance",
+      "translation": "strong dislike or opposition"
+    },
+    {
+      "id": "enlit_reverie",
+      "term": "reverie",
+      "translation": "daydream or absorbed musing"
+    },
+    {
+      "id": "enlit_ruinous",
+      "term": "ruinous",
+      "translation": "causing ruin or in a ruined state"
+    },
+    {
+      "id": "enlit_sagacity",
+      "term": "sagacity",
+      "translation": "wisdom and good judgement"
+    },
+    {
+      "id": "enlit_salutation",
+      "term": "salutation",
+      "translation": "greeting"
+    },
+    {
+      "id": "enlit_scarcely",
+      "term": "scarcely",
+      "translation": "almost not"
+    },
+    {
+      "id": "enlit_scruple",
+      "term": "scruple",
+      "translation": "moral hesitation or doubt"
+    },
+    {
+      "id": "enlit_sedate",
+      "term": "sedate",
+      "translation": "calm, dignified and serious"
+    },
+    {
+      "id": "enlit_semblance",
+      "term": "semblance",
+      "translation": "outward appearance or likeness"
+    },
+    {
+      "id": "enlit_sentiment",
+      "term": "sentiment",
+      "translation": "feeling, opinion or refined emotion"
+    },
+    {
+      "id": "enlit_servitude",
+      "term": "servitude",
+      "translation": "state of being a servant or slave"
+    },
+    {
+      "id": "enlit_slumber",
+      "term": "slumber",
+      "translation": "sleep"
+    },
+    {
+      "id": "enlit_solicitude",
+      "term": "solicitude",
+      "translation": "anxious care or concern"
+    },
+    {
+      "id": "enlit_sojourn",
+      "term": "sojourn",
+      "translation": "temporary stay"
+    },
+    {
+      "id": "enlit_solemnity",
+      "term": "solemnity",
+      "translation": "seriousness or formal ceremony"
+    },
+    {
+      "id": "enlit_solitude",
+      "term": "solitude",
+      "translation": "state of being alone"
+    },
+    {
+      "id": "enlit_spectre",
+      "term": "spectre",
+      "translation": "ghost or frightening apparition"
+    },
+    {
+      "id": "enlit_staid",
+      "term": "staid",
+      "translation": "serious, settled and respectable"
+    },
+    {
+      "id": "enlit_succour",
+      "term": "succour",
+      "translation": "help or relief in distress"
+    },
+    {
+      "id": "enlit_supplication",
+      "term": "supplication",
+      "translation": "humble earnest request"
+    },
+    {
+      "id": "enlit_surmise",
+      "term": "surmise",
+      "translation": "to guess or infer"
+    },
+    {
+      "id": "enlit_tarry",
+      "term": "tarry",
+      "translation": "to delay or stay longer"
+    },
+    {
+      "id": "enlit_thence",
+      "term": "thence",
+      "translation": "from that place or time"
+    },
+    {
+      "id": "enlit_thereafter",
+      "term": "thereafter",
+      "translation": "after that"
+    },
+    {
+      "id": "enlit_thereby",
+      "term": "thereby",
+      "translation": "by that means"
+    },
+    {
+      "id": "enlit_therein",
+      "term": "therein",
+      "translation": "in that place or matter"
+    },
+    {
       "id": "enlit_thither",
       "term": "thither",
       "translation": "to that place"
+    },
+    {
+      "id": "enlit_tidings",
+      "term": "tidings",
+      "translation": "news"
+    },
+    {
+      "id": "enlit_transgression",
+      "term": "transgression",
+      "translation": "wrongdoing or violation"
+    },
+    {
+      "id": "enlit_tremulous",
+      "term": "tremulous",
+      "translation": "shaking or timid"
+    },
+    {
+      "id": "enlit_trifling",
+      "term": "trifling",
+      "translation": "of little importance"
+    },
+    {
+      "id": "enlit_tumult",
+      "term": "tumult",
+      "translation": "confusion, uproar or emotional agitation"
+    },
+    {
+      "id": "enlit_unbecoming",
+      "term": "unbecoming",
+      "translation": "improper or unsuitable"
+    },
+    {
+      "id": "enlit_unbidden",
+      "term": "unbidden",
+      "translation": "not invited or requested"
+    },
+    {
+      "id": "enlit_unfeigned",
+      "term": "unfeigned",
+      "translation": "genuine or sincere"
+    },
+    {
+      "id": "enlit_vexation",
+      "term": "vexation",
+      "translation": "annoyance or distress"
+    },
+    {
+      "id": "enlit_visage",
+      "term": "visage",
+      "translation": "face or facial appearance"
+    },
+    {
+      "id": "enlit_vouchsafe",
+      "term": "vouchsafe",
+      "translation": "to grant or reveal graciously"
+    },
+    {
+      "id": "enlit_wainscot",
+      "term": "wainscot",
+      "translation": "wooden panelling on walls"
+    },
+    {
+      "id": "enlit_wan",
+      "term": "wan",
+      "translation": "pale and weak-looking"
+    },
+    {
+      "id": "enlit_whereupon",
+      "term": "whereupon",
+      "translation": "immediately after which"
+    },
+    {
+      "id": "enlit_whence",
+      "term": "whence",
+      "translation": "from where"
+    },
+    {
+      "id": "enlit_wherefore",
+      "term": "wherefore",
+      "translation": "why or for what reason"
+    },
+    {
+      "id": "enlit_whilst",
+      "term": "whilst",
+      "translation": "while"
+    },
+    {
+      "id": "enlit_wistful",
+      "term": "wistful",
+      "translation": "longing or sadly thoughtful"
+    },
+    {
+      "id": "enlit_wretched",
+      "term": "wretched",
+      "translation": "miserable or deeply unhappy"
     },
     {
       "id": "enlit_yonder",
@@ -189,869 +1499,3521 @@
       "translation": "over there"
     },
     {
-      "id": "enlit_vow",
-      "term": "vow",
-      "translation": "serious promise"
+      "id": "enlit_ancestral_hall",
+      "term": "ancestral hall",
+      "translation": "large old family room or residence associated with lineage"
     },
     {
-      "id": "enlit_grief",
-      "term": "grief",
-      "translation": "deep sadness"
+      "id": "enlit_ancient_manor",
+      "term": "ancient manor",
+      "translation": "old country house belonging to a family estate"
     },
     {
-      "id": "enlit_delight",
-      "term": "delight",
-      "translation": "great pleasure"
+      "id": "enlit_blasted_heath",
+      "term": "blasted heath",
+      "translation": "bleak open land suggesting desolation or supernatural danger"
     },
     {
-      "id": "enlit_dread",
-      "term": "dread",
-      "translation": "fear"
+      "id": "enlit_boarding_house",
+      "term": "boarding house",
+      "translation": "lodging house where residents pay for rooms and meals"
     },
     {
-      "id": "enlit_wrath",
-      "term": "wrath",
-      "translation": "anger"
+      "id": "enlit_coaching_inn",
+      "term": "coaching inn",
+      "translation": "inn serving travellers and horse-drawn coaches"
     },
     {
-      "id": "enlit_mercy",
-      "term": "mercy",
-      "translation": "kind forgiveness"
+      "id": "enlit_country_seat",
+      "term": "country seat",
+      "translation": "large country residence of a wealthy family"
     },
     {
-      "id": "enlit_honour",
-      "term": "honour",
-      "translation": "high respect"
+      "id": "enlit_drawing_room",
+      "term": "drawing room",
+      "translation": "formal sitting room for receiving guests"
     },
     {
-      "id": "enlit_shame",
-      "term": "shame",
-      "translation": "painful feeling of disgrace"
+      "id": "enlit_gloomy_corridor",
+      "term": "gloomy corridor",
+      "translation": "dark passage suggesting suspense or unease"
     },
     {
-      "id": "enlit_pride",
-      "term": "pride",
-      "translation": "self-respect or arrogance"
+      "id": "enlit_gothic_abbey",
+      "term": "gothic abbey",
+      "translation": "old religious building used as a Gothic setting"
     },
     {
-      "id": "enlit_humble",
-      "term": "humble",
-      "translation": "modest or low in rank"
+      "id": "enlit_haunted_chamber",
+      "term": "haunted chamber",
+      "translation": "room associated with ghostly fear or memory"
     },
     {
-      "id": "enlit_noble",
-      "term": "noble",
-      "translation": "morally fine or high-born"
+      "id": "enlit_lonely_moor",
+      "term": "lonely moor",
+      "translation": "open uncultivated land evoking isolation"
     },
     {
-      "id": "enlit_gentle",
-      "term": "gentle",
-      "translation": "kind or mild"
+      "id": "enlit_market_town",
+      "term": "market town",
+      "translation": "town serving as a local centre of trade"
     },
     {
-      "id": "enlit_fair",
-      "term": "fair",
-      "translation": "beautiful or just"
+      "id": "enlit_posting_house",
+      "term": "posting house",
+      "translation": "inn where horses could be changed for travel"
     },
     {
-      "id": "enlit_grave",
-      "term": "grave",
-      "translation": "serious"
+      "id": "enlit_ruined_castle",
+      "term": "ruined castle",
+      "translation": "decaying fortified building common in Gothic fiction"
     },
     {
-      "id": "enlit_fierce",
-      "term": "fierce",
-      "translation": "violent or intense"
+      "id": "enlit_secluded_cottage",
+      "term": "secluded cottage",
+      "translation": "small isolated rural dwelling"
     },
     {
-      "id": "enlit_weary",
-      "term": "weary",
-      "translation": "very tired"
+      "id": "enlit_servants_hall",
+      "term": "servants' hall",
+      "translation": "room where household servants ate or gathered"
     },
     {
-      "id": "enlit_silent",
-      "term": "silent",
-      "translation": "without sound"
+      "id": "enlit_sickroom",
+      "term": "sickroom",
+      "translation": "room where an ill person is cared for"
     },
     {
-      "id": "enlit_lonely",
-      "term": "lonely",
-      "translation": "alone and sad"
+      "id": "enlit_tenant_farm",
+      "term": "tenant farm",
+      "translation": "farm rented from a landowner"
     },
     {
-      "id": "enlit_ancient",
-      "term": "ancient",
-      "translation": "very old"
+      "id": "enlit_wayside_inn",
+      "term": "wayside inn",
+      "translation": "inn beside a road used by travellers"
     },
     {
-      "id": "enlit_distant",
-      "term": "distant",
-      "translation": "far away"
+      "id": "enlit_widow_s_lodging",
+      "term": "widow's lodging",
+      "translation": "modest rooms occupied by a widow"
     },
     {
-      "id": "enlit_strange",
-      "term": "strange",
-      "translation": "unfamiliar"
+      "id": "enlit_bleak_ancestral_hall",
+      "term": "bleak ancestral hall",
+      "translation": "cold, bare or hopeless in mood; used of ancestral hall"
     },
     {
-      "id": "enlit_bright",
-      "term": "bright",
-      "translation": "full of light"
+      "id": "enlit_bleak_ancient_manor",
+      "term": "bleak ancient manor",
+      "translation": "cold, bare or hopeless in mood; used of ancient manor"
     },
     {
-      "id": "enlit_dim",
-      "term": "dim",
-      "translation": "not bright"
+      "id": "enlit_bleak_blasted_heath",
+      "term": "bleak blasted heath",
+      "translation": "cold, bare or hopeless in mood; used of blasted heath"
     },
     {
-      "id": "enlit_swift",
-      "term": "swift",
-      "translation": "quick"
+      "id": "enlit_bleak_boarding_house",
+      "term": "bleak boarding house",
+      "translation": "cold, bare or hopeless in mood; used of boarding house"
     },
     {
-      "id": "enlit_idle",
-      "term": "idle",
-      "translation": "not working"
+      "id": "enlit_bleak_coaching_inn",
+      "term": "bleak coaching inn",
+      "translation": "cold, bare or hopeless in mood; used of coaching inn"
     },
     {
-      "id": "enlit_vain",
-      "term": "vain",
-      "translation": "useless or excessively proud"
+      "id": "enlit_bleak_country_seat",
+      "term": "bleak country seat",
+      "translation": "cold, bare or hopeless in mood; used of country seat"
     },
     {
-      "id": "enlit_faint",
-      "term": "faint",
-      "translation": "weak or unclear"
+      "id": "enlit_bleak_drawing_room",
+      "term": "bleak drawing room",
+      "translation": "cold, bare or hopeless in mood; used of drawing room"
     },
     {
-      "id": "enlit_dear",
-      "term": "dear",
-      "translation": "loved or costly"
+      "id": "enlit_bleak_gloomy_corridor",
+      "term": "bleak gloomy corridor",
+      "translation": "cold, bare or hopeless in mood; used of gloomy corridor"
     },
     {
-      "id": "enlit_poor",
-      "term": "poor",
-      "translation": "having little money"
+      "id": "enlit_bleak_gothic_abbey",
+      "term": "bleak gothic abbey",
+      "translation": "cold, bare or hopeless in mood; used of gothic abbey"
     },
     {
-      "id": "enlit_rich",
-      "term": "rich",
-      "translation": "having much wealth"
+      "id": "enlit_bleak_haunted_chamber",
+      "term": "bleak haunted chamber",
+      "translation": "cold, bare or hopeless in mood; used of haunted chamber"
     },
     {
-      "id": "enlit_servant",
-      "term": "servant",
-      "translation": "person employed to serve"
+      "id": "enlit_bleak_lonely_moor",
+      "term": "bleak lonely moor",
+      "translation": "cold, bare or hopeless in mood; used of lonely moor"
     },
     {
-      "id": "enlit_master",
-      "term": "master",
-      "translation": "person in authority"
+      "id": "enlit_bleak_market_town",
+      "term": "bleak market town",
+      "translation": "cold, bare or hopeless in mood; used of market town"
     },
     {
-      "id": "enlit_guest",
-      "term": "guest",
-      "translation": "visitor received at a place"
+      "id": "enlit_bleak_posting_house",
+      "term": "bleak posting house",
+      "translation": "cold, bare or hopeless in mood; used of posting house"
     },
     {
-      "id": "enlit_host",
-      "term": "host",
-      "translation": "person receiving guests"
+      "id": "enlit_bleak_ruined_castle",
+      "term": "bleak ruined castle",
+      "translation": "cold, bare or hopeless in mood; used of ruined castle"
     },
     {
-      "id": "enlit_traveller",
-      "term": "traveller",
-      "translation": "person on a journey"
+      "id": "enlit_bleak_secluded_cottage",
+      "term": "bleak secluded cottage",
+      "translation": "cold, bare or hopeless in mood; used of secluded cottage"
     },
     {
-      "id": "enlit_stranger",
-      "term": "stranger",
-      "translation": "unknown person"
+      "id": "enlit_bleak_servants_hall",
+      "term": "bleak servants' hall",
+      "translation": "cold, bare or hopeless in mood; used of servants' hall"
     },
     {
-      "id": "enlit_neighbour",
-      "term": "neighbour",
-      "translation": "person living nearby"
+      "id": "enlit_bleak_sickroom",
+      "term": "bleak sickroom",
+      "translation": "cold, bare or hopeless in mood; used of sickroom"
     },
     {
-      "id": "enlit_widow",
-      "term": "widow",
-      "translation": "woman whose spouse has died"
+      "id": "enlit_bleak_tenant_farm",
+      "term": "bleak tenant farm",
+      "translation": "cold, bare or hopeless in mood; used of tenant farm"
     },
     {
-      "id": "enlit_heir",
-      "term": "heir",
-      "translation": "person who receives inheritance"
+      "id": "enlit_bleak_wayside_inn",
+      "term": "bleak wayside inn",
+      "translation": "cold, bare or hopeless in mood; used of wayside inn"
     },
     {
-      "id": "enlit_letter",
-      "term": "letter",
-      "translation": "written message"
+      "id": "enlit_bleak_widow_s_lodging",
+      "term": "bleak widow's lodging",
+      "translation": "cold, bare or hopeless in mood; used of widow's lodging"
     },
     {
-      "id": "enlit_estate",
-      "term": "estate",
-      "translation": "large property or land"
+      "id": "enlit_melancholy_ancestral_hall",
+      "term": "melancholy ancestral hall",
+      "translation": "sad, reflective or gloomy; used of ancestral hall"
     },
     {
-      "id": "enlit_inheritance",
-      "term": "inheritance",
-      "translation": "property received after death"
+      "id": "enlit_melancholy_ancient_manor",
+      "term": "melancholy ancient manor",
+      "translation": "sad, reflective or gloomy; used of ancient manor"
     },
     {
-      "id": "enlit_village",
-      "term": "village",
-      "translation": "small settlement"
+      "id": "enlit_melancholy_blasted_heath",
+      "term": "melancholy blasted heath",
+      "translation": "sad, reflective or gloomy; used of blasted heath"
     },
     {
-      "id": "enlit_path",
-      "term": "path",
-      "translation": "small road or track"
+      "id": "enlit_melancholy_boarding_house",
+      "term": "melancholy boarding house",
+      "translation": "sad, reflective or gloomy; used of boarding house"
     },
     {
-      "id": "enlit_hearth",
-      "term": "hearth",
-      "translation": "fireplace area in a home"
+      "id": "enlit_melancholy_coaching_inn",
+      "term": "melancholy coaching inn",
+      "translation": "sad, reflective or gloomy; used of coaching inn"
     },
     {
-      "id": "enlit_chamber",
-      "term": "chamber",
-      "translation": "room"
+      "id": "enlit_melancholy_country_seat",
+      "term": "melancholy country seat",
+      "translation": "sad, reflective or gloomy; used of country seat"
     },
     {
-      "id": "enlit_threshold",
-      "term": "threshold",
-      "translation": "entrance or doorway"
+      "id": "enlit_melancholy_drawing_room",
+      "term": "melancholy drawing room",
+      "translation": "sad, reflective or gloomy; used of drawing room"
     },
     {
-      "id": "enlit_curtain",
-      "term": "curtain",
-      "translation": "hanging cloth by a window"
+      "id": "enlit_melancholy_gloomy_corridor",
+      "term": "melancholy gloomy corridor",
+      "translation": "sad, reflective or gloomy; used of gloomy corridor"
     },
     {
-      "id": "enlit_portrait",
-      "term": "portrait",
-      "translation": "painted or photographed likeness"
+      "id": "enlit_melancholy_gothic_abbey",
+      "term": "melancholy gothic abbey",
+      "translation": "sad, reflective or gloomy; used of gothic abbey"
     },
     {
-      "id": "enlit_candle",
-      "term": "candle",
-      "translation": "wax light with a flame"
+      "id": "enlit_melancholy_haunted_chamber",
+      "term": "melancholy haunted chamber",
+      "translation": "sad, reflective or gloomy; used of haunted chamber"
     },
     {
-      "id": "enlit_storm",
-      "term": "storm",
-      "translation": "violent weather"
+      "id": "enlit_melancholy_lonely_moor",
+      "term": "melancholy lonely moor",
+      "translation": "sad, reflective or gloomy; used of lonely moor"
     },
     {
-      "id": "enlit_mist",
-      "term": "mist",
-      "translation": "thin fog"
+      "id": "enlit_melancholy_market_town",
+      "term": "melancholy market town",
+      "translation": "sad, reflective or gloomy; used of market town"
     },
     {
-      "id": "enlit_shadow",
-      "term": "shadow",
-      "translation": "dark shape made by blocked light"
+      "id": "enlit_melancholy_posting_house",
+      "term": "melancholy posting house",
+      "translation": "sad, reflective or gloomy; used of posting house"
     },
     {
-      "id": "enlit_whisper",
-      "term": "whisper",
-      "translation": "quiet speech"
+      "id": "enlit_melancholy_ruined_castle",
+      "term": "melancholy ruined castle",
+      "translation": "sad, reflective or gloomy; used of ruined castle"
     },
     {
-      "id": "enlit_rumour",
-      "term": "rumour",
-      "translation": "unconfirmed story"
+      "id": "enlit_melancholy_secluded_cottage",
+      "term": "melancholy secluded cottage",
+      "translation": "sad, reflective or gloomy; used of secluded cottage"
     },
     {
-      "id": "enlit_secret",
-      "term": "secret",
-      "translation": "hidden information"
+      "id": "enlit_melancholy_servants_hall",
+      "term": "melancholy servants' hall",
+      "translation": "sad, reflective or gloomy; used of servants' hall"
     },
     {
-      "id": "enlit_promise",
-      "term": "promise",
-      "translation": "statement that one will do something"
+      "id": "enlit_melancholy_sickroom",
+      "term": "melancholy sickroom",
+      "translation": "sad, reflective or gloomy; used of sickroom"
     },
     {
-      "id": "enlit_choice",
-      "term": "choice",
-      "translation": "act of deciding"
+      "id": "enlit_melancholy_tenant_farm",
+      "term": "melancholy tenant farm",
+      "translation": "sad, reflective or gloomy; used of tenant farm"
+    },
+    {
+      "id": "enlit_melancholy_wayside_inn",
+      "term": "melancholy wayside inn",
+      "translation": "sad, reflective or gloomy; used of wayside inn"
+    },
+    {
+      "id": "enlit_melancholy_widow_s_lodging",
+      "term": "melancholy widow's lodging",
+      "translation": "sad, reflective or gloomy; used of widow's lodging"
+    },
+    {
+      "id": "enlit_forbidding_ancestral_hall",
+      "term": "forbidding ancestral hall",
+      "translation": "unfriendly, threatening or difficult to approach; used of ancestral hall"
+    },
+    {
+      "id": "enlit_forbidding_ancient_manor",
+      "term": "forbidding ancient manor",
+      "translation": "unfriendly, threatening or difficult to approach; used of ancient manor"
+    },
+    {
+      "id": "enlit_forbidding_blasted_heath",
+      "term": "forbidding blasted heath",
+      "translation": "unfriendly, threatening or difficult to approach; used of blasted heath"
+    },
+    {
+      "id": "enlit_forbidding_boarding_house",
+      "term": "forbidding boarding house",
+      "translation": "unfriendly, threatening or difficult to approach; used of boarding house"
+    },
+    {
+      "id": "enlit_forbidding_coaching_inn",
+      "term": "forbidding coaching inn",
+      "translation": "unfriendly, threatening or difficult to approach; used of coaching inn"
+    },
+    {
+      "id": "enlit_forbidding_country_seat",
+      "term": "forbidding country seat",
+      "translation": "unfriendly, threatening or difficult to approach; used of country seat"
+    },
+    {
+      "id": "enlit_forbidding_drawing_room",
+      "term": "forbidding drawing room",
+      "translation": "unfriendly, threatening or difficult to approach; used of drawing room"
+    },
+    {
+      "id": "enlit_forbidding_gloomy_corridor",
+      "term": "forbidding gloomy corridor",
+      "translation": "unfriendly, threatening or difficult to approach; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_forbidding_gothic_abbey",
+      "term": "forbidding gothic abbey",
+      "translation": "unfriendly, threatening or difficult to approach; used of gothic abbey"
+    },
+    {
+      "id": "enlit_forbidding_haunted_chamber",
+      "term": "forbidding haunted chamber",
+      "translation": "unfriendly, threatening or difficult to approach; used of haunted chamber"
+    },
+    {
+      "id": "enlit_forbidding_lonely_moor",
+      "term": "forbidding lonely moor",
+      "translation": "unfriendly, threatening or difficult to approach; used of lonely moor"
+    },
+    {
+      "id": "enlit_forbidding_market_town",
+      "term": "forbidding market town",
+      "translation": "unfriendly, threatening or difficult to approach; used of market town"
+    },
+    {
+      "id": "enlit_forbidding_posting_house",
+      "term": "forbidding posting house",
+      "translation": "unfriendly, threatening or difficult to approach; used of posting house"
+    },
+    {
+      "id": "enlit_forbidding_ruined_castle",
+      "term": "forbidding ruined castle",
+      "translation": "unfriendly, threatening or difficult to approach; used of ruined castle"
+    },
+    {
+      "id": "enlit_forbidding_secluded_cottage",
+      "term": "forbidding secluded cottage",
+      "translation": "unfriendly, threatening or difficult to approach; used of secluded cottage"
+    },
+    {
+      "id": "enlit_forbidding_servants_hall",
+      "term": "forbidding servants' hall",
+      "translation": "unfriendly, threatening or difficult to approach; used of servants' hall"
+    },
+    {
+      "id": "enlit_forbidding_sickroom",
+      "term": "forbidding sickroom",
+      "translation": "unfriendly, threatening or difficult to approach; used of sickroom"
+    },
+    {
+      "id": "enlit_forbidding_tenant_farm",
+      "term": "forbidding tenant farm",
+      "translation": "unfriendly, threatening or difficult to approach; used of tenant farm"
+    },
+    {
+      "id": "enlit_forbidding_wayside_inn",
+      "term": "forbidding wayside inn",
+      "translation": "unfriendly, threatening or difficult to approach; used of wayside inn"
+    },
+    {
+      "id": "enlit_forbidding_widow_s_lodging",
+      "term": "forbidding widow's lodging",
+      "translation": "unfriendly, threatening or difficult to approach; used of widow's lodging"
+    },
+    {
+      "id": "enlit_desolate_ancestral_hall",
+      "term": "desolate ancestral hall",
+      "translation": "lonely, empty or abandoned; used of ancestral hall"
+    },
+    {
+      "id": "enlit_desolate_ancient_manor",
+      "term": "desolate ancient manor",
+      "translation": "lonely, empty or abandoned; used of ancient manor"
+    },
+    {
+      "id": "enlit_desolate_blasted_heath",
+      "term": "desolate blasted heath",
+      "translation": "lonely, empty or abandoned; used of blasted heath"
+    },
+    {
+      "id": "enlit_desolate_boarding_house",
+      "term": "desolate boarding house",
+      "translation": "lonely, empty or abandoned; used of boarding house"
+    },
+    {
+      "id": "enlit_desolate_coaching_inn",
+      "term": "desolate coaching inn",
+      "translation": "lonely, empty or abandoned; used of coaching inn"
+    },
+    {
+      "id": "enlit_desolate_country_seat",
+      "term": "desolate country seat",
+      "translation": "lonely, empty or abandoned; used of country seat"
+    },
+    {
+      "id": "enlit_desolate_drawing_room",
+      "term": "desolate drawing room",
+      "translation": "lonely, empty or abandoned; used of drawing room"
+    },
+    {
+      "id": "enlit_desolate_gloomy_corridor",
+      "term": "desolate gloomy corridor",
+      "translation": "lonely, empty or abandoned; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_desolate_gothic_abbey",
+      "term": "desolate gothic abbey",
+      "translation": "lonely, empty or abandoned; used of gothic abbey"
+    },
+    {
+      "id": "enlit_desolate_haunted_chamber",
+      "term": "desolate haunted chamber",
+      "translation": "lonely, empty or abandoned; used of haunted chamber"
+    },
+    {
+      "id": "enlit_desolate_lonely_moor",
+      "term": "desolate lonely moor",
+      "translation": "lonely, empty or abandoned; used of lonely moor"
+    },
+    {
+      "id": "enlit_desolate_market_town",
+      "term": "desolate market town",
+      "translation": "lonely, empty or abandoned; used of market town"
+    },
+    {
+      "id": "enlit_desolate_posting_house",
+      "term": "desolate posting house",
+      "translation": "lonely, empty or abandoned; used of posting house"
+    },
+    {
+      "id": "enlit_desolate_ruined_castle",
+      "term": "desolate ruined castle",
+      "translation": "lonely, empty or abandoned; used of ruined castle"
+    },
+    {
+      "id": "enlit_desolate_secluded_cottage",
+      "term": "desolate secluded cottage",
+      "translation": "lonely, empty or abandoned; used of secluded cottage"
+    },
+    {
+      "id": "enlit_desolate_servants_hall",
+      "term": "desolate servants' hall",
+      "translation": "lonely, empty or abandoned; used of servants' hall"
+    },
+    {
+      "id": "enlit_desolate_sickroom",
+      "term": "desolate sickroom",
+      "translation": "lonely, empty or abandoned; used of sickroom"
+    },
+    {
+      "id": "enlit_desolate_tenant_farm",
+      "term": "desolate tenant farm",
+      "translation": "lonely, empty or abandoned; used of tenant farm"
+    },
+    {
+      "id": "enlit_desolate_wayside_inn",
+      "term": "desolate wayside inn",
+      "translation": "lonely, empty or abandoned; used of wayside inn"
+    },
+    {
+      "id": "enlit_desolate_widow_s_lodging",
+      "term": "desolate widow's lodging",
+      "translation": "lonely, empty or abandoned; used of widow's lodging"
+    },
+    {
+      "id": "enlit_dilapidated_ancestral_hall",
+      "term": "dilapidated ancestral hall",
+      "translation": "fallen into disrepair; used of ancestral hall"
+    },
+    {
+      "id": "enlit_dilapidated_ancient_manor",
+      "term": "dilapidated ancient manor",
+      "translation": "fallen into disrepair; used of ancient manor"
+    },
+    {
+      "id": "enlit_dilapidated_blasted_heath",
+      "term": "dilapidated blasted heath",
+      "translation": "fallen into disrepair; used of blasted heath"
+    },
+    {
+      "id": "enlit_dilapidated_boarding_house",
+      "term": "dilapidated boarding house",
+      "translation": "fallen into disrepair; used of boarding house"
+    },
+    {
+      "id": "enlit_dilapidated_coaching_inn",
+      "term": "dilapidated coaching inn",
+      "translation": "fallen into disrepair; used of coaching inn"
+    },
+    {
+      "id": "enlit_dilapidated_country_seat",
+      "term": "dilapidated country seat",
+      "translation": "fallen into disrepair; used of country seat"
+    },
+    {
+      "id": "enlit_dilapidated_drawing_room",
+      "term": "dilapidated drawing room",
+      "translation": "fallen into disrepair; used of drawing room"
+    },
+    {
+      "id": "enlit_dilapidated_gloomy_corridor",
+      "term": "dilapidated gloomy corridor",
+      "translation": "fallen into disrepair; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_dilapidated_gothic_abbey",
+      "term": "dilapidated gothic abbey",
+      "translation": "fallen into disrepair; used of gothic abbey"
+    },
+    {
+      "id": "enlit_dilapidated_haunted_chamber",
+      "term": "dilapidated haunted chamber",
+      "translation": "fallen into disrepair; used of haunted chamber"
+    },
+    {
+      "id": "enlit_dilapidated_lonely_moor",
+      "term": "dilapidated lonely moor",
+      "translation": "fallen into disrepair; used of lonely moor"
+    },
+    {
+      "id": "enlit_dilapidated_market_town",
+      "term": "dilapidated market town",
+      "translation": "fallen into disrepair; used of market town"
+    },
+    {
+      "id": "enlit_dilapidated_posting_house",
+      "term": "dilapidated posting house",
+      "translation": "fallen into disrepair; used of posting house"
+    },
+    {
+      "id": "enlit_dilapidated_ruined_castle",
+      "term": "dilapidated ruined castle",
+      "translation": "fallen into disrepair; used of ruined castle"
+    },
+    {
+      "id": "enlit_dilapidated_secluded_cottage",
+      "term": "dilapidated secluded cottage",
+      "translation": "fallen into disrepair; used of secluded cottage"
+    },
+    {
+      "id": "enlit_dilapidated_servants_hall",
+      "term": "dilapidated servants' hall",
+      "translation": "fallen into disrepair; used of servants' hall"
+    },
+    {
+      "id": "enlit_dilapidated_sickroom",
+      "term": "dilapidated sickroom",
+      "translation": "fallen into disrepair; used of sickroom"
+    },
+    {
+      "id": "enlit_dilapidated_tenant_farm",
+      "term": "dilapidated tenant farm",
+      "translation": "fallen into disrepair; used of tenant farm"
+    },
+    {
+      "id": "enlit_dilapidated_wayside_inn",
+      "term": "dilapidated wayside inn",
+      "translation": "fallen into disrepair; used of wayside inn"
+    },
+    {
+      "id": "enlit_dilapidated_widow_s_lodging",
+      "term": "dilapidated widow's lodging",
+      "translation": "fallen into disrepair; used of widow's lodging"
+    },
+    {
+      "id": "enlit_venerable_ancestral_hall",
+      "term": "venerable ancestral hall",
+      "translation": "respected because of age or dignity; used of ancestral hall"
+    },
+    {
+      "id": "enlit_venerable_ancient_manor",
+      "term": "venerable ancient manor",
+      "translation": "respected because of age or dignity; used of ancient manor"
+    },
+    {
+      "id": "enlit_venerable_blasted_heath",
+      "term": "venerable blasted heath",
+      "translation": "respected because of age or dignity; used of blasted heath"
+    },
+    {
+      "id": "enlit_venerable_boarding_house",
+      "term": "venerable boarding house",
+      "translation": "respected because of age or dignity; used of boarding house"
+    },
+    {
+      "id": "enlit_venerable_coaching_inn",
+      "term": "venerable coaching inn",
+      "translation": "respected because of age or dignity; used of coaching inn"
+    },
+    {
+      "id": "enlit_venerable_country_seat",
+      "term": "venerable country seat",
+      "translation": "respected because of age or dignity; used of country seat"
+    },
+    {
+      "id": "enlit_venerable_drawing_room",
+      "term": "venerable drawing room",
+      "translation": "respected because of age or dignity; used of drawing room"
+    },
+    {
+      "id": "enlit_venerable_gloomy_corridor",
+      "term": "venerable gloomy corridor",
+      "translation": "respected because of age or dignity; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_venerable_gothic_abbey",
+      "term": "venerable gothic abbey",
+      "translation": "respected because of age or dignity; used of gothic abbey"
+    },
+    {
+      "id": "enlit_venerable_haunted_chamber",
+      "term": "venerable haunted chamber",
+      "translation": "respected because of age or dignity; used of haunted chamber"
+    },
+    {
+      "id": "enlit_venerable_lonely_moor",
+      "term": "venerable lonely moor",
+      "translation": "respected because of age or dignity; used of lonely moor"
+    },
+    {
+      "id": "enlit_venerable_market_town",
+      "term": "venerable market town",
+      "translation": "respected because of age or dignity; used of market town"
+    },
+    {
+      "id": "enlit_venerable_posting_house",
+      "term": "venerable posting house",
+      "translation": "respected because of age or dignity; used of posting house"
+    },
+    {
+      "id": "enlit_venerable_ruined_castle",
+      "term": "venerable ruined castle",
+      "translation": "respected because of age or dignity; used of ruined castle"
+    },
+    {
+      "id": "enlit_venerable_secluded_cottage",
+      "term": "venerable secluded cottage",
+      "translation": "respected because of age or dignity; used of secluded cottage"
+    },
+    {
+      "id": "enlit_venerable_servants_hall",
+      "term": "venerable servants' hall",
+      "translation": "respected because of age or dignity; used of servants' hall"
+    },
+    {
+      "id": "enlit_venerable_sickroom",
+      "term": "venerable sickroom",
+      "translation": "respected because of age or dignity; used of sickroom"
+    },
+    {
+      "id": "enlit_venerable_tenant_farm",
+      "term": "venerable tenant farm",
+      "translation": "respected because of age or dignity; used of tenant farm"
+    },
+    {
+      "id": "enlit_venerable_wayside_inn",
+      "term": "venerable wayside inn",
+      "translation": "respected because of age or dignity; used of wayside inn"
+    },
+    {
+      "id": "enlit_venerable_widow_s_lodging",
+      "term": "venerable widow's lodging",
+      "translation": "respected because of age or dignity; used of widow's lodging"
+    },
+    {
+      "id": "enlit_sequestered_ancestral_hall",
+      "term": "sequestered ancestral hall",
+      "translation": "isolated or withdrawn; used of ancestral hall"
+    },
+    {
+      "id": "enlit_sequestered_ancient_manor",
+      "term": "sequestered ancient manor",
+      "translation": "isolated or withdrawn; used of ancient manor"
+    },
+    {
+      "id": "enlit_sequestered_blasted_heath",
+      "term": "sequestered blasted heath",
+      "translation": "isolated or withdrawn; used of blasted heath"
+    },
+    {
+      "id": "enlit_sequestered_boarding_house",
+      "term": "sequestered boarding house",
+      "translation": "isolated or withdrawn; used of boarding house"
+    },
+    {
+      "id": "enlit_sequestered_coaching_inn",
+      "term": "sequestered coaching inn",
+      "translation": "isolated or withdrawn; used of coaching inn"
+    },
+    {
+      "id": "enlit_sequestered_country_seat",
+      "term": "sequestered country seat",
+      "translation": "isolated or withdrawn; used of country seat"
+    },
+    {
+      "id": "enlit_sequestered_drawing_room",
+      "term": "sequestered drawing room",
+      "translation": "isolated or withdrawn; used of drawing room"
+    },
+    {
+      "id": "enlit_sequestered_gloomy_corridor",
+      "term": "sequestered gloomy corridor",
+      "translation": "isolated or withdrawn; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_sequestered_gothic_abbey",
+      "term": "sequestered gothic abbey",
+      "translation": "isolated or withdrawn; used of gothic abbey"
+    },
+    {
+      "id": "enlit_sequestered_haunted_chamber",
+      "term": "sequestered haunted chamber",
+      "translation": "isolated or withdrawn; used of haunted chamber"
+    },
+    {
+      "id": "enlit_sequestered_lonely_moor",
+      "term": "sequestered lonely moor",
+      "translation": "isolated or withdrawn; used of lonely moor"
+    },
+    {
+      "id": "enlit_sequestered_market_town",
+      "term": "sequestered market town",
+      "translation": "isolated or withdrawn; used of market town"
+    },
+    {
+      "id": "enlit_sequestered_posting_house",
+      "term": "sequestered posting house",
+      "translation": "isolated or withdrawn; used of posting house"
+    },
+    {
+      "id": "enlit_sequestered_ruined_castle",
+      "term": "sequestered ruined castle",
+      "translation": "isolated or withdrawn; used of ruined castle"
+    },
+    {
+      "id": "enlit_sequestered_secluded_cottage",
+      "term": "sequestered secluded cottage",
+      "translation": "isolated or withdrawn; used of secluded cottage"
+    },
+    {
+      "id": "enlit_sequestered_servants_hall",
+      "term": "sequestered servants' hall",
+      "translation": "isolated or withdrawn; used of servants' hall"
+    },
+    {
+      "id": "enlit_sequestered_sickroom",
+      "term": "sequestered sickroom",
+      "translation": "isolated or withdrawn; used of sickroom"
+    },
+    {
+      "id": "enlit_sequestered_tenant_farm",
+      "term": "sequestered tenant farm",
+      "translation": "isolated or withdrawn; used of tenant farm"
+    },
+    {
+      "id": "enlit_sequestered_wayside_inn",
+      "term": "sequestered wayside inn",
+      "translation": "isolated or withdrawn; used of wayside inn"
+    },
+    {
+      "id": "enlit_sequestered_widow_s_lodging",
+      "term": "sequestered widow's lodging",
+      "translation": "isolated or withdrawn; used of widow's lodging"
+    },
+    {
+      "id": "enlit_tempestuous_ancestral_hall",
+      "term": "tempestuous ancestral hall",
+      "translation": "stormy or emotionally turbulent; used of ancestral hall"
+    },
+    {
+      "id": "enlit_tempestuous_ancient_manor",
+      "term": "tempestuous ancient manor",
+      "translation": "stormy or emotionally turbulent; used of ancient manor"
+    },
+    {
+      "id": "enlit_tempestuous_blasted_heath",
+      "term": "tempestuous blasted heath",
+      "translation": "stormy or emotionally turbulent; used of blasted heath"
+    },
+    {
+      "id": "enlit_tempestuous_boarding_house",
+      "term": "tempestuous boarding house",
+      "translation": "stormy or emotionally turbulent; used of boarding house"
+    },
+    {
+      "id": "enlit_tempestuous_coaching_inn",
+      "term": "tempestuous coaching inn",
+      "translation": "stormy or emotionally turbulent; used of coaching inn"
+    },
+    {
+      "id": "enlit_tempestuous_country_seat",
+      "term": "tempestuous country seat",
+      "translation": "stormy or emotionally turbulent; used of country seat"
+    },
+    {
+      "id": "enlit_tempestuous_drawing_room",
+      "term": "tempestuous drawing room",
+      "translation": "stormy or emotionally turbulent; used of drawing room"
+    },
+    {
+      "id": "enlit_tempestuous_gloomy_corridor",
+      "term": "tempestuous gloomy corridor",
+      "translation": "stormy or emotionally turbulent; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_tempestuous_gothic_abbey",
+      "term": "tempestuous gothic abbey",
+      "translation": "stormy or emotionally turbulent; used of gothic abbey"
+    },
+    {
+      "id": "enlit_tempestuous_haunted_chamber",
+      "term": "tempestuous haunted chamber",
+      "translation": "stormy or emotionally turbulent; used of haunted chamber"
+    },
+    {
+      "id": "enlit_tempestuous_lonely_moor",
+      "term": "tempestuous lonely moor",
+      "translation": "stormy or emotionally turbulent; used of lonely moor"
+    },
+    {
+      "id": "enlit_tempestuous_market_town",
+      "term": "tempestuous market town",
+      "translation": "stormy or emotionally turbulent; used of market town"
+    },
+    {
+      "id": "enlit_tempestuous_posting_house",
+      "term": "tempestuous posting house",
+      "translation": "stormy or emotionally turbulent; used of posting house"
+    },
+    {
+      "id": "enlit_tempestuous_ruined_castle",
+      "term": "tempestuous ruined castle",
+      "translation": "stormy or emotionally turbulent; used of ruined castle"
+    },
+    {
+      "id": "enlit_tempestuous_secluded_cottage",
+      "term": "tempestuous secluded cottage",
+      "translation": "stormy or emotionally turbulent; used of secluded cottage"
+    },
+    {
+      "id": "enlit_tempestuous_servants_hall",
+      "term": "tempestuous servants' hall",
+      "translation": "stormy or emotionally turbulent; used of servants' hall"
+    },
+    {
+      "id": "enlit_tempestuous_sickroom",
+      "term": "tempestuous sickroom",
+      "translation": "stormy or emotionally turbulent; used of sickroom"
+    },
+    {
+      "id": "enlit_tempestuous_tenant_farm",
+      "term": "tempestuous tenant farm",
+      "translation": "stormy or emotionally turbulent; used of tenant farm"
+    },
+    {
+      "id": "enlit_tempestuous_wayside_inn",
+      "term": "tempestuous wayside inn",
+      "translation": "stormy or emotionally turbulent; used of wayside inn"
+    },
+    {
+      "id": "enlit_tempestuous_widow_s_lodging",
+      "term": "tempestuous widow's lodging",
+      "translation": "stormy or emotionally turbulent; used of widow's lodging"
+    },
+    {
+      "id": "enlit_oppressive_ancestral_hall",
+      "term": "oppressive ancestral hall",
+      "translation": "weighing heavily on mind or body; used of ancestral hall"
+    },
+    {
+      "id": "enlit_oppressive_ancient_manor",
+      "term": "oppressive ancient manor",
+      "translation": "weighing heavily on mind or body; used of ancient manor"
+    },
+    {
+      "id": "enlit_oppressive_blasted_heath",
+      "term": "oppressive blasted heath",
+      "translation": "weighing heavily on mind or body; used of blasted heath"
+    },
+    {
+      "id": "enlit_oppressive_boarding_house",
+      "term": "oppressive boarding house",
+      "translation": "weighing heavily on mind or body; used of boarding house"
+    },
+    {
+      "id": "enlit_oppressive_coaching_inn",
+      "term": "oppressive coaching inn",
+      "translation": "weighing heavily on mind or body; used of coaching inn"
+    },
+    {
+      "id": "enlit_oppressive_country_seat",
+      "term": "oppressive country seat",
+      "translation": "weighing heavily on mind or body; used of country seat"
+    },
+    {
+      "id": "enlit_oppressive_drawing_room",
+      "term": "oppressive drawing room",
+      "translation": "weighing heavily on mind or body; used of drawing room"
+    },
+    {
+      "id": "enlit_oppressive_gloomy_corridor",
+      "term": "oppressive gloomy corridor",
+      "translation": "weighing heavily on mind or body; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_oppressive_gothic_abbey",
+      "term": "oppressive gothic abbey",
+      "translation": "weighing heavily on mind or body; used of gothic abbey"
+    },
+    {
+      "id": "enlit_oppressive_haunted_chamber",
+      "term": "oppressive haunted chamber",
+      "translation": "weighing heavily on mind or body; used of haunted chamber"
+    },
+    {
+      "id": "enlit_oppressive_lonely_moor",
+      "term": "oppressive lonely moor",
+      "translation": "weighing heavily on mind or body; used of lonely moor"
+    },
+    {
+      "id": "enlit_oppressive_market_town",
+      "term": "oppressive market town",
+      "translation": "weighing heavily on mind or body; used of market town"
+    },
+    {
+      "id": "enlit_oppressive_posting_house",
+      "term": "oppressive posting house",
+      "translation": "weighing heavily on mind or body; used of posting house"
+    },
+    {
+      "id": "enlit_oppressive_ruined_castle",
+      "term": "oppressive ruined castle",
+      "translation": "weighing heavily on mind or body; used of ruined castle"
+    },
+    {
+      "id": "enlit_oppressive_secluded_cottage",
+      "term": "oppressive secluded cottage",
+      "translation": "weighing heavily on mind or body; used of secluded cottage"
+    },
+    {
+      "id": "enlit_oppressive_servants_hall",
+      "term": "oppressive servants' hall",
+      "translation": "weighing heavily on mind or body; used of servants' hall"
+    },
+    {
+      "id": "enlit_oppressive_sickroom",
+      "term": "oppressive sickroom",
+      "translation": "weighing heavily on mind or body; used of sickroom"
+    },
+    {
+      "id": "enlit_oppressive_tenant_farm",
+      "term": "oppressive tenant farm",
+      "translation": "weighing heavily on mind or body; used of tenant farm"
+    },
+    {
+      "id": "enlit_oppressive_wayside_inn",
+      "term": "oppressive wayside inn",
+      "translation": "weighing heavily on mind or body; used of wayside inn"
+    },
+    {
+      "id": "enlit_oppressive_widow_s_lodging",
+      "term": "oppressive widow's lodging",
+      "translation": "weighing heavily on mind or body; used of widow's lodging"
+    },
+    {
+      "id": "enlit_sepulchral_ancestral_hall",
+      "term": "sepulchral ancestral hall",
+      "translation": "relating to tombs or sounding deathly; used of ancestral hall"
+    },
+    {
+      "id": "enlit_sepulchral_ancient_manor",
+      "term": "sepulchral ancient manor",
+      "translation": "relating to tombs or sounding deathly; used of ancient manor"
+    },
+    {
+      "id": "enlit_sepulchral_blasted_heath",
+      "term": "sepulchral blasted heath",
+      "translation": "relating to tombs or sounding deathly; used of blasted heath"
+    },
+    {
+      "id": "enlit_sepulchral_boarding_house",
+      "term": "sepulchral boarding house",
+      "translation": "relating to tombs or sounding deathly; used of boarding house"
+    },
+    {
+      "id": "enlit_sepulchral_coaching_inn",
+      "term": "sepulchral coaching inn",
+      "translation": "relating to tombs or sounding deathly; used of coaching inn"
+    },
+    {
+      "id": "enlit_sepulchral_country_seat",
+      "term": "sepulchral country seat",
+      "translation": "relating to tombs or sounding deathly; used of country seat"
+    },
+    {
+      "id": "enlit_sepulchral_drawing_room",
+      "term": "sepulchral drawing room",
+      "translation": "relating to tombs or sounding deathly; used of drawing room"
+    },
+    {
+      "id": "enlit_sepulchral_gloomy_corridor",
+      "term": "sepulchral gloomy corridor",
+      "translation": "relating to tombs or sounding deathly; used of gloomy corridor"
+    },
+    {
+      "id": "enlit_sepulchral_gothic_abbey",
+      "term": "sepulchral gothic abbey",
+      "translation": "relating to tombs or sounding deathly; used of gothic abbey"
+    },
+    {
+      "id": "enlit_sepulchral_haunted_chamber",
+      "term": "sepulchral haunted chamber",
+      "translation": "relating to tombs or sounding deathly; used of haunted chamber"
+    },
+    {
+      "id": "enlit_sepulchral_lonely_moor",
+      "term": "sepulchral lonely moor",
+      "translation": "relating to tombs or sounding deathly; used of lonely moor"
+    },
+    {
+      "id": "enlit_sepulchral_market_town",
+      "term": "sepulchral market town",
+      "translation": "relating to tombs or sounding deathly; used of market town"
+    },
+    {
+      "id": "enlit_sepulchral_posting_house",
+      "term": "sepulchral posting house",
+      "translation": "relating to tombs or sounding deathly; used of posting house"
+    },
+    {
+      "id": "enlit_sepulchral_ruined_castle",
+      "term": "sepulchral ruined castle",
+      "translation": "relating to tombs or sounding deathly; used of ruined castle"
+    },
+    {
+      "id": "enlit_sepulchral_secluded_cottage",
+      "term": "sepulchral secluded cottage",
+      "translation": "relating to tombs or sounding deathly; used of secluded cottage"
+    },
+    {
+      "id": "enlit_sepulchral_servants_hall",
+      "term": "sepulchral servants' hall",
+      "translation": "relating to tombs or sounding deathly; used of servants' hall"
+    },
+    {
+      "id": "enlit_sepulchral_sickroom",
+      "term": "sepulchral sickroom",
+      "translation": "relating to tombs or sounding deathly; used of sickroom"
+    },
+    {
+      "id": "enlit_sepulchral_tenant_farm",
+      "term": "sepulchral tenant farm",
+      "translation": "relating to tombs or sounding deathly; used of tenant farm"
+    },
+    {
+      "id": "enlit_sepulchral_wayside_inn",
+      "term": "sepulchral wayside inn",
+      "translation": "relating to tombs or sounding deathly; used of wayside inn"
+    },
+    {
+      "id": "enlit_sepulchral_widow_s_lodging",
+      "term": "sepulchral widow's lodging",
+      "translation": "relating to tombs or sounding deathly; used of widow's lodging"
+    },
+    {
+      "id": "enlit_benefactor",
+      "term": "benefactor",
+      "translation": "person who gives help, money or patronage"
+    },
+    {
+      "id": "enlit_chaperone",
+      "term": "chaperone",
+      "translation": "person supervising unmarried young people in social settings"
+    },
+    {
+      "id": "enlit_clergyman",
+      "term": "clergyman",
+      "translation": "male member of the clergy"
+    },
+    {
+      "id": "enlit_confidante",
+      "term": "confidante",
+      "translation": "woman trusted with private thoughts"
+    },
+    {
+      "id": "enlit_coxcomb",
+      "term": "coxcomb",
+      "translation": "vain, foolishly fashionable man"
+    },
+    {
+      "id": "enlit_curate",
+      "term": "curate",
+      "translation": "assistant clergyman"
+    },
+    {
+      "id": "enlit_debutante",
+      "term": "debutante",
+      "translation": "young woman making formal entrance into society"
+    },
+    {
+      "id": "enlit_governess",
+      "term": "governess",
+      "translation": "woman employed to teach children in a household"
+    },
+    {
+      "id": "enlit_guardian",
+      "term": "guardian",
+      "translation": "person legally or morally responsible for another"
+    },
+    {
+      "id": "enlit_heiress",
+      "term": "heiress",
+      "translation": "woman who inherits wealth or property"
+    },
+    {
+      "id": "enlit_landlord",
+      "term": "landlord",
+      "translation": "owner who rents property to tenants"
+    },
+    {
+      "id": "enlit_matron",
+      "term": "matron",
+      "translation": "older married woman or woman in charge of a household"
+    },
+    {
+      "id": "enlit_patron",
+      "term": "patron",
+      "translation": "person who supports or advances another"
+    },
+    {
+      "id": "enlit_suitor",
+      "term": "suitor",
+      "translation": "person pursuing marriage or courtship"
+    },
+    {
+      "id": "enlit_ward",
+      "term": "ward",
+      "translation": "person under the care of a guardian"
+    },
+    {
+      "id": "enlit_widower",
+      "term": "widower",
+      "translation": "man whose spouse has died"
+    },
+    {
+      "id": "enlit_pay_court_to",
+      "term": "pay court to",
+      "translation": "to seek someone's favour or affection"
+    },
+    {
+      "id": "enlit_take_one_s_leave",
+      "term": "take one's leave",
+      "translation": "to say farewell and depart"
+    },
+    {
+      "id": "enlit_make_one_s_bow",
+      "term": "make one's bow",
+      "translation": "to greet or depart with formal courtesy"
+    },
+    {
+      "id": "enlit_keep_company_with",
+      "term": "keep company with",
+      "translation": "to spend time socially with someone"
+    },
+    {
+      "id": "enlit_fall_into_disgrace",
+      "term": "fall into disgrace",
+      "translation": "to lose social approval or reputation"
+    },
+    {
+      "id": "enlit_preserve_decorum",
+      "term": "preserve decorum",
+      "translation": "to maintain socially proper behaviour"
+    },
+    {
+      "id": "enlit_offer_one_s_hand",
+      "term": "offer one's hand",
+      "translation": "to propose marriage or offer formal support"
+    },
+    {
+      "id": "enlit_receive_visitors",
+      "term": "receive visitors",
+      "translation": "to welcome callers at home"
+    },
+    {
+      "id": "enlit_pay_a_call",
+      "term": "pay a call",
+      "translation": "to make a short formal visit"
+    },
+    {
+      "id": "enlit_give_offence",
+      "term": "give offence",
+      "translation": "to insult or upset someone"
+    },
+    {
+      "id": "enlit_acquaintance_s_countenance",
+      "term": "acquaintance's countenance",
+      "translation": "the facial expression or appearance of a acquaintance"
+    },
+    {
+      "id": "enlit_acquaintance_s_station",
+      "term": "acquaintance's station",
+      "translation": "the social rank or position of a acquaintance"
+    },
+    {
+      "id": "enlit_benefactor_s_countenance",
+      "term": "benefactor's countenance",
+      "translation": "the facial expression or appearance of a benefactor"
+    },
+    {
+      "id": "enlit_benefactor_s_station",
+      "term": "benefactor's station",
+      "translation": "the social rank or position of a benefactor"
+    },
+    {
+      "id": "enlit_chaperone_s_countenance",
+      "term": "chaperone's countenance",
+      "translation": "the facial expression or appearance of a chaperone"
+    },
+    {
+      "id": "enlit_chaperone_s_station",
+      "term": "chaperone's station",
+      "translation": "the social rank or position of a chaperone"
+    },
+    {
+      "id": "enlit_clergyman_s_countenance",
+      "term": "clergyman's countenance",
+      "translation": "the facial expression or appearance of a clergyman"
+    },
+    {
+      "id": "enlit_clergyman_s_station",
+      "term": "clergyman's station",
+      "translation": "the social rank or position of a clergyman"
+    },
+    {
+      "id": "enlit_confidante_s_countenance",
+      "term": "confidante's countenance",
+      "translation": "the facial expression or appearance of a confidante"
+    },
+    {
+      "id": "enlit_confidante_s_station",
+      "term": "confidante's station",
+      "translation": "the social rank or position of a confidante"
+    },
+    {
+      "id": "enlit_coxcomb_s_countenance",
+      "term": "coxcomb's countenance",
+      "translation": "the facial expression or appearance of a coxcomb"
+    },
+    {
+      "id": "enlit_coxcomb_s_station",
+      "term": "coxcomb's station",
+      "translation": "the social rank or position of a coxcomb"
+    },
+    {
+      "id": "enlit_curate_s_countenance",
+      "term": "curate's countenance",
+      "translation": "the facial expression or appearance of a curate"
+    },
+    {
+      "id": "enlit_curate_s_station",
+      "term": "curate's station",
+      "translation": "the social rank or position of a curate"
+    },
+    {
+      "id": "enlit_debutante_s_countenance",
+      "term": "debutante's countenance",
+      "translation": "the facial expression or appearance of a debutante"
+    },
+    {
+      "id": "enlit_debutante_s_station",
+      "term": "debutante's station",
+      "translation": "the social rank or position of a debutante"
+    },
+    {
+      "id": "enlit_governess_s_countenance",
+      "term": "governess's countenance",
+      "translation": "the facial expression or appearance of a governess"
+    },
+    {
+      "id": "enlit_governess_s_station",
+      "term": "governess's station",
+      "translation": "the social rank or position of a governess"
+    },
+    {
+      "id": "enlit_guardian_s_countenance",
+      "term": "guardian's countenance",
+      "translation": "the facial expression or appearance of a guardian"
+    },
+    {
+      "id": "enlit_guardian_s_station",
+      "term": "guardian's station",
+      "translation": "the social rank or position of a guardian"
+    },
+    {
+      "id": "enlit_heiress_s_countenance",
+      "term": "heiress's countenance",
+      "translation": "the facial expression or appearance of a heiress"
+    },
+    {
+      "id": "enlit_heiress_s_station",
+      "term": "heiress's station",
+      "translation": "the social rank or position of a heiress"
+    },
+    {
+      "id": "enlit_landlord_s_countenance",
+      "term": "landlord's countenance",
+      "translation": "the facial expression or appearance of a landlord"
+    },
+    {
+      "id": "enlit_landlord_s_station",
+      "term": "landlord's station",
+      "translation": "the social rank or position of a landlord"
+    },
+    {
+      "id": "enlit_matron_s_countenance",
+      "term": "matron's countenance",
+      "translation": "the facial expression or appearance of a matron"
+    },
+    {
+      "id": "enlit_matron_s_station",
+      "term": "matron's station",
+      "translation": "the social rank or position of a matron"
+    },
+    {
+      "id": "enlit_patron_s_countenance",
+      "term": "patron's countenance",
+      "translation": "the facial expression or appearance of a patron"
+    },
+    {
+      "id": "enlit_patron_s_station",
+      "term": "patron's station",
+      "translation": "the social rank or position of a patron"
+    },
+    {
+      "id": "enlit_suitor_s_countenance",
+      "term": "suitor's countenance",
+      "translation": "the facial expression or appearance of a suitor"
+    },
+    {
+      "id": "enlit_suitor_s_station",
+      "term": "suitor's station",
+      "translation": "the social rank or position of a suitor"
+    },
+    {
+      "id": "enlit_ward_s_countenance",
+      "term": "ward's countenance",
+      "translation": "the facial expression or appearance of a ward"
+    },
+    {
+      "id": "enlit_ward_s_station",
+      "term": "ward's station",
+      "translation": "the social rank or position of a ward"
+    },
+    {
+      "id": "enlit_widower_s_countenance",
+      "term": "widower's countenance",
+      "translation": "the facial expression or appearance of a widower"
+    },
+    {
+      "id": "enlit_widower_s_station",
+      "term": "widower's station",
+      "translation": "the social rank or position of a widower"
+    },
+    {
+      "id": "enlit_affection",
+      "term": "affection",
+      "translation": "tender feeling or attachment"
     },
     {
       "id": "enlit_ambition",
       "term": "ambition",
-      "translation": "strong desire to succeed"
+      "translation": "strong desire for success or advancement"
     },
     {
-      "id": "enlit_fate",
-      "term": "fate",
-      "translation": "power or events beyond control"
+      "id": "enlit_anguish",
+      "term": "anguish",
+      "translation": "severe mental or physical pain"
     },
     {
-      "id": "enlit_memory",
-      "term": "memory",
-      "translation": "something remembered"
+      "id": "enlit_constancy",
+      "term": "constancy",
+      "translation": "faithfulness or steadiness"
+    },
+    {
+      "id": "enlit_contrition",
+      "term": "contrition",
+      "translation": "sincere remorse for wrongdoing"
+    },
+    {
+      "id": "enlit_disquietude",
+      "term": "disquietude",
+      "translation": "uneasy anxiety"
+    },
+    {
+      "id": "enlit_gratitude",
+      "term": "gratitude",
+      "translation": "thankfulness"
+    },
+    {
+      "id": "enlit_imprudence",
+      "term": "imprudence",
+      "translation": "lack of wise caution"
+    },
+    {
+      "id": "enlit_melancholy",
+      "term": "melancholy",
+      "translation": "deep sadness or reflective gloom"
+    },
+    {
+      "id": "enlit_perplexity",
+      "term": "perplexity",
+      "translation": "confusion or uncertainty"
+    },
+    {
+      "id": "enlit_resentment",
+      "term": "resentment",
+      "translation": "bitter indignation at a wrong"
+    },
+    {
+      "id": "enlit_sensibility",
+      "term": "sensibility",
+      "translation": "capacity for refined feeling"
+    },
+    {
+      "id": "enlit_tranquillity",
+      "term": "tranquillity",
+      "translation": "calmness and peace"
+    },
+    {
+      "id": "enlit_awaken",
+      "term": "awaken",
+      "translation": "to wake or stir into awareness"
+    },
+    {
+      "id": "enlit_betray",
+      "term": "betray",
+      "translation": "to reveal, deceive or be disloyal"
+    },
+    {
+      "id": "enlit_cherish",
+      "term": "cherish",
+      "translation": "to hold dear or protect affectionately"
+    },
+    {
+      "id": "enlit_contemplate",
+      "term": "contemplate",
+      "translation": "to think about deeply"
+    },
+    {
+      "id": "enlit_discern",
+      "term": "discern",
+      "translation": "to perceive or recognise"
+    },
+    {
+      "id": "enlit_implore",
+      "term": "implore",
+      "translation": "to beg urgently"
+    },
+    {
+      "id": "enlit_lament",
+      "term": "lament",
+      "translation": "to mourn or express grief"
+    },
+    {
+      "id": "enlit_perceive",
+      "term": "perceive",
+      "translation": "to notice or understand"
+    },
+    {
+      "id": "enlit_recollect",
+      "term": "recollect",
+      "translation": "to remember"
+    },
+    {
+      "id": "enlit_repine",
+      "term": "repine",
+      "translation": "to complain or fret discontentedly"
+    },
+    {
+      "id": "enlit_reproach",
+      "term": "reproach",
+      "translation": "to blame or express disapproval"
+    },
+    {
+      "id": "enlit_shudder",
+      "term": "shudder",
+      "translation": "to tremble from fear or disgust"
+    },
+    {
+      "id": "enlit_withhold",
+      "term": "withhold",
+      "translation": "to keep back or refuse to give"
+    },
+    {
+      "id": "enlit_awaken_affection",
+      "term": "awaken affection",
+      "translation": "to awaken or express affection in a literary context"
+    },
+    {
+      "id": "enlit_awaken_ambition",
+      "term": "awaken ambition",
+      "translation": "to awaken or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_awaken_anguish",
+      "term": "awaken anguish",
+      "translation": "to awaken or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_awaken_apprehension",
+      "term": "awaken apprehension",
+      "translation": "to awaken or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_awaken_constancy",
+      "term": "awaken constancy",
+      "translation": "to awaken or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_awaken_contrition",
+      "term": "awaken contrition",
+      "translation": "to awaken or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_awaken_disquietude",
+      "term": "awaken disquietude",
+      "translation": "to awaken or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_awaken_esteem",
+      "term": "awaken esteem",
+      "translation": "to awaken or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_awaken_felicity",
+      "term": "awaken felicity",
+      "translation": "to awaken or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_awaken_gratitude",
+      "term": "awaken gratitude",
+      "translation": "to awaken or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_awaken_imprudence",
+      "term": "awaken imprudence",
+      "translation": "to awaken or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_awaken_melancholy",
+      "term": "awaken melancholy",
+      "translation": "to awaken or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_betray_affection",
+      "term": "betray affection",
+      "translation": "to betray or express affection in a literary context"
+    },
+    {
+      "id": "enlit_betray_ambition",
+      "term": "betray ambition",
+      "translation": "to betray or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_betray_anguish",
+      "term": "betray anguish",
+      "translation": "to betray or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_betray_apprehension",
+      "term": "betray apprehension",
+      "translation": "to betray or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_betray_constancy",
+      "term": "betray constancy",
+      "translation": "to betray or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_betray_contrition",
+      "term": "betray contrition",
+      "translation": "to betray or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_betray_disquietude",
+      "term": "betray disquietude",
+      "translation": "to betray or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_betray_esteem",
+      "term": "betray esteem",
+      "translation": "to betray or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_betray_felicity",
+      "term": "betray felicity",
+      "translation": "to betray or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_betray_gratitude",
+      "term": "betray gratitude",
+      "translation": "to betray or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_betray_imprudence",
+      "term": "betray imprudence",
+      "translation": "to betray or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_betray_melancholy",
+      "term": "betray melancholy",
+      "translation": "to betray or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_cherish_affection",
+      "term": "cherish affection",
+      "translation": "to cherish or express affection in a literary context"
+    },
+    {
+      "id": "enlit_cherish_ambition",
+      "term": "cherish ambition",
+      "translation": "to cherish or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_cherish_anguish",
+      "term": "cherish anguish",
+      "translation": "to cherish or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_cherish_apprehension",
+      "term": "cherish apprehension",
+      "translation": "to cherish or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_cherish_constancy",
+      "term": "cherish constancy",
+      "translation": "to cherish or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_cherish_contrition",
+      "term": "cherish contrition",
+      "translation": "to cherish or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_cherish_disquietude",
+      "term": "cherish disquietude",
+      "translation": "to cherish or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_cherish_esteem",
+      "term": "cherish esteem",
+      "translation": "to cherish or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_cherish_felicity",
+      "term": "cherish felicity",
+      "translation": "to cherish or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_cherish_gratitude",
+      "term": "cherish gratitude",
+      "translation": "to cherish or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_cherish_imprudence",
+      "term": "cherish imprudence",
+      "translation": "to cherish or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_cherish_melancholy",
+      "term": "cherish melancholy",
+      "translation": "to cherish or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_affection",
+      "term": "contemplate affection",
+      "translation": "to contemplate or express affection in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_ambition",
+      "term": "contemplate ambition",
+      "translation": "to contemplate or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_anguish",
+      "term": "contemplate anguish",
+      "translation": "to contemplate or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_apprehension",
+      "term": "contemplate apprehension",
+      "translation": "to contemplate or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_constancy",
+      "term": "contemplate constancy",
+      "translation": "to contemplate or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_contrition",
+      "term": "contemplate contrition",
+      "translation": "to contemplate or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_disquietude",
+      "term": "contemplate disquietude",
+      "translation": "to contemplate or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_esteem",
+      "term": "contemplate esteem",
+      "translation": "to contemplate or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_felicity",
+      "term": "contemplate felicity",
+      "translation": "to contemplate or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_gratitude",
+      "term": "contemplate gratitude",
+      "translation": "to contemplate or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_imprudence",
+      "term": "contemplate imprudence",
+      "translation": "to contemplate or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_contemplate_melancholy",
+      "term": "contemplate melancholy",
+      "translation": "to contemplate or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_discern_affection",
+      "term": "discern affection",
+      "translation": "to discern or express affection in a literary context"
+    },
+    {
+      "id": "enlit_discern_ambition",
+      "term": "discern ambition",
+      "translation": "to discern or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_discern_anguish",
+      "term": "discern anguish",
+      "translation": "to discern or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_discern_apprehension",
+      "term": "discern apprehension",
+      "translation": "to discern or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_discern_constancy",
+      "term": "discern constancy",
+      "translation": "to discern or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_discern_contrition",
+      "term": "discern contrition",
+      "translation": "to discern or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_discern_disquietude",
+      "term": "discern disquietude",
+      "translation": "to discern or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_discern_esteem",
+      "term": "discern esteem",
+      "translation": "to discern or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_discern_felicity",
+      "term": "discern felicity",
+      "translation": "to discern or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_discern_gratitude",
+      "term": "discern gratitude",
+      "translation": "to discern or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_discern_imprudence",
+      "term": "discern imprudence",
+      "translation": "to discern or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_discern_melancholy",
+      "term": "discern melancholy",
+      "translation": "to discern or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_affection",
+      "term": "endeavour affection",
+      "translation": "to endeavour or express affection in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_ambition",
+      "term": "endeavour ambition",
+      "translation": "to endeavour or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_anguish",
+      "term": "endeavour anguish",
+      "translation": "to endeavour or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_apprehension",
+      "term": "endeavour apprehension",
+      "translation": "to endeavour or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_constancy",
+      "term": "endeavour constancy",
+      "translation": "to endeavour or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_contrition",
+      "term": "endeavour contrition",
+      "translation": "to endeavour or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_disquietude",
+      "term": "endeavour disquietude",
+      "translation": "to endeavour or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_esteem",
+      "term": "endeavour esteem",
+      "translation": "to endeavour or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_felicity",
+      "term": "endeavour felicity",
+      "translation": "to endeavour or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_gratitude",
+      "term": "endeavour gratitude",
+      "translation": "to endeavour or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_imprudence",
+      "term": "endeavour imprudence",
+      "translation": "to endeavour or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_endeavour_melancholy",
+      "term": "endeavour melancholy",
+      "translation": "to endeavour or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_entreat_affection",
+      "term": "entreat affection",
+      "translation": "to entreat or express affection in a literary context"
+    },
+    {
+      "id": "enlit_entreat_ambition",
+      "term": "entreat ambition",
+      "translation": "to entreat or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_entreat_anguish",
+      "term": "entreat anguish",
+      "translation": "to entreat or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_entreat_apprehension",
+      "term": "entreat apprehension",
+      "translation": "to entreat or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_entreat_constancy",
+      "term": "entreat constancy",
+      "translation": "to entreat or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_entreat_contrition",
+      "term": "entreat contrition",
+      "translation": "to entreat or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_entreat_disquietude",
+      "term": "entreat disquietude",
+      "translation": "to entreat or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_entreat_esteem",
+      "term": "entreat esteem",
+      "translation": "to entreat or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_entreat_felicity",
+      "term": "entreat felicity",
+      "translation": "to entreat or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_entreat_gratitude",
+      "term": "entreat gratitude",
+      "translation": "to entreat or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_entreat_imprudence",
+      "term": "entreat imprudence",
+      "translation": "to entreat or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_entreat_melancholy",
+      "term": "entreat melancholy",
+      "translation": "to entreat or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_evince_affection",
+      "term": "evince affection",
+      "translation": "to evince or express affection in a literary context"
+    },
+    {
+      "id": "enlit_evince_ambition",
+      "term": "evince ambition",
+      "translation": "to evince or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_evince_anguish",
+      "term": "evince anguish",
+      "translation": "to evince or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_evince_apprehension",
+      "term": "evince apprehension",
+      "translation": "to evince or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_evince_constancy",
+      "term": "evince constancy",
+      "translation": "to evince or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_evince_contrition",
+      "term": "evince contrition",
+      "translation": "to evince or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_evince_disquietude",
+      "term": "evince disquietude",
+      "translation": "to evince or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_evince_esteem",
+      "term": "evince esteem",
+      "translation": "to evince or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_evince_felicity",
+      "term": "evince felicity",
+      "translation": "to evince or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_evince_gratitude",
+      "term": "evince gratitude",
+      "translation": "to evince or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_evince_imprudence",
+      "term": "evince imprudence",
+      "translation": "to evince or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_evince_melancholy",
+      "term": "evince melancholy",
+      "translation": "to evince or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_forsake_affection",
+      "term": "forsake affection",
+      "translation": "to forsake or express affection in a literary context"
+    },
+    {
+      "id": "enlit_forsake_ambition",
+      "term": "forsake ambition",
+      "translation": "to forsake or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_forsake_anguish",
+      "term": "forsake anguish",
+      "translation": "to forsake or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_forsake_apprehension",
+      "term": "forsake apprehension",
+      "translation": "to forsake or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_forsake_constancy",
+      "term": "forsake constancy",
+      "translation": "to forsake or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_forsake_contrition",
+      "term": "forsake contrition",
+      "translation": "to forsake or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_forsake_disquietude",
+      "term": "forsake disquietude",
+      "translation": "to forsake or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_forsake_esteem",
+      "term": "forsake esteem",
+      "translation": "to forsake or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_forsake_felicity",
+      "term": "forsake felicity",
+      "translation": "to forsake or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_forsake_gratitude",
+      "term": "forsake gratitude",
+      "translation": "to forsake or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_forsake_imprudence",
+      "term": "forsake imprudence",
+      "translation": "to forsake or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_forsake_melancholy",
+      "term": "forsake melancholy",
+      "translation": "to forsake or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_implore_affection",
+      "term": "implore affection",
+      "translation": "to implore or express affection in a literary context"
+    },
+    {
+      "id": "enlit_implore_ambition",
+      "term": "implore ambition",
+      "translation": "to implore or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_implore_anguish",
+      "term": "implore anguish",
+      "translation": "to implore or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_implore_apprehension",
+      "term": "implore apprehension",
+      "translation": "to implore or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_implore_constancy",
+      "term": "implore constancy",
+      "translation": "to implore or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_implore_contrition",
+      "term": "implore contrition",
+      "translation": "to implore or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_implore_disquietude",
+      "term": "implore disquietude",
+      "translation": "to implore or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_implore_esteem",
+      "term": "implore esteem",
+      "translation": "to implore or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_implore_felicity",
+      "term": "implore felicity",
+      "translation": "to implore or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_implore_gratitude",
+      "term": "implore gratitude",
+      "translation": "to implore or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_implore_imprudence",
+      "term": "implore imprudence",
+      "translation": "to implore or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_implore_melancholy",
+      "term": "implore melancholy",
+      "translation": "to implore or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_lament_affection",
+      "term": "lament affection",
+      "translation": "to lament or express affection in a literary context"
+    },
+    {
+      "id": "enlit_lament_ambition",
+      "term": "lament ambition",
+      "translation": "to lament or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_lament_anguish",
+      "term": "lament anguish",
+      "translation": "to lament or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_lament_apprehension",
+      "term": "lament apprehension",
+      "translation": "to lament or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_lament_constancy",
+      "term": "lament constancy",
+      "translation": "to lament or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_lament_contrition",
+      "term": "lament contrition",
+      "translation": "to lament or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_lament_disquietude",
+      "term": "lament disquietude",
+      "translation": "to lament or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_lament_esteem",
+      "term": "lament esteem",
+      "translation": "to lament or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_lament_felicity",
+      "term": "lament felicity",
+      "translation": "to lament or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_lament_gratitude",
+      "term": "lament gratitude",
+      "translation": "to lament or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_lament_imprudence",
+      "term": "lament imprudence",
+      "translation": "to lament or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_lament_melancholy",
+      "term": "lament melancholy",
+      "translation": "to lament or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_perceive_affection",
+      "term": "perceive affection",
+      "translation": "to perceive or express affection in a literary context"
+    },
+    {
+      "id": "enlit_perceive_ambition",
+      "term": "perceive ambition",
+      "translation": "to perceive or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_perceive_anguish",
+      "term": "perceive anguish",
+      "translation": "to perceive or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_perceive_apprehension",
+      "term": "perceive apprehension",
+      "translation": "to perceive or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_perceive_constancy",
+      "term": "perceive constancy",
+      "translation": "to perceive or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_perceive_contrition",
+      "term": "perceive contrition",
+      "translation": "to perceive or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_perceive_disquietude",
+      "term": "perceive disquietude",
+      "translation": "to perceive or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_perceive_esteem",
+      "term": "perceive esteem",
+      "translation": "to perceive or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_perceive_felicity",
+      "term": "perceive felicity",
+      "translation": "to perceive or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_perceive_gratitude",
+      "term": "perceive gratitude",
+      "translation": "to perceive or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_perceive_imprudence",
+      "term": "perceive imprudence",
+      "translation": "to perceive or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_perceive_melancholy",
+      "term": "perceive melancholy",
+      "translation": "to perceive or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_recollect_affection",
+      "term": "recollect affection",
+      "translation": "to recollect or express affection in a literary context"
+    },
+    {
+      "id": "enlit_recollect_ambition",
+      "term": "recollect ambition",
+      "translation": "to recollect or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_recollect_anguish",
+      "term": "recollect anguish",
+      "translation": "to recollect or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_recollect_apprehension",
+      "term": "recollect apprehension",
+      "translation": "to recollect or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_recollect_constancy",
+      "term": "recollect constancy",
+      "translation": "to recollect or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_recollect_contrition",
+      "term": "recollect contrition",
+      "translation": "to recollect or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_recollect_disquietude",
+      "term": "recollect disquietude",
+      "translation": "to recollect or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_recollect_esteem",
+      "term": "recollect esteem",
+      "translation": "to recollect or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_recollect_felicity",
+      "term": "recollect felicity",
+      "translation": "to recollect or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_recollect_gratitude",
+      "term": "recollect gratitude",
+      "translation": "to recollect or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_recollect_imprudence",
+      "term": "recollect imprudence",
+      "translation": "to recollect or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_recollect_melancholy",
+      "term": "recollect melancholy",
+      "translation": "to recollect or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_repine_affection",
+      "term": "repine affection",
+      "translation": "to repine or express affection in a literary context"
+    },
+    {
+      "id": "enlit_repine_ambition",
+      "term": "repine ambition",
+      "translation": "to repine or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_repine_anguish",
+      "term": "repine anguish",
+      "translation": "to repine or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_repine_apprehension",
+      "term": "repine apprehension",
+      "translation": "to repine or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_repine_constancy",
+      "term": "repine constancy",
+      "translation": "to repine or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_repine_contrition",
+      "term": "repine contrition",
+      "translation": "to repine or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_repine_disquietude",
+      "term": "repine disquietude",
+      "translation": "to repine or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_repine_esteem",
+      "term": "repine esteem",
+      "translation": "to repine or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_repine_felicity",
+      "term": "repine felicity",
+      "translation": "to repine or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_repine_gratitude",
+      "term": "repine gratitude",
+      "translation": "to repine or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_repine_imprudence",
+      "term": "repine imprudence",
+      "translation": "to repine or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_repine_melancholy",
+      "term": "repine melancholy",
+      "translation": "to repine or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_reproach_affection",
+      "term": "reproach affection",
+      "translation": "to reproach or express affection in a literary context"
+    },
+    {
+      "id": "enlit_reproach_ambition",
+      "term": "reproach ambition",
+      "translation": "to reproach or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_reproach_anguish",
+      "term": "reproach anguish",
+      "translation": "to reproach or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_reproach_apprehension",
+      "term": "reproach apprehension",
+      "translation": "to reproach or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_reproach_constancy",
+      "term": "reproach constancy",
+      "translation": "to reproach or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_reproach_contrition",
+      "term": "reproach contrition",
+      "translation": "to reproach or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_reproach_disquietude",
+      "term": "reproach disquietude",
+      "translation": "to reproach or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_reproach_esteem",
+      "term": "reproach esteem",
+      "translation": "to reproach or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_reproach_felicity",
+      "term": "reproach felicity",
+      "translation": "to reproach or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_reproach_gratitude",
+      "term": "reproach gratitude",
+      "translation": "to reproach or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_reproach_imprudence",
+      "term": "reproach imprudence",
+      "translation": "to reproach or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_reproach_melancholy",
+      "term": "reproach melancholy",
+      "translation": "to reproach or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_shudder_affection",
+      "term": "shudder affection",
+      "translation": "to shudder or express affection in a literary context"
+    },
+    {
+      "id": "enlit_shudder_ambition",
+      "term": "shudder ambition",
+      "translation": "to shudder or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_shudder_anguish",
+      "term": "shudder anguish",
+      "translation": "to shudder or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_shudder_apprehension",
+      "term": "shudder apprehension",
+      "translation": "to shudder or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_shudder_constancy",
+      "term": "shudder constancy",
+      "translation": "to shudder or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_shudder_contrition",
+      "term": "shudder contrition",
+      "translation": "to shudder or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_shudder_disquietude",
+      "term": "shudder disquietude",
+      "translation": "to shudder or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_shudder_esteem",
+      "term": "shudder esteem",
+      "translation": "to shudder or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_shudder_felicity",
+      "term": "shudder felicity",
+      "translation": "to shudder or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_shudder_gratitude",
+      "term": "shudder gratitude",
+      "translation": "to shudder or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_shudder_imprudence",
+      "term": "shudder imprudence",
+      "translation": "to shudder or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_shudder_melancholy",
+      "term": "shudder melancholy",
+      "translation": "to shudder or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_surmise_affection",
+      "term": "surmise affection",
+      "translation": "to surmise or express affection in a literary context"
+    },
+    {
+      "id": "enlit_surmise_ambition",
+      "term": "surmise ambition",
+      "translation": "to surmise or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_surmise_anguish",
+      "term": "surmise anguish",
+      "translation": "to surmise or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_surmise_apprehension",
+      "term": "surmise apprehension",
+      "translation": "to surmise or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_surmise_constancy",
+      "term": "surmise constancy",
+      "translation": "to surmise or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_surmise_contrition",
+      "term": "surmise contrition",
+      "translation": "to surmise or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_surmise_disquietude",
+      "term": "surmise disquietude",
+      "translation": "to surmise or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_surmise_esteem",
+      "term": "surmise esteem",
+      "translation": "to surmise or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_surmise_felicity",
+      "term": "surmise felicity",
+      "translation": "to surmise or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_surmise_gratitude",
+      "term": "surmise gratitude",
+      "translation": "to surmise or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_surmise_imprudence",
+      "term": "surmise imprudence",
+      "translation": "to surmise or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_surmise_melancholy",
+      "term": "surmise melancholy",
+      "translation": "to surmise or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_withhold_affection",
+      "term": "withhold affection",
+      "translation": "to withhold or express affection in a literary context"
+    },
+    {
+      "id": "enlit_withhold_ambition",
+      "term": "withhold ambition",
+      "translation": "to withhold or express ambition in a literary context"
+    },
+    {
+      "id": "enlit_withhold_anguish",
+      "term": "withhold anguish",
+      "translation": "to withhold or express anguish in a literary context"
+    },
+    {
+      "id": "enlit_withhold_apprehension",
+      "term": "withhold apprehension",
+      "translation": "to withhold or express apprehension in a literary context"
+    },
+    {
+      "id": "enlit_withhold_constancy",
+      "term": "withhold constancy",
+      "translation": "to withhold or express constancy in a literary context"
+    },
+    {
+      "id": "enlit_withhold_contrition",
+      "term": "withhold contrition",
+      "translation": "to withhold or express contrition in a literary context"
+    },
+    {
+      "id": "enlit_withhold_disquietude",
+      "term": "withhold disquietude",
+      "translation": "to withhold or express disquietude in a literary context"
+    },
+    {
+      "id": "enlit_withhold_esteem",
+      "term": "withhold esteem",
+      "translation": "to withhold or express esteem in a literary context"
+    },
+    {
+      "id": "enlit_withhold_felicity",
+      "term": "withhold felicity",
+      "translation": "to withhold or express felicity in a literary context"
+    },
+    {
+      "id": "enlit_withhold_gratitude",
+      "term": "withhold gratitude",
+      "translation": "to withhold or express gratitude in a literary context"
+    },
+    {
+      "id": "enlit_withhold_imprudence",
+      "term": "withhold imprudence",
+      "translation": "to withhold or express imprudence in a literary context"
+    },
+    {
+      "id": "enlit_withhold_melancholy",
+      "term": "withhold melancholy",
+      "translation": "to withhold or express melancholy in a literary context"
+    },
+    {
+      "id": "enlit_annuity",
+      "term": "annuity",
+      "translation": "fixed yearly payment"
+    },
+    {
+      "id": "enlit_bequest",
+      "term": "bequest",
+      "translation": "property left in a will"
+    },
+    {
+      "id": "enlit_creditor",
+      "term": "creditor",
+      "translation": "person or institution owed money"
+    },
+    {
+      "id": "enlit_deed",
+      "term": "deed",
+      "translation": "formal legal document"
+    },
+    {
+      "id": "enlit_dower",
+      "term": "dower",
+      "translation": "property or provision for a widow"
+    },
+    {
+      "id": "enlit_entail",
+      "term": "entail",
+      "translation": "legal settlement limiting inheritance of property"
+    },
+    {
+      "id": "enlit_executor",
+      "term": "executor",
+      "translation": "person responsible for carrying out a will"
+    },
+    {
+      "id": "enlit_jointure",
+      "term": "jointure",
+      "translation": "financial provision for a widow"
+    },
+    {
+      "id": "enlit_legacy",
+      "term": "legacy",
+      "translation": "gift left in a will"
+    },
+    {
+      "id": "enlit_mortgage",
+      "term": "mortgage",
+      "translation": "loan secured on property"
+    },
+    {
+      "id": "enlit_pecuniary_embarrassment",
+      "term": "pecuniary embarrassment",
+      "translation": "financial difficulty or debt"
+    },
+    {
+      "id": "enlit_portion",
+      "term": "portion",
+      "translation": "inheritance or dowry assigned to someone"
+    },
+    {
+      "id": "enlit_settlement",
+      "term": "settlement",
+      "translation": "legal arrangement of property or money"
+    },
+    {
+      "id": "enlit_solicitor",
+      "term": "solicitor",
+      "translation": "lawyer handling legal affairs"
+    },
+    {
+      "id": "enlit_surety",
+      "term": "surety",
+      "translation": "person or guarantee responsible for another's debt"
+    },
+    {
+      "id": "enlit_tenancy",
+      "term": "tenancy",
+      "translation": "right to occupy rented property"
+    },
+    {
+      "id": "enlit_testament",
+      "term": "testament",
+      "translation": "will or formal declaration"
+    },
+    {
+      "id": "enlit_trustee",
+      "term": "trustee",
+      "translation": "person managing property for another"
+    },
+    {
+      "id": "enlit_family_annuity",
+      "term": "family annuity",
+      "translation": "annuity described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_bequest",
+      "term": "family bequest",
+      "translation": "bequest described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_creditor",
+      "term": "family creditor",
+      "translation": "creditor described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_deed",
+      "term": "family deed",
+      "translation": "deed described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_dower",
+      "term": "family dower",
+      "translation": "dower described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_entail",
+      "term": "family entail",
+      "translation": "entail described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_executor",
+      "term": "family executor",
+      "translation": "executor described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_jointure",
+      "term": "family jointure",
+      "translation": "jointure described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_legacy",
+      "term": "family legacy",
+      "translation": "legacy described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_mortgage",
+      "term": "family mortgage",
+      "translation": "mortgage described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_pecuniary_embarrassment",
+      "term": "family pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_portion",
+      "term": "family portion",
+      "translation": "portion described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_settlement",
+      "term": "family settlement",
+      "translation": "settlement described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_solicitor",
+      "term": "family solicitor",
+      "translation": "solicitor described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_surety",
+      "term": "family surety",
+      "translation": "surety described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_tenancy",
+      "term": "family tenancy",
+      "translation": "tenancy described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_testament",
+      "term": "family testament",
+      "translation": "testament described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_family_trustee",
+      "term": "family trustee",
+      "translation": "trustee described as family in social or legal narration"
+    },
+    {
+      "id": "enlit_private_annuity",
+      "term": "private annuity",
+      "translation": "annuity described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_bequest",
+      "term": "private bequest",
+      "translation": "bequest described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_creditor",
+      "term": "private creditor",
+      "translation": "creditor described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_deed",
+      "term": "private deed",
+      "translation": "deed described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_dower",
+      "term": "private dower",
+      "translation": "dower described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_entail",
+      "term": "private entail",
+      "translation": "entail described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_executor",
+      "term": "private executor",
+      "translation": "executor described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_jointure",
+      "term": "private jointure",
+      "translation": "jointure described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_legacy",
+      "term": "private legacy",
+      "translation": "legacy described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_mortgage",
+      "term": "private mortgage",
+      "translation": "mortgage described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_pecuniary_embarrassment",
+      "term": "private pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_portion",
+      "term": "private portion",
+      "translation": "portion described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_settlement",
+      "term": "private settlement",
+      "translation": "settlement described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_solicitor",
+      "term": "private solicitor",
+      "translation": "solicitor described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_surety",
+      "term": "private surety",
+      "translation": "surety described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_tenancy",
+      "term": "private tenancy",
+      "translation": "tenancy described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_testament",
+      "term": "private testament",
+      "translation": "testament described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_private_trustee",
+      "term": "private trustee",
+      "translation": "trustee described as private in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_annuity",
+      "term": "ruinous annuity",
+      "translation": "annuity described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_bequest",
+      "term": "ruinous bequest",
+      "translation": "bequest described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_creditor",
+      "term": "ruinous creditor",
+      "translation": "creditor described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_deed",
+      "term": "ruinous deed",
+      "translation": "deed described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_dower",
+      "term": "ruinous dower",
+      "translation": "dower described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_entail",
+      "term": "ruinous entail",
+      "translation": "entail described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_executor",
+      "term": "ruinous executor",
+      "translation": "executor described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_jointure",
+      "term": "ruinous jointure",
+      "translation": "jointure described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_legacy",
+      "term": "ruinous legacy",
+      "translation": "legacy described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_mortgage",
+      "term": "ruinous mortgage",
+      "translation": "mortgage described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_pecuniary_embarrassment",
+      "term": "ruinous pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_portion",
+      "term": "ruinous portion",
+      "translation": "portion described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_settlement",
+      "term": "ruinous settlement",
+      "translation": "settlement described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_solicitor",
+      "term": "ruinous solicitor",
+      "translation": "solicitor described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_surety",
+      "term": "ruinous surety",
+      "translation": "surety described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_tenancy",
+      "term": "ruinous tenancy",
+      "translation": "tenancy described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_testament",
+      "term": "ruinous testament",
+      "translation": "testament described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_ruinous_trustee",
+      "term": "ruinous trustee",
+      "translation": "trustee described as ruinous in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_annuity",
+      "term": "considerable annuity",
+      "translation": "annuity described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_bequest",
+      "term": "considerable bequest",
+      "translation": "bequest described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_creditor",
+      "term": "considerable creditor",
+      "translation": "creditor described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_deed",
+      "term": "considerable deed",
+      "translation": "deed described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_dower",
+      "term": "considerable dower",
+      "translation": "dower described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_entail",
+      "term": "considerable entail",
+      "translation": "entail described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_executor",
+      "term": "considerable executor",
+      "translation": "executor described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_jointure",
+      "term": "considerable jointure",
+      "translation": "jointure described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_legacy",
+      "term": "considerable legacy",
+      "translation": "legacy described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_mortgage",
+      "term": "considerable mortgage",
+      "translation": "mortgage described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_pecuniary_embarrassment",
+      "term": "considerable pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_portion",
+      "term": "considerable portion",
+      "translation": "portion described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_settlement",
+      "term": "considerable settlement",
+      "translation": "settlement described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_solicitor",
+      "term": "considerable solicitor",
+      "translation": "solicitor described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_surety",
+      "term": "considerable surety",
+      "translation": "surety described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_tenancy",
+      "term": "considerable tenancy",
+      "translation": "tenancy described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_testament",
+      "term": "considerable testament",
+      "translation": "testament described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_considerable_trustee",
+      "term": "considerable trustee",
+      "translation": "trustee described as considerable in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_annuity",
+      "term": "modest annuity",
+      "translation": "annuity described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_bequest",
+      "term": "modest bequest",
+      "translation": "bequest described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_creditor",
+      "term": "modest creditor",
+      "translation": "creditor described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_deed",
+      "term": "modest deed",
+      "translation": "deed described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_dower",
+      "term": "modest dower",
+      "translation": "dower described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_entail",
+      "term": "modest entail",
+      "translation": "entail described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_executor",
+      "term": "modest executor",
+      "translation": "executor described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_jointure",
+      "term": "modest jointure",
+      "translation": "jointure described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_legacy",
+      "term": "modest legacy",
+      "translation": "legacy described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_mortgage",
+      "term": "modest mortgage",
+      "translation": "mortgage described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_pecuniary_embarrassment",
+      "term": "modest pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_portion",
+      "term": "modest portion",
+      "translation": "portion described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_settlement",
+      "term": "modest settlement",
+      "translation": "settlement described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_solicitor",
+      "term": "modest solicitor",
+      "translation": "solicitor described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_surety",
+      "term": "modest surety",
+      "translation": "surety described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_tenancy",
+      "term": "modest tenancy",
+      "translation": "tenancy described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_testament",
+      "term": "modest testament",
+      "translation": "testament described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_modest_trustee",
+      "term": "modest trustee",
+      "translation": "trustee described as modest in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_annuity",
+      "term": "disputed annuity",
+      "translation": "annuity described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_bequest",
+      "term": "disputed bequest",
+      "translation": "bequest described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_creditor",
+      "term": "disputed creditor",
+      "translation": "creditor described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_deed",
+      "term": "disputed deed",
+      "translation": "deed described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_dower",
+      "term": "disputed dower",
+      "translation": "dower described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_entail",
+      "term": "disputed entail",
+      "translation": "entail described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_executor",
+      "term": "disputed executor",
+      "translation": "executor described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_jointure",
+      "term": "disputed jointure",
+      "translation": "jointure described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_legacy",
+      "term": "disputed legacy",
+      "translation": "legacy described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_mortgage",
+      "term": "disputed mortgage",
+      "translation": "mortgage described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_pecuniary_embarrassment",
+      "term": "disputed pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_portion",
+      "term": "disputed portion",
+      "translation": "portion described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_settlement",
+      "term": "disputed settlement",
+      "translation": "settlement described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_solicitor",
+      "term": "disputed solicitor",
+      "translation": "solicitor described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_surety",
+      "term": "disputed surety",
+      "translation": "surety described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_tenancy",
+      "term": "disputed tenancy",
+      "translation": "tenancy described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_testament",
+      "term": "disputed testament",
+      "translation": "testament described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_disputed_trustee",
+      "term": "disputed trustee",
+      "translation": "trustee described as disputed in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_annuity",
+      "term": "secret annuity",
+      "translation": "annuity described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_bequest",
+      "term": "secret bequest",
+      "translation": "bequest described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_creditor",
+      "term": "secret creditor",
+      "translation": "creditor described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_deed",
+      "term": "secret deed",
+      "translation": "deed described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_dower",
+      "term": "secret dower",
+      "translation": "dower described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_entail",
+      "term": "secret entail",
+      "translation": "entail described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_executor",
+      "term": "secret executor",
+      "translation": "executor described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_jointure",
+      "term": "secret jointure",
+      "translation": "jointure described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_legacy",
+      "term": "secret legacy",
+      "translation": "legacy described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_mortgage",
+      "term": "secret mortgage",
+      "translation": "mortgage described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_pecuniary_embarrassment",
+      "term": "secret pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_portion",
+      "term": "secret portion",
+      "translation": "portion described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_settlement",
+      "term": "secret settlement",
+      "translation": "settlement described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_solicitor",
+      "term": "secret solicitor",
+      "translation": "solicitor described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_surety",
+      "term": "secret surety",
+      "translation": "surety described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_tenancy",
+      "term": "secret tenancy",
+      "translation": "tenancy described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_testament",
+      "term": "secret testament",
+      "translation": "testament described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_secret_trustee",
+      "term": "secret trustee",
+      "translation": "trustee described as secret in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_annuity",
+      "term": "generous annuity",
+      "translation": "annuity described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_bequest",
+      "term": "generous bequest",
+      "translation": "bequest described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_creditor",
+      "term": "generous creditor",
+      "translation": "creditor described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_deed",
+      "term": "generous deed",
+      "translation": "deed described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_dower",
+      "term": "generous dower",
+      "translation": "dower described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_entail",
+      "term": "generous entail",
+      "translation": "entail described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_executor",
+      "term": "generous executor",
+      "translation": "executor described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_jointure",
+      "term": "generous jointure",
+      "translation": "jointure described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_legacy",
+      "term": "generous legacy",
+      "translation": "legacy described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_mortgage",
+      "term": "generous mortgage",
+      "translation": "mortgage described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_pecuniary_embarrassment",
+      "term": "generous pecuniary embarrassment",
+      "translation": "pecuniary embarrassment described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_portion",
+      "term": "generous portion",
+      "translation": "portion described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_settlement",
+      "term": "generous settlement",
+      "translation": "settlement described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_solicitor",
+      "term": "generous solicitor",
+      "translation": "solicitor described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_surety",
+      "term": "generous surety",
+      "translation": "surety described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_tenancy",
+      "term": "generous tenancy",
+      "translation": "tenancy described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_testament",
+      "term": "generous testament",
+      "translation": "testament described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_generous_trustee",
+      "term": "generous trustee",
+      "translation": "trustee described as generous in social or legal narration"
+    },
+    {
+      "id": "enlit_accordingly",
+      "term": "accordingly",
+      "translation": "as a result"
+    },
+    {
+      "id": "enlit_albeit",
+      "term": "albeit",
+      "translation": "although"
+    },
+    {
+      "id": "enlit_by_and_by",
+      "term": "by and by",
+      "translation": "after a short while"
+    },
+    {
+      "id": "enlit_forasmuch_as",
+      "term": "forasmuch as",
+      "translation": "because or since"
+    },
+    {
+      "id": "enlit_hereafter",
+      "term": "hereafter",
+      "translation": "from now on or after this"
+    },
+    {
+      "id": "enlit_in_consequence",
+      "term": "in consequence",
+      "translation": "as a result"
+    },
+    {
+      "id": "enlit_in_sooth",
+      "term": "in sooth",
+      "translation": "in truth"
+    },
+    {
+      "id": "enlit_in_the_meanwhile",
+      "term": "in the meanwhile",
+      "translation": "during the same interval"
+    },
+    {
+      "id": "enlit_nevertheless",
+      "term": "nevertheless",
+      "translation": "despite that"
+    },
+    {
+      "id": "enlit_peradventure",
+      "term": "peradventure",
+      "translation": "perhaps"
+    },
+    {
+      "id": "enlit_thereupon",
+      "term": "thereupon",
+      "translation": "immediately after that"
+    },
+    {
+      "id": "enlit_to_wit",
+      "term": "to wit",
+      "translation": "namely"
+    },
+    {
+      "id": "enlit_whereby",
+      "term": "whereby",
+      "translation": "by which"
+    },
+    {
+      "id": "enlit_wherein",
+      "term": "wherein",
+      "translation": "in which"
+    },
+    {
+      "id": "enlit_whereof",
+      "term": "whereof",
+      "translation": "of which"
+    },
+    {
+      "id": "enlit_wherewith",
+      "term": "wherewith",
+      "translation": "with which"
+    },
+    {
+      "id": "enlit_abominable_conduct",
+      "term": "abominable conduct",
+      "translation": "behaviour described as morally shocking or hateful"
+    },
+    {
+      "id": "enlit_affected_civility",
+      "term": "affected civility",
+      "translation": "politeness that seems artificial or insincere"
+    },
+    {
+      "id": "enlit_ancient_lineage",
+      "term": "ancient lineage",
+      "translation": "old family descent or ancestry"
     }
   ],
-  "texts": [
-    {
-      "id": "enlit_old_house",
-      "title": "The old house",
-      "text": "At dusk the {traveller} reached an old dwelling beyond the village. A dim {candle} burned in the window, and the door opened presently.",
-      "translation": "At dusk the traveller reached an old home beyond the village. A dim candle burned in the window, and the door opened soon.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_dinner",
-      "title": "A formal dinner",
-      "text": "The guests spoke with solemn courtesy, yet each {countenance} showed a different thought. Nevertheless, the host maintained a gentle {smile}.",
-      "translation": "The guests spoke very politely, but each face showed a different thought. Still, the host kept a gentle smile.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_letter",
-      "title": "An unexpected letter",
-      "text": "A letter arrived at noon and brought strange {news}. It spoke of an inheritance, a distant estate, and a promise made long {ago}.",
-      "translation": "A letter arrived at noon and brought strange news. It spoke of an inheritance, a distant estate, and an old promise.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_village_walk",
-      "title": "Through the village",
-      "text": "She walked beneath ancient trees, past the quiet {hearths} of neighbours, and wondered whether fortune had changed her {path}.",
-      "translation": "She walked under old trees, past the homes of neighbours, and wondered whether luck had changed her path.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_argument",
-      "title": "Between acquaintances",
-      "text": "The argument began as a small matter of {honour}. Soon pride overcame mercy, and neither acquaintance would speak the simple {truth}.",
-      "translation": "The argument began as a small matter of honour. Soon pride overcame mercy, and neither person would speak the simple truth.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_storm",
-      "title": "Storm at night",
-      "text": "The storm grew fierce after midnight. Rain struck the threshold, shadows moved upon the wall, and a lonely {whisper} crossed the chamber.",
-      "translation": "The storm became strong after midnight. Rain hit the doorway, shadows moved on the wall, and a lonely whisper crossed the room.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_abroad",
-      "title": "News from abroad",
-      "text": "News from abroad altered the family's hopes. The heir was alive, the estate was safe, and sorrow turned almost at once to {delight}.",
-      "translation": "News from another country changed the family's hopes. The heir was alive, the property was safe, and sadness quickly became joy.",
-      "translationLanguage": "English"
-    },
-    {
-      "id": "enlit_ambition",
-      "title": "Ambition",
-      "text": "Ambition may lift a person beyond fear, but without virtue it becomes vain. Thus a noble endeavour can become mere {folly}.",
-      "translation": "Ambition may help a person overcome fear, but without moral goodness it becomes empty. In this way a noble effort can become foolishness.",
-      "translationLanguage": "English"
-    }
-  ],
-  "forms": [
-    {
-      "id": "enlit_past_behold_beheld_beheld",
-      "type": "past",
-      "prompt": "behold → beheld",
-      "before": "",
-      "answer": "beheld",
-      "after": "",
-      "result": "beheld",
-      "note": "past of behold"
-    },
-    {
-      "id": "enlit_past_write_wrote_wrote",
-      "type": "past",
-      "prompt": "write → wrote",
-      "before": "",
-      "answer": "wrote",
-      "after": "",
-      "result": "wrote",
-      "note": "past of write"
-    },
-    {
-      "id": "enlit_past_speak_spoke_spoke",
-      "type": "past",
-      "prompt": "speak → spoke",
-      "before": "",
-      "answer": "spoke",
-      "after": "",
-      "result": "spoke",
-      "note": "past of speak"
-    },
-    {
-      "id": "enlit_past_rise_rose_rose",
-      "type": "past",
-      "prompt": "rise → rose",
-      "before": "",
-      "answer": "rose",
-      "after": "",
-      "result": "rose",
-      "note": "past of rise"
-    },
-    {
-      "id": "enlit_past_fall_fell_fell",
-      "type": "past",
-      "prompt": "fall → fell",
-      "before": "",
-      "answer": "fell",
-      "after": "",
-      "result": "fell",
-      "note": "past of fall"
-    },
-    {
-      "id": "enlit_past_come_came_came",
-      "type": "past",
-      "prompt": "come → came",
-      "before": "",
-      "answer": "came",
-      "after": "",
-      "result": "came",
-      "note": "past of come"
-    },
-    {
-      "id": "enlit_past_go_went_went",
-      "type": "past",
-      "prompt": "go → went",
-      "before": "",
-      "answer": "went",
-      "after": "",
-      "result": "went",
-      "note": "past of go"
-    },
-    {
-      "id": "enlit_participle_write_written_written",
-      "type": "participle",
-      "prompt": "write → written",
-      "before": "",
-      "answer": "written",
-      "after": "",
-      "result": "written",
-      "note": "past participle"
-    },
-    {
-      "id": "enlit_participle_speak_spoken_spoken",
-      "type": "participle",
-      "prompt": "speak → spoken",
-      "before": "",
-      "answer": "spoken",
-      "after": "",
-      "result": "spoken",
-      "note": "past participle"
-    },
-    {
-      "id": "enlit_participle_break_broken_broken",
-      "type": "participle",
-      "prompt": "break → broken",
-      "before": "",
-      "answer": "broken",
-      "after": "",
-      "result": "broken",
-      "note": "past participle"
-    },
-    {
-      "id": "enlit_plural_one_gentleman_two_gentlemen",
-      "type": "plural",
-      "prompt": "one gentleman, two ___",
-      "before": "",
-      "answer": "gentlemen",
-      "after": "",
-      "result": "gentlemen",
-      "note": "irregular plural"
-    },
-    {
-      "id": "enlit_plural_one_lady_two_lad_ladies",
-      "type": "plural",
-      "prompt": "one lady, two lad___",
-      "before": "lad",
-      "answer": "ies",
-      "after": "",
-      "result": "ladies",
-      "note": "lady → ladies"
-    },
-    {
-      "id": "enlit_plural_one_story_two_stor_stories",
-      "type": "plural",
-      "prompt": "one story, two stor___",
-      "before": "stor",
-      "answer": "ies",
-      "after": "",
-      "result": "stories",
-      "note": "story → stories"
-    },
-    {
-      "id": "enlit_plural_one_wish_two_wish_wishes",
-      "type": "plural",
-      "prompt": "one wish, two wish___",
-      "before": "wish",
-      "answer": "es",
-      "after": "",
-      "result": "wishes",
-      "note": "wish → wishes"
-    },
-    {
-      "id": "enlit_derivation_solemn_solemn_solemnity",
-      "type": "derivation",
-      "prompt": "solemn → solemn___",
-      "before": "solemn",
-      "answer": "ity",
-      "after": "",
-      "result": "solemnity",
-      "note": "noun form"
-    },
-    {
-      "id": "enlit_derivation_virtuous_virtu_virtue",
-      "type": "derivation",
-      "prompt": "virtuous → virtu___",
-      "before": "virtu",
-      "answer": "e",
-      "after": "",
-      "result": "virtue",
-      "note": "related noun"
-    },
-    {
-      "id": "enlit_derivation_peculiar_peculiar_peculiarity",
-      "type": "derivation",
-      "prompt": "peculiar → peculiar___",
-      "before": "peculiar",
-      "answer": "ity",
-      "after": "",
-      "result": "peculiarity",
-      "note": "noun form"
-    },
-    {
-      "id": "enlit_derivation_noble_nobil_nobility",
-      "type": "derivation",
-      "prompt": "noble → nobil___",
-      "before": "nobil",
-      "answer": "ity",
-      "after": "",
-      "result": "nobility",
-      "note": "noun form"
-    },
-    {
-      "id": "enlit_derivation_humble_humil_humility",
-      "type": "derivation",
-      "prompt": "humble → humil___",
-      "before": "humil",
-      "answer": "ity",
-      "after": "",
-      "result": "humility",
-      "note": "noun form"
-    },
-    {
-      "id": "enlit_derivation_acquaint_acquaint_acquaintance",
-      "type": "derivation",
-      "prompt": "acquaint → acquaint___",
-      "before": "acquaint",
-      "answer": "ance",
-      "after": "",
-      "result": "acquaintance",
-      "note": "noun form"
-    },
-    {
-      "id": "enlit_adverb_solemn_solemn_solemnly",
-      "type": "adverb",
-      "prompt": "solemn → solemn___",
-      "before": "solemn",
-      "answer": "ly",
-      "after": "",
-      "result": "solemnly",
-      "note": "adverb form"
-    },
-    {
-      "id": "enlit_adverb_gentle_gent_gently",
-      "type": "adverb",
-      "prompt": "gentle → gent___",
-      "before": "gent",
-      "answer": "ly",
-      "after": "",
-      "result": "gently",
-      "note": "adverb form"
-    },
-    {
-      "id": "enlit_adverb_fierce_fierce_fiercely",
-      "type": "adverb",
-      "prompt": "fierce → fierce___",
-      "before": "fierce",
-      "answer": "ly",
-      "after": "",
-      "result": "fiercely",
-      "note": "adverb form"
-    },
-    {
-      "id": "enlit_adverb_scarcely_scarce_scarcely",
-      "type": "adverb",
-      "prompt": "scarcely → scarce___",
-      "before": "scarce",
-      "answer": "ly",
-      "after": "",
-      "result": "scarcely",
-      "note": "adverb spelling"
-    },
-    {
-      "id": "enlit_comparative_bright_bright_brighter",
-      "type": "comparative",
-      "prompt": "bright → bright___",
-      "before": "bright",
-      "answer": "er",
-      "after": "",
-      "result": "brighter",
-      "note": "comparative"
-    },
-    {
-      "id": "enlit_comparative_strange_strang_stranger",
-      "type": "comparative",
-      "prompt": "strange → strang___",
-      "before": "strang",
-      "answer": "er",
-      "after": "",
-      "result": "stranger",
-      "note": "drop final e"
-    },
-    {
-      "id": "enlit_comparative_weary_wear_wearier",
-      "type": "comparative",
-      "prompt": "weary → wear___",
-      "before": "wear",
-      "answer": "ier",
-      "after": "",
-      "result": "wearier",
-      "note": "y → ier"
-    },
-    {
-      "id": "enlit_superlative_noble_nobl_noblest",
-      "type": "superlative",
-      "prompt": "noble → nobl___",
-      "before": "nobl",
-      "answer": "est",
-      "after": "",
-      "result": "noblest",
-      "note": "superlative"
-    },
-    {
-      "id": "enlit_superlative_fair_fair_fairest",
-      "type": "superlative",
-      "prompt": "fair → fair___",
-      "before": "fair",
-      "answer": "est",
-      "after": "",
-      "result": "fairest",
-      "note": "superlative"
-    },
-    {
-      "id": "enlit_phrase_the_storm_he_waited_amid_the_storm_he_waited",
-      "type": "phrase",
-      "prompt": "___ the storm, he waited",
-      "before": "",
-      "answer": "Amid",
-      "after": " the storm, he waited",
-      "result": "Amid the storm, he waited",
-      "note": "literary preposition"
-    },
-    {
-      "id": "enlit_phrase_the_door_stood_a_guest_upon_the_door_stood_a_guest",
-      "type": "phrase",
-      "prompt": "___ the door stood a guest",
-      "before": "",
-      "answer": "Upon",
-      "after": " the door stood a guest",
-      "result": "Upon the door stood a guest",
-      "note": "formal/literary preposition"
-    },
-    {
-      "id": "enlit_phrase_he_leave_she_spoke_ere_he_leave_she_spoke",
-      "type": "phrase",
-      "prompt": "___ he leave, she spoke",
-      "before": "",
-      "answer": "Ere",
-      "after": " he leave, she spoke",
-      "result": "Ere he leave, she spoke",
-      "note": "older before"
-    },
-    {
-      "id": "enlit_phrase_he_came_he_came_hither",
-      "type": "phrase",
-      "prompt": "He came ___",
-      "before": "He came ",
-      "answer": "hither",
-      "after": "",
-      "result": "He came hither",
-      "note": "to this place"
-    },
-    {
-      "id": "enlit_phrase_she_went_she_went_thither",
-      "type": "phrase",
-      "prompt": "She went ___",
-      "before": "She went ",
-      "answer": "thither",
-      "after": "",
-      "result": "She went thither",
-      "note": "to that place"
-    },
-    {
-      "id": "enlit_phrase_the_house_the_house_yonder",
-      "type": "phrase",
-      "prompt": "The house ___",
-      "before": "The house ",
-      "answer": "yonder",
-      "after": "",
-      "result": "The house yonder",
-      "note": "over there"
-    },
-    {
-      "id": "enlit_modal_you_tell_the_truth_you_ought_tell_the_truth",
-      "type": "modal",
-      "prompt": "You ___ tell the truth",
-      "before": "You ",
-      "answer": "ought",
-      "after": " tell the truth",
-      "result": "You ought tell the truth",
-      "note": "ought as duty"
-    },
-    {
-      "id": "enlit_connector_he_was_tired_he_continued_he_was_tired_nevertheless_he_continued",
-      "type": "connector",
-      "prompt": "He was tired; ___, he continued",
-      "before": "He was tired; ",
-      "answer": "nevertheless",
-      "after": ", he continued",
-      "result": "He was tired; nevertheless, he continued",
-      "note": "contrast connector"
-    },
-    {
-      "id": "enlit_connector_she_was_honest_she_was_trusted_she_was_honest_therefore_she_was_trusted",
-      "type": "connector",
-      "prompt": "She was honest; ___ she was trusted",
-      "before": "She was honest; ",
-      "answer": "therefore",
-      "after": " she was trusted",
-      "result": "She was honest; therefore she was trusted",
-      "note": "result connector"
-    },
-    {
-      "id": "enlit_connector_he_spoke_softly_all_listened_he_spoke_softly_indeed_all_listened",
-      "type": "connector",
-      "prompt": "He spoke softly; ___, all listened",
-      "before": "He spoke softly; ",
-      "answer": "indeed",
-      "after": ", all listened",
-      "result": "He spoke softly; indeed, all listened",
-      "note": "emphasis"
-    },
-    {
-      "id": "enlit_noun_endeavour_endeavour_endeavours",
-      "type": "noun",
-      "prompt": "endeavour → endeavour___",
-      "before": "endeavour",
-      "answer": "s",
-      "after": "",
-      "result": "endeavours",
-      "note": "plural"
-    },
-    {
-      "id": "enlit_noun_fortune_fortune_fortunes",
-      "type": "noun",
-      "prompt": "fortune → fortune___",
-      "before": "fortune",
-      "answer": "s",
-      "after": "",
-      "result": "fortunes",
-      "note": "plural"
-    },
-    {
-      "id": "enlit_noun_virtue_virtue_virtues",
-      "type": "noun",
-      "prompt": "virtue → virtue___",
-      "before": "virtue",
-      "answer": "s",
-      "after": "",
-      "result": "virtues",
-      "note": "plural"
-    },
-    {
-      "id": "enlit_noun_dwelling_dwelling_dwellings",
-      "type": "noun",
-      "prompt": "dwelling → dwelling___",
-      "before": "dwelling",
-      "answer": "s",
-      "after": "",
-      "result": "dwellings",
-      "note": "plural"
-    },
-    {
-      "id": "enlit_possessive_the_traveller_cloak_the_traveller_s_cloak",
-      "type": "possessive",
-      "prompt": "the traveller ___ cloak",
-      "before": "the traveller",
-      "answer": "'s",
-      "after": " cloak",
-      "result": "the traveller's cloak",
-      "note": "possessive"
-    },
-    {
-      "id": "enlit_possessive_the_widow_letter_the_widow_s_letter",
-      "type": "possessive",
-      "prompt": "the widow ___ letter",
-      "before": "the widow",
-      "answer": "'s",
-      "after": " letter",
-      "result": "the widow's letter",
-      "note": "possessive"
-    },
-    {
-      "id": "enlit_past_seek_sought_sought",
-      "type": "past",
-      "prompt": "seek → sought",
-      "before": "",
-      "answer": "sought",
-      "after": "",
-      "result": "sought",
-      "note": "past of seek"
-    },
-    {
-      "id": "enlit_past_bring_brought_brought",
-      "type": "past",
-      "prompt": "bring → brought",
-      "before": "",
-      "answer": "brought",
-      "after": "",
-      "result": "brought",
-      "note": "past of bring"
-    },
-    {
-      "id": "enlit_past_think_thought_thought",
-      "type": "past",
-      "prompt": "think → thought",
-      "before": "",
-      "answer": "thought",
-      "after": "",
-      "result": "thought",
-      "note": "past of think"
-    },
-    {
-      "id": "enlit_past_weep_wept_wept",
-      "type": "past",
-      "prompt": "weep → wept",
-      "before": "",
-      "answer": "wept",
-      "after": "",
-      "result": "wept",
-      "note": "past of weep"
-    },
-    {
-      "id": "enlit_past_hear_heard_heard",
-      "type": "past",
-      "prompt": "hear → heard",
-      "before": "",
-      "answer": "heard",
-      "after": "",
-      "result": "heard",
-      "note": "past of hear"
-    }
-  ]
+  "texts": [],
+  "forms": []
 }

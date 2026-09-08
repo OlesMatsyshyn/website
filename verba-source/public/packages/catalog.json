@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 11,
   "packages": [
     {
       "id": "english-starter",
@@ -9,7 +9,7 @@
       "level": 0,
       "title": "British English · Starter",
       "description": "British English vocabulary, short texts, and common forms.",
-      "version": 9,
+      "version": 11,
       "wordCount": 112,
       "textCount": 10,
       "formCount": 50,
@@ -23,10 +23,10 @@
       "level": 0,
       "title": "Medical English · Starter",
       "description": "Practical medical and scientific English with plain definitions.",
-      "version": 9,
-      "wordCount": 93,
-      "textCount": 8,
-      "formCount": 50,
+      "version": 11,
+      "wordCount": 1000,
+      "textCount": 0,
+      "formCount": 0,
       "path": "packages/english-medical/starter.json"
     },
     {
@@ -37,10 +37,10 @@
       "level": 0,
       "title": "Literary English · Starter",
       "description": "Formal and literary English often encountered in classic prose.",
-      "version": 9,
-      "wordCount": 96,
-      "textCount": 8,
-      "formCount": 50,
+      "version": 11,
+      "wordCount": 1000,
+      "textCount": 0,
+      "formCount": 0,
       "path": "packages/english-literature/starter.json"
     },
     {
@@ -51,7 +51,7 @@
       "level": 0,
       "title": "German · Starter",
       "description": "Useful German vocabulary, short texts, and core grammar forms.",
-      "version": 9,
+      "version": 11,
       "wordCount": 101,
       "textCount": 10,
       "formCount": 58,
@@ -79,7 +79,7 @@
       "level": 0,
       "title": "French · Starter",
       "description": "Useful French vocabulary, short texts, and core grammar forms.",
-      "version": 9,
+      "version": 11,
       "wordCount": 101,
       "textCount": 10,
       "formCount": 55,
@@ -119,7 +119,7 @@
       "level": 0,
       "title": "Polish · Starter",
       "description": "Useful Polish vocabulary, short texts, and core grammar forms.",
-      "version": 9,
+      "version": 11,
       "wordCount": 101,
       "textCount": 10,
       "formCount": 60,
@@ -162,11 +162,36 @@
       "level": 0,
       "title": "Ukrainian · Starter",
       "description": "Useful Ukrainian vocabulary, short Cyrillic texts, and core grammar forms.",
-      "version": 9,
+      "version": 11,
       "wordCount": 101,
       "textCount": 10,
       "formCount": 60,
       "path": "packages/ukrainian/starter.json"
+    },
+    {
+      "id": "norwegian-bokmal-starter",
+      "language": "Norwegian (Bokmål)",
+      "languageCode": "nb",
+      "variant": "General",
+      "level": 0,
+      "title": "Norwegian (Bokmål) · Starter",
+      "description": "Useful Norwegian Bokmål vocabulary, short texts, and core grammar forms.",
+      "version": 11,
+      "wordCount": 115,
+      "textCount": 10,
+      "formCount": 51,
+      "characterSubstitutions": {
+        "æ": [
+          "ae"
+        ],
+        "ø": [
+          "o"
+        ],
+        "å": [
+          "a"
+        ]
+      },
+      "path": "packages/norwegian-bokmal/starter.json"
     },
     {
       "id": "romanian-starter",
@@ -176,7 +201,7 @@
       "level": 0,
       "title": "Romanian · Starter",
       "description": "A substantial Romanian learning pack for everyday, grammar, and civic practice.",
-      "version": 9,
+      "version": 11,
       "wordCount": 560,
       "textCount": 37,
       "formCount": 240,

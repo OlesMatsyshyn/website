@@ -52,11 +52,15 @@
 
   function initVerbaLinks() {
     var verbaLinks = document.querySelectorAll("[data-verba-link]");
+    var message = document.querySelector("[data-verba-open-message]");
+    if (message && window.location.protocol !== "file:") {
+      message.hidden = true;
+      message.textContent = "";
+    }
     if (!verbaLinks.length || window.location.protocol !== "file:") {
       return;
     }
 
-    var message = document.querySelector("[data-verba-open-message]");
     verbaLinks.forEach(function (link) {
       link.addEventListener("click", function (event) {
         event.preventDefault();

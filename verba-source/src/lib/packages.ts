@@ -1,9 +1,10 @@
 import { withBasePath } from "@/lib/deployment";
-import type { CoursePackage, FormExercise, PackageCatalog, PackageCatalogItem, WordPair } from "@/lib/types";
+import type { CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair } from "@/lib/types";
 
 const DB_NAME = "verba-packages";
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const STORE_NAME = "packages";
+const CUSTOM_STORE_NAME = "custom-content";
 const ACTIVE_PACKAGE_KEY = "verba.activePackage.v1";
 const PACKAGE_ASSET_CACHE = "verba-package-assets-v2";
 
@@ -73,6 +74,106 @@ export async function removeInstalledPackage(packageId: string): Promise<void> {
   });
 }
 
+export async function readAllCustomContent(): Promise<Record<string, CustomPackageContent>> {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(CUSTOM_STORE_NAME, "readonly");
+    const request = transaction.objectStore(CUSTOM_STORE_NAME).getAll();
+    request.onsuccess = () => {
+      const entries = (request.result as unknown[]).map(normalizeCustomContent);
+      resolve(Object.fromEntries(entries.map((entry) => [entry.packageId, entry])));
+    };
+    request.onerror = () => reject(request.error);
+  });
+}
+
+export async function readCustomContent(packageId: string): Promise<CustomPackageContent> {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(CUSTOM_STORE_NAME, "readonly");
+    const request = transaction.objectStore(CUSTOM_STORE_NAME).get(packageId);
+    request.onsuccess = () => resolve(normalizeCustomContent(request.result ?? { packageId }));
+    request.onerror = () => reject(request.error);
+  });
+}
+
+export async function saveCustomContent(content: CustomPackageContent): Promise<void> {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(CUSTOM_STORE_NAME, "readwrite");
+    transaction.objectStore(CUSTOM_STORE_NAME).put(normalizeCustomContent(content));
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+  });
+}
+
+export async function appendCustomContent(packageId: string, additions: Partial<Omit<CustomPackageContent, "packageId">>) {
+  const current = await readCustomContent(packageId);
+  const next = normalizeCustomContent({
+    packageId,
+    words: [...current.words, ...(additions.words ?? [])],
+    texts: [...current.texts, ...(additions.texts ?? [])],
+    forms: [...current.forms, ...(additions.forms ?? [])],
+  });
+  await saveCustomContent(next);
+  return next;
+}
+
+export async function createLocalPackage(title: string, language = title, languageCode = "local", variant = "Local") {
+  const id = makeLocalId("package").replace("custom-package", "local");
+  const coursePackage = normalizePackage({
+    metadata: {
+      id,
+      language,
+      languageCode,
+      variant,
+      level: 0,
+      title,
+      description: "Local package stored on this device.",
+      version: 1,
+      wordCount: 0,
+      textCount: 0,
+      formCount: 0,
+      source: "local",
+    },
+    words: [],
+    texts: [],
+    forms: [],
+  });
+  await saveInstalledPackage(coursePackage);
+  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [] });
+  return coursePackage;
+}
+
+export async function deleteLocalPackage(packageId: string): Promise<void> {
+  const db = await openDb();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction([STORE_NAME, CUSTOM_STORE_NAME], "readwrite");
+    transaction.objectStore(STORE_NAME).delete(packageId);
+    transaction.objectStore(CUSTOM_STORE_NAME).delete(packageId);
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+  });
+}
+
+export function mergeCustomContent(coursePackage: CoursePackage, custom: CustomPackageContent | undefined): CoursePackage {
+  const normalizedCustom = normalizeCustomContent(custom ?? { packageId: coursePackage.metadata.id });
+  const merged = normalizePackage({
+    ...coursePackage,
+    metadata: coursePackage.metadata,
+    words: [...coursePackage.words, ...normalizedCustom.words],
+    texts: [...coursePackage.texts, ...normalizedCustom.texts],
+    forms: [...coursePackage.forms, ...normalizedCustom.forms],
+  });
+  return {
+    ...merged,
+    metadata: {
+      ...merged.metadata,
+      source: coursePackage.metadata.source,
+    },
+  };
+}
+
 export function readActivePackageId() {
   if (typeof window === "undefined") return "";
   return window.localStorage.getItem(ACTIVE_PACKAGE_KEY) ?? "";
@@ -126,9 +227,62 @@ export function normalizePackage(value: unknown): CoursePackage {
       type: form.type ?? "form",
       before: formBefore(form),
       after: form.after ?? "",
+      result: form.result ?? `${formBefore(form)}${form.answer ?? ""}${form.after ?? ""}`,
+      note: form.note ?? "",
     })),
     ...(candidate.reference ? { reference: candidate.reference } : {}),
   };
+}
+
+function normalizeCustomContent(value: unknown): CustomPackageContent {
+  const candidate = value as Partial<CustomPackageContent>;
+  return {
+    packageId: candidate.packageId ?? "",
+    words: Array.isArray(candidate.words)
+      ? candidate.words.map((word) => ({
+          ...word,
+          id: word.id ?? makeLocalId("word"),
+          term: termForWord(word),
+          translation: translationForWord(word),
+          custom: true,
+        }))
+      : [],
+    texts: Array.isArray(candidate.texts)
+      ? candidate.texts.map((item) => ({
+          id: item.id ?? makeLocalId("text"),
+          title: item.title ?? "Custom text",
+          text: item.text,
+          translation: item.translation ?? "",
+          translationLanguage: item.translationLanguage ?? "English",
+          custom: true,
+        }))
+      : [],
+    forms: Array.isArray(candidate.forms)
+      ? candidate.forms.map((item) => normalizeCustomForm(item))
+      : [],
+  };
+}
+
+function normalizeCustomForm(item: Partial<FormExercise>): FormExercise {
+  const before = formBefore(item as FormExercise);
+  const after = item.after ?? "";
+  const answer = item.answer ?? "";
+  return {
+    id: item.id ?? makeLocalId("form"),
+    type: item.type ?? "form",
+    prompt: item.prompt ?? "",
+    before,
+    answer,
+    after,
+    result: item.result ?? `${before}${answer}${after}`,
+    note: item.note ?? "",
+    custom: true,
+  };
+}
+
+function makeLocalId(prefix: string) {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) return `custom-${prefix}-${crypto.randomUUID()}`;
+  return `custom-${prefix}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
 async function cachePackageAssets(coursePackage: CoursePackage) {
@@ -176,6 +330,9 @@ function openDb(): Promise<IDBDatabase> {
       const db = request.result;
       if (!db.objectStoreNames.contains(STORE_NAME)) {
         db.createObjectStore(STORE_NAME, { keyPath: "metadata.id" });
+      }
+      if (!db.objectStoreNames.contains(CUSTOM_STORE_NAME)) {
+        db.createObjectStore(CUSTOM_STORE_NAME, { keyPath: "packageId" });
       }
     };
     request.onsuccess = () => resolve(request.result);
