@@ -1,2 +1,2 @@
-:HL["/website/Verba/_next/static/chunks/0t-iotm-xedbb.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Gx-NCc3_pWvZizANhi4Gi"}
+:HL["/website/Verba/_next/static/chunks/1uxmtc0rr_687.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"ufz7rL3VYbV03M2DPKEh1"}

@@ -181,6 +181,7 @@ h1 {
 .stat-card,
 .text-card,
 .translate-card,
+.choose-card,
 .ending-card {
   border: 1px solid var(--line);
   border-radius: 1.35rem;
@@ -628,7 +629,8 @@ h1 {
 
 .segmented button,
 .bank-word,
-.match-choice {
+.match-choice,
+.choose-option {
   min-height: 2.8rem;
   border: 1px solid var(--line);
   border-radius: 0.9rem;
@@ -703,20 +705,57 @@ h1 {
   padding: 1.15rem;
 }
 
-.translate-card h2 {
+.translate-card h2,
+.choose-card h2 {
   margin: 0;
   font-size: clamp(1.55rem, 7vw, 2.4rem);
   line-height: 1.12;
 }
 
-.translate-card.is-right {
+.translate-card.is-right,
+.choose-card.is-right {
   border-color: #2f8c65;
   background: #e3f7e9;
 }
 
-.translate-card.is-wrong {
+.translate-card.is-wrong,
+.choose-card.is-wrong {
   border-color: #bf473d;
   background: #ffe4df;
+}
+
+.choose-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.15rem;
+}
+
+.choose-options {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.choose-option {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.choose-option.is-selected {
+  border-color: var(--green-dark);
+  background: var(--mint);
+  color: var(--green-dark);
+}
+
+.choose-option.is-right {
+  border-color: #2f8c65;
+  background: #d7f2df;
+}
+
+.choose-option.is-wrong {
+  border-color: #bf473d;
+  background: #ffd5ce;
 }
 
 .translate-answer {
@@ -892,7 +931,7 @@ h1 {
   }
 
   .vocabulary-mode-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .exercise-card {

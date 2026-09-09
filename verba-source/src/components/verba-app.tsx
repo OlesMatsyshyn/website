@@ -28,6 +28,7 @@ import {
   readProgress,
   recordAttempt,
   recordMatchAttempt,
+  recordChooseAttempt,
   recordTranslateAttempt,
   saveProgress,
   weakItems,
@@ -52,7 +53,7 @@ import type {
   CustomPackageContent,
 } from "@/lib/types";
 
-type Screen = "home" | "words" | "match" | "translate" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
+type Screen = "home" | "words" | "match" | "choose" | "translate" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
 type ImportKind = "words" | "texts" | "forms";
 type TranslateDirection = "term-to-translation" | "translation-to-term" | "mixed";
 
@@ -143,6 +144,15 @@ export function VerbaApp() {
     if (!activePackage) return;
     setProgress((current) => {
       const next = recordMatchAttempt(current, activePackage.metadata.id, itemId, wasCorrect, rank, total);
+      saveProgress(next);
+      return next;
+    });
+  }
+
+  function recordChoose(itemId: string, wasCorrect: boolean) {
+    if (!activePackage) return;
+    setProgress((current) => {
+      const next = recordChooseAttempt(current, activePackage.metadata.id, itemId, wasCorrect);
       saveProgress(next);
       return next;
     });
@@ -378,6 +388,10 @@ export function VerbaApp() {
             setPractice(null);
             setScreen("match");
           }}
+          onChoose={() => {
+            setPractice(null);
+            setScreen("choose");
+          }}
           onTranslate={() => {
             setPractice(null);
             setScreen("translate");
@@ -394,10 +408,26 @@ export function VerbaApp() {
           words={activePackage.words}
           languageLabel={activePackage.metadata.language}
           matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
+          chooseProgress={progress.packages[activePackage.metadata.id]?.choose ?? {}}
           translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "match", ids })}
           onRecordMatch={recordMatch}
+          onAddContent={() => setImportKind("words")}
+        />
+      )}
+
+      {activePackage && screen === "choose" && (
+        <ChooseExercise
+          key={`${activePackage.metadata.id}-choose-${practice?.kind === "choose" ? practice.ids.join("-") : "fresh"}`}
+          content={activePackage}
+          practiceIds={practice?.kind === "choose" ? practice.ids : []}
+          chooseProgress={progress.packages[activePackage.metadata.id]?.choose ?? {}}
+          translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
+          matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
+          onBack={goHome}
+          onPracticeMistakes={(ids) => setPractice({ kind: "choose", ids })}
+          onRecordChoose={recordChoose}
           onAddContent={() => setImportKind("words")}
         />
       )}
@@ -409,6 +439,7 @@ export function VerbaApp() {
           practiceIds={practice?.kind === "translate" ? practice.ids : []}
           translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
           matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
+          chooseProgress={progress.packages[activePackage.metadata.id]?.choose ?? {}}
           onBack={goHome}
           onPracticeMistakes={(ids) => setPractice({ kind: "translate", ids })}
           onRecordTranslate={recordTranslate}
@@ -518,6 +549,7 @@ function WordsScreen({
   wordCount,
   onBack,
   onMatch,
+  onChoose,
   onTranslate,
   onAddContent,
 }: {
@@ -525,6 +557,7 @@ function WordsScreen({
   wordCount: number;
   onBack: () => void;
   onMatch: () => void;
+  onChoose: () => void;
   onTranslate: () => void;
   onAddContent: () => void;
 }) {
@@ -535,6 +568,10 @@ function WordsScreen({
         <button className="exercise-card primary-card compact-mode-card" type="button" onClick={onMatch} disabled={!wordCount}>
           <span>Match</span>
           <small>Match vocabulary pairs.</small>
+        </button>
+        <button className="exercise-card cool-card compact-mode-card" type="button" onClick={onChoose} disabled={!wordCount}>
+          <span>Choose</span>
+          <small>Pick the correct translation.</small>
         </button>
         <button className="exercise-card warm-card compact-mode-card" type="button" onClick={onTranslate} disabled={!wordCount}>
           <span>Translate</span>
@@ -1065,6 +1102,7 @@ function MatchExercise({
   packageTitle,
   languageLabel,
   matchProgress,
+  chooseProgress,
   translateProgress,
   onBack,
   onAddContent,
@@ -1076,6 +1114,7 @@ function MatchExercise({
   packageTitle: string;
   languageLabel: string;
   matchProgress: Record<string, ItemProgress>;
+  chooseProgress: Record<string, ItemProgress>;
   translateProgress: Record<string, ItemProgress>;
   onBack: () => void;
   onAddContent: () => void;
@@ -1119,7 +1158,7 @@ function MatchExercise({
   function beginRound(roundNumber: number, weakMap = sessionWeak, alreadySeen = seenIds) {
     shuffleSeedRef.current += 1;
     const shuffleSalt = `${roundNumber}-${shuffleSeedRef.current}`;
-    const selected = sampleMatchRound(words, practiceIds, pairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, translateProgress, shuffleSalt);
+    const selected = sampleMatchRound(words, practiceIds, pairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, chooseProgress, translateProgress, shuffleSalt);
     const nextSeen = Array.from(new Set([...alreadySeen, ...selected.map((word) => word.id)]));
     setCurrentRound(roundNumber);
     setRoundWords(selected);
@@ -1223,7 +1262,7 @@ function MatchExercise({
         setResults({
           correct: nextCorrect,
           attempts: nextCorrect + nextMistakes,
-          weak: selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, roundWords.length * roundCount))),
+          weak: selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, roundWords.length * roundCount))),
         });
         setAdvancing(false);
         return;
@@ -1334,11 +1373,200 @@ function MatchExercise({
   );
 }
 
+function ChooseExercise({
+  content,
+  practiceIds,
+  chooseProgress,
+  translateProgress,
+  matchProgress,
+  onBack,
+  onAddContent,
+  onPracticeMistakes,
+  onRecordChoose,
+}: {
+  content: CoursePackage;
+  practiceIds: string[];
+  chooseProgress: Record<string, ItemProgress>;
+  translateProgress: Record<string, ItemProgress>;
+  matchProgress: Record<string, ItemProgress>;
+  onBack: () => void;
+  onAddContent: () => void;
+  onPracticeMistakes: (ids: string[]) => void;
+  onRecordChoose: (itemId: string, wasCorrect: boolean) => void;
+}) {
+  const preferredDirection = content.metadata.preferredTranslateDirection ?? "mixed";
+  const [direction, setDirection] = useState<TranslateDirection>(practiceIds.length ? "mixed" : preferredDirection);
+  const [questionCount, setQuestionCount] = useState(10);
+  const [started, setStarted] = useState(false);
+  const [queue, setQueue] = useState<ChooseQuestion[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [feedback, setFeedback] = useState<ChooseFeedback | null>(null);
+  const [correct, setCorrect] = useState(0);
+  const [sessionWeak, setSessionWeak] = useState<Record<string, number>>({});
+  const [results, setResults] = useState<{ correct: number; attempts: number; weak: string[] } | null>(null);
+  const advanceTimeout = useRef<number | null>(null);
+  const words = content.words;
+  const current = queue[currentIndex];
+  const directionLabels = translateDirectionLabels(content);
+
+  useEffect(() => {
+    return () => {
+      if (advanceTimeout.current) window.clearTimeout(advanceTimeout.current);
+    };
+  }, []);
+
+  function start() {
+    clearAdvanceTimer(advanceTimeout);
+    const nextQueue = sampleChooseQueue(words, practiceIds, questionCount, direction, chooseProgress, translateProgress, matchProgress, content.metadata.id);
+    setQueue(nextQueue);
+    setStarted(true);
+    setCurrentIndex(0);
+    setFeedback(null);
+    setCorrect(0);
+    setSessionWeak({});
+    setResults(null);
+  }
+
+  function answer(choice: WordPair) {
+    if (!current || feedback) return;
+    const isCorrect = choice.id === current.word.id;
+    onRecordChoose(current.word.id, isCorrect);
+    const nextCorrect = correct + (isCorrect ? 1 : 0);
+    const nextWeak = isCorrect ? sessionWeak : { ...sessionWeak, [current.word.id]: (sessionWeak[current.word.id] ?? 0) + 4 };
+    setCorrect(nextCorrect);
+    setSessionWeak(nextWeak);
+    setFeedback({ selectedId: choice.id, correct: isCorrect });
+    if (!isCorrect && !queue.slice(currentIndex + 1, currentIndex + 5).some((question) => question.word.id === current.word.id)) {
+      const retryChoices = buildChooseOptions(current.word, current.direction, words, chooseProgress, translateProgress, matchProgress, `retry-${current.word.id}-${currentIndex}`);
+      if (retryChoices.length === 4) {
+        setQueue((currentQueue) => {
+          const nextQueue = [...currentQueue];
+          const insertAt = Math.min(currentIndex + 4, nextQueue.length);
+          nextQueue.splice(insertAt, 0, { word: current.word, direction: current.direction, choices: retryChoices });
+          if (nextQueue.length <= questionCount) return nextQueue;
+          const removableIndex = findRemovableFutureQuestion(nextQueue, currentIndex + 1, current.word.id);
+          if (removableIndex >= 0) nextQueue.splice(removableIndex, 1);
+          return nextQueue;
+        });
+      }
+    }
+    clearAdvanceTimer(advanceTimeout);
+    advanceTimeout.current = window.setTimeout(() => {
+      advance(nextCorrect, nextWeak);
+    }, isCorrect ? 600 : 2100);
+  }
+
+  function advance(nextCorrect = correct, nextWeak = sessionWeak) {
+    clearAdvanceTimer(advanceTimeout);
+    if (currentIndex + 1 >= queue.length) {
+      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
+      setResults({ correct: nextCorrect, attempts: queue.length, weak });
+      return;
+    }
+    setCurrentIndex((index) => index + 1);
+    setFeedback(null);
+  }
+
+  if (!started) {
+    return (
+      <SetupPanel title="Choose" onBack={onBack} onStart={start} startDisabled={words.length < 4}>
+        <p className="setup-package">{content.metadata.title}</p>
+        <Segmented
+          label="Direction"
+          options={["term-to-translation", "translation-to-term", "mixed"]}
+          labels={directionLabels}
+          value={direction}
+          onChange={(value) => setDirection(value as TranslateDirection)}
+        />
+        <p className="setup-help">{translateDirectionHelp(direction, directionLabels)}</p>
+        <Segmented label="Questions" options={translateQuestionOptions.map(String)} value={String(questionCount)} onChange={(value) => setQuestionCount(Number(value))} />
+        <p className="setup-help">Number of multiple-choice questions in this session.</p>
+        {words.length < 4 && <p className="setup-help">Choose needs at least 4 words. Add words manually to start practicing this package.</p>}
+        <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+          Add words manually
+        </button>
+      </SetupPanel>
+    );
+  }
+
+  if (results) {
+    const weakNames = results.weak.map((id) => termForWord(words.find((word) => word.id === id) ?? { id, term: id, translation: id }));
+    return (
+      <ResultsPanel
+        title="Choose results"
+        correct={results.correct}
+        attempts={results.attempts}
+        mistakes={results.attempts - results.correct}
+        weak={weakNames}
+        onBack={onBack}
+        backLabel="Finish"
+        practiceLabel="Practice weak words"
+        onPracticeMistakes={results.weak.length ? () => onPracticeMistakes(results.weak) : undefined}
+      />
+    );
+  }
+
+  if (!current) {
+    return (
+      <section className="workout">
+        <ExerciseHeader title="Choose" onBack={onBack} meta={content.metadata.title} />
+        <div className="panel">
+          <h2>Choose needs at least 4 words.</h2>
+          <p>Add words manually to start practicing this package.</p>
+          <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
+            Add words manually
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="workout">
+      <ExerciseHeader title="Choose" onBack={onBack} meta={`Question ${currentIndex + 1} of ${queue.length}`} />
+      <article className={`choose-card${feedback ? (feedback.correct ? " is-right" : " is-wrong") : ""}`}>
+        <p className="eyebrow">{directionLabels[current.direction]}</p>
+        <h2>{translatePrompt(current)}</h2>
+        <div className="choose-options" aria-label="Answer choices">
+          {current.choices.map((choice) => {
+            const isCorrectChoice = choice.id === current.word.id;
+            const isSelected = feedback?.selectedId === choice.id;
+            return (
+              <button
+                className={`choose-option${isSelected ? " is-selected" : ""}${feedback && isCorrectChoice ? " is-right" : ""}${feedback && isSelected && !isCorrectChoice ? " is-wrong" : ""}`}
+                disabled={Boolean(feedback)}
+                key={choice.id}
+                type="button"
+                onClick={() => answer(choice)}
+              >
+                {chooseOptionLabel(choice, current.direction)}
+              </button>
+            );
+          })}
+        </div>
+        {feedback && (
+          <div className="translate-feedback">
+            <p>
+              {feedback.correct ? "✓ Correct:" : "✗ Correct:"} <strong>{translateExpected(current)}</strong>
+            </p>
+            {!feedback.correct && (
+              <button className="ghost-button compact translate-next-button" type="button" onClick={() => advance()}>
+                Next
+              </button>
+            )}
+          </div>
+        )}
+      </article>
+    </section>
+  );
+}
+
 function TranslateExercise({
   content,
   practiceIds,
   translateProgress,
   matchProgress,
+  chooseProgress,
   onBack,
   onAddContent,
   onPracticeMistakes,
@@ -1348,6 +1576,7 @@ function TranslateExercise({
   practiceIds: string[];
   translateProgress: Record<string, ItemProgress>;
   matchProgress: Record<string, ItemProgress>;
+  chooseProgress: Record<string, ItemProgress>;
   onBack: () => void;
   onAddContent: () => void;
   onPracticeMistakes: (ids: string[]) => void;
@@ -1378,7 +1607,7 @@ function TranslateExercise({
 
   function start() {
     clearAdvanceTimer(advanceTimeout);
-    const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, content.metadata.id);
+    const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, chooseProgress, content.metadata.id);
     setQueue(nextQueue);
     setStarted(true);
     setCurrentIndex(0);
@@ -1411,7 +1640,7 @@ function TranslateExercise({
   function advance(nextCorrect = correct, nextWeak = sessionWeak) {
     clearAdvanceTimer(advanceTimeout);
     if (currentIndex + 1 >= queue.length) {
-      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, queue.length)));
+      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
       setResults({ correct: nextCorrect, attempts: queue.length, weak });
       return;
     }
@@ -1900,6 +2129,7 @@ function ProgressScreen({
   const packageId = content.metadata.id;
   const totals = progressTotals(progress, packageId);
   const weakMatch = weakItems(progress, packageId, "match");
+  const weakChoose = weakItems(progress, packageId, "choose");
   const weakTranslate = weakItems(progress, packageId, "translate");
   const weakText = weakItems(progress, packageId, "text");
   const weakForms = weakItems(progress, packageId, "forms");
@@ -1918,6 +2148,12 @@ function ProgressScreen({
         ids={weakMatch}
         labelFor={(id) => termForWord(content.words.find((item) => item.id === id) ?? { id, term: id, translation: id })}
         onPractice={() => onPractice("match", weakMatch)}
+      />
+      <WeakPanel
+        title="Choose"
+        ids={weakChoose}
+        labelFor={(id) => termForWord(content.words.find((item) => item.id === id) ?? { id, term: id, translation: id })}
+        onPractice={() => onPractice("choose", weakChoose)}
       />
       <WeakPanel
         title="Translate"
@@ -2087,12 +2323,52 @@ type TranslateQuestion = {
   direction: Exclude<TranslateDirection, "mixed">;
 };
 
+type ChooseQuestion = TranslateQuestion & {
+  choices: WordPair[];
+};
+
 type TranslateFeedback = {
   correct: boolean;
   exact: boolean;
   userAnswer: string;
   expected: string;
 };
+
+type ChooseFeedback = {
+  correct: boolean;
+  selectedId: string;
+};
+
+function sampleChooseQueue(
+  words: WordPair[],
+  practiceIds: string[],
+  questionCount: number,
+  direction: TranslateDirection,
+  chooseProgress: Record<string, ItemProgress>,
+  translateProgress: Record<string, ItemProgress>,
+  matchProgress: Record<string, ItemProgress>,
+  packageId: string,
+): ChooseQuestion[] {
+  const promptPool = practiceIds.length ? words.filter((word) => practiceIds.includes(word.id)) : words;
+  if (words.length < 4 || !promptPool.length) return [];
+  const queue: ChooseQuestion[] = [];
+  let cycle = 0;
+  while (queue.length < questionCount && cycle < questionCount * 6) {
+    const salt = `choose-${packageId}-${cycle}-${Date.now()}`;
+    const ordered = stableShuffle(promptPool, salt).sort(
+      (a, b) => vocabularySelectionWeakness(b.id, translateProgress, matchProgress, chooseProgress) - vocabularySelectionWeakness(a.id, translateProgress, matchProgress, chooseProgress),
+    );
+    for (const word of ordered) {
+      if (queue.length >= questionCount) break;
+      if (queue.at(-1)?.word.id === word.id && ordered.length > 1) continue;
+      const currentDirection = chooseTranslateDirection(word.id, direction, translateProgress, salt);
+      const choices = buildChooseOptions(word, currentDirection, words, chooseProgress, translateProgress, matchProgress, `${salt}-${queue.length}`);
+      if (choices.length === 4) queue.push({ word, direction: currentDirection, choices });
+    }
+    cycle += 1;
+  }
+  return queue;
+}
 
 function sampleTranslateQueue(
   words: WordPair[],
@@ -2101,6 +2377,7 @@ function sampleTranslateQueue(
   direction: TranslateDirection,
   translateProgress: Record<string, ItemProgress>,
   matchProgress: Record<string, ItemProgress>,
+  chooseProgress: Record<string, ItemProgress>,
   packageId: string,
 ): TranslateQuestion[] {
   const pool = practiceIds.length ? words.filter((word) => practiceIds.includes(word.id)) : words;
@@ -2110,7 +2387,7 @@ function sampleTranslateQueue(
   while (queue.length < questionCount) {
     const salt = `translate-${packageId}-${cycle}-${Date.now()}`;
     const ordered = stableShuffle(pool, salt).sort(
-      (a, b) => vocabularySelectionWeakness(b.id, translateProgress, matchProgress) - vocabularySelectionWeakness(a.id, translateProgress, matchProgress),
+      (a, b) => vocabularySelectionWeakness(b.id, translateProgress, matchProgress, chooseProgress) - vocabularySelectionWeakness(a.id, translateProgress, matchProgress, chooseProgress),
     );
     for (const word of ordered) {
       if (queue.length >= questionCount) break;
@@ -2143,8 +2420,13 @@ function directionWeakness(direction: ItemProgress[TranslateDirectionKey] | unde
   return direction.incorrect * 2 + (1 - direction.correct / direction.attempts);
 }
 
-function vocabularySelectionWeakness(itemId: string, translateProgress: Record<string, ItemProgress>, matchProgress: Record<string, ItemProgress>) {
-  return itemWeaknessScore(translateProgress[itemId]) * 1.6 + itemWeaknessScore(matchProgress[itemId]);
+function vocabularySelectionWeakness(
+  itemId: string,
+  translateProgress: Record<string, ItemProgress>,
+  matchProgress: Record<string, ItemProgress>,
+  chooseProgress: Record<string, ItemProgress> = {},
+) {
+  return itemWeaknessScore(translateProgress[itemId]) * 1.6 + itemWeaknessScore(chooseProgress[itemId]) * 1.25 + itemWeaknessScore(matchProgress[itemId]);
 }
 
 function selectWeakVocabularyIds(
@@ -2152,13 +2434,14 @@ function selectWeakVocabularyIds(
   sessionWeak: Record<string, number>,
   translateProgress: Record<string, ItemProgress>,
   matchProgress: Record<string, ItemProgress>,
+  chooseProgress: Record<string, ItemProgress>,
   limit: number,
 ) {
   return [...words]
-    .filter((word) => (sessionWeak[word.id] ?? 0) > 0 || vocabularySelectionWeakness(word.id, translateProgress, matchProgress) > 0)
+    .filter((word) => (sessionWeak[word.id] ?? 0) > 0 || vocabularySelectionWeakness(word.id, translateProgress, matchProgress, chooseProgress) > 0)
     .sort((a, b) => {
-      const left = (sessionWeak[b.id] ?? 0) * 2 + vocabularySelectionWeakness(b.id, translateProgress, matchProgress);
-      const right = (sessionWeak[a.id] ?? 0) * 2 + vocabularySelectionWeakness(a.id, translateProgress, matchProgress);
+      const left = (sessionWeak[b.id] ?? 0) * 2 + vocabularySelectionWeakness(b.id, translateProgress, matchProgress, chooseProgress);
+      const right = (sessionWeak[a.id] ?? 0) * 2 + vocabularySelectionWeakness(a.id, translateProgress, matchProgress, chooseProgress);
       return left - right;
     })
     .slice(0, limit)
@@ -2186,6 +2469,53 @@ function translatePrompt(question: TranslateQuestion) {
 
 function translateExpected(question: TranslateQuestion) {
   return question.direction === "term-to-translation" ? translationForWord(question.word) : termForWord(question.word);
+}
+
+function chooseOptionLabel(word: WordPair, direction: Exclude<TranslateDirection, "mixed">) {
+  return direction === "term-to-translation" ? translationForWord(word) : termForWord(word);
+}
+
+function buildChooseOptions(
+  word: WordPair,
+  direction: Exclude<TranslateDirection, "mixed">,
+  words: WordPair[],
+  chooseProgress: Record<string, ItemProgress>,
+  translateProgress: Record<string, ItemProgress>,
+  matchProgress: Record<string, ItemProgress>,
+  salt: string,
+) {
+  const expectedLabel = normalizeChoiceLabel(chooseOptionLabel(word, direction));
+  const seenLabels = new Set([expectedLabel]);
+  const expectedLength = expectedLabel.length;
+  const distractors = stableShuffle(
+    words.filter((candidate) => candidate.id !== word.id),
+    `distractors-${salt}`,
+  )
+    .sort((a, b) => {
+      const lengthScore = Math.abs(normalizeChoiceLabel(chooseOptionLabel(a, direction)).length - expectedLength) - Math.abs(normalizeChoiceLabel(chooseOptionLabel(b, direction)).length - expectedLength);
+      if (lengthScore !== 0) return lengthScore;
+      return vocabularySelectionWeakness(b.id, translateProgress, matchProgress, chooseProgress) - vocabularySelectionWeakness(a.id, translateProgress, matchProgress, chooseProgress);
+    })
+    .filter((candidate) => {
+      const label = normalizeChoiceLabel(chooseOptionLabel(candidate, direction));
+      if (!label || seenLabels.has(label)) return false;
+      seenLabels.add(label);
+      return true;
+    })
+    .slice(0, 3);
+
+  return stableShuffle([word, ...distractors], `choices-${salt}`);
+}
+
+function findRemovableFutureQuestion(queue: ChooseQuestion[], startIndex: number, protectedId: string) {
+  for (let index = queue.length - 1; index >= startIndex; index -= 1) {
+    if (queue[index].word.id !== protectedId) return index;
+  }
+  return -1;
+}
+
+function normalizeChoiceLabel(value: string) {
+  return normalizeTranslateAnswer(value);
 }
 
 function translateDirectionKey(direction: Exclude<TranslateDirection, "mixed">): TranslateDirectionKey {
@@ -2271,6 +2601,7 @@ function sampleMatchRound(
   weakMap: Record<string, number>,
   seenIds: string[],
   matchProgress: Record<string, ItemProgress>,
+  chooseProgress: Record<string, ItemProgress>,
   translateProgress: Record<string, ItemProgress>,
   seed: string,
 ) {
@@ -2281,11 +2612,11 @@ function sampleMatchRound(
   const weakCount = Math.min(Math.max(1, Math.floor(count / 5)), Math.max(0, count - 1));
   const weakWords = stableShuffle(
     [...pool]
-      .filter((word) => (weakMap[word.id] ?? 0) > 0 || itemWeaknessScore(matchProgress[word.id]) > 0 || itemWeaknessScore(translateProgress[word.id]) > 0)
-      .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, translateProgress)),
+      .filter((word) => (weakMap[word.id] ?? 0) > 0 || itemWeaknessScore(matchProgress[word.id]) > 0 || itemWeaknessScore(chooseProgress[word.id]) > 0 || itemWeaknessScore(translateProgress[word.id]) > 0)
+      .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, chooseProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, chooseProgress, translateProgress)),
     `weak-${salt}`,
   )
-    .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, translateProgress))
+    .sort((a, b) => matchSelectionWeakness(b.id, weakMap, matchProgress, chooseProgress, translateProgress) - matchSelectionWeakness(a.id, weakMap, matchProgress, chooseProgress, translateProgress))
     .slice(0, weakCount);
   const selected = new Set(weakWords.map((word) => word.id));
   const unseenWords = stableShuffle(
@@ -2304,9 +2635,10 @@ function matchSelectionWeakness(
   id: string,
   sessionWeak: Record<string, number>,
   matchProgress: Record<string, ItemProgress>,
+  chooseProgress: Record<string, ItemProgress>,
   translateProgress: Record<string, ItemProgress>,
 ) {
-  return (sessionWeak[id] ?? 0) * 2 + itemWeaknessScore(matchProgress[id]) + itemWeaknessScore(translateProgress[id]) * 1.4;
+  return (sessionWeak[id] ?? 0) * 2 + itemWeaknessScore(matchProgress[id]) + itemWeaknessScore(chooseProgress[id]) * 1.25 + itemWeaknessScore(translateProgress[id]) * 1.4;
 }
 
 function matchRoundWeaknessSignal(wasCorrect: boolean, rank: number, total: number) {
