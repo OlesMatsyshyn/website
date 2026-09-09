@@ -854,7 +854,7 @@
       "answer": "e",
       "after": "",
       "result": "ich gehe",
-      "note": "gehen"
+      "note": "present tense of gehen"
     },
     {
       "id": "de_conjugation_you_go_du_gehst",
@@ -864,7 +864,7 @@
       "answer": "st",
       "after": "",
       "result": "du gehst",
-      "note": "gehen"
+      "note": "present tense of gehen"
     },
     {
       "id": "de_conjugation_he_goes_er_geht",
@@ -874,7 +874,7 @@
       "answer": "t",
       "after": "",
       "result": "er geht",
-      "note": "gehen"
+      "note": "present tense of gehen"
     },
     {
       "id": "de_conjugation_we_go_wir_gehen",
@@ -884,7 +884,7 @@
       "answer": "en",
       "after": "",
       "result": "wir gehen",
-      "note": "gehen"
+      "note": "present tense of gehen"
     },
     {
       "id": "de_conjugation_i_have_ich_habe",
@@ -894,7 +894,7 @@
       "answer": "e",
       "after": "",
       "result": "ich habe",
-      "note": "haben"
+      "note": "present tense of haben"
     },
     {
       "id": "de_conjugation_you_have_du_hast",
@@ -904,7 +904,7 @@
       "answer": "st",
       "after": "",
       "result": "du hast",
-      "note": "haben"
+      "note": "present tense of haben"
     },
     {
       "id": "de_conjugation_he_has_er_hat",
@@ -914,7 +914,7 @@
       "answer": "t",
       "after": "",
       "result": "er hat",
-      "note": "haben"
+      "note": "present tense of haben"
     },
     {
       "id": "de_conjugation_we_have_wir_haben",
@@ -924,7 +924,7 @@
       "answer": "en",
       "after": "",
       "result": "wir haben",
-      "note": "haben"
+      "note": "present tense of haben"
     },
     {
       "id": "de_conjugation_i_am_ich_bin",
@@ -934,7 +934,7 @@
       "answer": "bin",
       "after": "",
       "result": "ich bin",
-      "note": "sein"
+      "note": "present tense of sein"
     },
     {
       "id": "de_conjugation_you_are_du_bist",
@@ -944,7 +944,7 @@
       "answer": "bist",
       "after": "",
       "result": "du bist",
-      "note": "sein"
+      "note": "present tense of sein"
     },
     {
       "id": "de_conjugation_he_is_er_ist",
@@ -954,7 +954,7 @@
       "answer": "ist",
       "after": "",
       "result": "er ist",
-      "note": "sein"
+      "note": "present tense of sein"
     },
     {
       "id": "de_conjugation_we_are_wir_sind",
@@ -964,7 +964,7 @@
       "answer": "sind",
       "after": "",
       "result": "wir sind",
-      "note": "sein"
+      "note": "present tense of sein"
     },
     {
       "id": "de_conjugation_i_speak_ich_spreche",
@@ -974,7 +974,7 @@
       "answer": "e",
       "after": "",
       "result": "ich spreche",
-      "note": "sprechen"
+      "note": "present tense of sprechen"
     },
     {
       "id": "de_conjugation_you_speak_du_sprichst",
@@ -984,7 +984,7 @@
       "answer": "st",
       "after": "",
       "result": "du sprichst",
-      "note": "sprechen"
+      "note": "present tense of sprechen"
     },
     {
       "id": "de_conjugation_he_speaks_er_spricht",
@@ -994,7 +994,7 @@
       "answer": "t",
       "after": "",
       "result": "er spricht",
-      "note": "sprechen"
+      "note": "present tense of sprechen"
     },
     {
       "id": "de_conjugation_we_speak_wir_sprechen",
@@ -1004,7 +1004,7 @@
       "answer": "en",
       "after": "",
       "result": "wir sprechen",
-      "note": "sprechen"
+      "note": "present tense of sprechen"
     },
     {
       "id": "de_conjugation_i_eat_ich_esse",
@@ -1014,7 +1014,7 @@
       "answer": "e",
       "after": "",
       "result": "ich esse",
-      "note": "essen"
+      "note": "present tense of essen"
     },
     {
       "id": "de_conjugation_you_eat_du_isst",
@@ -1024,7 +1024,7 @@
       "answer": "t",
       "after": "",
       "result": "du isst",
-      "note": "essen"
+      "note": "present tense of essen"
     },
     {
       "id": "de_conjugation_he_eats_er_isst",
@@ -1034,7 +1034,7 @@
       "answer": "t",
       "after": "",
       "result": "er isst",
-      "note": "essen"
+      "note": "present tense of essen"
     },
     {
       "id": "de_conjugation_we_eat_wir_essen",
@@ -1044,7 +1044,7 @@
       "answer": "en",
       "after": "",
       "result": "wir essen",
-      "note": "essen"
+      "note": "present tense of essen"
     },
     {
       "id": "de_conjugation_i_travel_ich_fahre",
@@ -1054,7 +1054,7 @@
       "answer": "e",
       "after": "",
       "result": "ich fahre",
-      "note": "fahren"
+      "note": "present tense of fahren"
     },
     {
       "id": "de_conjugation_you_travel_du_fahrst",
@@ -1064,7 +1064,7 @@
       "answer": "st",
       "after": "",
       "result": "du fährst",
-      "note": "fahren"
+      "note": "present tense of fahren"
     },
     {
       "id": "de_conjugation_he_travels_er_fahrt",
@@ -1074,7 +1074,7 @@
       "answer": "t",
       "after": "",
       "result": "er fährt",
-      "note": "fahren"
+      "note": "present tense of fahren"
     },
     {
       "id": "de_conjugation_we_travel_wir_fahren",
@@ -1084,7 +1084,7 @@
       "answer": "en",
       "after": "",
       "result": "wir fahren",
-      "note": "fahren"
+      "note": "present tense of fahren"
     },
     {
       "id": "de_agreement_ein_guter_mann_ein_guter_mann",

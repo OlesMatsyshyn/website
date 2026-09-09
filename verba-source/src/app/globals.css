@@ -827,6 +827,16 @@ h1 {
   margin: 0;
 }
 
+.form-feedback {
+  display: grid;
+  gap: 0.25rem;
+  overflow-wrap: anywhere;
+}
+
+.form-feedback p {
+  margin: 0;
+}
+
 .note {
   color: var(--muted);
 }

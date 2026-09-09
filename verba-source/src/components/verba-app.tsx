@@ -1377,7 +1377,7 @@ function TranslateExercise({
   }, []);
 
   function start() {
-    clearTranslateAdvanceTimer(advanceTimeout);
+    clearAdvanceTimer(advanceTimeout);
     const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, content.metadata.id);
     setQueue(nextQueue);
     setStarted(true);
@@ -1393,7 +1393,7 @@ function TranslateExercise({
     if (!current || feedback) return;
     const expected = translateExpected(current);
     const isExact = normalizeTranslateAnswer(answer) === normalizeTranslateAnswer(expected);
-    const isCorrect = isExact || (mode === "tolerant" && translateAnswerMatches(answer, expected, true, content.metadata.characterSubstitutions));
+    const isCorrect = translateAnswerMatches(answer, expected, mode === "tolerant", content.metadata.characterSubstitutions);
     const directionKey = translateDirectionKey(current.direction);
     onRecordTranslate(current.word.id, isCorrect, isExact, directionKey);
     const nextCorrect = correct + (isCorrect ? 1 : 0);
@@ -1402,14 +1402,14 @@ function TranslateExercise({
     setCorrect(nextCorrect);
     setSessionWeak(nextWeak);
     setFeedback({ correct: isCorrect, exact: isExact, userAnswer: answer, expected });
-    clearTranslateAdvanceTimer(advanceTimeout);
+    clearAdvanceTimer(advanceTimeout);
     advanceTimeout.current = window.setTimeout(() => {
       advance(nextCorrect, nextWeak);
     }, translateFeedbackDelay(isCorrect, expected, answer));
   }
 
   function advance(nextCorrect = correct, nextWeak = sessionWeak) {
-    clearTranslateAdvanceTimer(advanceTimeout);
+    clearAdvanceTimer(advanceTimeout);
     if (currentIndex + 1 >= queue.length) {
       const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, Math.max(5, Math.min(20, queue.length)));
       setResults({ correct: nextCorrect, attempts: queue.length, weak });
@@ -1746,8 +1746,16 @@ function FormsExercise({
   const [correct, setCorrect] = useState(0);
   const [attempts, setAttempts] = useState(0);
   const [weak, setWeak] = useState<string[]>([]);
+  const advanceTimeout = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      clearAdvanceTimer(advanceTimeout);
+    };
+  }, []);
 
   function start() {
+    clearAdvanceTimer(advanceTimeout);
     const selected = practiceIds.length
       ? forms.filter((item) => practiceIds.includes(item.id))
       : sampleStable(forms, sessionSize, `forms-${Date.now()}`);
@@ -1763,6 +1771,10 @@ function FormsExercise({
 
   function check() {
     if (!current) return;
+    if (message) {
+      advance();
+      return;
+    }
     const wasCorrect = answerMatches(answer, current.answer, mode === "tolerant", content.metadata.characterSubstitutions);
     setAttempts((value) => value + 1);
     setCorrect((value) => value + (wasCorrect ? 1 : 0));
@@ -1770,15 +1782,22 @@ function FormsExercise({
     setWeak((items) => (wasCorrect || items.includes(current.id) ? items : [...items, current.id]));
     onRecord("forms", current.id, wasCorrect);
 
-    window.setTimeout(() => {
-      setQueue((items) => {
-        const nextQueue = wasCorrect ? items : insertLater(items, current, 4);
-        setCurrent(nextQueue[0] ?? null);
-        return nextQueue.slice(1);
-      });
-      setAnswer("");
-      setMessage("");
-    }, wasCorrect ? 450 : 850);
+    if (wasCorrect) {
+      clearAdvanceTimer(advanceTimeout);
+      advanceTimeout.current = window.setTimeout(() => advance(true, current), 750);
+    }
+  }
+
+  function advance(wasCorrect = message === "right", item = current) {
+    clearAdvanceTimer(advanceTimeout);
+    if (!item) return;
+    setQueue((items) => {
+      const nextQueue = wasCorrect ? items : insertLater(items, item, 4);
+      setCurrent(nextQueue[0] ?? null);
+      return nextQueue.slice(1);
+    });
+    setAnswer("");
+    setMessage("");
   }
 
   if (!started) {
@@ -1829,26 +1848,40 @@ function FormsExercise({
             value={answer}
             onChange={(event) => setAnswer(event.target.value)}
             onKeyDown={(event) => {
-              if (event.key === "Enter") check();
+              if (event.key === "Enter") {
+                event.preventDefault();
+                check();
+              }
             }}
+            readOnly={Boolean(message)}
           />
           {current.after && <span>{current.after}</span>}
         </label>
         {message === "wrong" && (
-          <p className="feedback-line">
-            Answer: <strong>{current.answer || "(blank)"}</strong> → {current.result}
-          </p>
+          <div className="feedback-line form-feedback">
+            <p>Your answer: {answer || "(blank)"}</p>
+            <p>
+              Correct: <strong>{current.result}</strong>
+            </p>
+          </div>
         )}
         {message === "right" && <p className="feedback-line">Correct: {current.result}</p>}
         {message && current.note && (
           <p className="note">
-            {current.type}: {current.note}
+            Rule: {current.note}
           </p>
         )}
+        {message === "wrong" && (
+          <button className="ghost-button compact translate-next-button" type="button" onClick={() => advance(false)}>
+            Next
+          </button>
+        )}
       </article>
-      <button className="primary-button" type="button" onClick={check}>
-        Check
-      </button>
+      {!message && (
+        <button className="primary-button" type="button" onClick={check}>
+          Check
+        </button>
+      )}
     </section>
   );
 }
@@ -2160,10 +2193,16 @@ function translateDirectionKey(direction: Exclude<TranslateDirection, "mixed">):
 }
 
 function translateAnswerMatches(input: string, answer: string, tolerant: boolean, substitutions: CharacterSubstitutions = {}) {
-  const normalizedInput = normalizeTranslateAnswer(input);
-  const normalizedAnswer = normalizeTranslateAnswer(answer);
-  if (normalizedInput === normalizedAnswer) return true;
-  return answerMatches(normalizedInput, normalizedAnswer, tolerant, substitutions);
+  const inputCandidates = translateAnswerCandidates(input);
+  const answerCandidates = translateAnswerCandidates(answer);
+  for (const inputCandidate of inputCandidates) {
+    for (const answerCandidate of answerCandidates) {
+      if (inputCandidate === answerCandidate) return true;
+      if (tolerant && answerMatches(inputCandidate, answerCandidate, true, substitutions)) return true;
+      if (tolerant && tokenMultisetMatches(inputCandidate, answerCandidate, substitutions)) return true;
+    }
+  }
+  return false;
 }
 
 function translateFeedbackDelay(isCorrect: boolean, expected: string, userAnswer: string) {
@@ -2172,7 +2211,7 @@ function translateFeedbackDelay(isCorrect: boolean, expected: string, userAnswer
   return Math.min(6000, 2500 + textLength * 35);
 }
 
-function clearTranslateAdvanceTimer(timer: { current: number | null }) {
+function clearAdvanceTimer(timer: { current: number | null }) {
   if (!timer.current) return;
   window.clearTimeout(timer.current);
   timer.current = null;
@@ -2180,6 +2219,43 @@ function clearTranslateAdvanceTimer(timer: { current: number | null }) {
 
 function normalizeTranslateAnswer(value: string) {
   return value.trim().replace(/\s+/g, " ").replace(/[.。]+$/u, "").toLocaleLowerCase();
+}
+
+function translateAnswerCandidates(value: string) {
+  const normalized = normalizeTranslateAnswer(value);
+  const withoutParenthetical = stripTrailingParenthetical(normalized);
+  return Array.from(new Set([normalized, withoutParenthetical].filter(Boolean)));
+}
+
+function stripTrailingParenthetical(value: string) {
+  let current = value.trim();
+  let next = current.replace(/\s*\([^()]*\)\s*$/u, "").trim();
+  while (next !== current) {
+    current = next;
+    next = current.replace(/\s*\([^()]*\)\s*$/u, "").trim();
+  }
+  return current;
+}
+
+function tokenMultisetMatches(input: string, answer: string, substitutions: CharacterSubstitutions) {
+  const inputTokens = answerTokens(input);
+  const answerTokensList = answerTokens(answer);
+  if (inputTokens.length !== answerTokensList.length) return false;
+  const used = new Set<number>();
+  return inputTokens.every((inputToken) => {
+    const index = answerTokensList.findIndex((answerToken, candidateIndex) => !used.has(candidateIndex) && answerMatches(inputToken, answerToken, true, substitutions));
+    if (index === -1) return false;
+    used.add(index);
+    return true;
+  });
+}
+
+function answerTokens(value: string) {
+  return value
+    .replace(/[^\p{L}\p{N}'-]+/gu, " ")
+    .trim()
+    .split(/\s+/u)
+    .filter(Boolean);
 }
 
 function choiceClass(id: string, selected: boolean, done: boolean, feedback: { ids: string[]; state: "right" | "wrong" } | null) {

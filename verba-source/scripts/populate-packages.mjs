@@ -2354,7 +2354,7 @@ nie|never
       ["sprechen", "ich sprech", "e", "", "I speak"], ["sprechen", "du sprich", "st", "", "you speak"], ["sprechen", "er sprich", "t", "", "he speaks"], ["sprechen", "wir sprech", "en", "", "we speak"],
       ["essen", "ich ess", "e", "", "I eat"], ["essen", "du iss", "t", "", "you eat"], ["essen", "er iss", "t", "", "he eats"], ["essen", "wir ess", "en", "", "we eat"],
       ["fahren", "ich fahr", "e", "", "I travel"], ["fahren", "du fähr", "st", "", "you travel"], ["fahren", "er fähr", "t", "", "he travels"], ["fahren", "wir fahr", "en", "", "we travel"],
-    ].map(([verb, before, answer, after, prompt]) => form("de", "conjugation", prompt, before, answer, after, verb)),
+    ].map(([verb, before, answer, after, prompt]) => form("de", "conjugation", prompt, before, answer, after, `present tense of ${verb}`)),
     ...["ein guter Mann|ein guter Mann|gut masculine nominative", "eine gute Frau|eine gute Frau|gut feminine nominative", "ein gutes Kind|ein gutes Kind|gut neuter nominative", "den guten Mann|den guten Mann|accusative adjective", "mit einem guten Freund|mit einem guten Freund|dative adjective", "eine kleine Stadt|eine kleine Stadt|klein feminine", "ein kleines Dorf|ein kleines Dorf|klein neuter", "die großen Häuser|die großen Häuser|plural adjective", "ein alter Bahnhof|ein alter Bahnhof|alt masculine", "eine neue Wohnung|eine neue Wohnung|neu feminine"].map((entry) => {
       const [phrase, result, note] = entry.split("|");
       const answer = result.match(/[A-Za-zÄÖÜäöüß]+(?=\s[A-Za-zÄÖÜäöüß]+$)/)?.[0] ?? "";
@@ -2994,17 +2994,17 @@ aldri|never
 function romanianWords() {
   const base = words("ro", `
 eu|I
-tu|you singular
+tu|you (singular)
 el|he
 ea|she
 noi|we
-voi|you plural
-ei|they masculine
-ele|they feminine
-acesta|this one masculine
-aceasta|this one feminine
-acel|that masculine
-acea|that feminine
+voi|you (plural)
+ei|they (masculine plural)
+ele|they (feminine plural)
+acesta|this one (masculine/neuter singular)
+aceasta|this one (feminine singular)
+acel|that (masculine/neuter singular)
+acea|that (feminine singular)
 cine|who
 ce|what
 când|when
@@ -3464,12 +3464,12 @@ function romanianForms() {
   ];
   verbs.forEach(([verb, entries]) => {
     entries.forEach(([before, answer, prompt]) => {
-      if (answer) forms.push(form("ro", "conjugation", prompt, before, answer, "", verb));
+      if (answer) forms.push(form("ro", "conjugation", prompt, before, answer, "", `present tense of ${verb}`));
     });
   });
   [
     ["I went", "am ", "mers", "a merge"], ["I came", "am ", "venit", "a veni"], ["I did", "am ", "făcut", "a face"], ["I saw", "am ", "văzut", "a vedea"], ["I said", "am ", "spus", "a spune"], ["I worked", "am ", "lucrat", "a lucra"], ["I lived", "am ", "locuit", "a locui"], ["I learned", "am ", "învățat", "a învăța"], ["I ate", "am ", "mâncat", "a mânca"], ["I drank", "am ", "băut", "a bea"], ["I read", "am ", "citit", "a citi"], ["I wrote", "am ", "scris", "a scrie"],
-  ].forEach(([prompt, before, answer, note]) => forms.push(form("ro", "past", prompt, before, answer, "", note)));
+  ].forEach(([prompt, before, answer, note]) => forms.push(form("ro", "past", prompt, before, answer, "", `compound past of ${note}`)));
   [
     ["my book", "cartea ", "mea", "", "feminine possession"], ["my child", "copilul ", "meu", "", "masculine possession"], ["your house", "casa ", "ta", "", "feminine possession"], ["your friend", "prietenul ", "tău", "", "masculine possession"], ["our family", "familia ", "noastră", "", "feminine possession"], ["our city", "orașul ", "nostru", "", "masculine possession"],
     ["I speak with him", "vorbesc cu ", "el", "", "pronoun after preposition"], ["I speak with her", "vorbesc cu ", "ea", "", "pronoun after preposition"], ["for me", "pentru ", "mine", "", "prepositional pronoun"], ["for you", "pentru ", "tine", "", "prepositional pronoun"],

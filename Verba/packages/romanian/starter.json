@@ -44,7 +44,7 @@
     {
       "id": "ro_tu",
       "term": "tu",
-      "translation": "you singular"
+      "translation": "you (singular)"
     },
     {
       "id": "ro_el",
@@ -64,37 +64,37 @@
     {
       "id": "ro_voi",
       "term": "voi",
-      "translation": "you plural"
+      "translation": "you (plural)"
     },
     {
       "id": "ro_ei",
       "term": "ei",
-      "translation": "they masculine"
+      "translation": "they (masculine plural)"
     },
     {
       "id": "ro_ele",
       "term": "ele",
-      "translation": "they feminine"
+      "translation": "they (feminine plural)"
     },
     {
       "id": "ro_acesta",
       "term": "acesta",
-      "translation": "this one masculine"
+      "translation": "this one (masculine/neuter singular)"
     },
     {
       "id": "ro_aceasta",
       "term": "aceasta",
-      "translation": "this one feminine"
+      "translation": "this one (feminine singular)"
     },
     {
       "id": "ro_acel",
       "term": "acel",
-      "translation": "that masculine"
+      "translation": "that (masculine/neuter singular)"
     },
     {
       "id": "ro_acea",
       "term": "acea",
-      "translation": "that feminine"
+      "translation": "that (feminine singular)"
     },
     {
       "id": "ro_cine",
@@ -4757,7 +4757,7 @@
       "answer": "sunt",
       "after": "",
       "result": "eu sunt",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_you_are_tu_esti",
@@ -4767,7 +4767,7 @@
       "answer": "ești",
       "after": "",
       "result": "tu ești",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_he_is_el_este",
@@ -4777,7 +4777,7 @@
       "answer": "este",
       "after": "",
       "result": "el este",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_we_are_noi_suntem",
@@ -4787,7 +4787,7 @@
       "answer": "suntem",
       "after": "",
       "result": "noi suntem",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_you_plural_are_voi_sunteti",
@@ -4797,7 +4797,7 @@
       "answer": "sunteți",
       "after": "",
       "result": "voi sunteți",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_they_are_ei_sunt",
@@ -4807,7 +4807,7 @@
       "answer": "sunt",
       "after": "",
       "result": "ei sunt",
-      "note": "a fi"
+      "note": "present tense of a fi"
     },
     {
       "id": "ro_conjugation_i_have_eu_am",
@@ -4817,7 +4817,7 @@
       "answer": "m",
       "after": "",
       "result": "eu am",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_you_have_tu_ai",
@@ -4827,7 +4827,7 @@
       "answer": "i",
       "after": "",
       "result": "tu ai",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_he_has_el_are",
@@ -4837,7 +4837,7 @@
       "answer": "e",
       "after": "",
       "result": "el are",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_we_have_noi_avem",
@@ -4847,7 +4847,7 @@
       "answer": "em",
       "after": "",
       "result": "noi avem",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_you_plural_have_voi_aveti",
@@ -4857,7 +4857,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi aveți",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_they_have_ei_au",
@@ -4867,7 +4867,7 @@
       "answer": "u",
       "after": "",
       "result": "ei au",
-      "note": "a avea"
+      "note": "present tense of a avea"
     },
     {
       "id": "ro_conjugation_you_go_tu_mergi",
@@ -4877,7 +4877,7 @@
       "answer": "i",
       "after": "",
       "result": "tu mergi",
-      "note": "a merge"
+      "note": "present tense of a merge"
     },
     {
       "id": "ro_conjugation_he_goes_el_merge",
@@ -4887,7 +4887,7 @@
       "answer": "e",
       "after": "",
       "result": "el merge",
-      "note": "a merge"
+      "note": "present tense of a merge"
     },
     {
       "id": "ro_conjugation_we_go_noi_mergem",
@@ -4897,7 +4897,7 @@
       "answer": "em",
       "after": "",
       "result": "noi mergem",
-      "note": "a merge"
+      "note": "present tense of a merge"
     },
     {
       "id": "ro_conjugation_you_plural_go_voi_mergeti",
@@ -4907,7 +4907,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi mergeți",
-      "note": "a merge"
+      "note": "present tense of a merge"
     },
     {
       "id": "ro_conjugation_i_come_eu_vin",
@@ -4917,7 +4917,7 @@
       "answer": "in",
       "after": "",
       "result": "eu vin",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_you_come_tu_vii",
@@ -4927,7 +4927,7 @@
       "answer": "ii",
       "after": "",
       "result": "tu vii",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_he_comes_el_vine",
@@ -4937,7 +4937,7 @@
       "answer": "ine",
       "after": "",
       "result": "el vine",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_we_come_noi_venim",
@@ -4947,7 +4947,7 @@
       "answer": "im",
       "after": "",
       "result": "noi venim",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_you_plural_come_voi_veniti",
@@ -4957,7 +4957,7 @@
       "answer": "iți",
       "after": "",
       "result": "voi veniți",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_they_come_ei_vin",
@@ -4967,7 +4967,7 @@
       "answer": "in",
       "after": "",
       "result": "ei vin",
-      "note": "a veni"
+      "note": "present tense of a veni"
     },
     {
       "id": "ro_conjugation_you_do_tu_faci",
@@ -4977,7 +4977,7 @@
       "answer": "i",
       "after": "",
       "result": "tu faci",
-      "note": "a face"
+      "note": "present tense of a face"
     },
     {
       "id": "ro_conjugation_he_does_el_face",
@@ -4987,7 +4987,7 @@
       "answer": "e",
       "after": "",
       "result": "el face",
-      "note": "a face"
+      "note": "present tense of a face"
     },
     {
       "id": "ro_conjugation_we_do_noi_facem",
@@ -4997,7 +4997,7 @@
       "answer": "em",
       "after": "",
       "result": "noi facem",
-      "note": "a face"
+      "note": "present tense of a face"
     },
     {
       "id": "ro_conjugation_you_plural_do_voi_faceti",
@@ -5007,7 +5007,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi faceți",
-      "note": "a face"
+      "note": "present tense of a face"
     },
     {
       "id": "ro_conjugation_i_say_eu_spun",
@@ -5017,7 +5017,7 @@
       "answer": "un",
       "after": "",
       "result": "eu spun",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_you_say_tu_spui",
@@ -5027,7 +5027,7 @@
       "answer": "ui",
       "after": "",
       "result": "tu spui",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_he_says_el_spune",
@@ -5037,7 +5037,7 @@
       "answer": "une",
       "after": "",
       "result": "el spune",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_we_say_noi_spunem",
@@ -5047,7 +5047,7 @@
       "answer": "em",
       "after": "",
       "result": "noi spunem",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_you_plural_say_voi_spuneti",
@@ -5057,7 +5057,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi spuneți",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_they_say_ei_spun",
@@ -5067,7 +5067,7 @@
       "answer": "un",
       "after": "",
       "result": "ei spun",
-      "note": "a spune"
+      "note": "present tense of a spune"
     },
     {
       "id": "ro_conjugation_i_see_eu_vad",
@@ -5077,7 +5077,7 @@
       "answer": "ăd",
       "after": "",
       "result": "eu văd",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_you_see_tu_vezi",
@@ -5087,7 +5087,7 @@
       "answer": "i",
       "after": "",
       "result": "tu vezi",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_he_sees_el_vede",
@@ -5097,7 +5097,7 @@
       "answer": "e",
       "after": "",
       "result": "el vede",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_we_see_noi_vedem",
@@ -5107,7 +5107,7 @@
       "answer": "em",
       "after": "",
       "result": "noi vedem",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_you_plural_see_voi_vedeti",
@@ -5117,7 +5117,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi vedeți",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_they_see_ei_vad",
@@ -5127,7 +5127,7 @@
       "answer": "ăd",
       "after": "",
       "result": "ei văd",
-      "note": "a vedea"
+      "note": "present tense of a vedea"
     },
     {
       "id": "ro_conjugation_i_know_eu_stiu",
@@ -5137,7 +5137,7 @@
       "answer": "iu",
       "after": "",
       "result": "eu știu",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_you_know_tu_stii",
@@ -5147,7 +5147,7 @@
       "answer": "ii",
       "after": "",
       "result": "tu știi",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_he_knows_el_stie",
@@ -5157,7 +5157,7 @@
       "answer": "ie",
       "after": "",
       "result": "el știe",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_we_know_noi_stim",
@@ -5167,7 +5167,7 @@
       "answer": "im",
       "after": "",
       "result": "noi știm",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_you_plural_know_voi_stiti",
@@ -5177,7 +5177,7 @@
       "answer": "iți",
       "after": "",
       "result": "voi știți",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_they_know_ei_stiu",
@@ -5187,7 +5187,7 @@
       "answer": "iu",
       "after": "",
       "result": "ei știu",
-      "note": "a ști"
+      "note": "present tense of a ști"
     },
     {
       "id": "ro_conjugation_i_can_eu_pot",
@@ -5197,7 +5197,7 @@
       "answer": "ot",
       "after": "",
       "result": "eu pot",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_you_can_tu_poti",
@@ -5207,7 +5207,7 @@
       "answer": "i",
       "after": "",
       "result": "tu poți",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_he_can_el_poate",
@@ -5217,7 +5217,7 @@
       "answer": "e",
       "after": "",
       "result": "el poate",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_we_can_noi_putem",
@@ -5227,7 +5227,7 @@
       "answer": "em",
       "after": "",
       "result": "noi putem",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_you_plural_can_voi_puteti",
@@ -5237,7 +5237,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi puteți",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_they_can_ei_pot",
@@ -5247,7 +5247,7 @@
       "answer": "ot",
       "after": "",
       "result": "ei pot",
-      "note": "a putea"
+      "note": "present tense of a putea"
     },
     {
       "id": "ro_conjugation_i_want_eu_vreau",
@@ -5257,7 +5257,7 @@
       "answer": "eau",
       "after": "",
       "result": "eu vreau",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_you_want_tu_vrei",
@@ -5267,7 +5267,7 @@
       "answer": "ei",
       "after": "",
       "result": "tu vrei",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_he_wants_el_vrea",
@@ -5277,7 +5277,7 @@
       "answer": "ea",
       "after": "",
       "result": "el vrea",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_we_want_noi_vrem",
@@ -5287,7 +5287,7 @@
       "answer": "em",
       "after": "",
       "result": "noi vrem",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_you_plural_want_voi_vreti",
@@ -5297,7 +5297,7 @@
       "answer": "eți",
       "after": "",
       "result": "voi vreți",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_they_want_ei_vreau",
@@ -5307,7 +5307,7 @@
       "answer": "eau",
       "after": "",
       "result": "ei vreau",
-      "note": "a vrea"
+      "note": "present tense of a vrea"
     },
     {
       "id": "ro_conjugation_i_work_eu_lucrez",
@@ -5317,7 +5317,7 @@
       "answer": "ez",
       "after": "",
       "result": "eu lucrez",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_you_work_tu_lucrezi",
@@ -5327,7 +5327,7 @@
       "answer": "ezi",
       "after": "",
       "result": "tu lucrezi",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_he_works_el_lucreaza",
@@ -5337,7 +5337,7 @@
       "answer": "ează",
       "after": "",
       "result": "el lucrează",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_we_work_noi_lucram",
@@ -5347,7 +5347,7 @@
       "answer": "ăm",
       "after": "",
       "result": "noi lucrăm",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_you_plural_work_voi_lucrati",
@@ -5357,7 +5357,7 @@
       "answer": "ați",
       "after": "",
       "result": "voi lucrați",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_they_work_ei_lucreaza",
@@ -5367,7 +5367,7 @@
       "answer": "ează",
       "after": "",
       "result": "ei lucrează",
-      "note": "a lucra"
+      "note": "present tense of a lucra"
     },
     {
       "id": "ro_conjugation_i_live_eu_locuiesc",
@@ -5377,7 +5377,7 @@
       "answer": "iesc",
       "after": "",
       "result": "eu locuiesc",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_you_live_tu_locuiesti",
@@ -5387,7 +5387,7 @@
       "answer": "iești",
       "after": "",
       "result": "tu locuiești",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_he_lives_el_locuieste",
@@ -5397,7 +5397,7 @@
       "answer": "iește",
       "after": "",
       "result": "el locuiește",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_we_live_noi_locuim",
@@ -5407,7 +5407,7 @@
       "answer": "im",
       "after": "",
       "result": "noi locuim",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_you_plural_live_voi_locuiti",
@@ -5417,7 +5417,7 @@
       "answer": "iți",
       "after": "",
       "result": "voi locuiți",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_they_live_ei_locuiesc",
@@ -5427,7 +5427,7 @@
       "answer": "iesc",
       "after": "",
       "result": "ei locuiesc",
-      "note": "a locui"
+      "note": "present tense of a locui"
     },
     {
       "id": "ro_conjugation_i_speak_eu_vorbesc",
@@ -5437,7 +5437,7 @@
       "answer": "esc",
       "after": "",
       "result": "eu vorbesc",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_you_speak_tu_vorbesti",
@@ -5447,7 +5447,7 @@
       "answer": "ești",
       "after": "",
       "result": "tu vorbești",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_he_speaks_el_vorbeste",
@@ -5457,7 +5457,7 @@
       "answer": "ește",
       "after": "",
       "result": "el vorbește",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_we_speak_noi_vorbim",
@@ -5467,7 +5467,7 @@
       "answer": "im",
       "after": "",
       "result": "noi vorbim",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_you_plural_speak_voi_vorbiti",
@@ -5477,7 +5477,7 @@
       "answer": "iți",
       "after": "",
       "result": "voi vorbiți",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_they_speak_ei_vorbesc",
@@ -5487,7 +5487,7 @@
       "answer": "esc",
       "after": "",
       "result": "ei vorbesc",
-      "note": "a vorbi"
+      "note": "present tense of a vorbi"
     },
     {
       "id": "ro_conjugation_i_learn_eu_invat",
@@ -5497,7 +5497,7 @@
       "answer": "ăț",
       "after": "",
       "result": "eu învăț",
-      "note": "a învăța"
+      "note": "present tense of a învăța"
     }
   ],
   "reference": {
