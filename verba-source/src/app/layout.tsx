@@ -5,6 +5,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vérba",
   description: "Fast vocabulary, text, and grammar form practice.",
+  alternates: {
+    canonical: "https://olesmatsyshyn.github.io/website/verba.html",
+  },
   manifest: withBasePath("/manifest.webmanifest"),
   icons: {
     icon: withBasePath("/icons/verba.svg"),

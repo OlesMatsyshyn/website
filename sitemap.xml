@@ -2,32 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://olesmatsyshyn.github.io/website/</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://olesmatsyshyn.github.io/website/news.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://olesmatsyshyn.github.io/website/academia.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://olesmatsyshyn.github.io/website/quant.html</loc>
-  </url>
-  <url>
-    <loc>https://olesmatsyshyn.github.io/website/vyrva.html</loc>
-  </url>
-  <url>
-    <loc>https://olesmatsyshyn.github.io/website/wellcanvas.html</loc>
-  </url>
-  <url>
-    <loc>https://olesmatsyshyn.github.io/website/verba.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://olesmatsyshyn.github.io/website/public-outreach.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
-    <loc>https://olesmatsyshyn.github.io/website/Verba/</loc>
+    <loc>https://olesmatsyshyn.github.io/website/vyrva.html</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://olesmatsyshyn.github.io/website/wellcanvas.html</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://olesmatsyshyn.github.io/website/verba.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://olesmatsyshyn.github.io/website/about.html</loc>
+    <lastmod>2026-09-10</lastmod>
   </url>
 </urlset>
