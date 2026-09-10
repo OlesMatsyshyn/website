@@ -1,5 +1,5 @@
 import { withBasePath } from "@/lib/deployment";
-import type { CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair } from "@/lib/types";
+import type { CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair, WordSet } from "@/lib/types";
 
 const DB_NAME = "verba-packages";
 const DB_VERSION = 2;
@@ -114,6 +114,7 @@ export async function appendCustomContent(packageId: string, additions: Partial<
     words: [...current.words, ...(additions.words ?? [])],
     texts: [...current.texts, ...(additions.texts ?? [])],
     forms: [...current.forms, ...(additions.forms ?? [])],
+    wordSets: mergeWordSets(current.wordSets, additions.wordSets ?? []),
   });
   await saveCustomContent(next);
   return next;
@@ -141,7 +142,7 @@ export async function createLocalPackage(title: string, language = title, langua
     forms: [],
   });
   await saveInstalledPackage(coursePackage);
-  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [] });
+  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [], wordSets: [] });
   return coursePackage;
 }
 
@@ -260,7 +261,41 @@ function normalizeCustomContent(value: unknown): CustomPackageContent {
     forms: Array.isArray(candidate.forms)
       ? candidate.forms.map((item) => normalizeCustomForm(item))
       : [],
+    wordSets: Array.isArray(candidate.wordSets)
+      ? candidate.wordSets.map((item) => normalizeWordSet(item, candidate.packageId ?? "")).filter((item) => item.title)
+      : [],
   };
+}
+
+function normalizeWordSet(item: Partial<WordSet>, packageId: string): WordSet {
+  const uniqueWordIds = Array.from(new Set((Array.isArray(item.wordIds) ? item.wordIds : []).filter((id): id is string => typeof id === "string" && Boolean(id.trim()))));
+  return {
+    id: item.id ?? makeLocalId("set"),
+    packageId: item.packageId ?? packageId,
+    title: item.title?.trim() ?? "",
+    wordIds: uniqueWordIds,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
+  };
+}
+
+function mergeWordSets(current: WordSet[], additions: WordSet[]) {
+  const byTitle = new Map(current.map((set) => [set.title.trim().toLocaleLowerCase(), { ...set, wordIds: [...set.wordIds] }]));
+  additions.forEach((set) => {
+    const key = set.title.trim().toLocaleLowerCase();
+    if (!key) return;
+    const existing = byTitle.get(key);
+    if (!existing) {
+      byTitle.set(key, { ...set, wordIds: Array.from(new Set(set.wordIds)) });
+      return;
+    }
+    byTitle.set(key, {
+      ...existing,
+      updatedAt: new Date().toISOString(),
+      wordIds: Array.from(new Set([...existing.wordIds, ...set.wordIds])),
+    });
+  });
+  return Array.from(byTitle.values());
 }
 
 function normalizeCustomForm(item: Partial<FormExercise>): FormExercise {

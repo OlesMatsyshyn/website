@@ -526,6 +526,9 @@ h1 {
 }
 
 .local-package-form input,
+.pool-select,
+.word-set-create input,
+.word-set-editor input,
 .import-dialog textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -533,6 +536,11 @@ h1 {
   background: white;
   color: var(--ink);
   padding: 0.75rem 0.85rem;
+}
+
+.pool-select {
+  min-height: 2.8rem;
+  font-weight: 750;
 }
 
 .compact-button {
@@ -543,6 +551,74 @@ h1 {
 .local-entry {
   display: grid;
   gap: 0.6rem;
+}
+
+.word-set-summary,
+.word-set-editor,
+.word-checkbox-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.word-set-summary > div,
+.word-set-row,
+.word-set-create,
+.word-checkbox-row {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.word-set-summary > div {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.word-set-summary > div strong {
+  color: var(--ink);
+}
+
+.word-set-create {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.word-set-editor {
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.word-set-editor h3 {
+  margin: 0 0 0.15rem;
+}
+
+.word-checkbox-list {
+  max-height: 24rem;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+
+.word-checkbox-row {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.64);
+  padding: 0.65rem;
+}
+
+.word-checkbox-row input {
+  margin-top: 0.22rem;
+}
+
+.word-checkbox-row span {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.word-checkbox-row small {
+  color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 .local-entry {
@@ -945,9 +1021,14 @@ h1 {
 
   .local-package-panel,
   .local-content-heading,
-  .local-entry {
+  .local-entry,
+  .word-set-row {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
+  }
+
+  .word-set-row {
+    grid-template-columns: minmax(0, 1fr) auto auto;
   }
 
   .modal-backdrop {

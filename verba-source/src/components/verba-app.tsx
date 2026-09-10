@@ -51,6 +51,7 @@ import type {
   TextExercise,
   WordPair,
   CustomPackageContent,
+  WordSet,
 } from "@/lib/types";
 
 type Screen = "home" | "words" | "match" | "choose" | "translate" | "text" | "forms" | "progress" | "library" | "reference" | "anthem" | "manage-local";
@@ -263,7 +264,7 @@ export function VerbaApp() {
     if (!activePackage) return { added: 0, duplicates: 0, ignored: 0 };
     const parsed = parseImport(kind, raw, activePackage, customContent[activePackage.metadata.id]);
     if (parsed.added > 0) {
-      const additions = kind === "words" ? { words: parsed.words } : kind === "texts" ? { texts: parsed.texts } : { forms: parsed.forms };
+      const additions = kind === "words" ? { words: parsed.words, wordSets: parsed.wordSets } : kind === "texts" ? { texts: parsed.texts } : { forms: parsed.forms };
       await appendCustomContent(activePackage.metadata.id, additions);
       await refreshInstalled();
     }
@@ -383,6 +384,7 @@ export function VerbaApp() {
         <WordsScreen
           packageTitle={activePackage.metadata.title}
           wordCount={activePackage.words.length}
+          wordSets={customContent[activePackage.metadata.id]?.wordSets ?? []}
           onBack={goHome}
           onMatch={() => {
             setPractice(null);
@@ -406,6 +408,7 @@ export function VerbaApp() {
           packageTitle={activePackage.metadata.title}
           practiceIds={practice?.kind === "match" ? practice.ids : []}
           words={activePackage.words}
+          wordSets={customContent[activePackage.metadata.id]?.wordSets ?? []}
           languageLabel={activePackage.metadata.language}
           matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
           chooseProgress={progress.packages[activePackage.metadata.id]?.choose ?? {}}
@@ -421,6 +424,7 @@ export function VerbaApp() {
         <ChooseExercise
           key={`${activePackage.metadata.id}-choose-${practice?.kind === "choose" ? practice.ids.join("-") : "fresh"}`}
           content={activePackage}
+          wordSets={customContent[activePackage.metadata.id]?.wordSets ?? []}
           practiceIds={practice?.kind === "choose" ? practice.ids : []}
           chooseProgress={progress.packages[activePackage.metadata.id]?.choose ?? {}}
           translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
@@ -436,6 +440,7 @@ export function VerbaApp() {
         <TranslateExercise
           key={`${activePackage.metadata.id}-translate-${practice?.kind === "translate" ? practice.ids.join("-") : "fresh"}`}
           content={activePackage}
+          wordSets={customContent[activePackage.metadata.id]?.wordSets ?? []}
           practiceIds={practice?.kind === "translate" ? practice.ids : []}
           translateProgress={progress.packages[activePackage.metadata.id]?.translate ?? {}}
           matchProgress={progress.packages[activePackage.metadata.id]?.match ?? {}}
@@ -547,6 +552,7 @@ function HomeScreen({
 function WordsScreen({
   packageTitle,
   wordCount,
+  wordSets,
   onBack,
   onMatch,
   onChoose,
@@ -555,6 +561,7 @@ function WordsScreen({
 }: {
   packageTitle: string;
   wordCount: number;
+  wordSets: WordSet[];
   onBack: () => void;
   onMatch: () => void;
   onChoose: () => void;
@@ -564,6 +571,7 @@ function WordsScreen({
   return (
     <section className="workout">
       <ExerciseHeader title="Words" onBack={onBack} meta={packageTitle} />
+      {wordSets.length > 0 && <p className="setup-help">{wordSets.length} named word {wordSets.length === 1 ? "set" : "sets"} available.</p>}
       <div className="vocabulary-mode-grid">
         <button className="exercise-card primary-card compact-mode-card" type="button" onClick={onMatch} disabled={!wordCount}>
           <span>Match</span>
@@ -832,7 +840,7 @@ function LibraryScreen({
                       <p className="package-level">
                         {item.wordCount} words · {item.textCount} texts · {item.formCount} forms
                       </p>
-                      {local.total > 0 && <p className="package-local-count">+ {countLine(local.words, local.texts, local.forms)} local</p>}
+                      {local.total > 0 && <p className="package-local-count">+ {countLine(local.words, local.texts, local.forms, local.wordSets)} local</p>}
                     </div>
                     <div className="package-actions">
                       {isInstalled ? (
@@ -893,12 +901,15 @@ function ManageLocalContentScreen({
   onSave: (packageId: string, content: CustomPackageContent) => void;
 }) {
   const coursePackage = installed.find((item) => item.metadata.id === packageId);
-  const content = customContent[packageId] ?? { packageId, words: [], texts: [], forms: [] };
+  const content = customContent[packageId] ?? { packageId, words: [], texts: [], forms: [], wordSets: [] };
+  const words = [...(coursePackage?.words ?? []), ...content.words];
 
   function removeEntry(kind: ImportKind, id: string) {
+    const nextWordSets = kind === "words" ? content.wordSets.map((set) => ({ ...set, wordIds: set.wordIds.filter((wordId) => wordId !== id) })) : content.wordSets;
     const next = {
       ...content,
       [kind]: content[kind].filter((item) => item.id !== id),
+      wordSets: nextWordSets,
     };
     onSave(packageId, next);
   }
@@ -907,7 +918,9 @@ function ManageLocalContentScreen({
     const count = content[kind].length;
     if (!count) return;
     if (!window.confirm(`Remove ${count} local ${kind} from "${coursePackage?.metadata.title ?? "this package"}"?`)) return;
-    onSave(packageId, { ...content, [kind]: [] });
+    const removedWordIds = kind === "words" ? new Set(content.words.map((word) => word.id)) : new Set<string>();
+    const nextWordSets = kind === "words" ? content.wordSets.map((set) => ({ ...set, wordIds: set.wordIds.filter((wordId) => !removedWordIds.has(wordId)) })) : content.wordSets;
+    onSave(packageId, { ...content, [kind]: [], wordSets: nextWordSets });
   }
 
   return (
@@ -919,6 +932,12 @@ function ManageLocalContentScreen({
         labelFor={(item) => `${termForWord(item)} — ${translationForWord(item)}`}
         onRemove={(id) => removeEntry("words", id)}
         onClear={() => clearKind("words")}
+      />
+      <WordSetsSection
+        packageId={packageId}
+        words={words}
+        wordSets={content.wordSets}
+        onChange={(wordSets) => onSave(packageId, { ...content, wordSets })}
       />
       <LocalContentSection
         title="Texts"
@@ -934,6 +953,111 @@ function ManageLocalContentScreen({
         onRemove={(id) => removeEntry("forms", id)}
         onClear={() => clearKind("forms")}
       />
+    </section>
+  );
+}
+
+function WordSetsSection({
+  packageId,
+  words,
+  wordSets,
+  onChange,
+}: {
+  packageId: string;
+  words: WordPair[];
+  wordSets: WordSet[];
+  onChange: (wordSets: WordSet[]) => void;
+}) {
+  const [newTitle, setNewTitle] = useState("");
+  const [editingId, setEditingId] = useState("");
+  const [search, setSearch] = useState("");
+  const namedMemberships = new Set(wordSets.flatMap((set) => set.wordIds));
+  const generalCount = words.filter((word) => word.custom && !namedMemberships.has(word.id)).length;
+  const editingSet = wordSets.find((set) => set.id === editingId) ?? null;
+  const filteredWords = words.filter((word) => normalizeDuplicateKey(termForWord(word), translationForWord(word)).includes(search.trim().toLocaleLowerCase())).slice(0, 150);
+
+  function createSet() {
+    const title = newTitle.trim();
+    if (!title) return;
+    const now = new Date().toISOString();
+    onChange([...wordSets, { id: localId("set"), packageId, title, wordIds: [], createdAt: now, updatedAt: now }]);
+    setNewTitle("");
+  }
+
+  function renameSet(set: WordSet) {
+    const title = window.prompt("Rename word set", set.title)?.trim();
+    if (!title) return;
+    onChange(wordSets.map((item) => (item.id === set.id ? { ...item, title, updatedAt: new Date().toISOString() } : item)));
+  }
+
+  function deleteSet(set: WordSet) {
+    if (!window.confirm(`Delete "${set.title}"? Vocabulary words will stay in the package.`)) return;
+    onChange(wordSets.filter((item) => item.id !== set.id));
+    if (editingId === set.id) setEditingId("");
+  }
+
+  function toggleWord(wordId: string, checked: boolean) {
+    if (!editingSet) return;
+    const nextIds = checked ? Array.from(new Set([...editingSet.wordIds, wordId])) : editingSet.wordIds.filter((id) => id !== wordId);
+    onChange(wordSets.map((set) => (set.id === editingSet.id ? { ...set, wordIds: nextIds, updatedAt: new Date().toISOString() } : set)));
+  }
+
+  return (
+    <section className="panel local-content-section">
+      <div className="local-content-heading">
+        <div>
+          <h2>Word sets</h2>
+          <p className="setup-help">Sets organize vocabulary by ID. Deleting a set does not delete words.</p>
+        </div>
+      </div>
+      <div className="word-set-summary">
+        <div><strong>All words</strong><span>{words.length}</span></div>
+        {generalCount > 0 && <div><strong>General</strong><span>{generalCount}</span></div>}
+        {wordSets.map((set) => (
+          <article className="word-set-row" key={set.id}>
+            <button className="ghost-button compact" type="button" onClick={() => setEditingId(set.id)}>
+              {set.title} · {validSetWordIds(set, words).length}
+            </button>
+            <button className="ghost-button compact" type="button" onClick={() => renameSet(set)}>
+              Rename
+            </button>
+            <button className="ghost-button compact" type="button" onClick={() => deleteSet(set)}>
+              Delete
+            </button>
+          </article>
+        ))}
+      </div>
+      <div className="word-set-create">
+        <input value={newTitle} onChange={(event) => setNewTitle(event.target.value)} placeholder="New word set title" />
+        <button className="ghost-button compact" type="button" onClick={createSet} disabled={!newTitle.trim()}>
+          New word set
+        </button>
+      </div>
+      {editingSet && (
+        <div className="word-set-editor">
+          <div className="local-content-heading">
+            <div>
+              <h3>{editingSet.title}</h3>
+              <p className="setup-help">{validSetWordIds(editingSet, words).length} selected</p>
+            </div>
+            <button className="ghost-button compact" type="button" onClick={() => setEditingId("")}>
+              Done
+            </button>
+          </div>
+          <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search words" />
+          <div className="word-checkbox-list">
+            {filteredWords.map((word) => (
+              <label className="word-checkbox-row" key={word.id}>
+                <input type="checkbox" checked={editingSet.wordIds.includes(word.id)} onChange={(event) => toggleWord(word.id, event.target.checked)} />
+                <span>
+                  <strong>{termForWord(word)}</strong>
+                  <small>{translationForWord(word)}</small>
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -1098,6 +1222,7 @@ function ImportDialog({
 
 function MatchExercise({
   words,
+  wordSets,
   practiceIds,
   packageTitle,
   languageLabel,
@@ -1110,6 +1235,7 @@ function MatchExercise({
   onRecordMatch,
 }: {
   words: WordPair[];
+  wordSets: WordSet[];
   practiceIds: string[];
   packageTitle: string;
   languageLabel: string;
@@ -1121,7 +1247,10 @@ function MatchExercise({
   onPracticeMistakes: (ids: string[]) => void;
   onRecordMatch: (itemId: string, wasCorrect: boolean, rank: number, total: number) => void;
 }) {
-  const [pairsPerRound, setPairsPerRound] = useState(practiceIds.length || Math.min(5, words.length));
+  const [wordPoolId, setWordPoolId] = useState(practiceIds.length ? "weak" : "all");
+  const poolOptions = wordPoolOptions(words, wordSets, practiceIds);
+  const poolWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
+  const [pairsPerRound, setPairsPerRound] = useState(practiceIds.length || Math.min(5, Math.max(1, poolWords.length)));
   const [roundCount, setRoundCount] = useState(5);
   const [mode, setMode] = useState<CorrectionMode>("immediate");
   const [started, setStarted] = useState(false);
@@ -1144,21 +1273,23 @@ function MatchExercise({
   const [pairOrder, setPairOrder] = useState<string[]>([]);
   const [results, setResults] = useState<{ correct: number; attempts: number; weak: string[] } | null>(null);
   const shuffleSeedRef = useRef(0);
+  const currentPairsPerRound = Math.min(pairsPerRound, Math.max(1, poolWords.length));
 
   function start() {
+    const selectedWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
     setStarted(true);
     setCumulativeCorrect(0);
     setCumulativeMistakes(0);
     setSessionWeak({});
     setSeenIds([]);
     setResults(null);
-    beginRound(1, {}, []);
+    beginRound(1, {}, [], selectedWords);
   }
 
-  function beginRound(roundNumber: number, weakMap = sessionWeak, alreadySeen = seenIds) {
+  function beginRound(roundNumber: number, weakMap = sessionWeak, alreadySeen = seenIds, availableWords = poolWords) {
     shuffleSeedRef.current += 1;
     const shuffleSalt = `${roundNumber}-${shuffleSeedRef.current}`;
-    const selected = sampleMatchRound(words, practiceIds, pairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, chooseProgress, translateProgress, shuffleSalt);
+    const selected = sampleMatchRound(availableWords, [], currentPairsPerRound, roundNumber, weakMap, alreadySeen, matchProgress, chooseProgress, translateProgress, shuffleSalt);
     const nextSeen = Array.from(new Set([...alreadySeen, ...selected.map((word) => word.id)]));
     setCurrentRound(roundNumber);
     setRoundWords(selected);
@@ -1262,12 +1393,12 @@ function MatchExercise({
         setResults({
           correct: nextCorrect,
           attempts: nextCorrect + nextMistakes,
-          weak: selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, roundWords.length * roundCount))),
+          weak: selectWeakVocabularyIds(poolWords, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, roundWords.length * roundCount))),
         });
         setAdvancing(false);
         return;
       }
-      beginRound(currentRound + 1, nextWeak, seenIds);
+      beginRound(currentRound + 1, nextWeak, seenIds, poolWords);
     }, 600);
   }
 
@@ -1278,12 +1409,21 @@ function MatchExercise({
 
   if (!started) {
     return (
-      <SetupPanel title="Match" onBack={onBack} onStart={start} startDisabled={!words.length}>
+      <SetupPanel title="Match" onBack={onBack} onStart={start} startDisabled={!poolWords.length}>
         <p className="setup-package">{packageTitle}</p>
+        <WordPoolSelect
+          value={wordPoolId}
+          options={poolOptions}
+          onChange={(value) => {
+            const nextWords = wordsForPool(words, wordSets, value, practiceIds);
+            setWordPoolId(value);
+            if (nextWords.length > 0 && pairsPerRound > nextWords.length) setPairsPerRound(nextWords.length);
+          }}
+        />
         <Segmented
           label="Words per round"
-          options={(practiceIds.length ? [Math.min(practiceIds.length, words.length)] : pairOptions.filter((option) => option <= words.length)).map(String)}
-          value={String(pairsPerRound)}
+          options={matchPairOptions(poolWords.length).map(String)}
+          value={String(currentPairsPerRound)}
           onChange={(value) => setPairsPerRound(Number(value))}
         />
         <p className="setup-help">Number of matching pairs visible on one board.</p>
@@ -1293,7 +1433,7 @@ function MatchExercise({
           value={String(roundCount)}
           onChange={(value) => setRoundCount(Number(value))}
         />
-        <p className="setup-help">{pairsPerRound} pairs per board · {roundCount} boards in this session.</p>
+        <p className="setup-help">{currentPairsPerRound} pairs per board · {roundCount} boards in this session.</p>
         <Segmented
           label="Correction"
           options={["immediate", "submit"]}
@@ -1302,6 +1442,7 @@ function MatchExercise({
           onChange={(value) => setMode(value as CorrectionMode)}
         />
         <p className="setup-help">{mode === "immediate" ? "Check each match as you make it." : "Complete the board first, then check all matches."}</p>
+        {!poolWords.length && <p className="setup-help">No vocabulary in this pool yet.</p>}
         <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
           Add words manually
         </button>
@@ -1321,6 +1462,12 @@ function MatchExercise({
         weak={weakNames}
         onBack={onBack}
         backLabel="Finish"
+        tryMoreLabel="Try more"
+        onTryMore={() => {
+          setStarted(false);
+          setResults(null);
+          setAdvancing(false);
+        }}
         practiceLabel="Practice weak words"
         onPracticeMistakes={results.weak.length ? () => onPracticeMistakes(results.weak) : undefined}
       />
@@ -1375,6 +1522,7 @@ function MatchExercise({
 
 function ChooseExercise({
   content,
+  wordSets,
   practiceIds,
   chooseProgress,
   translateProgress,
@@ -1385,6 +1533,7 @@ function ChooseExercise({
   onRecordChoose,
 }: {
   content: CoursePackage;
+  wordSets: WordSet[];
   practiceIds: string[];
   chooseProgress: Record<string, ItemProgress>;
   translateProgress: Record<string, ItemProgress>;
@@ -1395,6 +1544,7 @@ function ChooseExercise({
   onRecordChoose: (itemId: string, wasCorrect: boolean) => void;
 }) {
   const preferredDirection = content.metadata.preferredTranslateDirection ?? "mixed";
+  const [wordPoolId, setWordPoolId] = useState(practiceIds.length ? "weak" : "all");
   const [direction, setDirection] = useState<TranslateDirection>(practiceIds.length ? "mixed" : preferredDirection);
   const [questionCount, setQuestionCount] = useState(10);
   const [started, setStarted] = useState(false);
@@ -1406,6 +1556,8 @@ function ChooseExercise({
   const [results, setResults] = useState<{ correct: number; attempts: number; weak: string[] } | null>(null);
   const advanceTimeout = useRef<number | null>(null);
   const words = content.words;
+  const poolOptions = wordPoolOptions(words, wordSets, practiceIds);
+  const poolWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
   const current = queue[currentIndex];
   const directionLabels = translateDirectionLabels(content);
 
@@ -1417,7 +1569,8 @@ function ChooseExercise({
 
   function start() {
     clearAdvanceTimer(advanceTimeout);
-    const nextQueue = sampleChooseQueue(words, practiceIds, questionCount, direction, chooseProgress, translateProgress, matchProgress, content.metadata.id);
+    const selectedWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
+    const nextQueue = sampleChooseQueue(selectedWords, words, questionCount, direction, chooseProgress, translateProgress, matchProgress, content.metadata.id);
     setQueue(nextQueue);
     setStarted(true);
     setCurrentIndex(0);
@@ -1437,7 +1590,7 @@ function ChooseExercise({
     setSessionWeak(nextWeak);
     setFeedback({ selectedId: choice.id, correct: isCorrect });
     if (!isCorrect && !queue.slice(currentIndex + 1, currentIndex + 5).some((question) => question.word.id === current.word.id)) {
-      const retryChoices = buildChooseOptions(current.word, current.direction, words, chooseProgress, translateProgress, matchProgress, `retry-${current.word.id}-${currentIndex}`);
+      const retryChoices = buildChooseOptions(current.word, current.direction, poolWords, words, chooseProgress, translateProgress, matchProgress, `retry-${current.word.id}-${currentIndex}`);
       if (retryChoices.length === 4) {
         setQueue((currentQueue) => {
           const nextQueue = [...currentQueue];
@@ -1459,7 +1612,7 @@ function ChooseExercise({
   function advance(nextCorrect = correct, nextWeak = sessionWeak) {
     clearAdvanceTimer(advanceTimeout);
     if (currentIndex + 1 >= queue.length) {
-      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
+      const weak = selectWeakVocabularyIds(poolWords, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
       setResults({ correct: nextCorrect, attempts: queue.length, weak });
       return;
     }
@@ -1469,8 +1622,9 @@ function ChooseExercise({
 
   if (!started) {
     return (
-      <SetupPanel title="Choose" onBack={onBack} onStart={start} startDisabled={words.length < 4}>
+      <SetupPanel title="Choose" onBack={onBack} onStart={start} startDisabled={!poolWords.length || words.length < 4}>
         <p className="setup-package">{content.metadata.title}</p>
+        <WordPoolSelect value={wordPoolId} options={poolOptions} onChange={setWordPoolId} />
         <Segmented
           label="Direction"
           options={["term-to-translation", "translation-to-term", "mixed"]}
@@ -1481,7 +1635,8 @@ function ChooseExercise({
         <p className="setup-help">{translateDirectionHelp(direction, directionLabels)}</p>
         <Segmented label="Questions" options={translateQuestionOptions.map(String)} value={String(questionCount)} onChange={(value) => setQuestionCount(Number(value))} />
         <p className="setup-help">Number of multiple-choice questions in this session.</p>
-        {words.length < 4 && <p className="setup-help">Choose needs at least 4 words. Add words manually to start practicing this package.</p>}
+        {!poolWords.length && <p className="setup-help">No vocabulary in this pool yet.</p>}
+        {poolWords.length > 0 && words.length < 4 && <p className="setup-help">Choose needs at least 4 total words for answer choices. Add words manually to start practicing this package.</p>}
         <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
           Add words manually
         </button>
@@ -1500,6 +1655,13 @@ function ChooseExercise({
         weak={weakNames}
         onBack={onBack}
         backLabel="Finish"
+        tryMoreLabel="Try more"
+        onTryMore={() => {
+          clearAdvanceTimer(advanceTimeout);
+          setStarted(false);
+          setResults(null);
+          setFeedback(null);
+        }}
         practiceLabel="Practice weak words"
         onPracticeMistakes={results.weak.length ? () => onPracticeMistakes(results.weak) : undefined}
       />
@@ -1563,6 +1725,7 @@ function ChooseExercise({
 
 function TranslateExercise({
   content,
+  wordSets,
   practiceIds,
   translateProgress,
   matchProgress,
@@ -1573,6 +1736,7 @@ function TranslateExercise({
   onRecordTranslate,
 }: {
   content: CoursePackage;
+  wordSets: WordSet[];
   practiceIds: string[];
   translateProgress: Record<string, ItemProgress>;
   matchProgress: Record<string, ItemProgress>;
@@ -1583,6 +1747,7 @@ function TranslateExercise({
   onRecordTranslate: (itemId: string, wasCorrect: boolean, wasExact: boolean, direction: TranslateDirectionKey) => void;
 }) {
   const preferredDirection = content.metadata.preferredTranslateDirection ?? "mixed";
+  const [wordPoolId, setWordPoolId] = useState(practiceIds.length ? "weak" : "all");
   const [direction, setDirection] = useState<TranslateDirection>(practiceIds.length ? "mixed" : preferredDirection);
   const [mode, setMode] = useState<EndingMode>("tolerant");
   const [questionCount, setQuestionCount] = useState(10);
@@ -1596,6 +1761,8 @@ function TranslateExercise({
   const [results, setResults] = useState<{ correct: number; attempts: number; weak: string[] } | null>(null);
   const advanceTimeout = useRef<number | null>(null);
   const words = content.words;
+  const poolOptions = wordPoolOptions(words, wordSets, practiceIds);
+  const poolWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
   const directionLabels = translateDirectionLabels(content);
   const current = queue[currentIndex];
 
@@ -1607,7 +1774,8 @@ function TranslateExercise({
 
   function start() {
     clearAdvanceTimer(advanceTimeout);
-    const nextQueue = sampleTranslateQueue(words, practiceIds, questionCount, direction, translateProgress, matchProgress, chooseProgress, content.metadata.id);
+    const selectedWords = wordsForPool(words, wordSets, wordPoolId, practiceIds);
+    const nextQueue = sampleTranslateQueue(selectedWords, [], questionCount, direction, translateProgress, matchProgress, chooseProgress, content.metadata.id);
     setQueue(nextQueue);
     setStarted(true);
     setCurrentIndex(0);
@@ -1640,7 +1808,7 @@ function TranslateExercise({
   function advance(nextCorrect = correct, nextWeak = sessionWeak) {
     clearAdvanceTimer(advanceTimeout);
     if (currentIndex + 1 >= queue.length) {
-      const weak = selectWeakVocabularyIds(words, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
+      const weak = selectWeakVocabularyIds(poolWords, nextWeak, translateProgress, matchProgress, chooseProgress, Math.max(5, Math.min(20, queue.length)));
       setResults({ correct: nextCorrect, attempts: queue.length, weak });
       return;
     }
@@ -1651,8 +1819,9 @@ function TranslateExercise({
 
   if (!started) {
     return (
-      <SetupPanel title="Translate" onBack={onBack} onStart={start} startDisabled={!words.length}>
+      <SetupPanel title="Translate" onBack={onBack} onStart={start} startDisabled={!poolWords.length}>
         <p className="setup-package">{content.metadata.title}</p>
+        <WordPoolSelect value={wordPoolId} options={poolOptions} onChange={setWordPoolId} />
         <Segmented
           label="Direction"
           options={["term-to-translation", "translation-to-term", "mixed"]}
@@ -1673,7 +1842,7 @@ function TranslateExercise({
         <p className="setup-help">
           {mode === "tolerant" ? "Allows configured keyboard/diacritic equivalents." : "Exact spelling and characters required, ignoring capitalization."}
         </p>
-        {!words.length && <p className="setup-help">No vocabulary yet. Add words manually to start practicing this package.</p>}
+        {!poolWords.length && <p className="setup-help">No vocabulary in this pool yet. Add words manually to start practicing this package.</p>}
         <button className="ghost-button setup-secondary-action" type="button" onClick={onAddContent}>
           Add words manually
         </button>
@@ -1692,6 +1861,13 @@ function TranslateExercise({
         weak={weakNames}
         onBack={onBack}
         backLabel="Finish"
+        tryMoreLabel="Try more"
+        onTryMore={() => {
+          clearAdvanceTimer(advanceTimeout);
+          setStarted(false);
+          setResults(null);
+          setFeedback(null);
+        }}
         practiceLabel="Practice weak words"
         onPracticeMistakes={results.weak.length ? () => onPracticeMistakes(results.weak) : undefined}
       />
@@ -2237,6 +2413,21 @@ function Segmented({
   );
 }
 
+function WordPoolSelect({ value, options, onChange }: { value: string; options: WordPoolOption[]; onChange: (value: string) => void }) {
+  return (
+    <label className="field-group">
+      <span>Pool</span>
+      <select className="pool-select" value={value} onChange={(event) => onChange(event.target.value)}>
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.title} · {option.count}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 function ResultsPanel({
   title,
   correct,
@@ -2246,6 +2437,8 @@ function ResultsPanel({
   weak,
   onBack,
   backLabel = "Back",
+  tryMoreLabel = "Try more",
+  onTryMore,
   practiceLabel = "Practice mistakes",
   onPracticeMistakes,
 }: {
@@ -2257,6 +2450,8 @@ function ResultsPanel({
   weak: string[];
   onBack: () => void;
   backLabel?: string;
+  tryMoreLabel?: string;
+  onTryMore?: () => void;
   practiceLabel?: string;
   onPracticeMistakes?: () => void;
 }) {
@@ -2276,6 +2471,11 @@ function ResultsPanel({
       <button className="ghost-button" type="button" onClick={onBack}>
         {backLabel}
       </button>
+      {onTryMore && (
+        <button className="ghost-button" type="button" onClick={onTryMore}>
+          {tryMoreLabel}
+        </button>
+      )}
       {onPracticeMistakes && (
         <button className="primary-button" type="button" onClick={onPracticeMistakes}>
           {practiceLabel}
@@ -2318,6 +2518,54 @@ function WeakPanel({
   );
 }
 
+type WordPoolOption = {
+  id: string;
+  title: string;
+  count: number;
+};
+
+function wordPoolOptions(words: WordPair[], wordSets: WordSet[], practiceIds: string[] = []): WordPoolOption[] {
+  const options: WordPoolOption[] = [{ id: "all", title: "All words", count: words.length }];
+  if (practiceIds.length) {
+    options.push({ id: "weak", title: "Weak words", count: wordsForPool(words, wordSets, "weak", practiceIds).length });
+  }
+  const generalCount = wordsForPool(words, wordSets, "general").length;
+  if (generalCount > 0) options.push({ id: "general", title: "General", count: generalCount });
+  wordSets.forEach((set) => {
+    options.push({ id: set.id, title: set.title, count: validSetWordIds(set, words).length });
+  });
+  return options;
+}
+
+function wordsForPool(words: WordPair[], wordSets: WordSet[], poolId: string, practiceIds: string[] = []) {
+  if (poolId === "weak") {
+    const weakIds = new Set(practiceIds);
+    return words.filter((word) => weakIds.has(word.id));
+  }
+  if (poolId === "general") {
+    const assigned = new Set(wordSets.flatMap((set) => set.wordIds));
+    return words.filter((word) => word.custom && !assigned.has(word.id));
+  }
+  if (poolId !== "all") {
+    const set = wordSets.find((item) => item.id === poolId);
+    if (!set) return [];
+    const ids = new Set(set.wordIds);
+    return words.filter((word) => ids.has(word.id));
+  }
+  return words;
+}
+
+function validSetWordIds(set: WordSet, words: WordPair[]) {
+  const ids = new Set(words.map((word) => word.id));
+  return set.wordIds.filter((wordId) => ids.has(wordId));
+}
+
+function matchPairOptions(wordCount: number) {
+  if (wordCount <= 0) return ["1"];
+  const options = pairOptions.filter((option) => option <= wordCount);
+  return (options.length ? options : [wordCount]).map(String);
+}
+
 type TranslateQuestion = {
   word: WordPair;
   direction: Exclude<TranslateDirection, "mixed">;
@@ -2340,8 +2588,8 @@ type ChooseFeedback = {
 };
 
 function sampleChooseQueue(
-  words: WordPair[],
-  practiceIds: string[],
+  promptWords: WordPair[],
+  allWords: WordPair[],
   questionCount: number,
   direction: TranslateDirection,
   chooseProgress: Record<string, ItemProgress>,
@@ -2349,8 +2597,8 @@ function sampleChooseQueue(
   matchProgress: Record<string, ItemProgress>,
   packageId: string,
 ): ChooseQuestion[] {
-  const promptPool = practiceIds.length ? words.filter((word) => practiceIds.includes(word.id)) : words;
-  if (words.length < 4 || !promptPool.length) return [];
+  const promptPool = promptWords;
+  if (allWords.length < 4 || !promptPool.length) return [];
   const queue: ChooseQuestion[] = [];
   let cycle = 0;
   while (queue.length < questionCount && cycle < questionCount * 6) {
@@ -2362,7 +2610,7 @@ function sampleChooseQueue(
       if (queue.length >= questionCount) break;
       if (queue.at(-1)?.word.id === word.id && ordered.length > 1) continue;
       const currentDirection = chooseTranslateDirection(word.id, direction, translateProgress, salt);
-      const choices = buildChooseOptions(word, currentDirection, words, chooseProgress, translateProgress, matchProgress, `${salt}-${queue.length}`);
+      const choices = buildChooseOptions(word, currentDirection, promptPool, allWords, chooseProgress, translateProgress, matchProgress, `${salt}-${queue.length}`);
       if (choices.length === 4) queue.push({ word, direction: currentDirection, choices });
     }
     cycle += 1;
@@ -2478,7 +2726,8 @@ function chooseOptionLabel(word: WordPair, direction: Exclude<TranslateDirection
 function buildChooseOptions(
   word: WordPair,
   direction: Exclude<TranslateDirection, "mixed">,
-  words: WordPair[],
+  poolWords: WordPair[],
+  allWords: WordPair[],
   chooseProgress: Record<string, ItemProgress>,
   translateProgress: Record<string, ItemProgress>,
   matchProgress: Record<string, ItemProgress>,
@@ -2487,8 +2736,9 @@ function buildChooseOptions(
   const expectedLabel = normalizeChoiceLabel(chooseOptionLabel(word, direction));
   const seenLabels = new Set([expectedLabel]);
   const expectedLength = expectedLabel.length;
+  const distractorPool = poolWords.length >= 4 ? poolWords : allWords;
   const distractors = stableShuffle(
-    words.filter((candidate) => candidate.id !== word.id),
+    distractorPool.filter((candidate) => candidate.id !== word.id),
     `distractors-${salt}`,
   )
     .sort((a, b) => {
@@ -2712,7 +2962,7 @@ function textLevelHelp(level: number) {
 }
 
 function importHelp(kind: ImportKind) {
-  if (kind === "words") return "Paste one pair per line as word -- translation, or paste JSON with term and translation fields.";
+  if (kind === "words") return "Paste one pair per line as word -- translation. Wrap lines in {{Set name}} blocks to create practice sets.";
   if (kind === "texts") return "Paste one annotated passage per line as target text -- translation, or paste JSON with text and translation fields.";
   return "Paste one form per line as prompt -- form with [answer] -- optional note, or paste JSON with prompt, before, answer, and after.";
 }
@@ -2723,9 +2973,16 @@ function importExample(kind: ImportKind) {
 copil -- child
 carte -- book
 
+{{Homework 1}}
+acei -- those (masculine plural)
+acestea -- these (feminine/neuter plural)
+{{/Homework 1}}
+
 [
-  { "term": "Haus", "translation": "house" },
-  { "term": "Kind", "translation": "child" }
+  { "title": "Homework 2", "words": [
+    { "term": "Haus", "translation": "house" },
+    { "term": "Kind", "translation": "child" }
+  ] }
 ]`;
   }
   if (kind === "texts") {
@@ -2754,16 +3011,26 @@ function wordImportTemplate(activePackage: CoursePackage) {
   const labels = vocabularySideLabels(activePackage);
   return `Create vocabulary entries for ${activePackage.metadata.title} practice.
 
-Return ONLY one entry per line in this format:
+Return ONLY vocabulary entries using this format:
 
 ${labels.term} -- ${labels.translation}
 
-Example:
+For ordinary vocabulary:
 ${wordTemplateExamples(activePackage)}
 
-Do not number the lines.
-Do not add explanations.
-Use correct spelling${activePackage.metadata.characterSubstitutions ? " and diacritics" : ""}.`;
+To create a named practice set, wrap entries like this:
+
+{{Homework 1}}
+${wordTemplateExamples(activePackage).split("\n").slice(0, 2).join("\n")}
+{{/Homework 1}}
+
+Rules:
+- one vocabulary pair per line;
+- do not number entries;
+- use correct spelling${activePackage.metadata.characterSubstitutions ? " and diacritics" : ""};
+- text outside a named block goes into the general vocabulary;
+- named blocks create practice sets;
+- do not add explanations outside the required format.`;
 }
 
 function textImportTemplate(activePackage: CoursePackage) {
@@ -2852,27 +3119,45 @@ function parseImport(kind: ImportKind, raw: string, activePackage: CoursePackage
 }
 
 function parseWordImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
-  const existing = new Set([...activePackage.words, ...(custom?.words ?? [])].map((word) => normalizeDuplicateKey(termForWord(word), translationForWord(word))));
+  const existing = new Map(activePackage.words.map((word) => [normalizeDuplicateKey(termForWord(word), translationForWord(word)), word.id]));
   const words: WordPair[] = [];
+  const setMemberships = new Map((custom?.wordSets ?? []).map((set) => [set.title.trim().toLocaleLowerCase(), { ...set, wordIds: [...set.wordIds] }]));
   let ignored = 0;
   let duplicates = 0;
+  let membershipsAdded = 0;
 
-  for (const item of readImportItems(raw, "words")) {
-    const parsed = typeof item === "string" ? parseWordLine(item) : parseWordObject(item);
-    if (!parsed) {
-      ignored += 1;
-      continue;
+  for (const block of readWordImportBlocks(raw)) {
+    for (const item of block.items) {
+      const parsed = typeof item === "string" ? parseWordLine(item) : parseWordObject(item);
+      if (!parsed) {
+        ignored += 1;
+        continue;
+      }
+      const key = normalizeDuplicateKey(parsed.term, parsed.translation);
+      let wordId = existing.get(key);
+      if (wordId) {
+        duplicates += 1;
+      } else {
+        wordId = localId("word");
+        existing.set(key, wordId);
+        words.push({ id: wordId, term: parsed.term, translation: parsed.translation, custom: true });
+      }
+
+      if (block.title) {
+        const setKey = block.title.toLocaleLowerCase();
+        const now = new Date().toISOString();
+        const current = setMemberships.get(setKey) ?? { id: localId("set"), packageId: activePackage.metadata.id, title: block.title, wordIds: [], createdAt: now, updatedAt: now };
+        if (!current.wordIds.includes(wordId)) {
+          current.wordIds = [...current.wordIds, wordId];
+          current.updatedAt = now;
+          membershipsAdded += 1;
+        }
+        setMemberships.set(setKey, current);
+      }
     }
-    const key = normalizeDuplicateKey(parsed.term, parsed.translation);
-    if (existing.has(key)) {
-      duplicates += 1;
-      continue;
-    }
-    existing.add(key);
-    words.push({ id: localId("word"), term: parsed.term, translation: parsed.translation, custom: true });
   }
 
-  return { words, texts: [], forms: [], added: words.length, duplicates, ignored };
+  return { words, texts: [], forms: [], wordSets: Array.from(setMemberships.values()), added: words.length + membershipsAdded, duplicates, ignored };
 }
 
 function parseTextImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
@@ -2904,7 +3189,7 @@ function parseTextImport(raw: string, activePackage: CoursePackage, custom: Cust
     });
   }
 
-  return { words: [], texts, forms: [], added: texts.length, duplicates, ignored };
+  return { words: [], texts, forms: [], wordSets: [], added: texts.length, duplicates, ignored };
 }
 
 function parseFormImport(raw: string, activePackage: CoursePackage, custom: CustomPackageContent | undefined) {
@@ -2942,7 +3227,7 @@ function parseFormImport(raw: string, activePackage: CoursePackage, custom: Cust
     });
   }
 
-  return { words: [], texts: [], forms, added: forms.length, duplicates, ignored };
+  return { words: [], texts: [], forms, wordSets: [], added: forms.length, duplicates, ignored };
 }
 
 function readImportItems(raw: string, packageKey: "words" | "texts" | "forms"): Array<string | Record<string, unknown>> {
@@ -2959,6 +3244,56 @@ function readImportItems(raw: string, packageKey: "words" | "texts" | "forms"): 
     }
   }
   return trimmed.split(/\r?\n/);
+}
+
+function readWordImportBlocks(raw: string): Array<{ title?: string; items: Array<string | Record<string, unknown>> }> {
+  const trimmed = raw.trim();
+  if (!trimmed) return [];
+  if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+    try {
+      const parsed = JSON.parse(trimmed) as unknown;
+      if (Array.isArray(parsed)) {
+        return parsed.map((item) => {
+          if (isRecord(item) && stringValue(item.title) && Array.isArray(item.words)) {
+            return { title: stringValue(item.title), items: (item.words as unknown[]).filter(isRecord) };
+          }
+          return { items: isRecord(item) ? [item] : [] };
+        });
+      }
+      if (isRecord(parsed) && stringValue(parsed.title) && Array.isArray(parsed.words)) {
+        return [{ title: stringValue(parsed.title), items: (parsed.words as unknown[]).filter(isRecord) }];
+      }
+      if (isRecord(parsed) && Array.isArray(parsed.words)) {
+        return [{ items: (parsed.words as unknown[]).filter(isRecord) }];
+      }
+      if (isRecord(parsed)) return [{ items: [parsed] }];
+    } catch {
+      // Fall through to the line parser so valid plain-text lines can still import.
+    }
+  }
+
+  const blocks: Array<{ title?: string; items: string[] }> = [];
+  let current: { title?: string; items: string[] } = { items: [] };
+  for (const rawLine of trimmed.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const open = line.match(/^\{\{([^/][^}]*)\}\}$/u);
+    const close = line.match(/^\{\{\/([^}]*)\}\}$/u);
+    if (open) {
+      if (current.items.length) blocks.push(current);
+      const title = open[1].trim();
+      current = title ? { title, items: [] } : { items: [] };
+      continue;
+    }
+    if (close) {
+      if (current.items.length) blocks.push(current);
+      current = { items: [] };
+      continue;
+    }
+    current.items.push(rawLine);
+  }
+  if (current.items.length) blocks.push(current);
+  return blocks;
 }
 
 function parseWordLine(line: string) {
@@ -3059,11 +3394,12 @@ function customCounts(content: CustomPackageContent | undefined) {
   const words = content?.words.length ?? 0;
   const texts = content?.texts.length ?? 0;
   const forms = content?.forms.length ?? 0;
-  return { words, texts, forms, total: words + texts + forms };
+  const wordSets = content?.wordSets.length ?? 0;
+  return { words, texts, forms, wordSets, total: words + texts + forms + wordSets };
 }
 
-function countLine(words: number, texts: number, forms: number) {
-  return `${words} words · ${texts} texts · ${forms} forms`;
+function countLine(words: number, texts: number, forms: number, wordSets = 0) {
+  return `${words} words · ${texts} texts · ${forms} forms${wordSets ? ` · ${wordSets} sets` : ""}`;
 }
 
 function groupCatalog(items: PackageCatalogItem[]) {

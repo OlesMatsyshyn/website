@@ -7,6 +7,15 @@ export type WordPair = {
   en?: string;
 };
 
+export type WordSet = {
+  id: string;
+  packageId: string;
+  title: string;
+  wordIds: string[];
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 export type TextExercise = {
   id: string;
   title: string;
@@ -118,6 +127,7 @@ export type CustomPackageContent = {
   words: WordPair[];
   texts: TextExercise[];
   forms: FormExercise[];
+  wordSets: WordSet[];
 };
 
 export type CourseContent = CoursePackage;
