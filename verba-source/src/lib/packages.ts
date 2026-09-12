@@ -1,5 +1,5 @@
 import { withBasePath } from "@/lib/deployment";
-import type { CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair, WordSet } from "@/lib/types";
+import type { ContentSet, CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair, WordSet } from "@/lib/types";
 
 const DB_NAME = "verba-packages";
 const DB_VERSION = 2;
@@ -115,6 +115,8 @@ export async function appendCustomContent(packageId: string, additions: Partial<
     texts: [...current.texts, ...(additions.texts ?? [])],
     forms: [...current.forms, ...(additions.forms ?? [])],
     wordSets: mergeWordSets(current.wordSets, additions.wordSets ?? []),
+    textSets: mergeContentSets(current.textSets, additions.textSets ?? []),
+    formSets: mergeContentSets(current.formSets, additions.formSets ?? []),
   });
   await saveCustomContent(next);
   return next;
@@ -142,7 +144,7 @@ export async function createLocalPackage(title: string, language = title, langua
     forms: [],
   });
   await saveInstalledPackage(coursePackage);
-  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [], wordSets: [] });
+  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [], wordSets: [], textSets: [], formSets: [] });
   return coursePackage;
 }
 
@@ -264,6 +266,12 @@ function normalizeCustomContent(value: unknown): CustomPackageContent {
     wordSets: Array.isArray(candidate.wordSets)
       ? candidate.wordSets.map((item) => normalizeWordSet(item, candidate.packageId ?? "")).filter((item) => item.title)
       : [],
+    textSets: Array.isArray(candidate.textSets)
+      ? candidate.textSets.map((item) => normalizeContentSet(item, candidate.packageId ?? "", "texts")).filter((item) => item.title)
+      : [],
+    formSets: Array.isArray(candidate.formSets)
+      ? candidate.formSets.map((item) => normalizeContentSet(item, candidate.packageId ?? "", "forms")).filter((item) => item.title)
+      : [],
   };
 }
 
@@ -293,6 +301,38 @@ function mergeWordSets(current: WordSet[], additions: WordSet[]) {
       ...existing,
       updatedAt: new Date().toISOString(),
       wordIds: Array.from(new Set([...existing.wordIds, ...set.wordIds])),
+    });
+  });
+  return Array.from(byTitle.values());
+}
+
+function normalizeContentSet(item: Partial<ContentSet>, packageId: string, type: ContentSet["type"]): ContentSet {
+  const uniqueItemIds = Array.from(new Set((Array.isArray(item.itemIds) ? item.itemIds : []).filter((id): id is string => typeof id === "string" && Boolean(id.trim()))));
+  return {
+    id: item.id ?? makeLocalId(`${type}-set`),
+    packageId: item.packageId ?? packageId,
+    type,
+    title: item.title?.trim() ?? "",
+    itemIds: uniqueItemIds,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
+  };
+}
+
+function mergeContentSets(current: ContentSet[], additions: ContentSet[]) {
+  const byTitle = new Map(current.map((set) => [set.title.trim().toLocaleLowerCase(), { ...set, itemIds: [...set.itemIds] }]));
+  additions.forEach((set) => {
+    const key = set.title.trim().toLocaleLowerCase();
+    if (!key) return;
+    const existing = byTitle.get(key);
+    if (!existing) {
+      byTitle.set(key, { ...set, itemIds: Array.from(new Set(set.itemIds)) });
+      return;
+    }
+    byTitle.set(key, {
+      ...existing,
+      updatedAt: new Date().toISOString(),
+      itemIds: Array.from(new Set([...existing.itemIds, ...set.itemIds])),
     });
   });
   return Array.from(byTitle.values());

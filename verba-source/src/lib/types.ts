@@ -16,6 +16,16 @@ export type WordSet = {
   updatedAt?: string;
 };
 
+export type ContentSet = {
+  id: string;
+  packageId: string;
+  type: "texts" | "forms";
+  title: string;
+  itemIds: string[];
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 export type TextExercise = {
   id: string;
   title: string;
@@ -128,6 +138,8 @@ export type CustomPackageContent = {
   texts: TextExercise[];
   forms: FormExercise[];
   wordSets: WordSet[];
+  textSets: ContentSet[];
+  formSets: ContentSet[];
 };
 
 export type CourseContent = CoursePackage;

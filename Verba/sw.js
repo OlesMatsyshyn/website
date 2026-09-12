@@ -1,4 +1,4 @@
-const CACHE_VERSION = "verba-v21";
+const CACHE_VERSION = "verba-v24";
 const PACKAGE_ASSET_CACHE = "verba-package-assets-v2";
 const CORE_ASSETS = [
   "./",
@@ -13,7 +13,7 @@ const CORE_ASSETS = [
   "./_next/static/chunks/1qxpuizk7zz82.js",
   "./_next/static/chunks/turbopack-2b2m7ur_qx03m.js",
   "./_next/static/chunks/0x662v0g_zpv0.js",
-  "./_next/static/chunks/3zrjmvpgvzrn2.js",
+  "./_next/static/chunks/3h9tt8ho3re8b.js",
   "./_next/static/chunks/0cz1d0mv5g_q7.js"
 ];
 

@@ -8,7 +8,8 @@
     "build": "next build",
     "build:local-site": "node scripts/build-static.mjs local-site",
     "build:github-pages": "node scripts/build-static.mjs github-pages",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:selection": "node scripts/vocabulary-selection-smoke.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
