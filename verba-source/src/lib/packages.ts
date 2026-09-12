@@ -1,5 +1,5 @@
 import { withBasePath } from "@/lib/deployment";
-import type { ContentSet, CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, WordPair, WordSet } from "@/lib/types";
+import type { ContentSet, CoursePackage, CustomPackageContent, FormExercise, PackageCatalog, PackageCatalogItem, PortableVerbaPackage, TextExercise, WordPair, WordSet } from "@/lib/types";
 
 const DB_NAME = "verba-packages";
 const DB_VERSION = 2;
@@ -148,6 +148,73 @@ export async function createLocalPackage(title: string, language = title, langua
   return coursePackage;
 }
 
+export async function importPortablePackage(raw: string): Promise<CoursePackage> {
+  const portable = parsePortablePackage(raw);
+  const id = makeImportedPackageId();
+  const idMap = new Map<string, string>();
+  const words = portable.words.map((word) => {
+    const nextId = makeLocalId("word");
+    idMap.set(word.id, nextId);
+    return { ...word, id: nextId, term: termForWord(word), translation: translationForWord(word), custom: false };
+  });
+  const texts = portable.texts.map((text) => {
+    const nextId = makeLocalId("text");
+    idMap.set(text.id, nextId);
+    return { ...text, id: nextId, title: text.title || "Imported text", translation: text.translation ?? "", custom: false };
+  });
+  const forms = portable.forms.map((form) => {
+    const nextId = makeLocalId("form");
+    idMap.set(form.id, nextId);
+    return { ...normalizeCustomForm(form), id: nextId, custom: false };
+  });
+  const title = importedPackageTitle(portable.metadata.title);
+  const coursePackage = normalizePackage({
+    metadata: {
+      id,
+      language: portable.metadata.language ?? title,
+      languageCode: portable.metadata.languageCode ?? "local",
+      variant: "Imported",
+      level: 0,
+      title,
+      description: portable.metadata.description ?? "Imported Vérba package stored on this device.",
+      version: 1,
+      wordCount: words.length,
+      textCount: texts.length,
+      formCount: forms.length,
+      characterSubstitutions: portable.metadata.characterSubstitutions,
+      preferredTranslateDirection: portable.metadata.preferredTranslateDirection,
+      source: "local",
+    },
+    words,
+    texts,
+    forms,
+    ...(portable.reference ? { reference: portable.reference } : {}),
+  });
+  const wordSets = (portable.wordSets ?? []).map((set) => ({
+    ...set,
+    id: makeLocalId("set"),
+    packageId: id,
+    wordIds: remapIds(set.wordIds, idMap),
+  }));
+  const textSets = (portable.textSets ?? []).map((set) => ({
+    ...set,
+    id: makeLocalId("texts-set"),
+    packageId: id,
+    type: "texts" as const,
+    itemIds: remapIds(set.itemIds, idMap),
+  }));
+  const formSets = (portable.formSets ?? []).map((set) => ({
+    ...set,
+    id: makeLocalId("forms-set"),
+    packageId: id,
+    type: "forms" as const,
+    itemIds: remapIds(set.itemIds, idMap),
+  }));
+  await saveInstalledPackage(coursePackage);
+  await saveCustomContent({ packageId: id, words: [], texts: [], forms: [], wordSets, textSets, formSets });
+  return coursePackage;
+}
+
 export async function deleteLocalPackage(packageId: string): Promise<void> {
   const db = await openDb();
   return new Promise((resolve, reject) => {
@@ -157,6 +224,42 @@ export async function deleteLocalPackage(packageId: string): Promise<void> {
     transaction.oncomplete = () => resolve();
     transaction.onerror = () => reject(transaction.error);
   });
+}
+
+export function parsePortablePackage(raw: string): PortableVerbaPackage {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error("This is not a valid Vérba package.");
+  }
+  const candidate = parsed as Partial<PortableVerbaPackage>;
+  if (candidate.format !== "verba-package" || candidate.formatVersion !== 1 || !candidate.metadata?.title) {
+    throw new Error("This is not a valid Vérba package.");
+  }
+  const words = Array.isArray(candidate.words) ? candidate.words.map(validatePortableWord) : [];
+  const texts = Array.isArray(candidate.texts) ? candidate.texts.map(validatePortableText) : [];
+  const forms = Array.isArray(candidate.forms) ? candidate.forms.map(validatePortableForm) : [];
+  const wordIds = new Set(words.map((item) => item.id));
+  const textIds = new Set(texts.map((item) => item.id));
+  const formIds = new Set(forms.map((item) => item.id));
+  const wordSets = validatePortableWordSets(candidate.wordSets, wordIds);
+  const textSets = validatePortableContentSets(candidate.textSets, textIds, "texts");
+  const formSets = validatePortableContentSets(candidate.formSets, formIds, "forms");
+
+  return {
+    format: "verba-package",
+    formatVersion: 1,
+    exportedAt: candidate.exportedAt,
+    metadata: candidate.metadata,
+    words,
+    texts,
+    forms,
+    wordSets,
+    textSets,
+    formSets,
+    ...(candidate.reference ? { reference: candidate.reference } : {}),
+  };
 }
 
 export function mergeCustomContent(coursePackage: CoursePackage, custom: CustomPackageContent | undefined): CoursePackage {
@@ -353,6 +456,77 @@ function normalizeCustomForm(item: Partial<FormExercise>): FormExercise {
     note: item.note ?? "",
     custom: true,
   };
+}
+
+function validatePortableWord(item: unknown): WordPair {
+  const candidate = item as Partial<WordPair>;
+  const term = termForWord(candidate as WordPair).trim();
+  const translation = translationForWord(candidate as WordPair).trim();
+  if (!candidate.id || !term || !translation) throw new Error("This is not a valid Vérba package.");
+  return { id: candidate.id, term, translation };
+}
+
+function validatePortableText(item: unknown): TextExercise {
+  const candidate = item as Partial<TextExercise>;
+  if (!candidate.id || !candidate.text) throw new Error("This is not a valid Vérba package.");
+  return {
+    id: candidate.id,
+    title: candidate.title || "Imported text",
+    text: candidate.text,
+    translation: candidate.translation ?? "",
+    translationLanguage: candidate.translationLanguage,
+  };
+}
+
+function validatePortableForm(item: unknown): FormExercise {
+  const candidate = item as Partial<FormExercise>;
+  const before = formBefore(candidate as FormExercise);
+  const after = candidate.after ?? "";
+  const answer = candidate.answer ?? "";
+  if (!candidate.id || !candidate.prompt || !answer) throw new Error("This is not a valid Vérba package.");
+  return {
+    id: candidate.id,
+    type: candidate.type ?? "form",
+    prompt: candidate.prompt,
+    before,
+    answer,
+    after,
+    result: candidate.result ?? `${before}${answer}${after}`,
+    note: candidate.note ?? "",
+  };
+}
+
+function validatePortableWordSets(sets: PortableVerbaPackage["wordSets"], ids: Set<string>) {
+  if (!Array.isArray(sets)) return [];
+  return sets.map((set) => {
+    if (!set.title || !Array.isArray(set.wordIds)) throw new Error("This is not a valid Vérba package.");
+    const wordIds = set.wordIds.filter((id) => ids.has(id));
+    if (wordIds.length !== set.wordIds.length) throw new Error("This is not a valid Vérba package.");
+    return { ...set, wordIds };
+  });
+}
+
+function validatePortableContentSets(sets: PortableVerbaPackage["textSets"] | PortableVerbaPackage["formSets"], ids: Set<string>, type: ContentSet["type"]) {
+  if (!Array.isArray(sets)) return [];
+  return sets.map((set) => {
+    if (!set.title || !Array.isArray(set.itemIds)) throw new Error("This is not a valid Vérba package.");
+    const itemIds = set.itemIds.filter((id) => ids.has(id));
+    if (itemIds.length !== set.itemIds.length) throw new Error("This is not a valid Vérba package.");
+    return { ...set, type, itemIds };
+  });
+}
+
+function remapIds(ids: string[], idMap: Map<string, string>) {
+  return ids.map((itemId) => idMap.get(itemId)).filter((itemId): itemId is string => Boolean(itemId));
+}
+
+function makeImportedPackageId() {
+  return makeLocalId("package").replace("custom-package", "local");
+}
+
+function importedPackageTitle(title: string) {
+  const trimmed = title.trim() || "Imported package";
+  return /\bimported\b/iu.test(trimmed) ? trimmed : `${trimmed.replace(/\s*·\s*Starter$/u, "")} · Imported`;
 }
 
 function makeLocalId(prefix: string) {

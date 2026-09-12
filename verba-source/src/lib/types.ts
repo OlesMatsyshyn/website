@@ -132,6 +132,22 @@ export type CoursePackage = {
   reference?: CivicReference;
 };
 
+export type PortableVerbaPackage = {
+  format: "verba-package";
+  formatVersion: 1;
+  exportedAt?: string;
+  metadata: Partial<PackageMetadata> & {
+    title: string;
+  };
+  words: WordPair[];
+  texts: TextExercise[];
+  forms: FormExercise[];
+  wordSets?: WordSet[];
+  textSets?: ContentSet[];
+  formSets?: ContentSet[];
+  reference?: CivicReference;
+};
+
 export type CustomPackageContent = {
   packageId: string;
   words: WordPair[];

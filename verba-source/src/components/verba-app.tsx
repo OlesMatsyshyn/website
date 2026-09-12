@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { withBasePath } from "@/lib/deployment";
 import {
   appendCustomContent,
@@ -10,8 +10,10 @@ import {
   deleteLocalPackage,
   downloadPackage,
   formBefore,
+  importPortablePackage,
   loadCatalog,
   mergeCustomContent,
+  parsePortablePackage,
   readActivePackageId,
   readAllCustomContent,
   readInstalledPackages,
@@ -52,6 +54,7 @@ import type {
   TextExercise,
   WordPair,
   CustomPackageContent,
+  PortableVerbaPackage,
   WordSet,
 } from "@/lib/types";
 
@@ -248,6 +251,23 @@ export function VerbaApp() {
     }
   }
 
+  async function importUserPackage(raw: string) {
+    setLibraryMessage("");
+    try {
+      const coursePackage = await importPortablePackage(raw);
+      const nextInstalled = await refreshInstalled();
+      const selected = nextInstalled.find((item) => item.metadata.id === coursePackage.metadata.id) ?? coursePackage;
+      setActivePackageId(selected.metadata.id);
+      saveActivePackageId(selected.metadata.id);
+      setLibraryMessage(`${selected.metadata.title} imported as a local package.`);
+      return selected;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "This is not a valid Vérba package.";
+      setLibraryMessage(message);
+      throw new Error(message);
+    }
+  }
+
   async function deleteUserPackage(packageId: string) {
     const target = installed.find((item) => item.metadata.id === packageId);
     if (!target || target.metadata.source !== "local") return;
@@ -344,6 +364,7 @@ export function VerbaApp() {
           onRemove={removePackage}
           onUse={usePackage}
           onCreateLocal={createUserPackage}
+          onImportPackage={importUserPackage}
           onDeleteLocal={deleteUserPackage}
           customContent={customContent}
           onManageLocal={manageLocalContent}
@@ -725,6 +746,7 @@ function LibraryScreen({
   onRemove,
   onUse,
   onCreateLocal,
+  onImportPackage,
   onDeleteLocal,
   onManageLocal,
 }: {
@@ -740,6 +762,7 @@ function LibraryScreen({
   onRemove: (packageId: string) => void;
   onUse: (packageId: string) => void;
   onCreateLocal: (options: { title: string; language?: string; languageCode?: string; variant?: string }) => void;
+  onImportPackage: (raw: string) => Promise<CoursePackage>;
   onDeleteLocal: (packageId: string) => void;
   onManageLocal: (packageId: string) => void;
 }) {
@@ -749,6 +772,12 @@ function LibraryScreen({
   const [isCreating, setIsCreating] = useState(false);
   const [title, setTitle] = useState("");
   const [languageCode, setLanguageCode] = useState("");
+  const [exportPackageId, setExportPackageId] = useState("");
+  const [importPreview, setImportPreview] = useState<{ raw: string; data: PortableVerbaPackage } | null>(null);
+  const [importError, setImportError] = useState("");
+  const [isImportingPackage, setIsImportingPackage] = useState(false);
+  const packageFileInputRef = useRef<HTMLInputElement | null>(null);
+  const exportPackage = exportPackageId ? installed.find((item) => item.metadata.id === exportPackageId) ?? null : null;
 
   return (
     <section className="workout">
@@ -758,12 +787,36 @@ function LibraryScreen({
       <section className="panel local-package-panel">
         <div>
           <h2>Local packages</h2>
-          <p className="setup-help">Create an empty package and fill it with your own words, texts, and forms on this device.</p>
+          <p className="setup-help">Create an empty package or import a shared Vérba package on this device.</p>
         </div>
         {!isCreating ? (
-          <button className="ghost-button compact" type="button" onClick={() => setIsCreating(true)}>
-            New local package
-          </button>
+          <div className="package-actions">
+            <button className="ghost-button compact" type="button" onClick={() => setIsCreating(true)}>
+              New local package
+            </button>
+            <button className="ghost-button compact" type="button" onClick={() => packageFileInputRef.current?.click()}>
+              Import package
+            </button>
+            <input
+              ref={packageFileInputRef}
+              type="file"
+              accept=".json,application/json"
+              hidden
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                event.currentTarget.value = "";
+                if (!file) return;
+                setImportError("");
+                file
+                  .text()
+                  .then((raw) => setImportPreview({ raw, data: parsePortablePackage(raw) }))
+                  .catch((error) => {
+                    setImportPreview(null);
+                    setImportError(error instanceof Error ? error.message : "This is not a valid Vérba package.");
+                  });
+              }}
+            />
+          </div>
         ) : (
           <form
             className="local-package-form"
@@ -802,13 +855,16 @@ function LibraryScreen({
           <div className="package-list">
             {localPackages.map((coursePackage) => {
               const local = customCounts(customContent[coursePackage.metadata.id]);
+              const totalWords = coursePackage.words.length + local.words;
+              const totalTexts = coursePackage.texts.length + local.texts;
+              const totalForms = coursePackage.forms.length + local.forms;
               const isActive = activePackageId === coursePackage.metadata.id;
               return (
                 <article className="package-card" key={coursePackage.metadata.id}>
                   <div>
                     <h3>{coursePackage.metadata.title}</h3>
                     <p className="package-stage">Local package</p>
-                    <p className="package-level">{countLine(local.words, local.texts, local.forms)}</p>
+                    <p className="package-level">{countLine(totalWords, totalTexts, totalForms, local.wordSets, local.textSets, local.formSets)}</p>
                   </div>
                   <div className="package-actions">
                     <span className="installed-label">{isActive ? "Active" : "Local"}</span>
@@ -817,6 +873,9 @@ function LibraryScreen({
                     </button>
                     <button className="ghost-button compact" type="button" onClick={() => onManageLocal(coursePackage.metadata.id)}>
                       Manage local content
+                    </button>
+                    <button className="ghost-button compact" type="button" onClick={() => setExportPackageId(coursePackage.metadata.id)}>
+                      Export
                     </button>
                     <button className="ghost-button compact" type="button" onClick={() => onDeleteLocal(coursePackage.metadata.id)}>
                       Delete
@@ -861,6 +920,9 @@ function LibraryScreen({
                           <button className="ghost-button compact" type="button" onClick={() => onManageLocal(item.id)}>
                             Manage local content
                           </button>
+                          <button className="ghost-button compact" type="button" onClick={() => setExportPackageId(item.id)}>
+                            Export
+                          </button>
                         </>
                       ) : (
                         <button className="primary-button package-download" type="button" onClick={() => onInstall(item)} disabled={busyPackageId === item.id}>
@@ -875,8 +937,294 @@ function LibraryScreen({
           </section>
         ))}
       </div>
+      {importError && <p className="library-message">{importError}</p>}
+      {importPreview && (
+        <PackageImportDialog
+          preview={importPreview.data}
+          isImporting={isImportingPackage}
+          onClose={() => setImportPreview(null)}
+          onImport={async () => {
+            setIsImportingPackage(true);
+            try {
+              await onImportPackage(importPreview.raw);
+              setImportPreview(null);
+            } catch (error) {
+              setImportError(error instanceof Error ? error.message : "This is not a valid Vérba package.");
+            } finally {
+              setIsImportingPackage(false);
+            }
+          }}
+        />
+      )}
+      {exportPackage && (
+        <PackageExportDialog
+          coursePackage={exportPackage}
+          custom={customContent[exportPackage.metadata.id]}
+          onClose={() => setExportPackageId("")}
+        />
+      )}
     </section>
   );
+}
+
+type PackageExportSelection = {
+  baseWords: boolean;
+  baseTexts: boolean;
+  baseForms: boolean;
+  wordSetIds: string[];
+  textSetIds: string[];
+  formSetIds: string[];
+};
+
+function PackageExportDialog({ coursePackage, custom, onClose }: { coursePackage: CoursePackage; custom: CustomPackageContent | undefined; onClose: () => void }) {
+  const normalizedCustom = custom ?? { packageId: coursePackage.metadata.id, words: [], texts: [], forms: [], wordSets: [], textSets: [], formSets: [] };
+  const effective = mergeCustomContent(coursePackage, normalizedCustom);
+  const [selection, setSelection] = useState<PackageExportSelection>(() => ({
+    baseWords: true,
+    baseTexts: true,
+    baseForms: true,
+    wordSetIds: normalizedCustom.wordSets.map((set) => set.id),
+    textSetIds: normalizedCustom.textSets.map((set) => set.id),
+    formSetIds: normalizedCustom.formSets.map((set) => set.id),
+  }));
+  const preview = buildPortablePackageExport(coursePackage, normalizedCustom, selection);
+
+  function toggleSet(type: "wordSetIds" | "textSetIds" | "formSetIds", setId: string) {
+    setSelection((current) => {
+      const currentIds = current[type];
+      return {
+        ...current,
+        [type]: currentIds.includes(setId) ? currentIds.filter((id) => id !== setId) : [...currentIds, setId],
+      };
+    });
+  }
+
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <section className="import-dialog" role="dialog" aria-modal="true" aria-label={`Export ${coursePackage.metadata.title}`}>
+        <header className="import-header">
+          <div>
+            <p className="eyebrow">Content package</p>
+            <h2>Export {packageToastLabel(coursePackage)}</h2>
+          </div>
+          <button className="ghost-button compact" type="button" onClick={onClose}>
+            Close
+          </button>
+        </header>
+        <p className="setup-help">Choose which content and pools to include. Progress and mistakes are not exported.</p>
+        <div className="export-options">
+          <ExportGroup title="Words">
+            <CheckboxRow
+              label={`Base / ungrouped words · ${baseItemIds(effective.words, normalizedCustom.wordSets.flatMap((set) => set.wordIds)).length}`}
+              checked={selection.baseWords}
+              onChange={(checked) => setSelection((current) => ({ ...current, baseWords: checked }))}
+            />
+            {normalizedCustom.wordSets.map((set) => (
+              <CheckboxRow key={set.id} label={`${set.title} · ${validSetWordIds(set, effective.words).length}`} checked={selection.wordSetIds.includes(set.id)} onChange={() => toggleSet("wordSetIds", set.id)} />
+            ))}
+          </ExportGroup>
+          <ExportGroup title="Texts">
+            <CheckboxRow
+              label={`Base / ungrouped texts · ${baseItemIds(effective.texts, normalizedCustom.textSets.flatMap((set) => set.itemIds)).length}`}
+              checked={selection.baseTexts}
+              onChange={(checked) => setSelection((current) => ({ ...current, baseTexts: checked }))}
+            />
+            {normalizedCustom.textSets.map((set) => (
+              <CheckboxRow key={set.id} label={`${set.title} · ${validContentSetItemIds(set, effective.texts).length}`} checked={selection.textSetIds.includes(set.id)} onChange={() => toggleSet("textSetIds", set.id)} />
+            ))}
+          </ExportGroup>
+          <ExportGroup title="Forms">
+            <CheckboxRow
+              label={`Base / ungrouped forms · ${baseItemIds(effective.forms, normalizedCustom.formSets.flatMap((set) => set.itemIds)).length}`}
+              checked={selection.baseForms}
+              onChange={(checked) => setSelection((current) => ({ ...current, baseForms: checked }))}
+            />
+            {normalizedCustom.formSets.map((set) => (
+              <CheckboxRow key={set.id} label={`${set.title} · ${validContentSetItemIds(set, effective.forms).length}`} checked={selection.formSetIds.includes(set.id)} onChange={() => toggleSet("formSetIds", set.id)} />
+            ))}
+          </ExportGroup>
+        </div>
+        <p className="library-message">{preview.words.length} words · {preview.texts.length} texts · {preview.forms.length} forms</p>
+        <button
+          className="primary-button"
+          type="button"
+          onClick={() => {
+            downloadJsonFile(preview, exportFileName(coursePackage.metadata.title));
+            onClose();
+          }}
+        >
+          Export JSON
+        </button>
+      </section>
+    </div>
+  );
+}
+
+function PackageImportDialog({
+  preview,
+  isImporting,
+  onClose,
+  onImport,
+}: {
+  preview: PortableVerbaPackage;
+  isImporting: boolean;
+  onClose: () => void;
+  onImport: () => Promise<void>;
+}) {
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <section className="import-dialog" role="dialog" aria-modal="true" aria-label="Import package">
+        <header className="import-header">
+          <div>
+            <p className="eyebrow">Import package</p>
+            <h2>{preview.metadata.title}</h2>
+          </div>
+          <button className="ghost-button compact" type="button" onClick={onClose}>
+            Close
+          </button>
+        </header>
+        <p className="setup-help">This creates a new local package on this device. Built-in packages are not overwritten.</p>
+        <div className="export-options">
+          <ExportGroup title="Content">
+            <p className="setup-help">{preview.words.length} words · {preview.texts.length} texts · {preview.forms.length} forms</p>
+          </ExportGroup>
+          <ExportGroup title="Pools">
+            <p className="setup-help">{poolPreviewLine("Words", preview.wordSets)}{poolPreviewLine("Texts", preview.textSets)}{poolPreviewLine("Forms", preview.formSets)}</p>
+          </ExportGroup>
+        </div>
+        <button className="primary-button" type="button" onClick={onImport} disabled={isImporting}>
+          {isImporting ? "Importing" : "Import as local package"}
+        </button>
+      </section>
+    </div>
+  );
+}
+
+function ExportGroup({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section className="export-group">
+      <h3>{title}</h3>
+      {children}
+    </section>
+  );
+}
+
+function CheckboxRow({ label, checked, onChange }: { label: string; checked: boolean; onChange: (checked: boolean) => void }) {
+  return (
+    <label className="checkbox-row">
+      <input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} />
+      <span>{label}</span>
+    </label>
+  );
+}
+
+function buildPortablePackageExport(coursePackage: CoursePackage, custom: CustomPackageContent, selection: PackageExportSelection): PortableVerbaPackage {
+  const effective = mergeCustomContent(coursePackage, custom);
+  const selectedWordSets = custom.wordSets.filter((set) => selection.wordSetIds.includes(set.id));
+  const selectedTextSets = custom.textSets.filter((set) => selection.textSetIds.includes(set.id));
+  const selectedFormSets = custom.formSets.filter((set) => selection.formSetIds.includes(set.id));
+  const wordIds = selectedExportIds(effective.words, custom.wordSets.flatMap((set) => set.wordIds), selectedWordSets.flatMap((set) => set.wordIds), selection.baseWords);
+  const textIds = selectedExportIds(effective.texts, custom.textSets.flatMap((set) => set.itemIds), selectedTextSets.flatMap((set) => set.itemIds), selection.baseTexts);
+  const formIds = selectedExportIds(effective.forms, custom.formSets.flatMap((set) => set.itemIds), selectedFormSets.flatMap((set) => set.itemIds), selection.baseForms);
+
+  return {
+    format: "verba-package",
+    formatVersion: 1,
+    exportedAt: new Date().toISOString(),
+    metadata: {
+      ...effective.metadata,
+      source: "local",
+      wordCount: wordIds.size,
+      textCount: textIds.size,
+      formCount: formIds.size,
+    },
+    words: exportItems(effective.words, wordIds).map(portableWord),
+    texts: exportItems(effective.texts, textIds).map(portableText),
+    forms: exportItems(effective.forms, formIds).map(portableForm),
+    wordSets: selectedWordSets.map((set) => ({ ...set, wordIds: set.wordIds.filter((id) => wordIds.has(id)) })).filter((set) => set.wordIds.length),
+    textSets: selectedTextSets.map((set) => ({ ...set, itemIds: set.itemIds.filter((id) => textIds.has(id)) })).filter((set) => set.itemIds.length),
+    formSets: selectedFormSets.map((set) => ({ ...set, itemIds: set.itemIds.filter((id) => formIds.has(id)) })).filter((set) => set.itemIds.length),
+    ...(effective.reference ? { reference: effective.reference } : {}),
+  };
+}
+
+function selectedExportIds<T extends { id: string }>(items: T[], groupedIds: string[], selectedGroupedIds: string[], includeBase: boolean) {
+  const itemIds = new Set(items.map((item) => item.id));
+  const selected = new Set(selectedGroupedIds.filter((id) => itemIds.has(id)));
+  if (includeBase) {
+    baseItemIds(items, groupedIds).forEach((id) => selected.add(id));
+  }
+  return selected;
+}
+
+function baseItemIds<T extends { id: string }>(items: T[], groupedIds: string[]) {
+  const grouped = new Set(groupedIds);
+  return items.map((item) => item.id).filter((id) => !grouped.has(id));
+}
+
+function exportItems<T extends { id: string }>(items: T[], selectedIds: Set<string>) {
+  return items.filter((item) => selectedIds.has(item.id));
+}
+
+function portableWord(word: WordPair): WordPair {
+  return {
+    id: word.id,
+    term: termForWord(word),
+    translation: translationForWord(word),
+  };
+}
+
+function portableText(text: TextExercise): TextExercise {
+  return {
+    id: text.id,
+    title: text.title,
+    text: text.text,
+    translation: text.translation,
+    ...(text.translationLanguage ? { translationLanguage: text.translationLanguage } : {}),
+  };
+}
+
+function portableForm(form: FormExercise): FormExercise {
+  const before = formBefore(form);
+  const after = form.after ?? "";
+  return {
+    id: form.id,
+    type: form.type,
+    prompt: form.prompt,
+    before,
+    answer: form.answer,
+    after,
+    result: form.result || `${before}${form.answer}${after}`,
+    note: form.note,
+  };
+}
+
+function downloadJsonFile(data: PortableVerbaPackage, fileName: string) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportFileName(title: string) {
+  const slug = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+  return `verba-${slug || "package"}.json`;
+}
+
+function poolPreviewLine(label: string, sets: Array<{ title: string }> | undefined) {
+  if (!sets?.length) return `${label}: none. `;
+  return `${label}: ${sets.map((set) => set.title).join(", ")}. `;
 }
 
 function ChoosePackagePanel({ onBack, onLibrary }: { onBack: () => void; onLibrary: () => void }) {
@@ -1276,13 +1624,17 @@ function ImportDialog({
   const [showExamples, setShowExamples] = useState(false);
   const [summary, setSummary] = useState("");
   const [clipboardMessage, setClipboardMessage] = useState("");
+  const [toast, setToast] = useState("");
   const [isImporting, setIsImporting] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const messageTimeout = useRef<number | null>(null);
+  const toastTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     return () => {
       if (messageTimeout.current) window.clearTimeout(messageTimeout.current);
+      if (toastTimeout.current) window.clearTimeout(toastTimeout.current);
     };
   }, []);
 
@@ -1290,7 +1642,9 @@ function ImportDialog({
     setIsImporting(true);
     try {
       const result = await onImport(raw);
-      setSummary(`${result.added} added · ${result.duplicates} duplicates · ${result.ignored} ignored`);
+      const message = importResultMessage(kind, result);
+      setSummary(message);
+      showToast(message);
       if (result.added > 0) setRaw("");
     } finally {
       setIsImporting(false);
@@ -1301,6 +1655,12 @@ function ImportDialog({
     setClipboardMessage(message);
     if (messageTimeout.current) window.clearTimeout(messageTimeout.current);
     messageTimeout.current = window.setTimeout(() => setClipboardMessage(""), 1600);
+  }
+
+  function showToast(message: string) {
+    setToast(message);
+    if (toastTimeout.current) window.clearTimeout(toastTimeout.current);
+    toastTimeout.current = window.setTimeout(() => setToast(""), 2200);
   }
 
   async function copyTemplate() {
@@ -1329,8 +1689,25 @@ function ImportDialog({
     }
   }
 
+  async function loadTextFile(file: File | undefined) {
+    if (!file) return;
+    try {
+      const text = await file.text();
+      setRaw(text);
+      showClipboardMessage(`${file.name} loaded`);
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
+    } catch {
+      showClipboardMessage("Could not read that text file.");
+    }
+  }
+
   return (
     <div className="modal-backdrop" role="presentation">
+      {toast && (
+        <div className="toast" role="status" aria-live="polite">
+          {toast}
+        </div>
+      )}
       <section className="import-dialog" role="dialog" aria-modal="true" aria-label={`Add ${kind} manually`}>
         <header className="import-header">
           <div>
@@ -1338,7 +1715,7 @@ function ImportDialog({
             <h2>Add {kind} manually</h2>
           </div>
           <button className="ghost-button compact" type="button" onClick={onCancel}>
-            Cancel
+            Close
           </button>
         </header>
         <p className="setup-help">{importHelp(kind)}</p>
@@ -1352,6 +1729,20 @@ function ImportDialog({
           <button className="ghost-button compact" type="button" onClick={pasteFromClipboard}>
             Paste from clipboard
           </button>
+          <button className="ghost-button compact" type="button" onClick={() => fileInputRef.current?.click()}>
+            Load text file
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".txt,.md,.csv,.tsv,text/plain,text/markdown,text/csv,text/tab-separated-values"
+            hidden
+            onChange={(event) => {
+              const file = event.target.files?.[0];
+              event.currentTarget.value = "";
+              void loadTextFile(file);
+            }}
+          />
         </div>
         {showExamples && <pre className="format-example">{importExample(kind)}</pre>}
         <textarea
@@ -3347,6 +3738,21 @@ function importHelp(kind: ImportKind) {
   if (kind === "words") return "Paste one pair per line as word -- translation. Wrap lines in {{Set name}} blocks to create practice sets.";
   if (kind === "texts") return "Paste one annotated passage per line as target text -- translation. Wrap lines in {{Pool name}} blocks to create Text pools.";
   return "Paste one form per line as prompt -- form with [answer] -- optional note. Wrap lines in {{Pool name}} blocks to create Forms pools.";
+}
+
+function importResultMessage(kind: ImportKind, result: { added: number; duplicates: number; ignored: number }) {
+  const label = kind === "words" ? "words" : kind === "texts" ? "texts" : "forms";
+  if (result.added <= 0) {
+    const details = [result.duplicates ? `${result.duplicates} duplicates skipped` : "", result.ignored ? `${result.ignored} invalid lines ignored` : ""].filter(Boolean);
+    return [`No valid ${label} found`, ...details].join(" · ");
+  }
+  return [
+    `${result.added} ${label} added`,
+    result.duplicates ? `${result.duplicates} duplicates skipped` : "",
+    result.ignored ? `${result.ignored} invalid lines ignored` : "",
+  ]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 function importExample(kind: ImportKind) {
