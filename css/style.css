@@ -1262,6 +1262,277 @@ p {
   font-weight: 700;
 }
 
+.verba-status-line {
+  margin: 0.25rem 0 0;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.verba-vision-section,
+.verba-development-section,
+.verba-capabilities-section {
+  border-top: 1px solid rgba(217, 207, 193, 0.82);
+}
+
+.verba-vision-statement {
+  max-width: 42rem;
+  margin: 0 0 0.85rem;
+  color: #38342f;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  line-height: 1.4;
+}
+
+.verba-section-intro {
+  max-width: 44rem;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.verba-subheading {
+  margin: 2rem 0 0.85rem;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.verba-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.verba-principle {
+  min-width: 0;
+  border: 1px solid rgba(217, 207, 193, 0.88);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.42);
+  padding: 0.8rem 0.85rem;
+}
+
+.verba-principle h4 {
+  margin: 0 0 0.25rem;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.verba-principle p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.verba-v-model {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding: 0.15rem 0 0;
+}
+
+.verba-v-model::before,
+.verba-v-model::after {
+  content: "";
+  position: absolute;
+  top: 1.7rem;
+  z-index: 0;
+  width: 1px;
+  height: calc(100% - 5rem);
+  background: rgba(125, 63, 42, 0.18);
+  transform-origin: top center;
+}
+
+.verba-v-model::before {
+  left: 25%;
+  transform: rotate(-17deg);
+}
+
+.verba-v-model::after {
+  right: 25%;
+  transform: rotate(17deg);
+}
+
+.verba-v-pair {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.8rem minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.verba-v-pair-2 {
+  margin-inline: 4%;
+}
+
+.verba-v-pair-3 {
+  margin-inline: 8%;
+}
+
+.verba-v-pair-4 {
+  margin-inline: 12%;
+}
+
+.verba-v-stage {
+  min-width: 0;
+  border: 1px solid rgba(217, 207, 193, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 250, 242, 0.86);
+  padding: 0.9rem 0.95rem;
+  box-shadow: 0 8px 20px rgba(34, 32, 29, 0.025);
+}
+
+.verba-v-stage-left {
+  border-top-color: rgba(125, 63, 42, 0.52);
+}
+
+.verba-v-stage-right {
+  border-top-color: rgba(48, 83, 68, 0.52);
+}
+
+.verba-stage-label {
+  margin: 0 0 0.2rem;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.verba-v-stage-right .verba-stage-label {
+  color: #305344;
+}
+
+.verba-v-stage h3 {
+  margin-bottom: 0.32rem;
+  font-size: 1.08rem;
+}
+
+.verba-v-stage p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.48;
+}
+
+.verba-v-bridge {
+  position: relative;
+  min-width: 0;
+}
+
+.verba-v-bridge::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.55rem;
+  right: 0.55rem;
+  height: 1px;
+  background: rgba(217, 207, 193, 0.9);
+}
+
+.verba-v-core {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  width: min(13rem, 70%);
+  border: 1px solid rgba(125, 63, 42, 0.42);
+  border-radius: 8px;
+  background: var(--accent);
+  padding: 0.75rem 1rem 0.8rem;
+  color: var(--paper);
+  text-align: center;
+}
+
+.verba-v-core span {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.verba-v-core strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.verba-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.verba-capability-grid .small-card {
+  padding: 0.95rem 1rem;
+}
+
+.verba-capability-grid h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.12rem;
+}
+
+.verba-capability-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .verba-status-line {
+    font-size: 0.72rem;
+  }
+
+  .verba-principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .verba-v-model {
+    gap: 1rem;
+  }
+
+  .verba-v-model::before,
+  .verba-v-model::after,
+  .verba-v-bridge {
+    display: none;
+  }
+
+  .verba-v-pair,
+  .verba-v-pair-2,
+  .verba-v-pair-3,
+  .verba-v-pair-4 {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin-inline: 0;
+  }
+
+  .verba-v-core {
+    width: min(100%, 15rem);
+  }
+
+  .verba-capability-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .verba-principles {
+    grid-template-columns: 1fr;
+  }
+}
+
 .object-block {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);

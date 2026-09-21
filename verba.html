@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Vérba — Local Language Practice App | Oles Matsyshyn">
   <meta name="twitter:description" content="Vérba is a lightweight local-first language practice app for vocabulary, text completion and grammar exercises with downloadable and custom language packs.">
   <meta name="twitter:image" content="https://olesmatsyshyn.github.io/website/Verba/icons/verba-512.png">
-  <link rel="stylesheet" href="css/style.css?v=20260908-verba-extensible">
+  <link rel="stylesheet" href="css/style.css?v=20260921-verba-product">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,6 +52,7 @@
           <h1>Vérba</h1>
         </div>
         <p class="article-subtitle">A lightweight local-first language practice app.</p>
+        <p class="verba-status-line">Operational · local-first PWA · actively refined through use</p>
         <p class="lead">Vérba is a small offline-friendly practice tool for vocabulary matching, text completion, and grammar forms. Language packs can be installed locally and used without an account or backend.</p>
         <div class="wellcanvas-actions verba-actions" aria-label="Vérba actions">
           <a class="text-button wellcanvas-open-button" href="Verba/?v=20260908-import-tools" target="_blank" rel="noopener noreferrer" data-verba-link>Open Vérba</a>
@@ -59,6 +60,130 @@
         </div>
         <p class="wellcanvas-action-note verba-file-note" data-verba-open-message hidden>Vérba must be opened through a local web server. Run: node scripts/serve-site.mjs</p>
       </header>
+
+      <section class="section-block measure verba-vision-section" aria-labelledby="verba-vision-heading">
+        <h2 id="verba-vision-heading">Product vision</h2>
+        <p class="verba-vision-statement">Practice exactly what you need, without turning language learning into a platform.</p>
+        <p class="verba-section-intro">Vérba is designed for short, targeted language practice. Learners can use ready-made packs, focus on specific practice pools, add their own material, or exchange portable packages. The application stays local-first, requires no account, and is built around fast vocabulary, text and grammar drills.</p>
+
+        <h3 class="verba-subheading">Product principles</h3>
+        <div class="verba-principles">
+          <article class="verba-principle">
+            <h4>Local first</h4>
+            <p>Learning data stays on the device.</p>
+          </article>
+          <article class="verba-principle">
+            <h4>No account</h4>
+            <p>Practice starts without registration.</p>
+          </article>
+          <article class="verba-principle">
+            <h4>Bring your own content</h4>
+            <p>Paste, import or create your own material.</p>
+          </article>
+          <article class="verba-principle">
+            <h4>Targeted practice pools</h4>
+            <p>Practice today's topic instead of the entire library.</p>
+          </article>
+          <article class="verba-principle">
+            <h4>Portable packages</h4>
+            <p>Move and exchange content as simple files.</p>
+          </article>
+          <article class="verba-principle">
+            <h4>Offline friendly</h4>
+            <p>Installed content remains available without a connection.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block measure verba-development-section" aria-labelledby="verba-development-heading">
+        <h2 id="verba-development-heading">From need to validation</h2>
+        <p class="verba-section-intro">Vérba evolved from a simple question: how can a learner practise exactly the material that matters today, while keeping the content portable and the workflow lightweight?</p>
+
+        <div class="verba-v-model" role="list" aria-label="Vérba product development stages and their paired validation stages">
+          <div class="verba-v-pair verba-v-pair-1">
+            <article class="verba-v-stage verba-v-stage-left" role="listitem">
+              <p class="verba-stage-label">Need</p>
+              <h3>User needs</h3>
+              <p>Practise a specific set of material quickly, without navigating through a prescribed course.</p>
+            </article>
+            <span class="verba-v-bridge" aria-hidden="true"></span>
+            <article class="verba-v-stage verba-v-stage-right" role="listitem">
+              <p class="verba-stage-label">Validation</p>
+              <h3>User validation</h3>
+              <p>Using Vérba in real study sessions exposes friction that tests alone do not: repeated vocabulary led to coverage-based rotation, ambiguous text gaps led to meaning hints, and difficult corrections now remain visible until they have been read.</p>
+            </article>
+          </div>
+
+          <div class="verba-v-pair verba-v-pair-2">
+            <article class="verba-v-stage verba-v-stage-left" role="listitem">
+              <p class="verba-stage-label">Define</p>
+              <h3>Product requirements</h3>
+              <p>Words, Text and Forms drills; Match, Choose and typed Translate; named pools, custom content, portable packages and useful progress without gamification.</p>
+            </article>
+            <span class="verba-v-bridge" aria-hidden="true"></span>
+            <article class="verba-v-stage verba-v-stage-right" role="listitem">
+              <p class="verba-stage-label">Validate</p>
+              <h3>System validation</h3>
+              <p>Multiple languages work across all three practice areas, custom packages remain usable offline, pools select only intended content, and no account or backend is required.</p>
+            </article>
+          </div>
+
+          <div class="verba-v-pair verba-v-pair-3">
+            <article class="verba-v-stage verba-v-stage-left" role="listitem">
+              <p class="verba-stage-label">Design</p>
+              <h3>Technical design</h3>
+              <p>A static installable PWA using browser-local storage and IndexedDB, portable JSON content, no backend, and GitHub Pages deployment.</p>
+            </article>
+            <span class="verba-v-bridge" aria-hidden="true"></span>
+            <article class="verba-v-stage verba-v-stage-right" role="listitem">
+              <p class="verba-stage-label">Verify</p>
+              <h3>Integration testing</h3>
+              <p>Package import/export round-trips, durable local additions, IndexedDB persistence, generated hosting paths, and offline/PWA behaviour.</p>
+            </article>
+          </div>
+
+          <div class="verba-v-pair verba-v-pair-4">
+            <article class="verba-v-stage verba-v-stage-left" role="listitem">
+              <p class="verba-stage-label">Specify</p>
+              <h3>Component design</h3>
+              <p>Package and pool selection, answer checking, content parsers, progress and mastery tracking, and adaptive word rotation.</p>
+            </article>
+            <span class="verba-v-bridge" aria-hidden="true"></span>
+            <article class="verba-v-stage verba-v-stage-right" role="listitem">
+              <p class="verba-stage-label">Test</p>
+              <h3>Unit / logic testing</h3>
+              <p>Imported-content parsing, strict and tolerant comparison, pool membership, vocabulary rotation, and scoring and progress rules.</p>
+            </article>
+          </div>
+
+          <div class="verba-v-core" role="listitem">
+            <span>Implementation</span>
+            <strong>Vérba</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block measure verba-capabilities-section" aria-labelledby="verba-capabilities-heading">
+        <h2 id="verba-capabilities-heading">What Vérba does</h2>
+        <div class="verba-capability-grid">
+          <article class="small-card">
+            <h3>Words</h3>
+            <p>Match vocabulary, choose between translations, or type the answer from memory.</p>
+          </article>
+          <article class="small-card">
+            <h3>Text</h3>
+            <p>Fill annotated gaps at several difficulty levels, with optional translations and advanced clues.</p>
+          </article>
+          <article class="small-card">
+            <h3>Forms</h3>
+            <p>Practise articles, conjugations, endings and other grammar forms with rule-based feedback.</p>
+          </article>
+          <article class="small-card">
+            <h3>Your content</h3>
+            <p>Create local material, organise it into pools, and import or export portable packages.</p>
+          </article>
+        </div>
+      </section>
 
       <section class="section-block measure verba-pack-section" aria-labelledby="verba-packs-heading">
         <h2 id="verba-packs-heading">Language packs</h2>
