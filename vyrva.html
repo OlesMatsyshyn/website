@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Vyrva | Oles Matsyshyn">
   <meta name="twitter:description" content="Vyrva is an independent dark-fantasy creative project by Oles Matsyshyn, exploring world-building, systems design, game AI, and a suffering port city torn from the normal world.">
   <meta name="twitter:image" content="https://olesmatsyshyn.github.io/website/img/Oles_photo.jpg">
-  <link rel="stylesheet" href="css/style.css?v=20260908-verba-extensible">
+  <link rel="stylesheet" href="css/style.css?v=20260921-product-stories">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,6 +59,110 @@
         <h2>Why I am building Vyrva</h2>
         <p>I have been fascinated by fantasy worlds since first encountering <cite>The Lord of the Rings</cite>, and later the unsettling imagination of H. P. Lovecraft and the interactive worlds of <cite>Baldur's Gate</cite> and <cite>Dungeons &amp; Dragons</cite>. For years, many of my own settings, characters, and stories remained only loosely developed ideas. Modern AI-assisted creative tools now make it much easier to turn those imagined worlds into something visible, playable, and coherent.</p>
         <p>Vyrva is an independent creative project developed in my free time. It is not presented as a competing professional direction, but as a place where I can explore world-building, systems design, game AI, visual storytelling, and the interaction of many complex elements inside a living world.</p>
+      </section>
+
+      <section class="section-block measure product-story-section" aria-labelledby="vyrva-product-vision-heading">
+        <h2 id="vyrva-product-vision-heading">Product vision</h2>
+        <p class="product-vision-statement">Build a replayable dark-fantasy world whose identity comes from Eastern Europe rather than generic medieval fantasy.</p>
+        <p class="product-section-intro">Eastern Europe contains distinctive folklore, landscapes, historical textures and supernatural traditions that remain comparatively underrepresented in games. Vyrva combines that material with Lovecraftian uncertainty and a replayable world in which recurring PvE events feel like things happening to the city rather than separate game modes.</p>
+
+        <h3 class="product-subheading">Product principles</h3>
+        <div class="product-principles">
+          <article class="product-principle">
+            <h4>Eastern-European identity</h4>
+            <p>Folklore, places and characters should give the world a recognisable regional voice.</p>
+          </article>
+          <article class="product-principle">
+            <h4>World-native events</h4>
+            <p>An event should feel like something happening to Vyrva, not a queue entered from a menu.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Replayable encounters</h4>
+            <p>Castle assaults, dungeon crawls, fog-forest expeditions and changing coastal ruins create reasons to return.</p>
+          </article>
+          <article class="product-principle">
+            <h4>The world changes</h4>
+            <p>Tides, Mist, districts and recurring crises should change where and how players act.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Completion earns something</h4>
+            <p>Substantial events should provide a guaranteed cosmetic reward for completion.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Celebrations should be fun</h4>
+            <p>Major holidays can become recurring in-world events with distinct atmosphere and rewards.</p>
+          </article>
+        </div>
+        <p class="product-principle-note">Optional cosmetic extras may supplement event rewards, but completion rewards should remain guaranteed.</p>
+
+        <h2 class="product-development-heading">From need to validation</h2>
+        <div class="product-v-model" role="list" aria-label="Vyrva product development stages and their paired validation stages">
+          <div class="product-v-pair product-v-pair-1">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Need</p>
+              <h3>Player need</h3>
+              <p>Discover a fantasy world that feels culturally distinct, remains worth revisiting and turns its setting into gameplay rather than decoration.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Validation</p>
+              <h3>Player validation</h3>
+              <p>A successful event should make the player want to return for a sense of progression and challenge, the expectation that each run will play out differently through random events and different players, and the certainty of earning meaningful rewards.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-2">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Define</p>
+              <h3>Product requirements</h3>
+              <p>Eastern-European folklore and environments; replayable PvE events; recurring seasonal content; world-state changes; meaningful exploration; guaranteed completion rewards.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Validate</p>
+              <h3>System validation</h3>
+              <p>Repeated events remain playable and rewarding without feeling detached from the world or identical every time.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-3">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Design</p>
+              <h3>Game-system design</h3>
+              <p>Events such as castle assaults, dungeon crawls, antitide access to submerged ruins and fog-forest expeditions are embedded into districts, tides, Mist and the city's existing systems.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Verify</p>
+              <h3>Integration testing</h3>
+              <p>Encounters interact correctly with districts, vendors, waves, Mist, progression and the wider city state.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-4">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Specify</p>
+              <h3>Component design</h3>
+              <p>Encounters combine location, enemy pressure, objectives, world state, rewards and consequences that can be reused in different event configurations.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Test</p>
+              <h3>Unit / mechanic testing</h3>
+              <p>Movement, combat, AI, rewards, objectives and event triggers work independently.</p>
+            </article>
+          </div>
+
+          <div class="product-v-core" role="listitem">
+            <span>Implementation</span>
+            <strong>VYRVA</strong>
+          </div>
+        </div>
+
+        <article class="product-concept-block">
+          <h3>A world that celebrates</h3>
+          <p>Recurring events can also give the world a calendar. Christmas, Halloween, Lunar New Year, Diwali and other major celebrations can inspire temporary encounters, decorations and rewards. The intention is not to make every holiday identical, but to make major breaks in the year feel like occasions to return and have fun.</p>
+        </article>
       </section>
 
       <figure class="image-block chapter-cover-figure">

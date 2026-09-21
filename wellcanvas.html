@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="WellCanvas | Oles Matsyshyn">
   <meta name="twitter:description" content="A free, local-first, open-source tracker for food, hydration, activity, measurements, and personal habits.">
   <meta name="twitter:image" content="https://olesmatsyshyn.github.io/website/WellCanvas/icons/wellcanvas-512.png">
-  <link rel="stylesheet" href="css/style.css?v=20260908-verba-extensible">
+  <link rel="stylesheet" href="css/style.css?v=20260921-product-stories">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -61,6 +61,100 @@
         <p class="wellcanvas-action-note">WellCanvas is operational and is not under active feature development. Occasional bugs can be reported to <a href="mailto:oles.matsyshyn@gmail.com">oles.matsyshyn@gmail.com</a>, and maintenance or bug-fix patches may be released when needed.</p>
         <p class="wellcanvas-action-note">WellCanvas does not use cloud storage for your health records. Your profile, logs, measurements, trackers and personal library are stored locally on your device. WellCanvas does not upload this information to a WellCanvas server or make it remotely accessible to other users.</p>
       </header>
+
+      <section class="section-block measure product-story-section" aria-labelledby="wellcanvas-product-vision-heading">
+        <h2 id="wellcanvas-product-vision-heading">Product vision</h2>
+        <p class="product-vision-statement">Make everyday tracking useful immediately, private by default, and faster the longer you use it.</p>
+        <p class="product-section-intro">Food, hydration, activity and personal tracking should not require an account, advertising or a remote health platform. WellCanvas accepts some initial manual setup in exchange for a reusable personal library: once familiar foods, workouts and trackers are entered, everyday logging should become simple and repetitive work should disappear.</p>
+
+        <h3 class="product-subheading">Product principles</h3>
+        <div class="product-principles">
+          <article class="product-principle">
+            <h4>Local first</h4>
+            <p>Personal records stay on the device.</p>
+          </article>
+          <article class="product-principle">
+            <h4>No account, no ads</h4>
+            <p>Tracking begins without registration, subscriptions or sponsored results.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Set up once, reuse</h4>
+            <p>Foods, workouts and trackers become reusable instead of being entered from scratch each day.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Portable</h4>
+            <p>Personal state can move between devices and reusable food libraries can be shared separately.</p>
+          </article>
+          <article class="product-principle">
+            <h4>Customisable</h4>
+            <p>The tracker adapts to the user rather than requiring one fixed health workflow.</p>
+          </article>
+        </div>
+
+        <h2 class="product-development-heading">From need to validation</h2>
+        <div class="product-v-model" role="list" aria-label="WellCanvas product development stages and their paired validation stages">
+          <div class="product-v-pair product-v-pair-1">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Need</p>
+              <h3>User need</h3>
+              <p>Track ordinary health and lifestyle information without creating another account, seeing advertisements or repeatedly entering the same data.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Validation</p>
+              <h3>User validation</h3>
+              <p>The central test is whether the initial setup pays for itself: after familiar foods, workouts and trackers are entered once, ordinary daily logging should require very little friction.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-2">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Define</p>
+              <h3>Product requirements</h3>
+              <p>Food and calorie tracking, hydration, activity, measurements and custom trackers; reusable libraries; local storage; export/import; no backend dependency.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Validate</p>
+              <h3>System validation</h3>
+              <p>WellCanvas remains usable without an account or backend, retains local records and can restore exported state on another device.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-3">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Design</p>
+              <h3>Technical design</h3>
+              <p>A local-first browser application with persistent device storage, reusable content libraries and portable exports.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Verify</p>
+              <h3>Integration testing</h3>
+              <p>Foods, daily logs, measurements, trackers and portable state remain consistent across the application and across reloads.</p>
+            </article>
+          </div>
+
+          <div class="product-v-pair product-v-pair-4">
+            <article class="product-v-stage product-v-stage-left" role="listitem">
+              <p class="product-stage-label">Specify</p>
+              <h3>Component design</h3>
+              <p>Daily logging, food library, hydration, workouts, measurements, custom trackers and import/export operate as independent reusable pieces.</p>
+            </article>
+            <span class="product-v-bridge" aria-hidden="true"></span>
+            <article class="product-v-stage product-v-stage-right" role="listitem">
+              <p class="product-stage-label">Test</p>
+              <h3>Unit / logic testing</h3>
+              <p>Calculations, tracker updates, library operations and import/export transformations behave correctly.</p>
+            </article>
+          </div>
+
+          <div class="product-v-core" role="listitem">
+            <span>Implementation</span>
+            <strong>WELLCANVAS</strong>
+          </div>
+        </div>
+      </section>
 
       <section class="section-block measure" aria-labelledby="wellcanvas-core-heading">
         <h2 id="wellcanvas-core-heading">Core Ideas</h2>
