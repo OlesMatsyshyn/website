@@ -6,6 +6,12 @@ import { BuildPlateForm, QuickEstimateForm, QuickSnackForm } from "@/components/
 import { PageHeader } from "@/components/page-header";
 import { ToastBridge } from "@/components/toast";
 import {
+  buildBulkFoodImportTemplate,
+  createFoodItemFromBulkDraft,
+  previewBulkFoodImport,
+  type BulkFoodDraft,
+} from "@/lib/bulk-food-import";
+import {
   addFoodLogEntry,
   createLogEntryFromFood,
   createLogEntryFromMeal,
@@ -1266,6 +1272,7 @@ export default function FoodsPage() {
   const [showQuickSnack, setShowQuickSnack] = useState(false);
   const [quickCreateModal, setQuickCreateModal] =
     useState<QuickCreateModalState | null>(null);
+  const [bulkImportOpen, setBulkImportOpen] = useState(false);
   const [aiImportPaste, setAiImportPaste] = useState("");
   const [aiImportMessage, setAiImportMessage] = useState("");
   const [aiImportError, setAiImportError] = useState("");
@@ -2423,6 +2430,37 @@ export default function FoodsPage() {
     scrollToLibraryEntry(key);
   }
 
+  function importBulkFoods(
+    drafts: BulkFoodDraft[],
+    duplicateCount: number,
+    invalidCount: number,
+  ) {
+    const now = new Date().toISOString();
+    const importedFoods = drafts.map((draft) =>
+      createFoodItemFromBulkDraft(draft, makeId("food"), now),
+    );
+    setFoods((current) => [...current, ...importedFoods]);
+    setBulkImportOpen(false);
+    setLastAddedEntry(null);
+    setLastAddedDrink(null);
+    setLastHiddenEntityKey(null);
+    setLastCreatedEntity(null);
+    const parts = [
+      `${importedFoods.length} ${importedFoods.length === 1 ? "item" : "items"} added`,
+    ];
+    if (duplicateCount > 0) {
+      parts.push(
+        `${duplicateCount} ${duplicateCount === 1 ? "duplicate" : "duplicates"} skipped`,
+      );
+    }
+    if (invalidCount > 0) {
+      parts.push(
+        `${invalidCount} invalid ${invalidCount === 1 ? "item" : "items"} skipped`,
+      );
+    }
+    setConfirmation(parts.join(" · "));
+  }
+
   function saveAndLogContextualMeal(meal: MealTemplate) {
     setMeals((current) => [...current, meal]);
     const entry = createLogEntryFromMeal({ foods, meal, quantity: 1 });
@@ -2673,6 +2711,15 @@ export default function FoodsPage() {
             ))}
           </div>
         )}
+        <div className="mt-3 flex flex-wrap justify-end gap-2">
+          <button
+            className={secondaryClasses()}
+            onClick={() => setBulkImportOpen(true)}
+            type="button"
+          >
+            Bulk add foods &amp; drinks
+          </button>
+        </div>
         <fieldset className="food-layout-toggle mt-4 flex flex-wrap items-center gap-2">
           <legend className="mr-1 text-xs font-semibold uppercase tracking-wide text-stone-500">
             View
@@ -2932,6 +2979,20 @@ export default function FoodsPage() {
               showHeading={false}
             />
           )}
+        </DialogFrame>
+      )}
+
+      {bulkImportOpen && (
+        <DialogFrame
+          onClose={() => setBulkImportOpen(false)}
+          size="editor"
+          title="Bulk add foods & drinks"
+        >
+          <BulkFoodImportDialog
+            existingFoods={foods}
+            onClose={() => setBulkImportOpen(false)}
+            onImport={importBulkFoods}
+          />
         </DialogFrame>
       )}
 
@@ -3607,6 +3668,212 @@ function DialogFrame({
         <div className={bodyClassName}>
           {children}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function BulkFoodImportDialog({
+  existingFoods,
+  onClose,
+  onImport,
+}: {
+  existingFoods: FoodItem[];
+  onClose: () => void;
+  onImport: (
+    drafts: BulkFoodDraft[],
+    duplicateCount: number,
+    invalidCount: number,
+  ) => void;
+}) {
+  const [value, setValue] = useState("");
+  const [showFormat, setShowFormat] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const preview = useMemo(
+    () => previewBulkFoodImport(value, existingFoods),
+    [existingFoods, value],
+  );
+  const readyItems = preview.items.filter((item) => item.status === "ready");
+  const duplicateCount = preview.items.filter(
+    (item) => item.status === "duplicate",
+  ).length;
+  const invalidItems = preview.items.filter((item) => item.status === "invalid");
+  const foodCount = readyItems.filter((item) => item.draft.category !== "drink").length;
+  const drinkCount = readyItems.length - foodCount;
+  const template = buildBulkFoodImportTemplate();
+
+  async function copyTemplate() {
+    try {
+      await navigator.clipboard.writeText(template);
+      setFeedback("Template copied.");
+    } catch {
+      setFeedback("Clipboard access was blocked. Select and copy the format below.");
+      setShowFormat(true);
+    }
+  }
+
+  async function pasteFromClipboard() {
+    try {
+      const clipboardText = await navigator.clipboard.readText();
+      setValue(clipboardText);
+      setFeedback("Pasted.");
+      window.requestAnimationFrame(() => textareaRef.current?.focus());
+    } catch {
+      setFeedback("Clipboard access was blocked. Click the text box and press Ctrl+V.");
+      textareaRef.current?.focus();
+    }
+  }
+
+  async function loadFile(file: File | null) {
+    if (!file) return;
+    try {
+      setValue(await file.text());
+      setFeedback(`${file.name} loaded. Review it before importing.`);
+      window.requestAnimationFrame(() => textareaRef.current?.focus());
+    } catch {
+      setFeedback("This file could not be read. Try a UTF-8 JSON or text file.");
+    }
+  }
+
+  function importReadyItems() {
+    if (readyItems.length === 0) {
+      setFeedback("No valid new items found.");
+      return;
+    }
+    onImport(
+      readyItems.map((item) => item.draft),
+      duplicateCount,
+      invalidItems.length,
+    );
+  }
+
+  return (
+    <div className="grid gap-4">
+      <div>
+        <p className="text-sm text-stone-600">
+          Paste a JSON list to create many reusable food or drink items at once.
+          Everything is parsed and stored locally on this device.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            className={secondaryClasses()}
+            onClick={() => setShowFormat((current) => !current)}
+            type="button"
+          >
+            {showFormat ? "Hide format" : "Show format"}
+          </button>
+          <button className={secondaryClasses()} onClick={() => void copyTemplate()} type="button">
+            Copy template
+          </button>
+          <button
+            className={secondaryClasses()}
+            onClick={() => void pasteFromClipboard()}
+            type="button"
+          >
+            Paste from clipboard
+          </button>
+          <label className={`${secondaryClasses()} cursor-pointer text-center`}>
+            Load JSON/text file
+            <input
+              accept=".json,.txt,application/json,text/plain"
+              className="sr-only"
+              onChange={(event) => {
+                void loadFile(event.target.files?.[0] ?? null);
+                event.currentTarget.value = "";
+              }}
+              type="file"
+            />
+          </label>
+        </div>
+      </div>
+
+      {showFormat && (
+        <div className="rounded-md border border-stone-200 bg-stone-50 p-3">
+          <p className="text-sm font-semibold text-stone-950">WellCanvas JSON format</p>
+          <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap break-words font-mono text-xs leading-relaxed text-stone-700">
+            {template}
+          </pre>
+        </div>
+      )}
+
+      <label className="block">
+        <span className="text-sm font-medium text-stone-700">JSON items</span>
+        <textarea
+          className="mt-2 h-64 w-full rounded-md border border-stone-300 px-3 py-2 font-mono text-xs leading-relaxed outline-none focus:border-stone-900"
+          onChange={(event) => {
+            setValue(event.target.value);
+            setFeedback("");
+          }}
+          placeholder={'[\n  {\n    "name": "Chicken rice",\n    "type": "food",\n    "serving": "1 plate",\n    "calories": 650,\n    "protein": 30\n  }\n]'}
+          ref={textareaRef}
+          spellCheck={false}
+          value={value}
+        />
+      </label>
+
+      <div aria-live="polite" className="min-h-5 text-sm">
+        {feedback && <p className="font-medium text-stone-700">{feedback}</p>}
+        {preview.error && <p className="font-medium text-red-700">{preview.error}</p>}
+      </div>
+
+      {!preview.error && preview.items.length > 0 && (
+        <section className="rounded-md border border-stone-200 bg-stone-50 p-3">
+          <h3 className="text-sm font-semibold text-stone-950">
+            {readyItems.length} {readyItems.length === 1 ? "item" : "items"} ready
+          </h3>
+          <p className="mt-1 text-xs text-stone-500">
+            {foodCount} food{foodCount === 1 ? "" : "s"} · {drinkCount} drink
+            {drinkCount === 1 ? "" : "s"} · {duplicateCount} duplicate
+            {duplicateCount === 1 ? "" : "s"} skipped · {invalidItems.length} invalid skipped
+          </p>
+          {readyItems.length > 0 && (
+            <ul className="mt-3 grid gap-2 text-sm text-stone-700 sm:grid-cols-2">
+              {readyItems.slice(0, 8).map((item) => (
+                <li className="rounded-md bg-white px-3 py-2" key={`${item.index}-${item.draft.name}`}>
+                  <span className="block font-semibold text-stone-950">{item.draft.name}</span>
+                  <span className="block text-xs text-stone-500">
+                    {item.draft.category === "drink" ? "Drink" : "Food"} · {item.draft.servingLabel}
+                    {typeof item.draft.nutrition?.caloriesKcal === "number"
+                      ? ` · ${item.draft.nutrition.caloriesKcal} kcal`
+                      : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {readyItems.length > 8 && (
+            <p className="mt-2 text-xs text-stone-500">
+              Plus {readyItems.length - 8} more ready items.
+            </p>
+          )}
+          {invalidItems.length > 0 && (
+            <details className="mt-3 text-sm text-red-700">
+              <summary className="cursor-pointer font-semibold">Review invalid items</summary>
+              <ul className="mt-2 list-inside list-disc">
+                {invalidItems.map((item) => (
+                  <li key={`${item.index}-${item.name}`}>
+                    {item.name}: {item.errors.join(" ")}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </section>
+      )}
+
+      <div className="flex flex-wrap justify-end gap-2 border-t border-stone-200 pt-4">
+        <button className={secondaryClasses()} onClick={onClose} type="button">
+          Close
+        </button>
+        <button
+          className={primarySaveClasses()}
+          disabled={!value.trim() || Boolean(preview.error)}
+          onClick={importReadyItems}
+          type="button"
+        >
+          Import
+        </button>
       </div>
     </div>
   );
